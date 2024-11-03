@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: url(background_img.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+}
+
+#Login {
+    display: flex;
+    justify-self: center;
+    margin: 30px;
+    font-size: 40px;
+}
+
+.login_form {
+    width: 600px;
+    height: 600px;
+    background-color: rgba(193, 196, 195, 50%);
+    border: 1px solid #f1f1f1;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    position: relative;
+    left: 1150px;
+    top: 150px;
+    border-radius: 30px;
+}
+
+.username,
+.password {
+    width: 500px;
+    max-width: 100%;
+    position: relative;
+    box-sizing: border-box;
+
+
+}
+
+.password {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.username input,
+.password input {
+    background-color: transparent;
+    border: 2px solid #121212;
+    border-radius: 30px;
+    padding: 1rem 2rem;
+    width: 100%;
+    font-size: 16px;
+}
+
+.username .icon,
+.password .icon {
+    border-radius: 50%;
+    height: 110%;
+    aspect-ratio: 1;
+    position: absolute;
+    right: -5%;
+    top: 35%;
+}
+
+.Recall_pass {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+}
+
+.Recall_pass input {
+    position: relative;
+    top: 50%;
+}
+
+.Recall_pass a {
+    position: relative;
+    left: 50%;
+    color: #121212;
+    text-decoration: none;
+
+}
+
+#or {
+    display: flex;
+    position: relative;
+    justify-self: center;
+    margin-top: 20px 0;
+}
+
+#log_gg {
+    font-weight: 400;
+}
+
+.login_norbtn button {
+    display: flex;
+    position: relative;
+    justify-self: center;
+    justify-content: center;
+    background-color: #898989;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 0;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.login_gg {
+    width: 500px;
+    max-width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+
+}
+
+.login_gg .icon {
+    border-radius: 50%;
+    height: 110%;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+    z-index: 1;
+    color: #fff;
+}
+
+.login_gg button {
+
+    position: relative;
+    display: flex;
+    justify-content: right;
+    background-color: #898989;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 0;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 30px;
+    font-size: 20px;
+    z-index: 0;
+}

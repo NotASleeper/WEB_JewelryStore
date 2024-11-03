@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury store</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+</head>
+
+<body>
+
+    <form class="login_form">
+        <div class="container">
+            <h1 id="Login">Login</h1>
+            <!-- username -->
+            <div class="username">
+                <input type="text" name="username" id="username" placeholder="username" required>
+                <i class="fa-regular fa-user icon"></i>
+            </div>
+            <!-- password -->
+            <div class="password">
+                <input type="password" name="password" id="password" placeholder="password" required>
+                <i class="fa-solid fa-key icon"></i>
+            </div>
+            <!-- forgot password -->
+            <div class="Recall_pass">
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox">Remember me</label>
+                <a href="forgotpassword.html" id="forgot">Forgot password</a>
+            </div>
+            <!-- login_btn -->
+            <div class="login_btn">
+                <div class="login_norbtn">
+                    <button class="login_norbtn">Login</button>
+                </div>
+                <p id="or">or</p>
+                <div class="login_gg">
+                    <i class="fa-brands fa-google icon"></i>
+                    <button id="log_gg">Login with Google</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

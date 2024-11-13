@@ -3,47 +3,381 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
+    outline: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
 body {
-    /* background-color: #1279C3; */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
+    position: relative;
     display: flex;
+    flex-direction: row;
 }
 
-.Container {
+/* phần dashboard */
+.left-Container {
     position: relative;
-    width: 300px;
-    height: 1080px;
+    width: 15%;
     background-color: #1279C3;
 }
 
+.logo {
+    display: flex;
+    padding-bottom: 150px;
+}
 
-.logo-icon {
+.logo-icon-left {
     position: relative;
-    width: 50px;
-    height: auto;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background-color: #fff;
-    text-align: center;
     color: #1279C3;
     margin-top: 15%;
     margin-left: 18%;
-    float: left;
+    /* display: flex;
+    flex-direction: row; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+
 }
 
-.logo p {
+.logo-icon-right {
     position: relative;
-    font-size: 30px;
+    font-size: 15px;
     font-weight: bold;
     color: #fff;
-    left: 40%;
-    top: 10%;
-    text-align: left;
+    display: flex;
+    margin-top: 15%;
+    left: 2%;
+}
+
+.navcontainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.nav-options {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: 50%;
+    align-items: center;
+    color: #fff;
+    justify-content: center;
+
+}
+
+.nav-options li {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    border-radius: 5px;
+    align-items: center;
+    opacity: 0.3;
+}
+
+.nav-options :hover,
+.nav-options li:active {
+    background-color: rgba(18, 18, 18, 0.1);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.nav-options li img {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    margin: 0 10%;
+
+}
+
+/* phần nội dung page */
+.right-Container {
+    display: flex;
+    position: relative;
+    width: 85%;
+    flex-direction: column;
+
+}
+
+.header {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+}
+
+.search-container {
+    display: flex;
+    position: relative;
+    width: 50%;
+    height: 30%;
+    margin-top: 3%;
+    margin-left: 5%;
+
+}
+
+.search-container input[type="text"] {
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+    background-color: rgba(18, 121, 195, 0.1);
+
+}
+
+.search-container button {
+    background-color: rgba(18, 121, 195, 0.1);
+    color: gray;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+.space-search {
+    width: 30%;
     float: left;
+    height: 3%;
+
+}
+
+.avt-notice {
+    margin-top: 2%;
+    width: 20%;
+    clear: both;
+    height: 3%;
+
+
+}
+
+.avt-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 6%;
+}
+
+.avt-content button {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+    overflow: hidden;
+    border: none;
+    margin-right: 5px;
+}
+
+.avt-content button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avt-content p {
+    display: flex;
+    margin-right: 20px;
+}
+
+.avt-content img {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    margin-right: 20%;
+}
+
+.Dashboard-title {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.Dashboard-title p {
+    font-size: 24px;
+    font-weight: semi-bold;
+    margin-left: 5%;
+    color: #1279C3;
+
+}
+
+.Dashboard-title button {
+    margin-left: 15%;
+    color: #1279C3;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    background-color: #DDE4F0;
+    /* Màu xanh lá cây */
+    border: none;
+    padding: 0.5% 1%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+
+    border-radius: 4px;
+
+}
+
+.revenue {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+
+#r {
+    font-size: 20px;
+    margin-bottom: 1%;
+}
+
+#total {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.fluctuation {
+    display: flex;
+    flex-direction: row;
+}
+
+.fluctuation i {
+    display: flex;
+    color: #149D52;
+}
+
+.fluctuation p {
+    display: flex;
+    letter-spacing: 1px;
+    opacity: 50%;
+}
+
+.fluctuation #percent {
+    color: #149D52 !important;
+    opacity: 1 !important;
+}
+
+#date {
+    opacity: 50%;
+    margin-top: 0.5%;
+}
+
+.graph {
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+
+.conclusion {
+    display: flex;
+    flex-direction: row;
+    height: 30%;
+
+}
+
+.conclusion .best-sales {
+    display: flex;
+    width: 20%;
+    border-top: 1px solid #1279C3;
+    border-right: 1px solid #1279C3;
+    margin-left: 5%;
+    flex-direction: column;
+
+}
+
+.conclusion .best-sales #date,
+.conclusion .best-sellers #date {
+    margin-bottom: 5%;
+}
+
+
+.conclusion .best-sales ul li {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #1279C3;
+    margin-left: 5%;
+    padding-bottom: 4%;
+    padding-top: 5%;
+    margin-right: 5%;
+    align-items: center;
+
+}
+
+.conclusion .best-sales .title,
+.conclusion .best-sellers .title,
+.conclusion .bill .title {
+    font-size: 22px;
+
+}
+
+.conclusion .best-sales ul li img {
+    width: 10%;
+}
+
+.conclusion .best-sales ul li #name {
+    margin-left: 2%;
+}
+
+.conclusion .best-sales ul li div {
+    width: 38%;
+}
+
+.conclusion .best-sellers {
+    display: flex;
+    width: 20%;
+    border-top: 1px solid #1279C3;
+    border-right: 1px solid #1279C3;
+    flex-direction: column;
+    padding-left: 1%;
+}
+
+.conclusion .best-sellers ul li {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #1279C3;
+    padding-left: 5%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    align-items: center;
+    margin-right: 5%;
+
+}
+
+.conclusion .best-sellers ul li img {
+    width: 10%;
+}
+
+.conclusion .best-sellers ul li #name {
+    margin-left: 2%;
+}
+
+.conclusion .best-sellers ul li div {
+    width: 38%;
+}
+
+.conclusion .best-sellers ul li div {
+    width: 38%;
+}
+
+
+.conclusion .bill {
+    display: flex;
+    width: 40%;
+    border-top: 1px solid #1279C3;
+    border-right: 1px solid #1279C3;
+    margin-right: 5%;
+    flex-direction: column;
+
 }

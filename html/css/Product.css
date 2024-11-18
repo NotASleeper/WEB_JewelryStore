@@ -89,7 +89,7 @@ body {
     opacity: 0.3;
 }
 
-.nav-options .option1 {
+.nav-options .option2 {
     background-color: rgba(18, 18, 18, 0.1);
     opacity: 1;
 }
@@ -162,7 +162,7 @@ body {
 }
 
 .space-search {
-    width: 30%;
+    width: 50%;
     float: left;
     height: 3%;
 
@@ -191,6 +191,7 @@ body {
     overflow: hidden;
     border: none;
     margin-right: 5px;
+
 }
 
 .avt-content button img {
@@ -227,173 +228,141 @@ body {
 
 }
 
+.Dashboard-title img {
+    height: 10%;
+    margin-left: 2%;
+}
+
+.Dashboard-title .buttons {
+    width: 39%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 20%;
+}
+
 .Dashboard-title button {
-    margin-left: 15%;
+    margin-left: 2%;
     color: #1279C3;
     letter-spacing: 0.5px;
     font-size: 15px;
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
+    height: 35px;
     padding: 0.5% 1%;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-
-    border-radius: 4px;
-
-}
-
-.revenue {
     display: flex;
-    flex-direction: column;
+    cursor: pointer;
+    border-radius: 4px;
+    align-items: center;
+
+}
+
+.Dashboard-title button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5%;
+}
+
+.Dashboard-title .addbtn {
+    width: 35% !important;
+}
+
+.Product {
+    border-collapse: collapse;
+    width: 90%;
     margin-left: 5%;
+    margin-right: 5%;
+
+
 }
 
-#r {
-    font-size: 20px;
-    margin-bottom: 1%;
-}
-
-#total {
-    font-size: 24px;
+.Product th {
+    width: 15%;
+    padding: 8px;
+    height: 65px;
+    background-color: #1279C3;
+    color: white;
     font-weight: 500;
 }
 
-.fluctuation {
+.Product #ID {
+    width: 10% !important;
+    height: 20%;
+    text-align: left;
+    padding-left: 2%;
+    border-radius: 10px 0 0 0;
+}
+
+.Product #action {
+    border-radius: 0 10px 0 0;
+}
+
+.Product tr {
+    height: 20%;
+}
+
+.Product td {
+
+    padding: 8px;
+    text-align: center;
+    height: 100px;
+}
+
+.Product #name {
+    text-align: left;
+    padding-left: 2%;
+
+}
+
+.Product tbody #action {
     display: flex;
     flex-direction: row;
-}
-
-.fluctuation i {
-    display: flex;
-    color: #149D52;
-}
-
-.fluctuation p {
-    display: flex;
-    letter-spacing: 1px;
-    opacity: 50%;
-}
-
-.fluctuation #percent {
-    color: #149D52 !important;
-    opacity: 1 !important;
-}
-
-#date {
-    opacity: 50%;
-    margin-top: 0.5%;
-}
-
-.graph {
-    display: flex;
-    width: 100%;
-    height: 30%;
-}
-
-.conclusion {
-    display: flex;
-    flex-direction: row;
-    height: 40%;
-
-}
-
-.conclusion .best-sales {
-    display: flex;
-    width: 20%;
-    border-top: 1px solid #1279C3;
-    border-right: 1px solid #1279C3;
-    margin-left: 5%;
-    flex-direction: column;
-
-}
-
-.conclusion .best-sales #date,
-.conclusion .best-sellers #date {
-    margin-bottom: 5%;
-}
-
-
-.conclusion .best-sales ul li {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid #1279C3;
-    margin-left: 5%;
-    padding-bottom: 4%;
-    padding-top: 5%;
-    margin-right: 5%;
+    justify-content: center;
     align-items: center;
-
-}
-
-.conclusion .best-sales ul #last {
-    border: 0 !important;
-}
-
-.conclusion .best-sales .title,
-.conclusion .best-sellers .title,
-.conclusion .bill .title {
-    font-size: 22px;
-
-}
-
-.conclusion .best-sales ul li img {
-    width: 10%;
-}
-
-.conclusion .best-sales ul li #name {
-    margin-left: 2%;
-}
-
-.conclusion .best-sales ul li div {
-    width: 38%;
-}
-
-.conclusion .best-sellers {
-    display: flex;
-    width: 20%;
-    border-top: 1px solid #1279C3;
-    border-right: 1px solid #1279C3;
-    flex-direction: column;
-    padding-left: 1%;
-}
-
-.conclusion .best-sellers ul li {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid #1279C3;
-    padding-left: 5%;
-    padding-bottom: 5%;
-    padding-top: 5%;
-    align-items: center;
-    margin-right: 5%;
-
-}
-
-.conclusion .best-sellers ul #last {
-    border: 0 !important;
-}
-
-.conclusion .best-sellers ul li img {
-    width: 10%;
-}
-
-.conclusion .best-sellers ul li #name {
-    margin-left: 2%;
-}
-
-.conclusion .best-sellers ul li div {
-    width: 38%;
 }
 
 
-.conclusion .bill {
-    display: flex;
+img {
+    max-width: 50px;
+}
+
+.Product button {
+    background-color: #4CAF50;
+    position: relative;
     width: 40%;
-    border-top: 1px solid #1279C3;
+    justify-content: center;
+    padding-left: 10%;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px;
+}
 
-    margin-right: 5%;
-    flex-direction: column;
+.Product .Edit {
+    background-color: #FBFCFE;
+    border: 1px solid#DDE4F0;
+    border-radius: 5.5px;
+    color: #1279C3;
+}
 
+.Product .Delete {
+    background-color: #FFF9F8;
+    border: 1px solid#FACDC3;
+    border-radius: 5.5px;
+    color: #EB2F06;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+    /* Màu nền cho dòng lẻ */
+}
+
+tr:nth-child(even) {
+    background-color: rgba(18, 121, 195, 0.1);
+    /* Màu nền cho dòng chẵn */
 }

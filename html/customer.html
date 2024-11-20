@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury store</title>
+    <link rel="stylesheet" href="./css/customer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+
+<body>
+    <div class="left-Container">
+        <div class="logo">
+            <div class="logo-icon-left">
+                <p>J</p>
+            </div>
+            <div class="logo-icon-right">
+                <p class="name">Jewelry</p>
+            </div>
+        </div>
+
+        <div class="navcontainer">
+            <ul class="nav-options">
+                <li class="option1">
+
+                    <img src="./assets/dashboard.png" alt="Dashboard">
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="option2">
+                    <img src="./assets/product.png" alt="Product">
+                    <a href="product.html">Product</a>
+                </li>
+                <li class="option3">
+                    <img src="./assets/employee.png" alt="Employee">
+                    <a href="employee.html">Employee</a>
+                </li>
+                <li class="option4">
+                    <img src="./assets/customer.png" alt="Customer">
+                    <a href="customer.html">Customer</a>
+                </li>
+                <li class="option5">
+                    <img src="./assets/import.png" alt="Import">
+                    <a href="import.html">Import</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="right-Container">
+        <div class="header">
+            <div class="search-container">
+                <input type="text" placeholder="Search">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="space-search"></div>
+            <div class="avt-notice">
+                <div class="avt-content">
+                    <button class="avt"><img src="./assets/employee.png" alt=""></button>
+                    <p class="username">admin</p>
+                    <img src="./assets/logout.png" alt="logout">
+                    <img src="./assets/notice.png" alt="notice">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Dashboard + btn view report -->
+        <div class="Dashboard-title">
+            <div class="p">
+                <p id="E">Employee</p>
+            </div>
+            <div class="space-search1"></div>
+            <button class="export"><img src="./assets/export.png" alt="">Export</button>
+
+        </div>
+
+        <table class="Employee">
+            <thead class="test">
+                <tr>
+                    <th id="ID">Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Birthday</th>
+                    <th>Loyalty <img src="./assets/upanddown.png" alt="" class="loyal">
+                    </th>
+                    <th id="action">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="ID1">Customer1</td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương </td>
+                    <td>0123456789</td>
+                    <td>cus1@gmail.com</td>
+                    <td>21/01/1999</td>
+                    <td>18574</td>
+                    <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td id="ID1">Customer1</td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương </td>
+                    <td>0123456789</td>
+                    <td>cus1@gmail.com</td>
+                    <td>21/01/1999</td>
+                    <td>18574</td>
+                    <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td id="ID1">Customer1</td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương </td>
+                    <td>0123456789</td>
+                    <td>cus1@gmail.com</td>
+                    <td>21/01/1999</td>
+                    <td>18574</td>
+                    <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td id="ID1">Customer1</td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương </td>
+                    <td>0123456789</td>
+                    <td>cus1@gmail.com</td>
+                    <td>21/01/1999</td>
+                    <td>18574</td>
+                    <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury store</title>
-    <link rel="stylesheet" href="./css/Product.css">
+    <link rel="stylesheet" href="./css/employee.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
@@ -68,64 +68,120 @@
 
         <!-- Dashboard + btn view report -->
         <div class="Dashboard-title">
-            <p>Product</p>
-            <img src="./assets/filter.png" alt="">
-            <div class="space-search"></div>
+            <div class="p">
+                <p id="E">Employee</p>
+                <p id="Sum">Sum: 20</p>
+            </div>
+
+            <div class="space-search1"></div>
             <div class="buttons">
-                <button><img src="./assets/liquidation.png" alt=""> Liquidation</button>
-                <button><img src="./assets/export.png" alt="">Export</button>
+                <button class="export"><img src="./assets/export.png" alt="">Export</button>
                 <button class="addbtn"><img src="./assets/add.png" alt="">Add new product</button>
             </div>
 
         </div>
 
-        <table class="Product">
+        <table class="employee">
             <thead class="test">
                 <tr>
-                    <th id="ID">ID</th>
-                    <th>Name</th>
-                    <th>Image</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th id="ID">Name</th>
+                    <th>Photo</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Account</th>
+                    <th>KPI<img src="./assets/upanddown.png" alt="" class="kpi"></th>
                     <th id="action">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td id="ID">PRO001</td>
-                    <td id="name">Product 1 <br> Gold, Amethyst</td>
-                    <td><img src="./assets/product1.jpg" alt="Product image"></td>
-                    <td>Necklace</td>
-                    <td>10,000,000 VND</td>
-                    <td>2</td>
+                    <td id="ID1">Employee1</td>
+                    <td><img src="./assets/photo.png" alt="Product image"></td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương <br> Gold, Amethyst</td>
+                    <td>0123456789</td>
+                    <td>em1@gmail.com</td>
+                    <td>Manager</td>
+                    <td>em1@123</td>
+                    <td>80%</td>
                     <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
                 </tr>
                 <tr>
-                    <td id="ID">PRO001</td>
-                    <td id="name">Product 1 <br> Gold, Amethyst</td>
-                    <td><img src="./assets/product1.jpg" alt="Product image"></td>
-                    <td>Necklace</td>
-                    <td>10,000,000 VND</td>
-                    <td>2</td>
+                    <td id="ID1">Employee1</td>
+                    <td><img src="./assets/photo.png" alt="Product image"></td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương <br> Gold, Amethyst</td>
+                    <td>0123456789</td>
+                    <td>em1@gmail.com</td>
+                    <td>Manager</td>
+                    <td>em1@123</td>
+                    <td>80%</td>
                     <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
                 </tr>
                 <tr>
-                    <td id="ID">PRO001</td>
-                    <td id="name">Product 1 <br> Gold, Amethyst</td>
-                    <td><img src="./assets/product1.jpg" alt="Product image"></td>
-                    <td>Necklace</td>
-                    <td>10,000,000 VND</td>
-                    <td>2</td>
+                    <td id="ID1">Employee1</td>
+                    <td><img src="./assets/photo.png" alt="Product image"></td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương <br> Gold, Amethyst</td>
+                    <td>0123456789</td>
+                    <td>em1@gmail.com</td>
+                    <td>Manager</td>
+                    <td>em1@123</td>
+                    <td>80%</td>
                     <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
                 </tr>
                 <tr>
-                    <td id="ID">PRO001</td>
-                    <td id="name">Product 1 <br> Gold, Amethyst</td>
-                    <td><img src="./assets/product1.jpg" alt="Product image"></td>
-                    <td>Necklace</td>
-                    <td>10,000,000 VND</td>
-                    <td>2</td>
+                    <td id="ID1">Employee1</td>
+                    <td><img src="./assets/photo.png" alt="Product image"></td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương <br> Gold, Amethyst</td>
+                    <td>0123456789</td>
+                    <td>em1@gmail.com</td>
+                    <td>Manager</td>
+                    <td>em1@123</td>
+                    <td>80%</td>
+                    <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td id="ID1">Employee1</td>
+                    <td><img src="./assets/photo.png" alt="Product image"></td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương <br> Gold, Amethyst</td>
+                    <td>0123456789</td>
+                    <td>em1@gmail.com</td>
+                    <td>Manager</td>
+                    <td>em1@123</td>
+                    <td>80%</td>
+                    <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td id="ID1">Employee1</td>
+                    <td><img src="./assets/photo.png" alt="Product image"></td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương <br> Gold, Amethyst</td>
+                    <td>0123456789</td>
+                    <td>em1@gmail.com</td>
+                    <td>Manager</td>
+                    <td>em1@123</td>
+                    <td>80%</td>
+                    <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td id="ID1">Employee1</td>
+                    <td><img src="./assets/photo.png" alt="Product image"></td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương <br> Gold, Amethyst</td>
+                    <td>0123456789</td>
+                    <td>em1@gmail.com</td>
+                    <td>Manager</td>
+                    <td>em1@123</td>
+                    <td>80%</td>
+                    <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
+                </tr>
+                <tr>
+                    <td id="ID1">Employee1</td>
+                    <td><img src="./assets/photo.png" alt="Product image"></td>
+                    <td id="name">235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương <br> Gold, Amethyst</td>
+                    <td>0123456789</td>
+                    <td>em1@gmail.com</td>
+                    <td>Manager</td>
+                    <td>em1@123</td>
+                    <td>80%</td>
                     <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
                 </tr>
             </tbody>

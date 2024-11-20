@@ -89,7 +89,7 @@ body {
     opacity: 0.3;
 }
 
-.nav-options .option2 {
+.nav-options .option4 {
     background-color: rgba(18, 18, 18, 0.1);
     opacity: 1;
 }
@@ -220,7 +220,7 @@ body {
     align-items: center;
 }
 
-.Dashboard-title p {
+.Dashboard-title .p {
     font-size: 24px;
     font-weight: semi-bold;
     margin-left: 5%;
@@ -228,16 +228,11 @@ body {
 
 }
 
-.Dashboard-title img {
-    height: 10%;
-    margin-left: 2%;
-}
+.space-search1 {
+    width: 47%;
+    float: left;
+    height: 3%;
 
-.Dashboard-title .buttons {
-    width: 39%;
-    display: flex;
-    flex-direction: row;
-    margin-left: 20%;
 }
 
 .Dashboard-title button {
@@ -265,11 +260,17 @@ body {
     margin-right: 5%;
 }
 
+.Dashboard-title .export {
+    margin-left: 30% !important;
+
+}
+
 .Dashboard-title .addbtn {
+    margin-left: 3%;
     width: 35% !important;
 }
 
-.Product {
+.Employee {
     border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
@@ -278,7 +279,7 @@ body {
 
 }
 
-.Product th {
+.Employee th {
     width: 15%;
     padding: 8px;
     height: 65px;
@@ -287,7 +288,12 @@ body {
     font-weight: 500;
 }
 
-.Product #ID {
+.Employee .loyal {
+    width: 24px;
+    height: 24px;
+}
+
+.Employee #ID {
     width: 10% !important;
     height: 20%;
     text-align: left;
@@ -295,28 +301,39 @@ body {
     border-radius: 10px 0 0 0;
 }
 
-.Product #action {
+.Employee #ID1 {
+    width: 10% !important;
+    height: 20%;
+    text-align: left;
+    padding-left: 2%;
+    border-radius: 10px 0 0 0;
+    color: black;
+    font-weight: 500;
+}
+
+.Employee #action {
     border-radius: 0 10px 0 0;
 }
 
-.Product tr {
+.Employee tr {
     height: 20%;
 }
 
-.Product td {
+.Employee td {
 
     padding: 8px;
     text-align: center;
     height: 100px;
+    color: #7D8398;
 }
 
-.Product #name {
+.Employee #name {
     text-align: left;
     padding-left: 2%;
 
 }
 
-.Product tbody #action {
+.Employee tbody #action {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -328,7 +345,7 @@ img {
     max-width: 50px;
 }
 
-.Product button {
+.Employee button {
     background-color: #4CAF50;
     position: relative;
     width: 40%;
@@ -344,14 +361,14 @@ img {
     margin: 10px;
 }
 
-.Product .Edit {
+.Employee .Edit {
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
     border-radius: 5.5px;
     color: #1279C3;
 }
 
-.Product .Delete {
+.Employee .Delete {
     background-color: #FFF9F8;
     border: 1px solid#FACDC3;
     border-radius: 5.5px;

@@ -162,7 +162,7 @@ body {
 }
 
 .space-search {
-    width: 37.3%;
+    width: 57.5%;
     float: left;
     height: 3%;
 
@@ -233,6 +233,34 @@ body {
     margin-left: 2%;
 }
 
+.Date {
+    border: black solid 1px;
+    display: flex;
+    flex-direction: row;
+    width: 15%;
+    height: 50%;
+    align-items: center;
+    margin-left: 2%;
+    border-radius: 15px;
+}
+
+.Date p {
+    margin-right: 15%;
+}
+
+.Date .date-picker {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.Date .date-picker .calendar-icon {
+    margin-left: 5px;
+    font-size: 18px;
+}
+
 .Dashboard-title .buttons {
     width: 39%;
     display: flex;
@@ -275,11 +303,10 @@ body {
     margin-left: 5%;
     margin-right: 5%;
 
-
 }
 
 .Product th {
-    width: 15%;
+    width: 25%;
     padding: 8px;
     height: 65px;
     background-color: #1279C3;
@@ -308,12 +335,17 @@ body {
     padding: 8px;
     text-align: center;
     height: 100px;
+    color: #7D8398;
 }
 
-.Product #name {
+.Product #ID-content {
+    width: 10% !important;
+    height: 20%;
     text-align: left;
     padding-left: 2%;
-
+    border-radius: 10px 0 0 0;
+    color: black;
+    font-weight: 500;
 }
 
 .Product tbody #action {
@@ -324,8 +356,9 @@ body {
 }
 
 
-img {
-    max-width: 50px;
+.Product img {
+    width: 16px;
+    height: 16px;
 }
 
 .Product button {

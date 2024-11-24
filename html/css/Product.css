@@ -168,6 +168,13 @@ body {
 
 }
 
+.space-title {
+    width: 50%;
+    float: left;
+    height: 3%;
+
+}
+
 .avt-notice {
     margin-top: 2%;
     width: 20%;

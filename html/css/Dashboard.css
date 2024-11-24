@@ -162,6 +162,13 @@ body {
 }
 
 .space-search {
+    width: 50%;
+    float: left;
+    height: 3%;
+
+}
+
+.space-title {
     width: 30%;
     float: left;
     height: 3%;

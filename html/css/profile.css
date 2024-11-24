@@ -89,11 +89,6 @@ body {
     opacity: 0.3;
 }
 
-.nav-options .option5 {
-    background-color: rgba(18, 18, 18, 0.1);
-    opacity: 1;
-}
-
 .nav-options a {
     text-decoration: none;
     color: inherit;
@@ -162,13 +157,6 @@ body {
 }
 
 .space-search {
-    width: 50%;
-    float: left;
-    height: 3%;
-
-}
-
-.space-title {
     width: 57.5%;
     float: left;
     height: 3%;

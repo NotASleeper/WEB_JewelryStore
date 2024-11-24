@@ -57,7 +57,13 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img src="./assets/employee.png" alt=""></button>
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                            onclick="redirectToNewPage()"></button>
+                    <script>
+                        function redirectToNewPage() {
+                            window.location.href = "profile.html";
+                        }
+                    </script>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout">
                     <img src="./assets/notice.png" alt="notice">

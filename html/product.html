@@ -57,7 +57,13 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img src="./assets/employee.png" alt=""></button>
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                            onclick="redirectToNewPage()"></button>
+                    <script>
+                        function redirectToNewPage() {
+                            window.location.href = "profile.html";
+                        }
+                    </script>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout">
                     <img src="./assets/notice.png" alt="notice">
@@ -70,7 +76,7 @@
         <div class="Dashboard-title">
             <p>Product</p>
             <img src="./assets/filter.png" alt="">
-            <div class="space-search"></div>
+            <div class="space-title"></div>
             <div class="buttons">
                 <button><img src="./assets/liquidation.png" alt=""> Liquidation</button>
                 <button><img src="./assets/export.png" alt="">Export</button>

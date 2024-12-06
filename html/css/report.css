@@ -29,6 +29,7 @@ body {
     padding-bottom: 150px;
 }
 
+
 .logo-icon {
     position: relative;
     width: 36px;
@@ -84,7 +85,7 @@ body {
     opacity: 0.3;
 }
 
-.nav-options .option3 {
+.nav-options .option1 {
     background-color: rgba(18, 18, 18, 0.1);
     opacity: 1;
 }
@@ -163,6 +164,13 @@ body {
 
 }
 
+.space-title {
+    width: 30%;
+    float: left;
+    height: 3%;
+
+}
+
 .avt-notice {
     margin-top: 2%;
     width: 20%;
@@ -186,7 +194,6 @@ body {
     overflow: hidden;
     border: none;
     margin-right: 5px;
-
 }
 
 .avt-content button img {
@@ -215,7 +222,7 @@ body {
     align-items: center;
 }
 
-.Dashboard-title .p {
+.Dashboard-title p {
     font-size: 24px;
     font-weight: semi-bold;
     margin-left: 5%;
@@ -223,28 +230,60 @@ body {
 
 }
 
-.Dashboard-title #Sum {
-    font-size: 16px;
-    color: black;
+.Dashboard-title img {
+    height: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
-.space-search1 {
-    width: 50%;
-    float: left;
-    height: 3%;
-
-}
-
-.Dashboard-title .buttons {
-    position: relative;
-    width: 39%;
+.Dashboard-title .Date {
+    border: black solid 1px;
     display: flex;
-    flex-direction: row;
-    margin-left: 20%;
+    flex-direction: column;
+    width: 13%;
+    height: auto;
+    align-items: center;
+    margin-left: 2%;
+    border-radius: 15px;
+    margin-top: 80px;
+}
+
+.Dashboard-title .Date p {
+    margin-right: 15%;
+}
+
+.Dashboard-title .Date .date-picker {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.Dashboard-title .Date .date-picker .calendar-icon {
+    margin-left: 5px;
+    font-size: 18px;
 }
 
 .Dashboard-title button {
-    margin-left: 2%;
+    margin-left: 40%;
+    color: #1279C3;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    background-color: #FBFCFE;
+    border: 1px solid#DDE4F0;
+    padding: 0.5% 1%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+
+    border-radius: 4px;
+
+}
+
+.Dashboard-title .export {
+    margin-left: 40%;
     color: #1279C3;
     letter-spacing: 0.5px;
     font-size: 15px;
@@ -259,26 +298,93 @@ body {
     border-radius: 4px;
     align-items: center;
     font-weight: 500;
-
 }
 
-.Dashboard-title button img {
-    width: 24px;
-    height: 24px;
+.Dashboard-title .export img {
+    width: 20px;
+    height: 20px;
     margin-right: 5%;
 }
 
-.Dashboard-title .export {
-    margin-left: 30% !important;
 
+.Dashboard-title .inner {
+    margin-left: 1%;
+    color: #1279C3;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    background-color: #FBFCFE;
+    border: 1px solid#DDE4F0;
+    padding: 0.5% 1%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+
+    border-radius: 4px;
 }
 
-.Dashboard-title .addbtn {
-    margin-left: 3%;
-    width: 35% !important;
+.info {
+    display: flex;
+    flex-direction: row;
 }
 
-.employee {
+.info .cost {
+    width: 20%;
+}
+
+.info .revenue {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    margin-left: 5%;
+}
+
+.info #r {
+    font-size: 20px;
+    margin-bottom: 1%;
+}
+
+.info #total {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.info .fluctuation {
+    display: flex;
+    flex-direction: row;
+}
+
+.info .fluctuation i {
+    display: flex;
+    color: #149D52;
+}
+
+.info.fluctuation p {
+    display: flex;
+    letter-spacing: 1px;
+    opacity: 50%;
+}
+
+.info .fluctuation #percent {
+    color: #149D52 !important;
+    opacity: 1 !important;
+}
+
+.info #date {
+    opacity: 50%;
+    margin-top: 0.5%;
+}
+
+
+
+.graph {
+    display: flex;
+    width: 100%;
+    height: 300px;
+}
+
+
+.Product {
     border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
@@ -286,8 +392,8 @@ body {
 
 }
 
-.employee th {
-    width: 10%;
+.Product th {
+    width: 25%;
     padding: 8px;
     height: 65px;
     background-color: #1279C3;
@@ -295,11 +401,7 @@ body {
     font-weight: 500;
 }
 
-.employee .kpi {
-    width: 16px;
-}
-
-.employee #ID {
+.Product #ID {
     width: 10% !important;
     height: 20%;
     text-align: left;
@@ -307,40 +409,33 @@ body {
     border-radius: 10px 0 0 0;
 }
 
-.employee #ID1 {
-    width: 10% !important;
-    height: 20%;
-    text-align: left;
-    padding-left: 2%;
-    border-radius: 10px 0 0 0;
-    font-weight: bold;
-    color: black;
-}
-
-.employee #action {
+.Product #action {
     border-radius: 0 10px 0 0;
 }
 
-.employee tr {
+.Product tr {
     height: 20%;
 }
 
-.employee td {
+.Product td {
 
     padding: 8px;
     text-align: center;
     height: 100px;
-    font-size: 14px;
     color: #7D8398;
 }
 
-.employee #name {
+.Product #ID-content {
+    width: 10% !important;
+    height: 20%;
     text-align: left;
     padding-left: 2%;
-
+    border-radius: 10px 0 0 0;
+    color: black;
+    font-weight: 500;
 }
 
-.employee tbody #action {
+.Product tbody #action {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -348,12 +443,13 @@ body {
 }
 
 
-img {
-    max-width: 50px;
+.Product img {
+    width: 16px;
+    height: 16px;
 }
 
-.employee button {
-
+.Product button {
+    background-color: #4CAF50;
     position: relative;
     width: 40%;
     justify-content: center;
@@ -368,14 +464,14 @@ img {
     margin: 10px;
 }
 
-.employee .Edit {
+.Product .Edit {
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
     border-radius: 5.5px;
     color: #1279C3;
 }
 
-.employee .Delete {
+.Product .Delete {
     background-color: #FFF9F8;
     border: 1px solid#FACDC3;
     border-radius: 5.5px;

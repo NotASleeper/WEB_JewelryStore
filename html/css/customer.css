@@ -29,35 +29,37 @@ body {
     padding-bottom: 150px;
 }
 
-.logo-icon-left {
+.logo {
+    display: flex;
+    padding-bottom: 150px;
+}
+
+
+.logo-icon {
     position: relative;
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background-color: #fff;
-    color: #1279C3;
-    margin-top: 15%;
-    margin-left: 18%;
-    /* display: flex;
-    flex-direction: row; */
+    margin-top: 25%;
+    margin-left: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
+    flex-direction: column;
 
 }
 
-.logo-icon-right {
-    position: relative;
-    font-size: 15px;
+.logo-icon .name {
+    display: block;
+    width: 50px;
+    height: 70px;
+}
+
+
+.logo-icon p {
+    font-size: 20px;
     font-weight: bold;
     color: #fff;
-    display: flex;
-    margin-top: 15%;
-    left: 2%;
 }
 
 .navcontainer {

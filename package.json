@@ -1,0 +1,17 @@
+{
+  "name": "WEB_JewelryStore",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": "https://github.com/NotASleeper/WEB_JewelryStore.git",
+  "author": "22520570 <22520570@gm.uit.edu.vn>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.11.5",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
+}

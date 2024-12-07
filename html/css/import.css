@@ -286,7 +286,8 @@ body {
     border-radius: 4px;
     align-items: center;
     font-weight: 500;
-
+    position: relative;
+    justify-content: center;
 }
 
 .Dashboard-title button img {
@@ -299,16 +300,17 @@ body {
     width: 35% !important;
 }
 
-.Product {
+.table {
     border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
 
+
 }
 
-.Product th {
-    width: 25%;
+.table th {
+    width: 15%;
     padding: 8px;
     height: 65px;
     background-color: #1279C3;
@@ -316,7 +318,7 @@ body {
     font-weight: 500;
 }
 
-.Product #ID {
+.table #ID {
     width: 10% !important;
     height: 20%;
     text-align: left;
@@ -324,23 +326,32 @@ body {
     border-radius: 10px 0 0 0;
 }
 
-.Product #action {
+.table #action {
     border-radius: 0 10px 0 0;
 }
 
-.Product tr {
+.table tr {
     height: 20%;
 }
 
-.Product td {
+.table td {
 
     padding: 8px;
     text-align: center;
+
     height: 100px;
     color: #7D8398;
 }
 
-.Product #ID-content {
+.table #state {
+    padding: 8px;
+    text-align: center;
+    padding-left: 85px;
+    height: 100px;
+    color: #7D8398;
+}
+
+.table #ID-content {
     width: 10% !important;
     height: 20%;
     text-align: left;
@@ -350,48 +361,35 @@ body {
     font-weight: 500;
 }
 
-.Product tbody #action {
+.table tbody #action {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
 
-.Product img {
+.table img {
     width: 16px;
     height: 16px;
 }
 
-.Product button {
-    background-color: #4CAF50;
+.table button {
     position: relative;
+    display: flex;
     width: 40%;
     justify-content: center;
-    padding-left: 10%;
-    border: none;
-    color: white;
     text-align: center;
     text-decoration: none;
-    display: flex;
     font-size: 16px;
     padding: 10px;
     margin: 10px;
-}
-
-.Product .Edit {
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
     border-radius: 5.5px;
     color: #1279C3;
 }
 
-.Product .Delete {
-    background-color: #FFF9F8;
-    border: 1px solid#FACDC3;
-    border-radius: 5.5px;
-    color: #EB2F06;
-}
+
 
 tr:nth-child(odd) {
     background-color: #ffffff;

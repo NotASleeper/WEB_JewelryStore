@@ -29,7 +29,6 @@ body {
     padding-bottom: 150px;
 }
 
-
 .logo-icon {
     position: relative;
     width: 36px;
@@ -85,7 +84,7 @@ body {
     opacity: 0.3;
 }
 
-.nav-options .option1 {
+.nav-options .option2 {
     background-color: rgba(18, 18, 18, 0.1);
     opacity: 1;
 }
@@ -131,7 +130,7 @@ body {
     display: flex;
     position: relative;
     width: 50%;
-    height: 30%;
+    height: 40%;
     margin-top: 3%;
     margin-left: 5%;
 
@@ -165,7 +164,7 @@ body {
 }
 
 .space-title {
-    width: 30%;
+    width: 50%;
     float: left;
     height: 3%;
 
@@ -194,6 +193,7 @@ body {
     overflow: hidden;
     border: none;
     margin-right: 5px;
+
 }
 
 .avt-content button img {
@@ -233,57 +233,17 @@ body {
 .Dashboard-title img {
     height: 10%;
     margin-left: 2%;
-    margin-right: 2%;
 }
 
-.Dashboard-title .Date {
-    border: black solid 1px;
-    display: flex;
-    flex-direction: column;
-    width: 13%;
-    height: auto;
-    align-items: center;
-    margin-left: 2%;
-    border-radius: 15px;
-    margin-top: 80px;
-}
+.Dashboard-title .space-title {
+    width: 72%;
+    float: left;
+    height: 3%;
 
-.Dashboard-title .Date p {
-    margin-right: 15%;
-}
-
-.Dashboard-title .Date .date-picker {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.Dashboard-title .Date .date-picker .calendar-icon {
-    margin-left: 5px;
-    font-size: 18px;
 }
 
 .Dashboard-title button {
-    margin-left: 40%;
-    color: #1279C3;
-    letter-spacing: 0.5px;
-    font-size: 15px;
-    background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    padding: 0.5% 1%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-
-    border-radius: 4px;
-
-}
-
-.Dashboard-title .export {
-    margin-left: 40%;
+    margin-left: 2%;
     color: #1279C3;
     letter-spacing: 0.5px;
     font-size: 15px;
@@ -298,91 +258,18 @@ body {
     border-radius: 4px;
     align-items: center;
     font-weight: 500;
+
 }
 
-.Dashboard-title .export img {
-    width: 20px;
-    height: 20px;
+.Dashboard-title button img {
+    width: 24px;
+    height: 24px;
     margin-right: 5%;
 }
 
-
-.Dashboard-title .inner {
-    margin-left: 1%;
-    color: #1279C3;
-    letter-spacing: 0.5px;
-    font-size: 15px;
-    background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    padding: 0.5% 1%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-
-    border-radius: 4px;
+.Dashboard-title .addbtn {
+    width: 35% !important;
 }
-
-.info {
-    display: flex;
-    flex-direction: row;
-}
-
-.info .cost {
-    width: 20%;
-}
-
-.info .revenue {
-    display: flex;
-    flex-direction: column;
-    width: 15%;
-    margin-left: 5%;
-}
-
-.info #r {
-    font-size: 20px;
-    margin-bottom: 1%;
-}
-
-.info #total {
-    font-size: 24px;
-    font-weight: 500;
-}
-
-.info .fluctuation {
-    display: flex;
-    flex-direction: row;
-}
-
-.info .fluctuation i {
-    display: flex;
-    color: #149D52;
-}
-
-.info.fluctuation p {
-    display: flex;
-    letter-spacing: 1px;
-    opacity: 50%;
-}
-
-.info .fluctuation #percent {
-    color: #149D52 !important;
-    opacity: 1 !important;
-}
-
-.info #date {
-    opacity: 50%;
-    margin-top: 0.5%;
-}
-
-
-
-.graph {
-    display: flex;
-    width: 100%;
-    height: 300px;
-}
-
 
 .Product {
     border-collapse: collapse;
@@ -390,10 +277,11 @@ body {
     margin-left: 5%;
     margin-right: 5%;
 
+
 }
 
 .Product th {
-    width: 25%;
+    width: 15%;
     padding: 8px;
     height: 65px;
     background-color: #1279C3;
@@ -422,17 +310,12 @@ body {
     padding: 8px;
     text-align: center;
     height: 100px;
-    color: #7D8398;
 }
 
-.Product #ID-content {
-    width: 10% !important;
-    height: 20%;
+.Product #name {
     text-align: left;
     padding-left: 2%;
-    border-radius: 10px 0 0 0;
-    color: black;
-    font-weight: 500;
+
 }
 
 .Product tbody #action {
@@ -443,9 +326,8 @@ body {
 }
 
 
-.Product img {
-    width: 16px;
-    height: 16px;
+img {
+    max-width: 50px;
 }
 
 .Product button {

@@ -2,7 +2,10 @@
   "name": "WEB_JewelryStore",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
   "repository": "https://github.com/NotASleeper/WEB_JewelryStore.git",
   "author": "22520570 <22520570@gm.uit.edu.vn>",
   "license": "MIT",
@@ -12,6 +15,7 @@
     "sequelize": "^6.37.5"
   },
   "devDependencies": {
+    "nodemon": "^3.1.7",
     "sequelize-cli": "^6.6.2"
   }
 }

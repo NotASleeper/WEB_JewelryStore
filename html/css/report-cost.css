@@ -84,7 +84,7 @@ body {
     opacity: 0.3;
 }
 
-.nav-options .option2 {
+.nav-options .option1 {
     background-color: rgba(18, 18, 18, 0.1);
     opacity: 1;
 }
@@ -163,12 +163,6 @@ body {
 
 }
 
-.space-title {
-    width: 50%;
-    float: left;
-    height: 3%;
-
-}
 
 .avt-notice {
     margin-top: 2%;
@@ -235,11 +229,41 @@ body {
     margin-left: 2%;
 }
 
-.Dashboard-title .buttons {
-    width: 39%;
+.Dashboard-title .Date {
+    width: fit-content;
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background: white;
+    margin-top: 100px;
+    margin-left: 30px;
+}
+
+.date-picker-container {
     display: flex;
-    flex-direction: row;
-    margin-left: 20%;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+
+}
+
+.date-picker-label {
+    min-width: 50px;
+}
+
+.date-picker-input {
+    padding: 5px;
+
+    border: black solid 1px;
+    border-radius: 10px;
+}
+
+.Dashboard-title .space-title {
+    width: 58%;
+    float: left;
+    height: 3%;
+
 }
 
 .Dashboard-title button {
@@ -271,7 +295,7 @@ body {
     width: 35% !important;
 }
 
-.Product {
+.table {
     border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
@@ -280,7 +304,7 @@ body {
 
 }
 
-.Product th {
+.table th {
     width: 15%;
     padding: 8px;
     height: 65px;
@@ -289,7 +313,7 @@ body {
     font-weight: 500;
 }
 
-.Product #ID {
+.table #ID {
     width: 10% !important;
     height: 20%;
     text-align: left;
@@ -297,68 +321,70 @@ body {
     border-radius: 10px 0 0 0;
 }
 
-.Product #action {
+.table #action {
     border-radius: 0 10px 0 0;
 }
 
-.Product tr {
+.table tr {
     height: 20%;
 }
 
-.Product td {
+.table td {
 
     padding: 8px;
     text-align: center;
+
     height: 100px;
+    color: #7D8398;
 }
 
-.Product #name {
+.table #state {
+    padding: 8px;
+    text-align: center;
+    padding-left: 85px;
+    height: 100px;
+    color: #7D8398;
+}
+
+.table #ID-content {
+    width: 10% !important;
+    height: 20%;
     text-align: left;
     padding-left: 2%;
-
+    border-radius: 10px 0 0 0;
+    color: black;
+    font-weight: 500;
 }
 
-.Product tbody #action {
+.table tbody #action {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
 
-img {
-    max-width: 50px;
+.table img {
+    width: 16px;
+    height: 16px;
 }
 
-.Product button {
-    background-color: #4CAF50;
+.table button {
     position: relative;
+    display: flex;
     width: 40%;
     justify-content: center;
-    padding-left: 10%;
-    border: none;
-    color: white;
     text-align: center;
     text-decoration: none;
-    display: flex;
     font-size: 16px;
     padding: 10px;
     margin: 10px;
-}
-
-.Product .Edit {
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
     border-radius: 5.5px;
     color: #1279C3;
 }
 
-.Product .Delete {
-    background-color: #FFF9F8;
-    border: 1px solid#FACDC3;
-    border-radius: 5.5px;
-    color: #EB2F06;
-}
+
 
 tr:nth-child(odd) {
     background-color: #ffffff;

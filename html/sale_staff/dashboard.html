@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxora</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon" onclick="redirectToNewPage()">
+                    <img src="./assets/icons/logo.png" alt="" class="name">
+                    <p>Luxora</p>
+                </div>
+                <script>
+                    function redirectToNewPage() {
+                        window.location.href = "dashboard.html";
+                    }
+                </script>
+            </div>
+            <div class="container_nav">
+                <div class="nav">
+                    <ul>
+                        <li class="nav-selected" id="nav_dashboard">
+                            <a href="dashboard.html">
+                                <img src="./assets/icons/dashboard_ic.png" alt="dashboard">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item" id="nav_service">
+                            <a href="#">
+                                <img src="./assets/icons/service_ic.png" alt="service">
+                                Service
+                            </a>
+                        </li>
+                        <li class="nav-item" id="nav_customer">
+                            <a href="customer.html">
+                                <img src="./assets/icons/customer_ic.png" alt="customer">
+                                Customer
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-container">
+                <img src="./assets/icons/cart_ic.png" alt="Cart" />
+                <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
+                <a class="user" href="#">
+                    <img src="./assets/images/avt.png" alt="avatar" />
+                    Employee
+                </a>
+                <img src="./assets/icons/logout_ic.png" alt="Log out" />
+            </div>
+        </div>
+        <div class="searchbar">
+            <div class="searchinput">
+                <input id="searchInfo" placeholder="Search Product Here">
+                <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+            </div>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="filter">
+                    <span><b>Filter</b></span>
+                    <a href="#" class="filter">Reset filter</a>
+                </div>
+                <div class="category">
+                    <div>
+                        <span>Category</span>
+                        <img src="./assets/icons/delete_ic_1.png" alt="Delete" />
+                    </div>
+                    <hr>
+                    <ul class="menu">
+                        <li class="item"><a href="#">Necklace</a></li>
+                        <li class="item"><a href="#">Ring</a></li>
+                        <li class="item"><a href="#">Bracelet</a></li>
+                        <li class="item"><a href="#">Anklet</a></li>
+                        <li class="item"><a href="#">Brooch</a></li>
+                        <li class="item"><a href="#">Hairs</a> accessories</li>
+                        <li class="item"><a href="#">Others</a></li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <div>
+                        <span>Price</span>
+                        <img src="./assets/icons/delete_ic_1.png" alt="Delete" />
+                    </div>
+                    <hr>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="10000000" value="1000000" class="slider" id="lower">
+                        <input type="range" min="0" max="10000000" value="6000000" class="slider" id="upper">
+                        <div class="slider-track"></div>
+                        <!-- <div class="slider-value lower-value">
+                            <span id="lowerValue">1,000,000</span>
+                        </div>
+                        <div class="slider-value upper-value">
+                            <span id="upperValue">6,000,000</span>
+                        </div> -->
+                    </div>
+                    <script src="./js/dashboard.js"></script>
+                </div>
+            </div>
+            <div class="product-container">
+                <div class="products">
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                    <div class="product-cart">
+                        <img alt="Product Image" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/aB51NzVfxfupo07Cz5WUoJy63nnljtbN9ywuZSGK0TstrI4TA.jpg"
+                            width="200" />
+                        <div>Product1</div>
+                        <div class="discount">
+                            <img src="./assets/icons/decrease_ic.png" alt="decrease" />
+                            15%
+                        </div>
+                        <div class="product-price">10,000,000VND</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

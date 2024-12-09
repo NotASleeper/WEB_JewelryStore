@@ -181,6 +181,17 @@ body {
     outline: none;
 }
 
+.filter{
+    height: 24px;
+    width: 24px;
+    margin-left: 10px;
+}
+
+.filter img{
+    height: 24px;
+    width: 24px;
+}
+
 .button-add{
     height: fit-content;
     width: fit-content;
@@ -210,11 +221,40 @@ body {
     margin-top: 140px;
 }
 
+.left-nav{
+    margin-left: 5%;
+}
+
+.left-nav ul{
+    list-style: none;
+}
+
+.left-nav li{
+    line-height: 3.5;
+}
+
+.left-nav a{
+    text-decoration: none;
+    color: #1279C3;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.selected {
+    background-color: #1279C3;
+    border-radius: 10px;
+}
+
+.selected a{
+    color: #fff;
+}
+
 .table {
     border-collapse: collapse;
-    width: 90%;
+    width: 75%;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 100px;
 }
 
 .table th {
@@ -237,7 +277,7 @@ body {
     height: 24px;
 }
 
-.table #ID {
+.table #ID_thead {
     width: 10% !important;
     height: 20%;
     text-align: left;
@@ -245,7 +285,7 @@ body {
     border-radius: 10px 0 0 0;
 }
 
-.table #name {
+.table #ID_tbody {
     width: 10% !important;
     height: 20%;
     text-align: left;
@@ -264,54 +304,38 @@ body {
 }
 
 .table td {
-
+    justify-content: center;
+    align-items: center;
     padding: 8px;
     text-align: center;
     height: 100px;
     color: #7D8398;
 }
 
-.table #address {
-    text-align: left;
-    padding-left: 2%;
-
-}
-
 .table tbody #action {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 }
 
 .table button {
     background-color: #4CAF50;
-    position: relative;
     width: 40%;
-    justify-content: center;
     padding-left: 10%;
     border: none;
     color: white;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
+    cursor: pointer;
     font-size: 16px;
     padding: 5px 10px;
     margin: 10px;
 }
 
-.table .Edit {
+.table .View {
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
     border-radius: 5.5px;
     color: #1279C3;
-}
-
-.table .Delete {
-    background-color: #FFF9F8;
-    border: 1px solid#FACDC3;
-    border-radius: 5.5px;
-    color: #EB2F06;
 }
 
 tr:nth-child(odd) {

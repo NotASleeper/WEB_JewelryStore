@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury store</title>
-    <link rel="stylesheet" href="./css/employee-info.css">
+    <link rel="stylesheet" href="./css/update-employee-info.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
@@ -110,14 +110,21 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Birthday:</label>
-                            <input type="text" value="01/01/1999">
+                            <div class="input-container">
+                                <input type="text" value="01/01/1999" class="input-field">
+                                <i class="fa-solid fa-calendar-days input-icon"></i>
+                            </div>
+
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Position:</label>
-                            <input type="text" value="Manager">
+                            <div class="input-container">
+                                <input type="text" value="Manager">
+                                <i class="fa-solid fa-caret-down input-icon"></i>
+                            </div>
                         </div>
                     </div>
 
@@ -125,8 +132,8 @@
                         <div class="form-group">
                             <label>Account:</label>
                             <div class="account-group">
-                                <input type="text" value="em1@123" style="width: 245px;">
-                                <a href="#" class="reset-btn">Reset password</a>
+                                <input type="text" value="em1@123">
+
                             </div>
                         </div>
 
@@ -134,8 +141,8 @@
 
 
                     <div class="actions">
-                        <button class="btn btn-delete">Delete</button>
-                        <a href="update-employee-Info.html  " class="btn btn-edit">Edit</a>
+                        <button class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
+                        <button class="btn btn-save" style="font-weight: 600;">Save</button>
                     </div>
                 </div>
                 <div class="avatar-container">

@@ -368,7 +368,8 @@ body {
     height: 16px;
 }
 
-.table button {
+.table button,
+.table a {
     position: relative;
     display: flex;
     width: 40%;

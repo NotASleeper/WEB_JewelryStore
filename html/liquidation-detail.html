@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury store</title>
-    <link rel="stylesheet" href="./css/employee-info.css">
+    <link rel="stylesheet" href="./css/liquidation-detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
@@ -69,13 +69,20 @@
                 </div>
 
             </div>
+
+
         </div>
 
         <!-- Dashboard + btn view report -->
 
-        <div class="main-content">
+        <div class="main-content" style="margin-top: 5%;">
             <div class="header">
-                <p>Employee information</p>
+                <p>Liquidation detail</p>
+            </div>
+
+            <div class="Dashboard-title">
+                <div class="space-title" style="width:87%"></div>
+                <button><img src="./assets/export.png" alt="">Export</button>
             </div>
         </div>
         <div class="product-container">
@@ -84,67 +91,82 @@
                 <div class="form-section">
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Name:</label>
-                            <input type="text" value="Employee1">
+                            <label>ID:</label>
+                            <input type="text" value="LOT001">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Address: </label>
-                            <input type="text" value="235 Tân Lập, Đông Hòa, Dĩ An, Bình Dương ">
+                            <label>Creator:</label>
+                            <input type="text" value="Employee3">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Phone number:</label>
-                            <input type="text" value="0123456789">
+                            <label>Inspector:</label>
+                            <input type="text" value="">
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Email:</label>
-                            <input type="text" value="em1@gmail.com">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Birthday:</label>
-                            <input type="text" value="01/01/1999">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Position:</label>
-                            <input type="text" value="Manager">
-                        </div>
-                    </div>
-
-                    <div class="form-row" style="display: flex; flex-direction: row;">
-                        <div class="form-group">
-                            <label>Account:</label>
-                            <div class="account-group">
-                                <input type="text" value="em1@123" style="width: 245px;">
-                                <a href="#" class="reset-btn">Reset password</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="actions">
-                        <button class="btn btn-delete">Delete</button>
-                        <a href="update-employee-Info.html  " class="btn btn-edit">Edit</a>
                     </div>
                 </div>
-                <div class="avatar-container">
-                    <div class="avatar">
-                        <img src="./assets/avatar.jpg" alt="Avatar" class="avatar">
-                    </div>
-                </div>
-                <div class="space-form" style="width:550px"></div>
+
             </div>
+            <div class="form-container" style="margin-left: 100px;">
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date Created:</label>
+                            <input type="text" value="02/09/2024">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>State </label>
+                            <input type="Waiting" value=" ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-info" style="
+            display: flex;
+            gap: 69%;
+        ">
+            <p style="font-size: 20px; margin-left:5%; margin-bottom:1%; color:#1279C3;">Purchase history</p>
+            <p style="color:#7D8398">Total: 20,000,000VND</p>
+        </div>
+
+        <table class="Product">
+            <thead class="test">
+                <tr>
+                    <th id="ID">ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th id="action">Total price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="ID">1</td>
+                    <td id="name">Product 1 <br> Gold, Amethyst</td>
+                    <td><img src="./assets/product1.jpg" alt="Product image"></td>
+                    <td>Necklace</td>
+                    <td>10,000,000 VND</td>
+                    <td>2</td>
+                    <td>20,000,000 VND</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+        <div class="actions">
+            <button class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
+            <button class="btn btn-save " style="font-weight: 600;">Accept</button>
         </div>
     </div>
     </div>

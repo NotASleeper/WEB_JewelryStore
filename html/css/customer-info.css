@@ -84,7 +84,7 @@ body {
     opacity: 0.3;
 }
 
-.nav-options .option6 {
+.nav-options .option4 {
     background-color: rgba(18, 18, 18, 0.1);
     opacity: 1;
 }
@@ -126,35 +126,7 @@ body {
     height: 10%;
 }
 
-.search-container {
-    display: flex;
-    position: relative;
-    width: 50%;
-    height: 40%;
-    margin-top: 3%;
-    margin-left: 5%;
 
-}
-
-.search-container input[type="text"] {
-    flex: 1;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    outline: none;
-    border-radius: 5px 0 0 5px;
-    background-color: rgba(18, 121, 195, 0.1);
-
-}
-
-.search-container button {
-    background-color: rgba(18, 121, 195, 0.1);
-    color: gray;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-}
 
 .space-search {
     width: 50%;
@@ -163,12 +135,6 @@ body {
 
 }
 
-.space-title {
-    width: 53%;
-    float: left;
-    height: 3%;
-
-}
 
 .avt-notice {
     margin-top: 2%;
@@ -222,83 +188,138 @@ body {
     align-items: center;
 }
 
-.Dashboard-title p {
+.main-content p {
     font-size: 24px;
     font-weight: semi-bold;
     margin-left: 5%;
     color: #1279C3;
+}
+
+.product-container {
+    padding: 20px;
+    margin: 0 auto;
+    margin-left: 4%;
 
 }
 
-.Dashboard-title img {
-    height: 10%;
-    margin-left: 2%;
+.product-container .page-title {
+    color: #0076CE;
+    margin-bottom: 30px;
 }
 
-.Date {
-    border: black solid 1px;
+.product-container .form-container {
     display: flex;
     flex-direction: row;
-    width: 15%;
-    height: 50%;
+    left: 0;
+    gap: 20px;
+    float: left;
+}
+
+.form-container .form-section {
+    display: grid;
+    gap: 15px;
+}
+
+.form-container .bonus-form-section {
+    display: grid;
+    gap: 0px;
+}
+
+.form-row {
+    display: grid;
+    gap: 15px;
+}
+
+
+.form-group {
+    display: grid;
+    grid-template-columns: 150px 1fr;
     align-items: center;
-    margin-left: 2%;
-    border-radius: 15px;
+
+
 }
 
-.Date p {
-    margin-right: 15%;
+.form-group label {
+    color: #333;
+    font-size: 14px;
 }
 
-.Date .date-picker {
+.form-group input,
+.form-group textarea {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+.actions {
     display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-.Date .date-picker .calendar-icon {
-    margin-left: 5px;
-    font-size: 18px;
-}
-
-.Dashboard-title .buttons {
-    width: 39%;
+.actions .btn {
+    position: relative;
     display: flex;
-    flex-direction: row;
-    margin-left: 20%;
-}
-
-.Dashboard-title button {
-    margin-left: 2%;
-    color: #1279C3;
-    letter-spacing: 0.5px;
-    font-size: 15px;
-    background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    height: 35px;
-    padding: 0.5% 1%;
+    width: 20%;
+    justify-content: center;
     text-align: center;
     text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    margin-left: 10px;
+
+    border: 1px solid#DDE4F0;
+    border-radius: 5.5px;
+    color: #1279C3;
+
+}
+
+.actions .btn-cancel {
+    border: 1px solid #FACDC3;
+    color: #EB2F06;
+    background: #FFF9F8;
+}
+
+input[type="text"] {
+    width: 400px;
+    height: 35px;
+}
+
+.form-container .add-image-box {
+    border: 1px solid #121212;
+    height: 150px;
+    width: 150px;
     display: flex;
-    cursor: pointer;
-    border-radius: 4px;
     align-items: center;
-    font-weight: 500;
-    position: relative;
     justify-content: center;
+    cursor: pointer;
 }
 
-.Dashboard-title button img {
-    width: 24px;
-    height: 24px;
-    margin-right: 5%;
+.form-group input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 400px;
 }
 
-.Dashboard-title .addbtn {
-    width: 35% !important;
+.input-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
 }
+
+
+.input-icon {
+    position: absolute;
+    right: -85px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
 
 .table {
     border-collapse: collapse;
@@ -373,8 +394,7 @@ body {
     height: 16px;
 }
 
-.table button,
-.table a {
+.table button {
     position: relative;
     display: flex;
     width: 40%;

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxora</title>
+    <link rel="stylesheet" href="./css/pre-order_info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')">
+                    <img src="./assets/icons/logo.png" alt="" class="name">
+                    <p>Luxora</p>
+                </div>
+
+            </div>
+            <div class="container_nav">
+                <div class="nav">
+                    <ul>
+                        <li class="nav-item" id="nav_dashboard">
+                            <a href="dashboard.html">
+                                <img src="./assets/icons/dashboard_ic.png" alt="dashboard">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-selected" id="nav_service">
+                            <a href="pre-order.html">
+                                <img src="./assets/icons/service_ic.png" alt="service">
+                                Service
+                            </a>
+                        </li>
+                        <li class="nav-item" id="nav_customer">
+                            <a href="customer.html">
+                                <img src="./assets/icons/customer_ic.png" alt="customer">
+                                Customer
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-container">
+                <img src="./assets/icons/cart_ic.png" alt="Cart" />
+                <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
+                <a class="user" href="profile.html">
+                    <img src="./assets/images/avt.png" alt="avatar" />
+                    Employee
+                </a>
+                <img src="./assets/icons/logout_ic.png" alt="Log out" />
+            </div>
+        </div>
+        <div class="content">
+            <div class="left-nav">
+                <ul>
+                    <li class="selected">
+                        <a href="pre-order.html">Pre-Order</a>
+                    </li>
+                    <li>
+                        <a href="warranty.html">Warranty</a>
+                    </li>
+                    <li>
+                        <a href="refund.html">Refund</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="info">
+                <p class="title">Pre-Order information</p>
+                <div>
+                    <div class="subtitle-container">
+                        <p class="subtitle">Customer</p>
+                        <div class="searchinput">
+                            <input id="searchInfo" placeholder="Search Customer Here">
+                            <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+                        </div>
+                    </div>
+                    <div class="information">
+                        <div class="form-container">
+                            <div class="form-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Name:</label>
+                                        <input type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Address: </label>
+                                        <input type="text" value=" ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-form-container">
+                            <div class="form-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Phone number:</label>
+                                        <input type="text" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="subtitle-container">
+                        <p class="subtitle">Product</p>
+                    </div>
+                    <table class="Product">
+                        <thead class="test">
+                            <tr>
+                                <th id="ID" style="width: 500px;">Product</th>
+                                <th>Quantity</th>
+                                <th>Note</th>
+                                <th>Surcharge</th>
+                                <th>Money</th>
+                                <th id="action">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="ID">
+                                    <div style="display: flex;">
+                                        <img src="./assets/images/product1_1.png" alt="Product" />
+                                        <div class="info">
+                                            <p class="name">Product 1</p>
+                                            <div class="price">
+                                                <p>9,900,000VND</p>
+                                                <div class="discount">
+                                                    <img src="./assets/icons/decrease_ic.png" alt="Discount" />
+                                                    <p>10%</p>
+                                                </div>
+                                            </div>
+                                            <p class="origin-price">10,000,000VND</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td>Note1</td>
+                                <td>100,000VND</td>
+                                <td>10,000,000VND</td>
+                                <td id="action">
+                                    <button class="Delete">
+                                        <img src="./assets/icons/delete_ic_2.png" alt="Delete" />
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="ID">
+                                    <div style="display: flex;">
+                                        <img src="./assets/images/product1_1.png" alt="Product" />
+                                        <div class="info">
+                                            <p class="name">Product 1</p>
+                                            <div class="price">
+                                                <p>9,900,000VND</p>
+                                                <div class="discount">
+                                                    <img src="./assets/icons/decrease_ic.png" alt="Discount" />
+                                                    <p>10%</p>
+                                                </div>
+                                            </div>
+                                            <p class="origin-price">10,000,000VND</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td>Note1</td>
+                                <td>100,000VND</td>
+                                <td>10,000,000VND</td>
+                                <td id="action">
+                                    <button class="Delete">
+                                        <img src="./assets/icons/delete_ic_2.png" alt="Delete" />
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="ID" style="font-weight: bolder; color: #121212;">Total</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td style="color: #EB2F06; font-weight: bolder;">20,000,000VND</td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group" style="margin-top: 10px;">
+                    <p>State:</p>
+                    <p>Waiting</p>
+                </div>
+                <div class="form-group" style="margin-top: 10px; width: 50%;">
+                    <p>Pay:</p>
+                    <select id="pay" >
+                        <option value="" disabled selected>Select payment method</option>
+                        <option value="1" data-icon="./assets/icons/cash_ic.png">
+                            <div>
+                                <img src="./assets/icons/cash_ic.png" alt=""/>
+                                Cash On Delivery
+                            </div>
+                        </option>
+                        <option value="2">
+                            <div>
+                                <img src="./assets/icons/momo_ic.png" alt=""/>
+                                Momo
+                            </div>
+                        </option>
+                        <option value="3">
+                            <div>
+                                <img src="./assets/icons/VNPay_ic.png" alt=""/>
+                                VNPay
+                            </div>
+                        </option>
+                        <option value="4">
+                            <div>
+                                <img src="./assets/icons/bank_ic.png" alt=""/>
+                                Bank Transfer
+                            </div>
+                        </option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-cancel">Cancel</button>
+                    <button class="btn btn-save">Save</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    function redirectToNewPage(newPage) {
+        window.location.href = newPage;
+    }
+</script>

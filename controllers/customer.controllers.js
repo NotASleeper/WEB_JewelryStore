@@ -28,6 +28,31 @@ const createCustomer = async (req, res) => {
     }
 };
 
+const getAllCustomer = async (req, res) => {
+    try {
+        const customerList = await Customer.findAll();
+        res.status(200).send(customerList);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
+const getDetailCustomer = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const detailCustomer = await Customer.findOne({
+            where: {
+                id,
+            }
+        });
+        res.status(200).send(detailCustomer);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     createCustomer,
+    getAllCustomer,
+    getDetailCustomer,
 }

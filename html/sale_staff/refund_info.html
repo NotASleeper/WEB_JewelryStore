@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxora</title>
+    <link rel="stylesheet" href="./css/refund_info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')">
+                    <img src="./assets/icons/logo.png" alt="" class="name">
+                    <p>Luxora</p>
+                </div>
+
+            </div>
+            <div class="container_nav">
+                <div class="nav">
+                    <ul>
+                        <li class="nav-item" id="nav_dashboard">
+                            <a href="dashboard.html">
+                                <img src="./assets/icons/dashboard_ic.png" alt="dashboard">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-selected" id="nav_service">
+                            <a href="pre-order.html">
+                                <img src="./assets/icons/service_ic.png" alt="service">
+                                Service
+                            </a>
+                        </li>
+                        <li class="nav-item" id="nav_customer">
+                            <a href="customer.html">
+                                <img src="./assets/icons/customer_ic.png" alt="customer">
+                                Customer
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-container">
+                <img src="./assets/icons/cart_ic.png" alt="Cart" />
+                <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
+                <a class="user" href="profile.html">
+                    <img src="./assets/images/avt.png" alt="avatar" />
+                    Employee
+                </a>
+                <img src="./assets/icons/logout_ic.png" alt="Log out" />
+            </div>
+        </div>
+        <div class="content">
+            <div class="left-nav">
+                <ul>
+                    <li>
+                        <a href="pre-order.html">Pre-Order</a>
+                    </li>
+                    <li>
+                        <a href="warranty.html">Warranty</a>
+                    </li>
+                    <li class="selected">
+                        <a href="refund.html">Refund</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="info">
+                <p class="title">Refund information</p>
+                <div>
+                    <div class="subtitle-container">
+                        <p class="subtitle">Customer</p>
+                        <div class="searchinput">
+                            <input id="searchInfo" placeholder="Search Customer Here">
+                            <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+                        </div>
+                    </div>
+                    <div class="information">
+                        <div class="form-container">
+                            <div class="form-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Name:</label>
+                                        <input type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Address: </label>
+                                        <input type="text" value=" ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-form-container">
+                            <div class="form-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Phone number:</label>
+                                        <input type="text" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="subtitle-container">
+                        <p class="subtitle">Product</p>
+                    </div>
+                    <div class="information">
+                        <div class="form-container">
+                            <div class="form-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Bill:</label>
+                                        <input type="text" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Product: </label>
+                                        <select id="product">
+                                            <option value="" disabled selected>Select product in bill</option>
+                                            <option value="1">Product 1</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Category: </label>
+                                        <select id="category">
+                                            <option value="" disabled selected>Select category</option>
+                                            <option value="1">Category 1</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Note: </label>
+                                        <input type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-cancel">Cancel</button>
+                    <button class="btn btn-save">Save</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    function redirectToNewPage(newPage) {
+        window.location.href = newPage;
+    }
+</script>

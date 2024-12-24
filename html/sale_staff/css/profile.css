@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #121212;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #1279C3;
+    width: 100%;
+    height: 70px;
+    padding-left: 10%;
+    padding-right: 10%;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    position: fixed;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+}
+
+
+.logo-icon {
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-icon .name {
+    display: flex;
+    height: 50px;
+    width: 36px;
+}
+
+
+.logo-icon p {
+    display: flex;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+
+.container_nav {
+    width: auto;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+}
+
+.nav img {
+    vertical-align: middle;
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 40px;
+    opacity: 50%;
+}
+
+.nav-selected {
+    display: inline-block;
+    margin-right: 40px;
+    opacity: 100%;
+}
+
+.nav-selected a {
+    font-weight: bold;
+}
+
+.right-container {
+    display: flex;
+    right: 0;
+}
+
+.right-container img {
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+}
+
+.user {
+    display: flex;
+    margin-right: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: small;
+}
+
+.user img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+
+
+.content {
+    margin-top: 90px;
+}
+
+.main-content p {
+    font-size: 24px;
+    font-weight: semi-bold;
+    margin-left: 10%;
+    color: #1279C3;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+}
+
+.input-container {
+    width: 35%;
+    margin-left: 10%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.input-container label {
+    margin-left: 3%;
+    color: rgba(18, 18, 18, 0.5);
+}
+
+.input-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border: 1px solid #121212;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: transparent;
+    margin-bottom: 3%;
+}
+
+.input-container .phone-birthday-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input-container .phone-birthday-input .phone-input,
+.input-container .phone-birthday-input .birthday-input {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.image-container {
+    display: block;
+    width: 50%;
+    height: 10%;
+    justify-content: center;
+
+}
+
+
+.image-container .edit-avatar {
+    background-color: #C3C3C3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    position: absolute;
+    cursor: pointer;
+    border: none;
+}
+
+.image-container .edit-avatar img {
+    width: 20px;
+    height: 20px;
+}
+
+.avatar-container {
+    display: block;
+    width: 316px;
+    height: 316px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    left: 20%;
+}
+
+.avatar {
+    width: 316px;
+    height: 316px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.edit-avatar {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+}
+
+.edit-avatar img {
+    margin-right: 5px;
+}
+
+.image-container .space {
+    display: block;
+    height: 150px;
+    position: relative;
+}
+
+.edit-btn {
+    display: block;
+    margin-left: 50px;
+}
+
+.edit-btn button {
+    margin-right: 30px;
+    color: #1279C3;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    background-color: #FBFCFE;
+    border: 1px solid#DDE4F0;
+    padding: 0.5% 1%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+}

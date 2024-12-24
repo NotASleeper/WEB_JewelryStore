@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury store</title>
+    <link rel="stylesheet" href="./css/Dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+
+<body>
+    <div class="left-Container">
+        <div class="logo">
+            <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
+                <img src="./assets/logo.png" alt="" class="name">
+                <p>Luxora</p>
+            </div>
+
+        </div>
+
+        <div class="navcontainer">
+            <ul class="nav-options">
+                <li class="option1">
+
+                    <img src="./assets/dashboard.png" alt="Dashboard">
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="option2">
+                    <img src="./assets/product.png" alt="Product">
+                    <a href="product.html">Product</a>
+                </li>
+                <li class="option3">
+                    <img src="./assets/employee.png" alt="Employee">
+                    <a href="employee.html">Employee</a>
+                </li>
+                <li class="option4">
+                    <img src="./assets/customer.png" alt="Customer">
+                    <a href="customer.html">Customer</a>
+                </li>
+                <li class="option5">
+                    <img src="./assets/import.png" alt="Import">
+                    <a href="import.html">Import</a>
+                </li>
+                <li class="option6">
+                    <img src="./assets/liquidation-nav.png" alt="Import">
+                    <a href="liquidation.html">Liquidation</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="right-Container">
+        <div class="header">
+            <div class="search-container">
+                <input type="text" placeholder="Search">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="space-search"></div>
+            <div class="avt-notice">
+                <div class="avt-content">
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                            onclick="redirectToNewPage()"></button>
+                    <script>
+                        function redirectToNewPage() {
+                            window.location.href = "profile.html";
+                        }
+                    </script>
+                    <p class="username">admin</p>
+                    <img src="./assets/logout.png" alt="logout">
+                    <img src="./assets/notice.png" alt="notice">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Dashboard + btn view report -->
+        <div class="Dashboard-title">
+            <p>Dashboard</p>
+            <div class="space-title"></div>
+            <div class="space-title"></div>
+            <button><a href="report.html" style="text-decoration: none; color:#1279C3 ;">View Report</a></button>
+
+        </div>
+        <!-- revenue info -->
+        <div class="revenue">
+            <p id="r">Revenue</p>
+            <p id="total">79.000.000 VND</p>
+            <div class="fluctuation">
+                <i class="fa-solid fa-arrow-up"></i>
+                <p id="percent"> 2.1%</p>
+                <p> vs last week</p>
+
+            </div>
+            <p id="date">Sales from 1-7 Sep, 2024</p>
+        </div>
+        <!-- revenue chart by time -->
+        <div class="graph"></div>
+        <!-- Best sales best sellers bill -->
+        <div class="conclusion">
+            <div class="best-sales">
+                <p class="title">Best sales</p>
+                <p id="date">From 1-7 Sep, 2024</p>
+                <ul class="sale">
+                    <li class="product">
+                        <img src="./assets/product1.jpg" alt="product1">
+                        <p id="name">Product1</p>
+                        <div class="space between"></div>
+                        <p id="ammount">AMNT:19</p>
+                    </li>
+                    <li class="product">
+                        <img src="./assets/product1.jpg" alt="product1">
+                        <p id="name">Product1</p>
+                        <div class="space between"></div>
+                        <p id="ammount">AMNT:19</p>
+                    </li>
+                    <li class="product">
+                        <img src="./assets/product1.jpg" alt="product1">
+                        <p id="name">Product1</p>
+                        <div class="space between"></div>
+                        <p id="ammount">AMNT:19</p>
+                    </li>
+                    <li class="product" id="last">
+                        <img src="./assets/product1.jpg" alt="product1">
+                        <p id="name">Product1</p>
+                        <div class="space between"></div>
+                        <p id="ammount">AMNT:19</p>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="best-sellers">
+                <p class="title">Best sellers</p>
+                <p id="date">From 1-7 Sep, 2024</p>
+
+                <ul class="sellers">
+                    <li class="employee">
+                        <img src="./assets/product1.jpg" alt="product1">
+                        <p id="name">Employee1</p>
+                        <div class="space between"></div>
+                        <p id="ammount">AMNT:19</p>
+                    </li>
+                    <li class="employee">
+                        <img src="./assets/product1.jpg" alt="product1">
+                        <p id="name">Employee1</p>
+                        <div class="space between"></div>
+                        <p id="ammount">AMNT:19</p>
+                    </li>
+                    <li class="employee">
+                        <img src="./assets/product1.jpg" alt="product1">
+                        <p id="name">Employee1</p>
+                        <div class="space between"></div>
+                        <p id="ammount">AMNT:19</p>
+                    </li>
+                    <li class="employee" id="last">
+                        <img src="./assets/product1.jpg" alt="product1">
+                        <p id="name">Employee1</p>
+                        <div class="space between"></div>
+                        <p id="ammount">AMNT:19</p>
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="bill">
+                <p class="title">Bill</p>
+                <p id="ammount">120</p>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    function redirectToNewPage(newPage) {
+        window.location.href = newPage;
+    }
+</script>
+
+</html>

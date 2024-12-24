@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury store</title>
+    <link rel="stylesheet" href="./css/product-info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+
+<body>
+    <div class="left-Container">
+        <div class="logo">
+            <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
+                <img src="./assets/logo.png" alt="" class="name">
+                <p>Luxora</p>
+            </div>
+        </div>
+
+        <div class="navcontainer">
+            <ul class="nav-options">
+                <li class="option1">
+
+                    <img src="./assets/dashboard.png" alt="Dashboard">
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="option2">
+                    <img src="./assets/product.png" alt="Product">
+                    <a href="product.html">Product</a>
+                </li>
+                <li class="option3">
+                    <img src="./assets/employee.png" alt="Employee">
+                    <a href="employee.html">Employee</a>
+                </li>
+                <li class="option4">
+                    <img src="./assets/customer.png" alt="Customer">
+                    <a href="customer.html">Customer</a>
+                </li>
+                <li class="option5">
+                    <img src="./assets/import.png" alt="Import">
+                    <a href="import.html">Import</a>
+                </li>
+                <li class="option6">
+                    <img src="./assets/liquidation-nav.png" alt="Import">
+                    <a href="liquidation.html">Liquidation</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="right-Container">
+        <div class="header">
+            <div class="space-search"></div>
+            <div class="space-search"></div>
+            <div class="avt-notice">
+                <div class="avt-content">
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                            onclick="redirectToNewPage()"></button>
+                    <script>
+                        function redirectToNewPage() {
+                            window.location.href = "profile.html";
+                        }
+                    </script>
+                    <p class="username">admin</p>
+                    <img src="./assets/logout.png" alt="logout">
+                    <img src="./assets/notice.png" alt="notice">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Dashboard + btn view report -->
+
+        <div class="main-content">
+            <div class="header">
+                <p>Product information</p>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="product-grid">
+                <!-- Thumbnails -->
+                <div class="thumbnails">
+                    <img src="./assets/product1.jpg" alt="Product thumbnail 1" class="thumbnail">
+                    <img src="./assets/product1.jpg" alt="Product thumbnail 2" class="thumbnail">
+                </div>
+
+                <!-- Main Image -->
+                <div class="main-image">
+                    <img src="./assets/product1.jpg" alt="Product main image" style="width: 700px;">
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-details">
+                    <h2>Product1</h2>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Category:</span>
+                        <span>Necklace</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Material:</span>
+                        <span>18K Yellow Gold - Weight: 3.75g</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Gemstone:</span>
+                        <span>Moissanite Certificate</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Size:</span>
+                        <span>50cm</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Carat weight:</span>
+                        <span>0.05</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Color:</span>
+                        <span>Colorless</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Shape:</span>
+                        <span>Circle</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Purity:</span>
+                        <span>IF</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Gemstone size:</span>
+                        <span>3mm x 3mm</span>
+                    </div>
+
+                    <div class="description">
+                        Description: Mặt dây chuyền nữ Heart-shape Reverse MDA3103 nổi bật với vẻ đẹp lộng mạn độc
+                        đáo mà khó có món trang sức nào mang lại được. Dáng trái tim trong trang sức từ xưa đến nay
+                        luôn duy trì được sức hút của mình bởi đây được cho là hình dáng biểu tượng cho tình yêu.
+                        Tuy nhiên trong thiết kế ...
+                        <a class="see-more">Xem thêm</a>
+                    </div>
+
+                    <div class="price-section">
+                        <span class="current-price">26,500,000VND</span>
+                        <span class="original-price">31,200,000VND</span>
+                        <span class="discount">↓ 15%</span>
+                    </div>
+
+                    <div class="quantity">
+                        Quantity: 12
+                    </div>
+
+                    <div class="actions">
+                        <button class="btn btn-delete">Delete</button>
+                        <button class="btn btn-edit"><a href="product-info-update.html"
+                                style="color: #1279C3; text-decoration: none;">Edit </a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    function redirectToNewPage(newPage) {
+        window.location.href = newPage;
+    }
+</script>
+
+</html>

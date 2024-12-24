@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury store</title>
+    <link rel="stylesheet" href="./css/liquidation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+
+<body>
+    <div class="left-Container">
+        <div class="logo">
+            <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
+                <img src="./assets/logo.png" alt="" class="name">
+                <p>Luxora</p>
+            </div>
+        </div>
+
+        <div class="navcontainer">
+            <ul class="nav-options">
+                <li class="option1">
+
+                    <img src="./assets/dashboard.png" alt="Dashboard">
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="option2">
+                    <img src="./assets/product.png" alt="Product">
+                    <a href="product.html">Product</a>
+                </li>
+                <li class="option3">
+                    <img src="./assets/employee.png" alt="Employee">
+                    <a href="employee.html">Employee</a>
+                </li>
+                <li class="option4">
+                    <img src="./assets/customer.png" alt="Customer">
+                    <a href="customer.html">Customer</a>
+                </li>
+                <li class="option5">
+                    <img src="./assets/import.png" alt="Import">
+                    <a href="import.html">Import</a>
+                </li>
+                <li class="option6">
+                    <img src="./assets/liquidation-nav.png" alt="Import">
+                    <a href="liquidation.html">Liquidation</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="right-Container">
+        <div class="header">
+            <div class="search-container">
+                <input type="text" placeholder="Search">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="space-search"></div>
+            <div class="avt-notice">
+                <div class="avt-content">
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                            onclick="redirectToNewPage()"></button>
+                    <script>
+                        function redirectToNewPage() {
+                            window.location.href = "profile.html";
+                        }
+                    </script>
+                    <p class="username">admin</p>
+                    <img src="./assets/logout.png" alt="logout">
+                    <img src="./assets/notice.png" alt="notice">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Dashboard + btn view report -->
+        <div class="Dashboard-title">
+            <p>Liquidation</p>
+            <img src="./assets/filter.png" alt="">
+            <div class="Date">
+                <p style="color:black; font-size:16px;">Date</p>
+                <div class="date-picker">
+                    <input type="date">
+                    <span class="calendar-icon"></span>
+                </div>
+            </div>
+
+            <div class="space-title"></div>
+            <button><img src="./assets/export.png" alt="">Export</button>
+
+        </div>
+
+        <table class="table">
+            <thead class="test">
+                <tr>
+                    <th id="ID">LOT</th>
+                    <th>Supplier</th>
+                    <th>Date <img src="./assets/upanddown.png" alt="" class="loyal"></th>
+                    <th>Total <img src="./assets/upanddown.png" alt="" class="loyal"></th>
+                    <th>State</th>
+                    <th id="action">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="ID-content">LOT1</td>
+                    <td>TNHH Supplier1</td>
+                    <td>07/09/2024</td>
+                    <td>100,000,000 VND</td>
+                    <td id="state"><button class="btn"><img src="./assets/loading.png" alt=""></button></td>
+                    <td id="action"><a href="Liquidation-detail.html" class="btn" style="font-weight: 600;">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="ID-content">LOT1</td>
+                    <td>TNHH Supplier1</td>
+                    <td>07/09/2024</td>
+                    <td>100,000,000 VND</td>
+                    <td id="state"><button class="btn"><img src="./assets/loading.png" alt=""></button></td>
+                    <td id="action"><a href="Liquidation-detail.html" class="btn" style="font-weight: 600;">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="ID-content">LOT1</td>
+                    <td>TNHH Supplier1</td>
+                    <td>07/09/2024</td>
+                    <td>100,000,000 VND</td>
+                    <td id="state"><button class="btn"><img src="./assets/loading.png" alt=""></button></td>
+                    <td id="action"><a href="Liquidation-detail.html" class="btn" style="font-weight: 600;">View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="ID-content">LOT1</td>
+                    <td>TNHH Supplier1</td>
+                    <td>07/09/2024</td>
+                    <td>100,000,000 VND</td>
+                    <td id="state"><button class="btn"><img src="./assets/loading.png" alt=""></button></td>
+                    <td id="action"><a href="Liquidation-detail.html" class="btn" style="font-weight: 600;">View</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+<script>
+    function redirectToNewPage(newPage) {
+        window.location.href = newPage;
+    }
+</script>
+
+</html>

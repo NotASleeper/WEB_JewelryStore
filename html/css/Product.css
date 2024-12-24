@@ -230,6 +230,120 @@ body {
 
 }
 
+
+.popup-container {
+    position: relative;
+    display: inline-block;
+}
+
+.popup-container .filter-button {
+    padding: 8px 16px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.popup-container .popup {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #eee;
+    /* display: none; */
+    z-index: 100;
+}
+
+.popup-container .popup.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    appearance: none;
+    background: white;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.range-wrapper {
+    position: relative;
+    padding-top: 20px;
+}
+
+.range-input {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    outline: none;
+}
+
+.range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 2px solid #3b82f6;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.price-bubble {
+    position: absolute;
+    top: -2px;
+    transform: translateX(-50%);
+    background: #3b82f6;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #666;
+}
+
 .Dashboard-title img {
     height: 10%;
     margin-left: 2%;
@@ -242,7 +356,8 @@ body {
     margin-left: 20%;
 }
 
-.Dashboard-title button {
+.Dashboard-title .right-btn,
+.Dashboard-title .addbtn {
     margin-left: 2%;
     color: #1279C3;
     letter-spacing: 0.5px;

@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #121212;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #1279C3;
+    width: 100%;
+    height: 70px;
+    padding-left: 10%;
+    padding-right: 10%;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    position: fixed;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+}
+
+
+.logo-icon {
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-icon .name {
+    display: flex;
+    height: 50px;
+    width: 36px;
+}
+
+
+.logo-icon p {
+    display: flex;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.container_nav {
+    width: auto;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+}
+
+.nav img {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 40px;
+    opacity: 50%;
+}
+
+.nav-selected {
+    display: inline-block;
+    margin-right: 40px;
+    opacity: 100%;
+}
+
+.nav-selected a {
+    font-weight: bold;
+}
+
+.right-container{
+    display: flex;
+    right: 0;
+}
+
+.right-container img{
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+}
+
+.user{
+    display: flex;
+    margin-right: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: small;
+}
+
+.user img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.content {
+    margin-top: 80px;
+    justify-content: center;
+}
+
+
+.main-content p {
+    font-size: 24px;
+    font-weight: semi-bold;
+    margin-left: 5%;
+    color: #1279C3;
+}
+
+.product-container {
+    display: flex;
+    padding: 20px;
+    margin: 0 auto;
+    margin-left: 4%;
+    
+}
+
+.product-container .form-container {
+    flex-direction: row;
+    left: 0;
+    gap: 20px;
+}
+
+.form-container .form-section {
+    display: grid;
+    gap: 15px;
+}
+
+.form-container .bonus-form-section {
+    display: grid;
+    gap: 0px;
+}
+
+.form-row {
+    display: grid;
+    gap: 15px;
+}
+
+
+.form-group {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+
+
+}
+
+.form-group label {
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="text"] {
+    width: 400px;
+    height: 35px;
+}
+
+
+
+.Product {
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+
+
+}
+
+.Product th {
+    width: 15%;
+    padding: 8px;
+    height: 65px;
+    background-color: #1279C3;
+    color: white;
+    font-weight: 500;
+}
+
+.Product #ID {
+    width: 10% !important;
+    height: 20%;
+    text-align: left;
+    padding-left: 2%;
+    border-radius: 10px 0 0 0;
+}
+
+.Product #action {
+    border-radius: 0 10px 0 0;
+}
+
+.Product tr {
+    height: 20%;
+}
+
+.Product td {
+
+    padding: 8px;
+    text-align: center;
+    height: 100px;
+}
+
+.Product #name {
+    text-align: left;
+    padding-left: 2%;
+
+}
+
+.Product tbody #action {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+img {
+    max-width: 50px;
+}
+
+
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+    /* Màu nền cho dòng lẻ */
+}
+
+tr:nth-child(even) {
+    background-color: rgba(18, 121, 195, 0.1);
+    /* Màu nền cho dòng chẵn */
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    margin-right: 5%;
+}
+
+.actions .btn {
+    position: relative;
+    display: flex;
+    width: 140px;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    margin-left: 10px;
+
+    border: 1px solid#DDE4F0;
+    border-radius: 5.5px;
+    color: #1279C3;
+
+}
+
+.actions .btn-cancel {
+    border: 1px solid #FACDC3;
+    color: #EB2F06;
+    background: #FFF9F8;
+}
+
+.actions .btn-save {
+    border: 1px solid #C5F6DC;
+    color: #20BF6B;
+    background: #F5FFFA;
+}

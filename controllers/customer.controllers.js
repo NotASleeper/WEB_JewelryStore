@@ -30,7 +30,11 @@ const createCustomer = async (req, res) => {
 
 const getAllCustomer = async (req, res) => {
     try {
-        const customerList = await Customer.findAll();
+        const customerList = await Customer.findAll({
+            where: {
+                status: 1,
+            }
+        });
         res.status(200).send(customerList);
     } catch (error) {
         res.status(500).send(error);
@@ -42,7 +46,8 @@ const getDetailCustomer = async (req, res) => {
     try {
         const detailCustomer = await Customer.findOne({
             where: {
-                id,
+                id: id,
+                status: 1,
             }
         });
         res.status(200).send(detailCustomer);

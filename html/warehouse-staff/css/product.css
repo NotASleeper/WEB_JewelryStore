@@ -280,18 +280,18 @@ body {
     margin: 10px;
 }
 
-.table .Edit {
+.table .View {
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
     border-radius: 5.5px;
     color: #1279C3;
 }
 
-.table .Delete {
-    background-color: #FFF9F8;
-    border: 1px solid#FACDC3;
+.table .Import {
+    background-color: #F5FFFA;
+    border: 1px solid#C5F6DC;
     border-radius: 5.5px;
-    color: #EB2F06;
+    color: #20BF6B;
 }
 
 tr:nth-child(odd) {

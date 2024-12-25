@@ -88,9 +88,27 @@ const updateCustomer = async (req, res) => {
     }
 }
 
+const deleteCustomer = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const detailCustomer = await Customer.findOne({
+            where: {
+                id: id,
+                status: 1,
+            }
+        });
+        detailCustomer.status = 0;
+        await detailCustomer.save();
+        res.status(200).send(detailCustomer);
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
 module.exports = {
     createCustomer,
     getAllCustomer,
     getDetailCustomer,
     updateCustomer,
+    deleteCustomer,
 }

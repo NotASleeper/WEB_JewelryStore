@@ -180,6 +180,17 @@ body {
     outline: none;
 }
 
+.filter {
+    height: 24px;
+    width: 24px;
+    margin-left: 10px;
+}
+
+.filter img {
+    height: 24px;
+    width: 24px;
+}
+
 .Date {
     border: black solid 1px;
     background-color: #fff;
@@ -209,26 +220,19 @@ body {
     font-size: 18px;
 }
 
-.filter {
-    height: 24px;
-    width: 24px;
-    margin-left: 10px;
-}
-
-.filter img {
-    height: 24px;
-    width: 24px;
-}
 
 .button-add {
-
+    height: fit-content;
+    width: fit-content;
     background-color: #FBFCFE;
     border-radius: 10px;
     border: none;
     padding: 5px 10px;
     display: flex;
-    right: 10%;
-    position: relative;
+    right: 6%;
+    position: absolute;
+
+    cursor: pointer;
 }
 
 .button-add img {
@@ -242,6 +246,7 @@ body {
     margin-left: 5px;
     font-weight: 500;
 }
+
 
 .content {
     display: flex;

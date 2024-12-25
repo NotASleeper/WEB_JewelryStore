@@ -56,8 +56,41 @@ const getDetailCustomer = async (req, res) => {
     }
 }
 
+const updateCustomer = async (req, res) => {
+    const { id } = req.params;
+    const {
+        name,
+        address,
+        phone,
+        email,
+        birthday,
+        loyalty_point,
+        accumulated_point,
+    } = req.body;
+    try {
+        const detailCustomer = await Customer.findOne({
+            where: {
+                id: id,
+                status: 1,
+            }
+        });
+        detailCustomer.name = name;
+        detailCustomer.address = address;
+        detailCustomer.phone = phone;
+        detailCustomer.email = email;
+        detailCustomer.birthday = birthday;
+        detailCustomer.loyalty_point = loyalty_point;
+        detailCustomer.accumulated_point = accumulated_point;
+        await detailCustomer.save();
+        res.status(200).send(detailCustomer);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     createCustomer,
     getAllCustomer,
     getDetailCustomer,
+    updateCustomer,
 }

@@ -140,6 +140,10 @@ body {
     margin-bottom: 10%;
 }
 
+.main-content{
+    display: flex;
+    margin-top: 10px;
+}
 
 .main-content p {
     font-size: 24px;
@@ -147,6 +151,35 @@ body {
     margin-left: 5%;
     color: #1279C3;
 }
+
+
+.main-content .button-add{
+    height: fit-content;
+    width: fit-content;
+    background-color: #FBFCFE;
+    border-radius: 5px;
+    border: 1px solid #DDE4F0;
+    padding: 5px 20px 5px 20px;
+    display: flex;
+    right: 5%;
+    position: absolute;
+    justify-content: center;
+    
+}
+
+.button-add img{
+    width: 24px;
+    height: 24px;
+}
+
+.button-add p{    
+    color: #1279C3;
+    font-size: medium;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+
 
 .product-container {
     display: flex;
@@ -295,7 +328,6 @@ tr:nth-child(even) {
     font-size: 16px;
     padding: 10px;
     margin-left: 10px;
-
     border: 1px solid#DDE4F0;
     border-radius: 5.5px;
     color: #1279C3;

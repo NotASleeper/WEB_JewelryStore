@@ -219,6 +219,7 @@ body {
     display: flex;
     margin-top: 140px;
     justify-content: center;
+    margin-bottom: 10%;
 }
 
 .table {

@@ -224,20 +224,43 @@ body {
 
 }
 
+.popup-container {
+    position: relative;
+}
+
+.popup-container .filter-button {
+    padding: 8px 16px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+
+}
+
+
+
 .Dashboard-title img {
     height: 10%;
     margin-left: 2%;
 }
 
 .Dashboard-title .Date {
+    position: absolute;
     width: fit-content;
     padding: 15px 20px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     background: white;
-    margin-top: 100px;
     margin-left: 30px;
+    display: none;
+}
+
+.popup-container .Date.active {
+    display: block;
 }
 
 .date-picker-container {
@@ -260,7 +283,7 @@ body {
 }
 
 .Dashboard-title .space-title {
-    width: 55%;
+    width: 75%;
     float: left;
     height: 3%;
 

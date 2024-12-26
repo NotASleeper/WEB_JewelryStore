@@ -77,18 +77,22 @@
         <!-- Dashboard + btn view report -->
         <div class="Dashboard-title">
             <p>Cost</p>
-            <img src="./assets/filter.png" alt="">
-            <div class="Date">
-                <div class="date-picker-container">
-                    <span class="date-picker-label">From</span>
-                    <input type="date" class="date-picker-input">
-                </div>
+            <div class="popup-container">
+                <button class="filter-button" id="filterButton"><img src="./assets/filter.png" alt=""
+                        style="height: 16px;width: 18px;"></button>
+                </button>
+                <div class="Date" id="filterPopup">
+                    <div class="date-picker-container">
+                        <span class="date-picker-label">From</span>
+                        <input type="date" class="date-picker-input">
+                    </div>
 
-                <div class="date-picker-container">
-                    <span class="date-picker-label">To</span>
-                    <input type="date" class="date-picker-input">
-                </div>
+                    <div class="date-picker-container">
+                        <span class="date-picker-label">To</span>
+                        <input type="date" class="date-picker-input">
+                    </div>
 
+                </div>
             </div>
             <div class="space-title"></div>
             <button><img src="./assets/export.png" alt="">Export</button>
@@ -139,7 +143,7 @@
             </tbody>
         </table>
     </div>
-
+    <script src="./javascript/basic-popup.js"></script>
 </body>
 <script>
     function redirectToNewPage(newPage) {

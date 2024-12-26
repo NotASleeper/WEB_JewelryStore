@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury store</title>
+    <title>Luxora</title>
     <link rel="stylesheet" href="./css/report.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 
@@ -81,19 +82,14 @@
             <button class="inner">Monthly</button>
             <button class="inner">Annually</button>
             <div class="Date">
-                <div class="from">
-                    <p style="color:black; font-size:16px;">From</p>
-                    <div class="date-picker">
-                        <input type="date">
-                        <span class="calendar-icon"></span>
-                    </div>
+                <div class="date-picker-container">
+                    <span class="date-picker-label">From</span>
+                    <input type="date" class="date-picker-input">
                 </div>
-                <div class="to">
-                    <p style="color:black; font-size:16px;">To</p>
-                    <div class="date-picker">
-                        <input type="date">
-                        <span class="calendar-icon"></span>
-                    </div>
+
+                <div class="date-picker-container">
+                    <span class="date-picker-label">To</span>
+                    <input type="date" class="date-picker-input">
                 </div>
 
             </div>
@@ -124,10 +120,13 @@
                     <p> vs last week</p>
                 </div>
             </div>
+
         </div>
 
         <!-- revenue chart by time -->
-        <div class="graph"></div>
+        <div class="Linegraph">
+            <canvas id="myLineChart"></canvas>
+        </div>
         <!-- Best sales best sellers bill -->
         <p style="font-size: 20px; margin-left:5%; margin-bottom:1%;">Income and expenses</p>
         <table class="Product">
@@ -180,6 +179,63 @@
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
+
+    const ctxLine = document.getElementById('myLineChart').getContext('2d');
+    new Chart(ctxLine, {
+        type: 'line',
+        data: {
+            labels: ['01', '02', '03', '04', '05', '06', '07'],
+            datasets: [{
+                label: 'This week',
+                data: [80, 70, 85, 90, 75, 65, 88],
+                borderColor: '#1279C3',
+                backgroundColor: '#1279C3',
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: '#1279C3'
+            }, {
+                label: 'Last week',
+                data: [65, 68, 60, 65, 70, 75, 62],
+                borderColor: '#E0E0E0',
+                backgroundColor: '#E0E0E0',
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: '#E0E0E0'
+            }]
+        }, options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        padding: 20
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        padding: 10
+                    }
+                },
+                y: {
+                    display: false,
+                    beginAtZero: true
+                }
+            },
+            elements: {
+                line: {
+                    borderWidth: 2
+                }
+            }
+        }
+    });
 </script>
 
 </html>

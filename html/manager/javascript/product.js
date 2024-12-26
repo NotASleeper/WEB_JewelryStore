@@ -38,3 +38,4 @@ document.addEventListener('click', (e) => {
         filterPopup.classList.remove('active');
     }
 });
+

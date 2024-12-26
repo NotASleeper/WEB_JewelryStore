@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxora</title>
+    <link rel="stylesheet" href="./css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')">
+                    <img src="./assets/icons/logo.png" alt="" class="name">
+                    <p>Luxora</p>
+                </div>
+
+            </div>
+            <div class="container_nav">
+                <div class="nav">
+                    <ul>
+                        <li class="nav-item" id="nav_dashboard">
+                            <a href="dashboard.html">
+                                <img src="./assets/icons/product.png" style="height: 16px; width: 16px;"
+                                    alt="dashboard">
+                                Product
+                            </a>
+                        </li>
+                        <li class="nav-item" id="nav_service">
+                            <a href="pre-order.html">
+                                <img src="./assets/icons/import.png" style="height: 16px; width: 16px;" alt="dashboard">
+                                Warehouse receipt
+                            </a>
+                        </li>
+                        <li class="nav-selected" id="nav_customer">
+                            <a href="customer.html">
+                                <img src="./assets/icons/export.png" style="height: 16px; width: 16px;" alt="dashboard">
+                                Export
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-container">
+                <img src="./assets/icons/cart_ic.png" alt="Cart" />
+                <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
+                <a class="user" href="profile.html">
+                    <img src="./assets/images/avt.png" alt="avatar" />
+                    Employee
+                </a>
+                <img src="./assets/icons/logout_ic.png" alt="Log out" />
+            </div>
+        </div>
+
+        <div class="header-space" style="height: 200px; position: relative;"></div>
+        <div class="Dashboard-title">
+            <p>Profile</p>
+        </div>
+        <div class="container" style="margin-left: 20%;">
+            <div class="input-container">
+                <div class="name-input">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Employee1" name="name">
+                </div>
+                <div class="address-input">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="26/8 Trương Định, Bến Thành, Quận 1, TP. Hồ Chí Minh"
+                        name="address">
+                </div>
+                <div class="phone-birthday-input">
+                    <div class="phone-input">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" placeholder="0123456789" name="phone">
+                    </div>
+                    <div class="birthday-input">
+                        <label for="birthday">Birthday</label>
+                        <input type="text" id="birthday" placeholder="21/04/1999" name="birthday">
+                    </div>
+                </div>
+                <div class="email-input">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" placeholder="em1@gmail.com" name="email">
+                </div>
+                <div class="position-input">
+                    <label for="position">Position</label>
+                    <input type="text" id="position" placeholder="Manager" name="position">
+                </div>
+                <div class="username-input">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="admin123" name="username">
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="avatar-container">
+                    <div class="avatar">
+                        <img src="./assets/images/avatar.jpg" alt="Avatar" id="avatar">
+                    </div>
+                    <button class="edit-avatar"><img src="./assets/icons/editimage.png" alt="">Edit avatar</button>
+                </div>
+                <div class="space"></div>
+                <div class="edit-btn">
+                    <button>Change password</button>
+                    <button>Edit</button>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    function redirectToNewPage(newPage) {
+        window.location.href = newPage;
+    }
+</script>

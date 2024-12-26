@@ -233,7 +233,6 @@ body {
 
 .popup-container {
     position: relative;
-    display: inline-block;
 }
 
 .popup-container .filter-button {
@@ -244,6 +243,7 @@ body {
     display: flex;
     align-items: center;
     gap: 4px;
+
 }
 
 .popup-container .popup {
@@ -256,8 +256,7 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border: 1px solid #eee;
-    /* display: none; */
-    z-index: 100;
+    display: none;
 }
 
 .popup-container .popup.active {

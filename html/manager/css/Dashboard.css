@@ -290,8 +290,9 @@ body {
 
 .graph {
     display: flex;
-    width: 100%;
-    height: 30%;
+    width: 1200px;
+    height: 400px;
+    margin: 20px auto;
 }
 
 .conclusion {
@@ -303,7 +304,7 @@ body {
 
 .conclusion .best-sales {
     display: flex;
-    width: 20%;
+    width: 25%;
     border-top: 1px solid #1279C3;
     border-right: 1px solid #1279C3;
     margin-left: 5%;
@@ -354,7 +355,7 @@ body {
 
 .conclusion .best-sellers {
     display: flex;
-    width: 20%;
+    width: 25%;
     border-top: 1px solid #1279C3;
     border-right: 1px solid #1279C3;
     flex-direction: column;
@@ -398,4 +399,33 @@ body {
     margin-right: 5%;
     flex-direction: column;
 
+}
+
+.bill-changes {
+    display: flex;
+    flex-direction: row;
+}
+
+.bill-changes p {
+    display: flex;
+    letter-spacing: 1px;
+    opacity: 50%;
+}
+
+.bill-changes #percent {
+    color: #F42525 !important;
+    opacity: 1 !important;
+}
+
+.bill-changes i {
+    display: flex;
+    margin-top: 5px;
+    color: #F42525;
+}
+
+.bill .Linegraph {
+    display: flex;
+    width: 90%;
+    height: 100%;
+    margin: 20px auto;
 }

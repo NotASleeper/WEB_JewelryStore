@@ -3,23 +3,23 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class PositionStaff extends Model {
+  class PositionEmployee extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Staff }) {
+    static associate({ Employee }) {
       // define association here
-      this.hasMany(Staff, { foreignKey: "id_position" });
+      this.hasMany(Employee, { foreignKey: "id_position" });
     }
   }
-  PositionStaff.init({
+  PositionEmployee.init({
     name_position: DataTypes.STRING,
     status: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'PositionStaff',
+    modelName: 'PositionEmployee',
   });
-  return PositionStaff;
+  return PositionEmployee;
 };

@@ -9,16 +9,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_staff_created: {
+      id_employee_created: {
         references: {
-          model: "staffs",
+          model: "employees",
           key: "id",
         },
         type: Sequelize.INTEGER
       },
-      id_staff_accepted: {
+      id_employee_accepted: {
         references: {
-          model: "staffs",
+          model: "employees",
           key: "id",
         },
         type: Sequelize.INTEGER

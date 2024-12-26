@@ -19,9 +19,9 @@ module.exports = {
       date_created: {
         type: Sequelize.DATE
       },
-      id_staff: {
+      id_employee: {
         references: {
-          model: "staffs",
+          model: "employees",
           references: "id",
         },
         type: Sequelize.INTEGER

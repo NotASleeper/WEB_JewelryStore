@@ -34,9 +34,7 @@ body {
 /* Left Container */
 .left-Container {
     display: flex;
-    position: fixed;
-    left: 0;
-    top: 0;
+    position: relative;
     width: 15%;
     min-width: 200px;
     background-color: #1279C3;
@@ -432,6 +430,10 @@ body {
         left: 0;
         top: 0;
         transform: translateX(-100%);
+        position: fixed;
+        /* Đảm bảo sidebar luôn visible */
+        left: 0;
+        top: 0;
     }
 
     .left-Container.show {

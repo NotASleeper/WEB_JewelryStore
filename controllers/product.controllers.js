@@ -3,6 +3,7 @@ const { Product } = require('../models');
 const createProduct = async (req, res) => {
     const {
         name,
+        id_category,
         gold_age,
         size,
         weight,
@@ -13,6 +14,7 @@ const createProduct = async (req, res) => {
     try {
         const newProduct = await Product.create({
             name,
+            id_category,
             gold_age,
             size,
             weight,
@@ -58,6 +60,7 @@ const updateProduct = async (req, res) => {
     const { id } = req.params;
     const {
         name,
+        id_category,
         gold_age,
         size,
         weight,
@@ -72,6 +75,7 @@ const updateProduct = async (req, res) => {
             }
         });
         detailProduct.name = name;
+        detailProduct.id_category = id_category;
         detailProduct.gold_age = gold_age;
         detailProduct.size = size;
         detailProduct.weight = weight;

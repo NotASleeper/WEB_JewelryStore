@@ -13,20 +13,42 @@ body {
     position: relative;
     display: flex;
     flex-direction: row;
+    min-height: 100vh;
 }
 
-/* phần dashboard */
+/* Menu Toggle Button - Hidden by default, shown on mobile */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #1279C3;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+}
+
+/* Left Container */
 .left-Container {
     display: flex;
-    position: relative;
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 15%;
+    min-width: 200px;
     background-color: #1279C3;
     flex-direction: column;
+    z-index: 1;
+    transition: all 0.3s ease;
+    min-height: 100vh;
 }
 
 .logo {
     display: flex;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
 }
 
 .logo-icon {
@@ -40,7 +62,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .logo-icon .name {
@@ -82,6 +103,7 @@ body {
     border-radius: 5px;
     align-items: center;
     opacity: 0.3;
+    transition: all 0.3s ease;
 }
 
 .nav-options .option1 {
@@ -106,34 +128,34 @@ body {
     height: 24px;
     display: flex;
     margin: 0 10%;
-
 }
 
-/* phần nội dung page */
+/* Right Container */
 .right-Container {
     display: flex;
     position: relative;
     width: 85%;
     flex-direction: column;
-
+    flex: 1;
 }
 
+/* Header Section */
 .header {
     display: flex;
     position: relative;
     flex-direction: row;
     width: 100%;
     height: 10%;
+    padding: 15px;
 }
 
 .search-container {
     display: flex;
     position: relative;
     width: 50%;
-    height: 40%;
+    height: 40px;
     margin-top: 3%;
     margin-left: 5%;
-
 }
 
 .search-container input[type="text"] {
@@ -144,7 +166,6 @@ body {
     outline: none;
     border-radius: 5px 0 0 5px;
     background-color: rgba(18, 121, 195, 0.1);
-
 }
 
 .search-container button {
@@ -160,14 +181,12 @@ body {
     width: 50%;
     float: left;
     height: 3%;
-
 }
 
 .space-title {
     width: 30%;
     float: left;
     height: 3%;
-
 }
 
 .avt-notice {
@@ -175,14 +194,13 @@ body {
     width: 20%;
     clear: both;
     height: 3%;
-
-
 }
 
 .avt-content {
     display: flex;
     flex-direction: row;
     margin-top: 6%;
+    align-items: center;
 }
 
 .avt-content button {
@@ -213,12 +231,14 @@ body {
     margin-right: 12%;
 }
 
+/* Dashboard Title Section */
 .Dashboard-title {
     position: relative;
     display: flex;
     flex-direction: row;
     height: 10%;
     align-items: center;
+    padding: 20px;
 }
 
 .Dashboard-title p {
@@ -226,7 +246,6 @@ body {
     font-weight: semi-bold;
     margin-left: 5%;
     color: #1279C3;
-
 }
 
 .Dashboard-title button {
@@ -236,20 +255,19 @@ body {
     font-size: 15px;
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
-    padding: 0.5% 1%;
+    padding: 8px 16px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     cursor: pointer;
-
     border-radius: 4px;
-
 }
 
+/* Revenue Section */
 .revenue {
     display: flex;
     flex-direction: column;
     margin-left: 5%;
+    padding: 20px;
 }
 
 #r {
@@ -265,15 +283,15 @@ body {
 .fluctuation {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 5px;
 }
 
 .fluctuation i {
-    display: flex;
     color: #149D52;
 }
 
 .fluctuation p {
-    display: flex;
     letter-spacing: 1px;
     opacity: 50%;
 }
@@ -288,126 +306,91 @@ body {
     margin-top: 0.5%;
 }
 
+/* Graph Section */
 .graph {
-    display: flex;
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     height: 400px;
     margin: 20px auto;
+    padding: 0 20px;
 }
 
+/* Conclusion Section */
 .conclusion {
     display: flex;
     flex-direction: row;
-    height: 40%;
-
+    height: auto;
+    padding: 20px;
+    gap: 20px;
 }
 
-.conclusion .best-sales {
-    display: flex;
-    width: 25%;
+.best-sales,
+.best-sellers {
+    flex: 1;
+    min-width: 300px;
     border-top: 1px solid #1279C3;
     border-right: 1px solid #1279C3;
-    margin-left: 5%;
-    flex-direction: column;
-
+    padding: 20px;
 }
 
-.conclusion .best-sales #date,
-.conclusion .best-sellers #date {
+.best-sales #date,
+.best-sellers #date {
     margin-bottom: 5%;
 }
 
-
-.conclusion .best-sales ul li {
+.best-sales ul li,
+.best-sellers ul li {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #1279C3;
-    margin-left: 5%;
-    padding-bottom: 4%;
-    padding-top: 5%;
-    margin-right: 5%;
+    padding: 15px 0;
     align-items: center;
-
 }
 
-.conclusion .best-sales ul #last {
+.best-sales ul #last,
+.best-sellers ul #last {
     border: 0 !important;
 }
 
-.conclusion .best-sales .title,
-.conclusion .best-sellers .title,
-.conclusion .bill .title {
+.best-sales .title,
+.best-sellers .title,
+.bill .title {
     font-size: 22px;
-
+    margin-bottom: 15px;
 }
 
-.conclusion .best-sales ul li img {
+.best-sales ul li img,
+.best-sellers ul li img {
     width: 10%;
+    min-width: 30px;
 }
 
-.conclusion .best-sales ul li #name {
+.best-sales ul li #name,
+.best-sellers ul li #name {
     margin-left: 2%;
+    flex: 1;
 }
 
-.conclusion .best-sales ul li div {
-    width: 38%;
+.space.between {
+    flex: 1;
 }
 
-.conclusion .best-sellers {
-    display: flex;
-    width: 25%;
+/* Bill Section */
+.bill {
+    flex: 1.5;
+    min-width: 350px;
     border-top: 1px solid #1279C3;
-    border-right: 1px solid #1279C3;
-    flex-direction: column;
-    padding-left: 1%;
-}
-
-.conclusion .best-sellers ul li {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid #1279C3;
-    padding-left: 5%;
-    padding-bottom: 5%;
-    padding-top: 5%;
-    align-items: center;
-    margin-right: 5%;
-
-}
-
-.conclusion .best-sellers ul #last {
-    border: 0 !important;
-}
-
-.conclusion .best-sellers ul li img {
-    width: 10%;
-}
-
-.conclusion .best-sellers ul li #name {
-    margin-left: 2%;
-}
-
-.conclusion .best-sellers ul li div {
-    width: 38%;
-}
-
-
-.conclusion .bill {
-    display: flex;
-    width: 40%;
-    border-top: 1px solid #1279C3;
-
-    margin-right: 5%;
-    flex-direction: column;
-
+    padding: 20px;
 }
 
 .bill-changes {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 5px;
 }
 
 .bill-changes p {
-    display: flex;
     letter-spacing: 1px;
     opacity: 50%;
 }
@@ -418,14 +401,225 @@ body {
 }
 
 .bill-changes i {
-    display: flex;
-    margin-top: 5px;
     color: #F42525;
 }
 
 .bill .Linegraph {
-    display: flex;
-    width: 90%;
-    height: 100%;
+    width: 100%;
+    height: 200px;
     margin: 20px auto;
+}
+
+/* Tablet Breakpoint */
+@media screen and (max-width: 1024px) {
+    body {
+        flex-direction: column;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /*Tắt bật sideba*/
+    .left-Container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 15%;
+        background-color: #1279C3;
+        position: fixed;
+        /* Đảm bảo sidebar luôn visible */
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+    }
+
+    .left-Container.show {
+        transform: translateX(0);
+    }
+
+    /* Logo section */
+    .logo {
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-icon img {
+        width: 50px;
+        height: auto;
+    }
+
+    /* Navigation container */
+    .navcontainer {
+        flex: 1;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .nav-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 15px;
+    }
+
+    .nav-options li {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        border-radius: 5px;
+        opacity: 0.3;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-options li img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+    }
+
+    .nav-options li a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    /* Active and hover states */
+    .nav-options li:hover,
+    .nav-options li.active {
+        background-color: rgba(18, 18, 18, 0.1);
+        opacity: 1;
+    }
+
+    /* Right container adjustment */
+    .right-Container {
+        margin-left: 15%;
+        /* Tương ứng với width của sidebar */
+        width: 85%;
+    }
+
+    .conclusion {
+        flex-direction: column;
+    }
+
+    .best-sales,
+    .best-sellers,
+    .bill {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #1279C3;
+    }
+}
+
+/* Mobile Breakpoint */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .search-container {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .avt-notice {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .avt-content {
+        justify-content: center;
+    }
+
+    .Dashboard-title {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .Dashboard-title p {
+        margin: 10px 0;
+    }
+
+    .Dashboard-title button {
+        margin: 10px 0;
+    }
+
+    .revenue {
+        text-align: center;
+    }
+
+    .fluctuation {
+        justify-content: center;
+    }
+
+    .graph {
+        height: 300px;
+    }
+
+    .best-sales ul li,
+    .best-sellers ul li {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .best-sales ul li img,
+    .best-sellers ul li img {
+        width: 20%;
+        margin-bottom: 10px;
+    }
+
+    .best-sales ul li #name,
+    .best-sellers ul li #name,
+    .best-sales ul li #ammount,
+    .best-sellers ul li #ammount {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
+
+/* Small Mobile Breakpoint */
+@media screen and (max-width: 480px) {
+    .graph {
+        height: 250px;
+    }
+
+    .best-sales,
+    .best-sellers,
+    .bill {
+        padding: 15px;
+    }
+
+    .best-sales .title,
+    .best-sellers .title,
+    .bill .title {
+        font-size: 18px;
+    }
+
+    #total {
+        font-size: 20px;
+    }
+
+    .Dashboard-title p {
+        font-size: 20px;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+}
+
+/* Chart Responsiveness */
+canvas {
+    width: 100% !important;
+    height: auto !important;
 }

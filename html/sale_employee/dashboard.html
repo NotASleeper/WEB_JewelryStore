@@ -13,15 +13,11 @@
     <div class="layout">
         <div class="header">
             <div class="logo">
-                <div class="logo-icon" onclick="redirectToNewPage()">
+                <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')">
                     <img src="./assets/icons/logo.png" alt="" class="name">
                     <p>Luxora</p>
                 </div>
-                <script>
-                    function redirectToNewPage() {
-                        window.location.href = "dashboard.html";
-                    }
-                </script>
+                
             </div>
             <div class="container_nav">
                 <div class="nav">
@@ -54,53 +50,51 @@
                     <img src="./assets/images/avt.png" alt="avatar" />
                     Employee
                 </a>
-                <img src="./assets/icons/logout_ic.png" alt="Log out" />
+                <img id="logout-ic" src="./assets/icons/logout_ic.png" alt="Log out" />
             </div>
         </div>
         <div class="searchbar">
             <div class="searchinput">
                 <input id="searchInfo" placeholder="Search Product Here">
-                <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+                <i id="searchic" class="fas fa-search"></i> <!-- Font Awesome Icon -->
             </div>
         </div>
         <div class="content">
             <div class="container">
                 <div class="filter">
                     <span><b>Filter</b></span>
-                    <a href="#" class="filter">Reset filter</a>
+                    <a id="resetFilter" href="#" class="filter">Reset filter</a>
                 </div>
                 <div class="category">
                     <div>
                         <span>Category</span>
-                        <img src="./assets/icons/delete_ic_1.png" alt="Delete" />
                     </div>
                     <hr>
-                    <ul class="menu">
-                        <li class="item"><a href="#">Necklace</a></li>
-                        <li class="item"><a href="#">Ring</a></li>
-                        <li class="item"><a href="#">Bracelet</a></li>
-                        <li class="item"><a href="#">Anklet</a></li>
-                        <li class="item"><a href="#">Brooch</a></li>
-                        <li class="item"><a href="#">Hairs</a> accessories</li>
-                        <li class="item"><a href="#">Others</a></li>
+                    <ul class="menu" id="category-list">
+                        <li class="item" data-category="CATE01"><a href="#">Necklace</a></li>
+                        <li class="item" data-category="CATE02"><a href="#">Ring</a></li>
+                        <li class="item" data-category="CATE03"><a href="#">Bracelet</a></li>
+                        <li class="item" data-category="CATE04"><a href="#">Anklet</a></li>
+                        <li class="item" data-category="CATE05"><a href="#">Brooch</a></li>
+                        <li class="item" data-category="CATE06"><a href="#">Hairs accessories</a></li>
+                        <li class="item" data-category="CATE07"><a href="#">Others</a></li>
                     </ul>
                 </div>
                 <div class="category">
                     <div>
                         <span>Price</span>
-                        <img src="./assets/icons/delete_ic_1.png" alt="Delete" />
                     </div>
                     <hr>
                     <div class="slider-container">
                         <div class="slider-value">
                             <span id="lower-value"
-                                style="background-color: #1279C3; color: #fff; border-radius: 8px; padding: 5px;">1,000,000</span>
+                                style="background-color: #1279C3; color: #fff; border-radius: 8px; padding: 5px;">0</span>
                             <span id="upper-value"
                                 style="background-color: #1279C3; color: #fff; border-radius: 8px; padding: 5px;">6,000,000</span>
                         </div>
 
-                        <input type="range" min="0" max="10000000" value="1000000" class="slider" id="lower">
-                        <input type="range" min="0" max="10000000" value="6000000" class="slider" id="upper">
+                        <input type="range" min="0" max="10000000" value="0" class="slider" id="lower">
+                        <input type="range" min="0" max="10000000" value="10000000" class="slider" id="upper">
                         <div class="slider-track"></div>
                         <div class="slider-value">
                             <span id="min-value">0</span>
@@ -114,6 +108,16 @@
                 <div id="products" class="products">
                     
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="logout_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Log out</h3>
+            <p>Do you really want to log out?</p>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelButton" class="cancel">Cancel</button>
+                <button id="confirmButton" class="ok">Ok</button>
             </div>
         </div>
     </div>

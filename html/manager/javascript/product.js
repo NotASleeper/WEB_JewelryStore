@@ -1,6 +1,26 @@
+function redirectToNewPage(newPage) {
+    window.location.href = newPage;
+}
 function formatPrice(price) {
     return new Intl.NumberFormat().format(price);
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const leftContainer = document.querySelector('.left-Container');
+
+    // Toggle menu khi click button
+    menuToggle.addEventListener('click', () => {
+        leftContainer.classList.toggle('show');
+    });
+
+    // Đóng menu khi click ra ngoài
+    document.addEventListener('click', (event) => {
+        if (!leftContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+            leftContainer.classList.remove('show');
+        }
+    });
+});
 
 function updatePriceBubble(input, bubble) {
     const value = input.value;

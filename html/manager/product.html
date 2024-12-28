@@ -11,6 +11,9 @@
 
 
 <body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <div class="left-Container">
         <div class="logo">
             <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
@@ -76,45 +79,45 @@
 
         <!-- Dashboard + btn view report -->
         <div class="Dashboard-title">
-            <p>Product</p>
+            <div class="dashboard-left">
+                <p>Product</p>
+                <div class="popup-container">
+                    <button class="filter-button" id="filterButton"><img src="./assets/filter.png" alt=""
+                            style="height: 16px;width: 18px;"></button>
 
-
-            <div class="popup-container">
-                <button class="filter-button" id="filterButton"><img src="./assets/filter.png" alt=""
-                        style="height: 16px;width: 18px;"></button>
-
-                <div class="popup" id="filterPopup">
-                    <div class="form-group">
-                        <label>Category</label>
-                        <div class="select-wrapper">
-                            <select>
-                                <option>All</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Min price</label>
-                        <div class="range-wrapper">
-                            <div class="price-bubble" id="minPriceBubble">6,000,000</div>
-                            <input type="range" class="range-input" id="minPrice" min="0" max="10000000"
-                                value="6000000">
-                            <div class="range-labels">
-                                <span>0</span>
-                                <span>10,000,000</span>
+                    <div class="popup" id="filterPopup">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <div class="select-wrapper">
+                                <select>
+                                    <option>All</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label>Max price</label>
-                        <div class="range-wrapper">
-                            <div class="price-bubble" id="maxPriceBubble">6,000,000</div>
-                            <input type="range" class="range-input" id="maxPrice" min="0" max="10000000"
-                                value="6000000">
-                            <div class="range-labels">
-                                <span>0</span>
-                                <span>10,000,000</span>
+                        <div class="form-group">
+                            <label>Min price</label>
+                            <div class="range-wrapper">
+                                <div class="price-bubble" id="minPriceBubble">6,000,000</div>
+                                <input type="range" class="range-input" id="minPrice" min="0" max="10000000"
+                                    value="6000000">
+                                <div class="range-labels">
+                                    <span>0</span>
+                                    <span>10,000,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Max price</label>
+                            <div class="range-wrapper">
+                                <div class="price-bubble" id="maxPriceBubble">6,000,000</div>
+                                <input type="range" class="range-input" id="maxPrice" min="0" max="10000000"
+                                    value="6000000">
+                                <div class="range-labels">
+                                    <span>0</span>
+                                    <span>10,000,000</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,7 +134,7 @@
 
         </div>
 
-        <table class="Product">
+        <table class="table">
             <thead class="test">
                 <tr>
                     <th id="ID">ID</th>

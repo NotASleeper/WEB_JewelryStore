@@ -1,4 +1,4 @@
-const { Product, Inventory } = require('../models');
+const { Product, Inventory, ProductCategory } = require('../models');
 
 //Lấy product và số lượng
 const getProductWithQuantity = async (id) => {
@@ -149,10 +149,68 @@ const deleteProduct = async (req, res) => {
     }
 }
 
+const getProductByCategoryID = async (req, res) => {
+    const { id_category } = req.params;
+    try {
+        const productList = await Product.findAll({
+            include: [{
+                model: Inventory,
+                attributes: ['quantity']
+            }, {
+                model: ProductCategory,
+                attributes: ['name']
+            }],
+            where: {
+                id_category: id_category,
+                status: 1,
+            }
+        });
+
+        res.status(200).send(productList);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
+const getProductByCategoryName = async (req, res) => {
+    const { category_name } = req.params;
+    try {
+        const category = await ProductCategory.findOne({
+            where: {
+                name: category_name,
+            }
+        })
+
+        if (!category) {
+            return res.status(404).send({ message: 'Category not found' });
+        }
+
+        const productList = await Product.findAll({
+            include: [{
+                model: Inventory,
+                attributes: ['quantity']
+            }, {
+                model: ProductCategory,
+                attributes: ['name']
+            }],
+            where: {
+                id_category: category.id,
+                status: 1,
+            }
+        });
+
+        res.status(200).send(productList);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     createProduct,
     getAllProduct,
     getDetailProduct,
     updateProduct,
     deleteProduct,
+    getProductByCategoryID,
+    getProductByCategoryName
 }

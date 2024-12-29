@@ -270,6 +270,12 @@ body {
     color: #1279C3;
 }
 
+.actions .btn-update {
+    border: 1px solid #C5F6DC;
+    color: #20BF6B;
+    background: #F5FFFA;
+}
+
 .actions .btn-cancel {
     border: 1px solid #FACDC3;
     color: #EB2F06;

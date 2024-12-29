@@ -418,21 +418,32 @@ tr:nth-child(even) {
 }
 
 @media screen and (max-width: 480px) {
-    .header {
-        padding: 15px;
-    }
-
     .menu-toggle {
-        top: 10px;
-        left: 10px;
+        top: 2%;
+        display: block;
     }
 
-    .avt-content .username {
-        display: none;
+    .header {
+        flex-direction: column;
+    }
+
+    .search-container {
+        width: 80%;
+        left: 10%;
+    }
+
+    .avt-content {
+        left: 10%;
+        margin-left: 10%;
     }
 
     .Dashboard-title .p {
         font-size: 20px;
+    }
+
+    .search-container {
+        width: 80%;
+        left: 10%;
     }
 
     .table-wrapper {
@@ -520,35 +531,5 @@ tr:nth-child(even) {
     .table .Delete {
         width: 60px;
         font-size: 11px;
-    }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-    }
-
-    .right-Container {
-        background-color: #121212;
-    }
-
-    .search-container input[type="text"],
-    .search-container button {
-        background-color: #1e1e1e;
-        color: #e0e0e0;
-    }
-
-    .table td {
-        color: #e0e0e0;
-    }
-
-    tr:nth-child(even) {
-        background-color: #1e1e1e;
-    }
-
-    .Dashboard-title button {
-        background-color: #1e1e1e;
-        border-color: #333;
     }
 }

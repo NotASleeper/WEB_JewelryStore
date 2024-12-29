@@ -270,23 +270,9 @@ body {
     border-radius: 10px;
 }
 
-.Dashboard-title button {
-    margin-left: 40%;
-    color: #1279C3;
-    letter-spacing: 0.5px;
-    font-size: 15px;
-    background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    padding: 0.5% 1%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 4px;
-}
 
 .Dashboard-title .export {
-    margin-left: 40%;
+    margin-left: 42%;
     color: #1279C3;
     letter-spacing: 0.5px;
     font-size: 15px;
@@ -524,6 +510,10 @@ tr:nth-child(even) {
         margin-left: 0;
     }
 
+    .Dashboard-title .export {
+        margin-left: 20%;
+    }
+
     .info .revenue,
     .info .cost {
         width: 25%;
@@ -532,6 +522,20 @@ tr:nth-child(even) {
     .Linegraph {
         width: 90%;
     }
+}
+
+@media screen and (max-width: 1000px) {
+    .Dashboard-title .export {
+        margin-left: 10%;
+    }
+
+}
+
+@media screen and (max-width: 820px) {
+    .Dashboard-title .export {
+        margin-left: 5%;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -612,8 +616,18 @@ tr:nth-child(even) {
 }
 
 @media screen and (max-width: 480px) {
+    .menu-toggle {
+        top: 2%;
+        display: block;
+    }
+
     .Dashboard-title p {
         font-size: 20px;
+    }
+
+    .search-container {
+        width: 80%;
+        left: 10%;
     }
 
     .date-picker-container {

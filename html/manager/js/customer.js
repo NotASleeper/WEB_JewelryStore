@@ -1,21 +1,56 @@
 const getAllCustomer = async () => {
     try {
-        const response = await fetch('http://localhost:5501/api/v1/customers/', {});
+        const response = await fetch('http://localhost:5501/api/v1/customers');
         const data = await response.json();
         data.forEach(customer => {
             var date = new Date(customer.birthday).toISOString().split('T')[0];
-            const markup = `
-                    <tr>
-                        <td id="ID1">${customer.name}</td>
-                        <td id="name">${customer.address}</td>
-                        <td>${customer.phone}</td>
-                        <td>${customer.email}</td>
-                        <td>${date}</td>
-                        <td>${customer.loyalty_point}</td>
-                        <td id="action"><button class="Edit">Edit</button> <button class="Delete">Delete</button></td>
-                    </tr>
-                    `;
-            document.querySelector('tbody').insertAdjacentHTML('beforeend', markup);
+            const row = document.createElement('tr');
+
+            const nameCell = document.createElement('td');
+            nameCell.id = "ID1";
+            nameCell.textContent = customer.name;
+            row.appendChild(nameCell);
+
+            const addressCell = document.createElement('td');
+            addressCell.id = "name";
+            addressCell.textContent = customer.address;
+            row.appendChild(addressCell);
+
+            const phoneCell = document.createElement('td');
+            phoneCell.textContent = customer.phone;
+            row.appendChild(phoneCell);
+
+            const emailCell = document.createElement('td');
+            emailCell.textContent = customer.email;
+            row.appendChild(emailCell);
+
+            const birthdayCell = document.createElement('td');
+            birthdayCell.textContent = date;
+            row.appendChild(birthdayCell);
+
+            const loyaltyCell = document.createElement('td');
+            loyaltyCell.textContent = customer.loyalty_point;
+            row.appendChild(loyaltyCell);
+
+            const actionCell = document.createElement('td');
+            actionCell.id = "action";
+
+            const editButton = document.createElement('button');
+            editButton.className = 'Edit';
+            editButton.textContent = 'Edit';
+            editButton.addEventListener('click', () => {
+                window.location.href = "customer-info.html?id=" + customer.id;
+            })
+            actionCell.appendChild(editButton);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'Delete';
+            deleteButton.textContent = 'Delete';
+            actionCell.appendChild(deleteButton);
+
+            row.appendChild(actionCell);
+
+            document.querySelector('tbody').appendChild(row);
         })
 
         console.log("Succeeded");

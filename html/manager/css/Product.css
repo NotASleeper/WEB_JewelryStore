@@ -401,7 +401,13 @@ select {
     color: white;
     font-weight: 500;
     padding: 15px;
-    text-align: left;
+    text-align: center;
+    justify-content: center;
+}
+
+.table #ID,
+.table #name {
+    text-align: left !important;
 }
 
 .table th:first-child {
@@ -414,7 +420,7 @@ select {
 
 .table td {
     padding: 15px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
 }
 

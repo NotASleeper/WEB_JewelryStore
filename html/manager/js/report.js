@@ -2,6 +2,22 @@ function redirectToNewPage(newPage) {
     window.location.href = newPage;
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const leftContainer = document.querySelector('.left-Container');
+
+    // Toggle menu khi click button
+    menuToggle.addEventListener('click', () => {
+        leftContainer.classList.toggle('show');
+    });
+
+    // Đóng menu khi click ra ngoài
+    document.addEventListener('click', (event) => {
+        if (!leftContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+            leftContainer.classList.remove('show');
+        }
+    });
+});
 const ctxLine = document.getElementById('myLineChart').getContext('2d');
 new Chart(ctxLine, {
     type: 'line',

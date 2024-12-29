@@ -2,11 +2,6 @@ const getAllCustomer = async () => {
     try {
         const response = await fetch('http://localhost:5501/api/v1/customers');
         const data = await response.json();
-        console.log(response);
-        console.log(data);
-
-
-
         data.forEach(customer => {
             var date = new Date(customer.birthday).toISOString().split('T')[0];
             const row = document.createElement('tr');
@@ -43,6 +38,9 @@ const getAllCustomer = async () => {
             const editButton = document.createElement('button');
             editButton.className = 'Edit';
             editButton.textContent = 'Edit';
+            editButton.addEventListener('click', () => {
+                window.location.href = "customer-info.html?id=" + customer.id;
+            })
             actionCell.appendChild(editButton);
 
             const deleteButton = document.createElement('button');

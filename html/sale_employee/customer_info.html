@@ -63,32 +63,32 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Name:</label>
-                                    <input type="text" value="">
+                                    <input type="text" id="name" readonly required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Address: </label>
-                                    <input type="text" value=" ">
+                                    <input type="text" id="address" readonly required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Phone number:</label>
-                                    <input type="text" value="">
+                                    <input type="text" value="" id="phone" readonly required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Email:</label>
-                                    <input type="text" value="">
+                                    <input type="text" value="" id="email" readonly required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Birthday:</label>
                                     <div class="input-container">
-                                        <input type="text" value="01/01/1999" class="input-field">
+                                        <input lang=vi" type="date" class="input-field" id="birthday" readonly required>
                                     </div>
                                 </div>
                             </div>
@@ -99,79 +99,44 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Loyalty point:</label>
-                                    <input type="text" value="202130">
+                                    <input id="loyalty" type="text" value="202130" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Accumulated point: </label>
-                                    <input type="text" value="14000">
+                                    <input id="Accumulated" type="text" value="14000" readonly>
                                 </div>
                             </div>
                             <div class="space-form" style="height:50px"></div>
-                            <div class="actions">
-                                <button class="btn btn-edit">Edit</button>
-                                <button class="btn btn-cancel">Delete</button>
+                            <div class="actions" id="viewmode">
+                                <button class="btn btn-edit" id="editCustomer">Edit</button>
+                                <button class="btn btn-cancel" id="deleteCustomer">Delete</button>
+                            </div>
+                            <div class="actions" id="editmode" style="display: none;">
+                                <button class="btn btn-cancel" id="cancelEdit">Cancel</button>
+                                <button class="btn btn-save" id="saveCustomer">Save</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="subtitle">
+                <div class="subtitle" id="billTitle">
                     <p>Purchase history</p>
                 </div>
-            </div>
-                <table class="table">
+            </div >
+                <table class="table" id="billTable">
                     <thead class="test">
                         <tr>
                             <th id="ID">ID</th>
                             <th>Content</th>
-                            <th>Date <img src="./assets/upanddown.png" alt="" class="loyal"></th>
-                            <th>Total <img src="./assets/upanddown.png" alt="" class="loyal"></th>
+                            <th>Date <img src="./assets/icons/upanddown.png" alt="" class="loyal"></th>
+                            <th>Total <img src="./assets/icons/upanddown.png" alt="" class="loyal"></th>
                             <th>Loyalty Point</th>
                             <th id="action">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td id="ID-content">B070924095623</td>
-                            <td>Sell product</td>
-                            <td>07/09/2024</td>
-                            <td>+27,000,000 VND</td>
-                            <td>2500</td>
-                            <td id="action"><button class="btn">View</button></td>
-                        </tr>
-                        <tr>
-                            <td id="ID-content">B070924095623</td>
-                            <td>Sell product</td>
-                            <td>07/09/2024</td>
-                            <td>+27,000,000 VND</td>
-                            <td>2500</td>
-                            <td id="action"><button class="btn">View</button></td>
-                        </tr>
-                        <tr>
-                            <td id="ID-content">B070924095623</td>
-                            <td>Sell product</td>
-                            <td>07/09/2024</td>
-                            <td>+27,000,000 VND</td>
-                            <td>2500</td>
-                            <td id="action"><button class="btn">View</button></td>
-                        </tr>
-                        <tr>
-                            <td id="ID-content">B070924095623</td>
-                            <td>Sell product</td>
-                            <td>07/09/2024</td>
-                            <td>+27,000,000 VND</td>
-                            <td>2500</td>
-                            <td id="action"><button class="btn">View</button></td>
-                        </tr>
-                        <tr>
-                            <td id="ID-content">B070924095623</td>
-                            <td>Sell product</td>
-                            <td>07/09/2024</td>
-                            <td>+27,000,000 VND</td>
-                            <td>2500</td>
-                            <td id="action"><button class="btn">View</button></td>
-                        </tr>
+                    <tbody id="billList">
+                        <!-- danh sách giao dịch của khách hàng -->
                     </tbody>
                 </table>
             </div>
@@ -187,4 +152,38 @@
             </div>
         </div>
     </div>
+
+    <div id="delete_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Delete customer</h3>
+            <p>Do you really want to delete this customer?</p>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelDeleteButton" class="cancel">Cancel</button>
+                <button id="confirmDeleteButton" class="ok">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="save_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Save and Exit</h3>
+            <p>Do you want to save and exit?</p>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelSaveEButton" class="cancel">Cancel</button>
+                <button id="confirmSaveEButton" class="ok">Save</button>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="./js/customer_info.js"></script>
+
+<template id="bill">
+    <tr>
+        <td id="ID-content">B070924095623</td>
+        <td>Sell product</td>
+        <td>07/09/2024</td>
+        <td>+27,000,000 VND</td>
+        <td>2500</td>
+        <td id="action"><button class="btn">View</button></td>
+    </tr>
+</template>

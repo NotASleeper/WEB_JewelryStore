@@ -257,6 +257,12 @@ body {
     background: #FBFCFE;
 }
 
+.actions .btn-save {
+    border: 1px solid #C5F6DC;
+    color: #20BF6B;
+    background: #F5FFFA;
+}
+
 input[type="text"] {
     width: 400px;
     height: 35px;

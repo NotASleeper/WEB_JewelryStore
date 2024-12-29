@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('searchic').addEventListener('click', function () {
-        const search = searchInput.value.toLowerCase(); 
+        const search = searchInput.value.toLowerCase();
         filterCustomers(search);
     });
 
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    document.getElementById('arrange').addEventListener('click', function (){
-        if (sortOrder !== 'asc') {sortOrder = 'asc';}
-        else {sortOrder = 'desc';}
+    document.getElementById('arrange').addEventListener('click', function () {
+        if (sortOrder !== 'asc') { sortOrder = 'asc'; }
+        else { sortOrder = 'desc'; }
         sortCustomersByLoyalty();
     });
 });
@@ -91,20 +91,30 @@ function displayCustomers(customers) {
         clone.getElementById('address').textContent = customer.address;
         clone.getElementById('phone').textContent = customer.phone;
         clone.getElementById('email').textContent = customer.email;
-        clone.getElementById('birthday').textContent = customer.birthday;
-        clone.getElementById('loyalty').textContent = customer.loyalty;
+        clone.getElementById('birthday').textContent = formatDate(customer.birthday);
+        clone.getElementById('loyalty').textContent = customer.loyalty_point;
 
         // Add event listeners for Edit and Delete buttons
-        clone.getElementById('editButton').addEventListener('click',function () {
-            window.location.href = `/sale/customerinfo?id=${customerId}`;
+        clone.getElementById('editButton').addEventListener('click', function (event) {
+            event.stopPropagation();
+            window.location.href = `/sale/customerinfo?id=${customer.id}&mode=edit`;
         });
-        clone.getElementById('deleteButton').addEventListener('click', function () {
+        clone.getElementById('deleteButton').addEventListener('click', function (event) {
+            event.stopPropagation();
             deletePopup.style.display = '';
             deletePopup.setAttribute('data-customer-id', customer.id);
         });
 
+        clone.getElementById('tr').addEventListener('click', function () {
+            window.location.href = `/sale/customerinfo?id=${customer.id}&mode=view`;
+        });
         customerList.appendChild(clone);
     });
+}
+
+function formatDate(dateString) {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-GB', options);
 }
 
 function sortCustomersByLoyalty() {
@@ -122,7 +132,7 @@ function deleteCustomer(customerId) {
     // Xử lý chỉnh sửa khách hàng ở đây
 
     console.log('Delete customer with ID:', customerId);
-    fetch(`http://localhost:5501/api/v1/customers?id=${customerId}`, {
+    fetch(`http://localhost:5501/api/v1/customers/${customerId}`, {
         method: 'DELETE'
     })
         .then(response => {

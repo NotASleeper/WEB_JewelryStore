@@ -11,6 +11,9 @@
 
 
 <body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <div class="left-Container">
         <div class="logo">
             <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
@@ -78,7 +81,7 @@
                 <p>Customer information</p>
             </div>
         </div>
-        <div class="product-container">
+        <div class="customer-container">
 
             <div class="form-container">
                 <div class="form-section">
@@ -117,16 +120,11 @@
 
                         </div>
                     </div>
-
-
-
-
-
                 </div>
 
             </div>
-            <div class="form-container" style="margin-left: 300px;">
-                <div class="form-section">
+            <div class="form-container">
+                <div class=" form-section">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Loyalty point:</label>
@@ -220,6 +218,13 @@
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const leftContainer = document.querySelector('.left-Container');
+
+    menuToggle.addEventListener('click', () => {
+        leftContainer.classList.toggle('show');
+    });
 </script>
 
 </html>

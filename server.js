@@ -70,6 +70,15 @@ app.get('/sale/profile', (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/profile.html'));
 });
 
+app.get('/sale/addnewcustomer', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/add_new_customer.html'));
+});
+
+app.get('/sale/customerinfo', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/customer_info.html'));
+});
+
+
 app.use('/warehouse',express.static(path.join(__dirname, 'html/warehouse_employee')));
 app.get('/warehouse', (req, res) => {
     res.sendFile(path.join(__dirname, 'html/warehouse_employee/product.html'));

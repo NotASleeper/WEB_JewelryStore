@@ -13,7 +13,7 @@
     <div class="layout">
         <div class="header">
             <div class="logo">
-                <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')">
+                <div class="logo-icon" onclick="redirectToNewPage('/sale/dashboard')">
                     <img src="./assets/icons/logo.png" alt="" class="name">
                     <p>Luxora</p>
                 </div>
@@ -50,7 +50,7 @@
                     <img src="./assets/images/avt.png" alt="avatar" />
                     Employee
                 </a>
-                <img src="./assets/icons/logout_ic.png" alt="Log out" />
+                <img id="logout-ic" src="./assets/icons/logout_ic.png" alt="Log out" />
             </div>
         </div>
         <div class="content">
@@ -226,6 +226,16 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+    <div id="logout_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Log out</h3>
+            <p>Do you really want to log out?</p>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelButton" class="cancel">Cancel</button>
+                <button id="confirmButton" class="ok">Ok</button>
+            </div>
         </div>
     </div>
 </body>

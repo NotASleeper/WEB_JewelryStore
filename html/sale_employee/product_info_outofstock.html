@@ -21,20 +21,20 @@
             <div class="container_nav">
                 <div class="nav">
                     <ul>
-                        <li class="nav-selected" id="nav_dashboard">
-                            <a href="dashboard.html">
+                        <li class="nav-item" id="nav_dashboard">
+                            <a href="/sale/dashboard">
                                 <img src="./assets/icons/dashboard_ic.png" alt="dashboard">
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item" id="nav_service">
-                            <a href="pre-order.html">
+                            <a href="/sale/service">
                                 <img src="./assets/icons/service_ic.png" alt="service">
                                 Service
                             </a>
                         </li>
-                        <li class="nav-item" id="nav_customer">
-                            <a href="customer.html">
+                        <li class="nav-selected" id="nav_customer">
+                            <a href="/sale/customer">
                                 <img src="./assets/icons/customer_ic.png" alt="customer">
                                 Customer
                             </a>
@@ -45,7 +45,7 @@
             <div class="right-container">
                 <img src="./assets/icons/cart_ic.png" alt="Cart" />
                 <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
-                <a class="user" href="profile.html">
+                <a class="user" href="/sale/profile">
                     <img src="./assets/images/avt.png" alt="avatar" />
                     Employee
                 </a>
@@ -61,71 +61,71 @@
             <div class="product-container">
                 <div class="product-grid">
                     <!-- Thumbnails -->
-                    <div class="thumbnails">
+                    <div class="thumbnails" id = "thumbnails">
                         <img src="./assets/images/product1_3.png" alt="Product thumbnail 1" class="thumbnail">
                         <img src="./assets/images/product1_2.png" alt="Product thumbnail 2" class="thumbnail">
                     </div>
                     <!-- Main Image -->
-                    <div class="main-image">
-                        <img src="./assets/images/product1_1.png" alt="Product main image" style="width: 700px;">
+                    <div class="main-image" id="main-image">
+                        <img  src="./assets/images/product1_1.png" alt="Product main image" style="width: 700px;">
                     </div>
                     <!-- Product Info -->
                     <div class="product-details">
-                        <h2>Product1</h2>
+                        <h2 id="name">Product1</h2>
                         <div class="detail-row">
                             <span class="detail-label">Category:</span>
-                            <span>Necklace</span>
+                            <span id="category">Necklace</span>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Material:</span>
-                            <span>18K Yellow Gold - Weight: 3.75g</span>
+                            <span id="material">18K Yellow Gold - Weight: 3.75g</span>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Gemstone:</span>
-                            <span>Moissanite Certificate</span>
+                            <span id="gemstone">Moissanite Certificate</span>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Size:</span>
-                            <span>50cm</span>
+                            <span id="product-size">50cm</span>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Carat weight:</span>
-                            <span>0.05</span>
+                            <span id="caratweigtht">0.05</span>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Color:</span>
-                            <span>Colorless</span>
+                            <span id="color">Colorless</span>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Shape:</span>
-                            <span>Circle</span>
+                            <span id="shape">Circle</span>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Purity:</span>
-                            <span>IF</span>
+                            <span id="purity">IF</span>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Gemstone size:</span>
-                            <span>3mm x 3mm</span>
+                            <span id="gemstone-size">3mm x 3mm</span>
                         </div>
-                        <div class="description">
+                        <div class="description" id="description">
                             Description: Mặt dây chuyền nữ Heart-shape Reverse MDA3103 nổi bật với vẻ đẹp lộng mạn độc
                             đáo mà khó có món trang sức nào mang lại được. Dáng trái tim trong trang sức từ xưa đến nay
                             luôn duy trì được sức hút của mình bởi đây được cho là hình dáng biểu tượng cho tình yêu.
                             Tuy nhiên trong thiết kế ...
-                            <a class="see-more">Xem thêm</a>
+                            <a class="see-more" id="see-more">Xem thêm</a>
                         </div>
 
                         <div class="price-section">
-                            <span class="current-price">26,500,000VND</span>
+                            <span class="current-price" id="current-price">26,500,000VND</span>
 
-                            <span class="discount">↓ 15%</span>
+                            <span class="discount" id="discount">↓ 15%</span>
                         </div>
-                        <span class="original-price">31,200,000VND</span>
-                        <div class="quantity">
+                        <span class="original-price" id="price">31,200,000VND</span>
+                        <div class="quantity" id="quantity">
                             Out of stock
                         </div>
-                        <div class="actions">
+                        <div class="actions" id="preorder">
                             <button class="btn btn-add">Pre-Order</button>
                         </div>
                     </div>
@@ -134,3 +134,4 @@
         </div>
     </div>
 </body>
+<script src="./js/product_info_outofstock.js"></script>

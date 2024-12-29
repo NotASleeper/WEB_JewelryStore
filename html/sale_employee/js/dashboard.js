@@ -5,6 +5,7 @@ if (typeof products === 'undefined') {
   var products = [];
 }
 
+
 document.addEventListener('DOMContentLoaded', function () {
 
   const lowerSlider = document.getElementById('lower');
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     upperValue.textContent = upperSlider.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     updateSliderTrack();
     filterProductsByPrice();
-  }); 
+  });
 
   updateSliderTrack();
 
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //chọn category
   categoryList.addEventListener('click', function (event) {
-    if (event.target.tagName === 'LI') {
+    if (event.target.tagName === 'A') {
       const category = event.target.getAttribute('data-category');
       filterProductsByCategory(category);
       updateURLWithCategory(category);
@@ -82,15 +83,15 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   //click icon logout
-  document.getElementById('logout-ic').addEventListener('click', function(){
+  document.getElementById('logout-ic').addEventListener('click', function () {
     logoutPopup.style.display = '';
   });
 
-  cancelButton.addEventListener('click', function() {
+  cancelButton.addEventListener('click', function () {
     logoutPopup.style.display = 'none';
   });
 
-  confirmButton.addEventListener('click', function() {
+  confirmButton.addEventListener('click', function () {
     // Thực hiện hành động đăng xuất, ví dụ: chuyển hướng đến trang đăng nhập
     window.location.href = '../manager/login.html';
   });
@@ -138,7 +139,10 @@ function displayProducts(listproduct) {
     if (product.discount === 0) { clone.getElementById('disccount').style.display = 'none'; }
     else { clone.getElementById('disccount').textContent = product.discount + "%"; }
     clone.querySelector('.product-cart').addEventListener('click', function () {
-      window.location.href = `product_info.html?id=${product.id}`;
+      if (product.quantity === 0) { window.location.href = `product_info_outofstock.html?id=${product.id}`; }
+      else {
+        window.location.href = `product_info.html?id=${product.id}`;
+      }
     });
     clone.getElementById('price').textContent = product.price;
     productList.appendChild(clone);
@@ -182,6 +186,5 @@ function updateSliderTrack() {
   const upper = parseInt(upperSlider.value);
   const percentLower = (lower / lowerSlider.max) * 100;
   const percentUpper = (upper / upperSlider.max) * 100;
-
   document.querySelector('.slider-track').style.background = `linear-gradient(to right, #ddd ${percentLower}%, #1279C3 ${percentLower}%, #1279C3 ${percentUpper}%, #ddd ${percentUpper}%)`;
 }

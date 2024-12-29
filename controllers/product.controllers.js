@@ -1,7 +1,7 @@
-const { Product, Inventory, ProductCategory } = require('../models');
+const { Product, Inventory, ProductCategory, Gemstone } = require('../models');
 
 //Lấy product và số lượng
-const getProductWithQuantity = async (id) => {
+const getProductWitDetail = async (id) => {
     return await Product.findOne({
         where: {
             id: id
@@ -9,6 +9,8 @@ const getProductWithQuantity = async (id) => {
         include: [{
             model: Inventory,
             attributes: ['quantity']
+        }, {
+            model: Gemstone,
         }]
     });
 }
@@ -17,19 +19,18 @@ const createProduct = async (req, res) => {
     const {
         name,
         id_category,
-        gold_age,
+        material,
         size,
         weight,
         price,
         warranty_period,
-        status,
-        quantity
+        status
     } = req.body;
     try {
         const newProduct = await Product.create({
             name,
             id_category,
-            gold_age,
+            material,
             size,
             weight,
             price,
@@ -39,10 +40,14 @@ const createProduct = async (req, res) => {
 
         await Inventory.create({
             id: newProduct.id,
-            quantity: quantity
         });
 
-        const productWithQuantity = await getProductWithQuantity(newProduct.id);
+        await Gemstone.create({
+            id: newProduct.id,
+            status: 1,
+        });
+
+        const productWithQuantity = await getProductWitDetail(newProduct.id);
         res.status(201).send(productWithQuantity);
     } catch (error) {
         res.status(500).send(error);
@@ -55,6 +60,8 @@ const getAllProduct = async (req, res) => {
             include: [{
                 model: Inventory,
                 attributes: ['quantity']
+            }, {
+                model: Gemstone,
             }],
             where: {
                 status: 1,
@@ -74,6 +81,8 @@ const getDetailProduct = async (req, res) => {
             include: [{
                 model: Inventory,
                 attributes: ['quantity']
+            }, {
+                model: Gemstone,
             }],
             where: {
                 id: id,
@@ -92,12 +101,11 @@ const updateProduct = async (req, res) => {
     const {
         name,
         id_category,
-        gold_age,
+        material,
         size,
         weight,
         price,
         warranty_period,
-        quantity
     } = req.body;
     try {
         const detailProduct = await Product.findOne({
@@ -108,23 +116,14 @@ const updateProduct = async (req, res) => {
         });
         detailProduct.name = name;
         detailProduct.id_category = id_category;
-        detailProduct.gold_age = gold_age;
+        detailProduct.material = material;
         detailProduct.size = size;
         detailProduct.weight = weight;
         detailProduct.price = price;
         detailProduct.warranty_period = warranty_period;
         await detailProduct.save();
 
-        const inventory = await Inventory.findOne({
-            where: {
-                id: id
-            }
-        });
-        inventory.quantity = quantity;
-        await inventory.save();
-
-        const productWithQuantity = await getProductWithQuantity(id);
-        res.status(200).send(productWithQuantity);
+        res.status(200).send(detailProduct);
     } catch (error) {
         res.status(500).send(error);
     }
@@ -142,7 +141,6 @@ const deleteProduct = async (req, res) => {
         detailProduct.status = 0;
         await detailProduct.save();
 
-        const productWithQuantity = await getProductWithQuantity(id);
         res.status(200).send(detailProduct);
     } catch (error) {
         res.status(500).send(error)
@@ -159,6 +157,8 @@ const getProductByCategoryID = async (req, res) => {
             }, {
                 model: ProductCategory,
                 attributes: ['name']
+            }, {
+                model: Gemstone,
             }],
             where: {
                 id_category: id_category,
@@ -192,6 +192,8 @@ const getProductByCategoryName = async (req, res) => {
             }, {
                 model: ProductCategory,
                 attributes: ['name']
+            }, {
+                model: Gemstone,
             }],
             where: {
                 id_category: category.id,

@@ -1,23 +1,20 @@
-//Chắc không cần dùng cái này
-//Gộp chung bên product rồi
-
 const { Inventory } = require('../models');
 
-const createInventory = async (req, res) => {
-    const {
-        id,
-        quantity
-    } = req.body;
-    try {
-        const newInventory = await Inventory.create({
-            id,
-            quantity
-        });
-        res.status(201).send(newInventory);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-};
+// const createInventory = async (req, res) => {
+//     const {
+//         id,
+//         quantity
+//     } = req.body;
+//     try {
+//         const newInventory = await Inventory.create({
+//             id,
+//             quantity
+//         });
+//         res.status(201).send(newInventory);
+//     } catch (error) {
+//         res.status(500).send(error);
+//     }
+// };
 
 const getAllInventory = async (req, res) => {
     try {
@@ -64,7 +61,7 @@ const updateInventory = async (req, res) => {
 }
 
 module.exports = {
-    createInventory,
+    // createInventory,
     getAllInventory,
     getDetailInventory,
     updateInventory

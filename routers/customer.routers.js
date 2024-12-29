@@ -7,7 +7,7 @@ const customerRouter = express.Router();
 
 customerRouter.post("/", createCustomer);
 customerRouter.get("/", getAllCustomer);
-customerRouter.get("/:id", getDetailCustomer);
+customerRouter.get("/:id", checkExist(Customer), getDetailCustomer);
 customerRouter.put("/:id", checkExist(Customer), updateCustomer);
 customerRouter.delete("/:id", checkExist(Customer), deleteCustomer);
 

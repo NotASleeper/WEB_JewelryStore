@@ -42,8 +42,27 @@ document.addEventListener('DOMContentLoaded', function () {
                     sessionStorage.setItem('username', username.value);
                     sessionStorage.setItem('id_employee', data.id_employee);
                     sessionStorage.setItem('token', data.token);
-                    window.location.href = '/manager/dashboard'; // Chuyển hướng đến trang dashboard sau khi đăng nhập thành công
-                } else {
+                    fetch(`http://localhost:5501/api/v1/employees/${data.id_employee}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Staff:', data);
+                            switch (data.id_position) {
+                                case 'STF01':
+                                    window.location.href = '/admin';
+                                    break;
+                                case 'STF02':
+                                    window.location.href = '/sale';
+                                    break;
+                                case 'STF03':
+                                    window.location.href = '/warehouse';
+                                    break;
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching staff:', error);
+                        });
+                }
+                else {
                     errorMessage.style.display = '';
                 }
             })
@@ -75,4 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return null;
     }
+
+
 });

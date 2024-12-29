@@ -4,6 +4,7 @@ const { sequelize } = require('./models');
 const { rootRouter } = require('./routers');
 const app = express();
 const cors = require('cors');
+const checkAuth = require('./middlewares/validations/checkAuth');
 
 //cài ứng dụng kiểu json
 app.use(express.json());
@@ -24,71 +25,71 @@ app.get('/', (req, res) => {
 });
 
 app.use('/admin', express.static(path.join(__dirname, 'html/manager')));
-app.get('/admin', (req, res) => {
+app.get('/admin', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/manager/dashboard.html'));
 });
 
-app.get('/admin/dashboard', (req, res) => {
+app.get('/admin/dashboard', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/manager/dashboard.html'));
 });
 
-app.get('/admin/product', (req, res) => {
+app.get('/admin/product', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/manager/product.html'));
 });
 
 
 app.use('/sale', express.static(path.join(__dirname, 'html/sale_employee')));
-app.get('/sale', (req, res) => {
+app.get('/sale', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/dashboard.html'));
 });
 
-app.get('/sale/dashboard', (req, res) => {
+app.get('/sale/dashboard', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/dashboard.html'));
 });
 
-app.get('/sale/customer', (req, res) => {
+app.get('/sale/customer', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/customer.html'));
 });
 
-app.get('/sale/service', (req, res) => {
+app.get('/sale/service', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/pre-order.html'));
 });
 
-app.get('/sale/preorder', (req, res) => {
+app.get('/sale/preorder', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/pre-order.html'));
 });
 
-app.get('/sale/refund', (req, res) => {
+app.get('/sale/refund', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/refund.html'));
 });
 
-app.get('/sale/warranty', (req, res) => {
+app.get('/sale/warranty', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/warranty.html'));
 });
 
-app.get('/sale/profile', (req, res) => {
+app.get('/sale/profile', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/profile.html'));
 });
 
-app.get('/sale/addnewcustomer', (req, res) => {
+app.get('/sale/addnewcustomer', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/add_new_customer.html'));
 });
 
-app.get('/sale/customerinfo', (req, res) => {
+app.get('/sale/customerinfo', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/customer_info.html'));
 });
 
 
 app.use('/warehouse',express.static(path.join(__dirname, 'html/warehouse_employee')));
-app.get('/warehouse', (req, res) => {
+app.get('/warehouse', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/warehouse_employee/product.html'));
 });
 
-app.get('/warehouse', (req, res) => {
+app.get('/warehouse', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/warehouse_employee/product.html'));
 });
 
-app.get('/warehouse/import', (req, res) => {
+app.get('/warehouse/import', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/warehouse_employee/import.html'));
 });
 

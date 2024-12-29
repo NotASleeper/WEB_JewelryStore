@@ -35,6 +35,10 @@ if (productId) {
 
     confirmButton.addEventListener('click', function () {
         // Thực hiện hành động đăng xuất, ví dụ: chuyển hướng đến trang đăng nhập
+        sessionStorage.removeItem('username');
+        sessionStorage.removeItem('id_employee');
+        sessionStorage.removeItem('token');
+
         window.location.href = '/';
     });
     // Thực hiện các hành động khác với productId

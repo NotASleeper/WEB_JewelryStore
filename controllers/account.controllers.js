@@ -116,6 +116,8 @@ const login = async (req, res) => {
     }
     var isAuth = (password == account.password);
     if (isAuth) {
+        req.session.userId = account.id;
+        req.session.username = account.username;
         res.status(200).send("Login succeeded", id_employee);
     } else {
         res.status(500).send("Username or password is not correct");

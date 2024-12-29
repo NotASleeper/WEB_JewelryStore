@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //chọn category
   categoryList.addEventListener('click', function (event) {
-    if (event.target.tagName === 'LI') {
+    if (event.target.tagName === 'A') {
       const category = event.target.getAttribute('data-category');
       filterProductsByCategory(category);
       updateURLWithCategory(category);

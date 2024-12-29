@@ -39,7 +39,7 @@ app.get('/admin/product', (req, res) => {
 
 app.use('/sale', express.static(path.join(__dirname, 'html/sale_employee')));
 app.get('/sale', (req, res) => {
-    res.sendFile(path.join(__dirname, 'html/sale_employee/dashboard.html'));
+    res.sendFile(path.join(__dirname, 'html/sale/dashboard.html'));
 });
 
 app.get('/sale/dashboard', (req, res) => {
@@ -50,7 +50,25 @@ app.get('/sale/customer', (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/customer.html'));
 });
 
+app.get('/sale/service', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/pre-order.html'));
+});
 
+app.get('/sale/preorder', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/pre-order.html'));
+});
+
+app.get('/sale/refund', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/refund.html'));
+});
+
+app.get('/sale/warranty', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/warranty.html'));
+});
+
+app.get('/sale/profile', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/profile.html'));
+});
 
 app.use('/warehouse',express.static(path.join(__dirname, 'html/warehouse_employee')));
 app.get('/warehouse', (req, res) => {

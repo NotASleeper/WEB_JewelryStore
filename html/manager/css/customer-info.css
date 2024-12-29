@@ -245,7 +245,7 @@ body {
 }
 
 .form-container:nth-child(2) {
-    margin-left: 300px !important;
+    margin-left: 100px !important;
 }
 
 .actions {
@@ -355,10 +355,20 @@ tr:nth-child(even) {
 }
 
 /* Responsive Styles */
-@media screen and (max-width: 1680px) {
+@media screen and (max-width: 1550px) {
     .form-container:nth-child(2) {
-        margin-left: 100px !important;
+        margin-left: 10px !important;
+        margin-top: 0;
     }
+
+}
+
+@media screen and (max-width: 1410px) {
+    .form-container:nth-child(2) {
+        margin-left: 0 !important;
+        margin-top: 10px;
+    }
+
 }
 
 @media screen and (max-width: 1024px) {

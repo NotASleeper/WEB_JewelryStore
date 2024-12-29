@@ -4,14 +4,14 @@ const { Account, Employee, PositionEmployee } = require('../models');
 const createAccount = async (req, res) => {
     const {
         id_employee,
-        usename,
+        username,
         password,
         status,
     } = req.body;
     try {
         const newAccount = await Account.create({
             id_employee,
-            usename,
+            username,
             password,
             status,
         });
@@ -65,7 +65,7 @@ const updateAccount = async (req, res) => {
     const { id } = req.params;
     const {
         id_employee,
-        usename,
+        username,
         password
     } = req.body;
     try {
@@ -76,7 +76,7 @@ const updateAccount = async (req, res) => {
             }
         });
         detailAccount.id_employee = id_employee;
-        detailAccount.usename = usename;
+        detailAccount.username = username;
         detailAccount.password = password;
         await detailAccount.save();
         res.status(200).send(detailAccount);
@@ -102,10 +102,31 @@ const deleteAccount = async (req, res) => {
     }
 }
 
+const login = async (req, res) => {
+    const {
+        username,
+        password } = req.body;
+    const account = await Account.findOne({
+        where: {
+            username: username,
+        }
+    })
+    if (!account) {
+        res.status(404).send("Not found");
+    }
+    var isAuth = (password == account.password);
+    if (isAuth) {
+        res.status(200).send("Login succeeded");
+    } else {
+        res.status(500).send("Username or password is not correct");
+    }
+}
+
 module.exports = {
     createAccount,
     getAllAccount,
     getDetailAccount,
     updateAccount,
     deleteAccount,
+    login,
 }

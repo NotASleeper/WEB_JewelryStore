@@ -44,6 +44,7 @@ const createProduct = async (req, res) => {
 
         await Gemstone.create({
             id: newProduct.id,
+            status: 1,
         });
 
         const productWithQuantity = await getProductWitDetail(newProduct.id);

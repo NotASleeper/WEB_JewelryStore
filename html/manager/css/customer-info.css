@@ -355,6 +355,12 @@ tr:nth-child(even) {
 }
 
 /* Responsive Styles */
+@media screen and (max-width: 1680px) {
+    .form-container:nth-child(2) {
+        margin-left: 100px !important;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     body {
         flex-direction: column;
@@ -392,6 +398,7 @@ tr:nth-child(even) {
 
     .form-container:nth-child(2) {
         margin-left: 0 !important;
+        margin-top: 10px;
     }
 
     .form-container {

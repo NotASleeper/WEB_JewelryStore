@@ -3,6 +3,7 @@ const { Employee } = require('../models');
 const createEmployee = async (req, res) => {
     const {
         name,
+        id_position,
         address,
         phone,
         email,
@@ -12,6 +13,7 @@ const createEmployee = async (req, res) => {
     try {
         const newEmployee = await Employee.create({
             name,
+            id_position,
             address,
             phone,
             email,
@@ -56,6 +58,7 @@ const updateEmployee = async (req, res) => {
     const { id } = req.params;
     const {
         name,
+        id_position,
         address,
         phone,
         email,
@@ -69,6 +72,7 @@ const updateEmployee = async (req, res) => {
             }
         });
         detailEmployee.name = name;
+        detailEmployee.id_position = id_position;
         detailEmployee.address = address;
         detailEmployee.phone = phone;
         detailEmployee.email = email;

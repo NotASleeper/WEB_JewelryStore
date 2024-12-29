@@ -6,6 +6,7 @@ const { productCategoryRouter } = require("./product-category.routers");
 const { positionEmployeeRouter } = require("./position-employee.routers");
 const { inventoryRouter } = require("./inventory.routers");
 const { gemstoneRouter } = require("./gemstone.routers");
+const { accountRouter } = require("./account.routers");
 
 const rootRouter = express.Router();
 
@@ -16,6 +17,7 @@ rootRouter.use("/product-categories", productCategoryRouter);
 rootRouter.use("/position-employees", positionEmployeeRouter);
 rootRouter.use("/inventories", inventoryRouter);
 rootRouter.use("/gemstones", gemstoneRouter);
+rootRouter.use("/accounts", accountRouter);
 
 module.exports = {
   rootRouter,

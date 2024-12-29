@@ -93,6 +93,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   confirmButton.addEventListener('click', function () {
     // Thực hiện hành động đăng xuất, ví dụ: chuyển hướng đến trang đăng nhập
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('id_employee');
     window.location.href = '/';
   });
 

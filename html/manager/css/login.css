@@ -115,6 +115,12 @@ body {
     text-decoration: underline;
 }
 
+.error p{
+    color: #EB2F06;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .login_btn {
     display: flex;
     flex-direction: column;

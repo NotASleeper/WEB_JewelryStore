@@ -37,16 +37,16 @@ const getAllCustomer = async () => {
 
             const editButton = document.createElement('button');
             editButton.className = 'Edit';
-            editButton.textContent = 'Edit';
+            editButton.textContent = 'Info';
             editButton.addEventListener('click', () => {
                 window.location.href = "customer-info.html?id=" + customer.id;
             })
             actionCell.appendChild(editButton);
 
-            const deleteButton = document.createElement('button');
-            deleteButton.className = 'Delete';
-            deleteButton.textContent = 'Delete';
-            actionCell.appendChild(deleteButton);
+            // const deleteButton = document.createElement('button');
+            // deleteButton.className = 'Delete';
+            // deleteButton.textContent = 'Delete';
+            // actionCell.appendChild(deleteButton);
 
             row.appendChild(actionCell);
 

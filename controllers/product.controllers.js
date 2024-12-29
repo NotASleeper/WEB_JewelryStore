@@ -19,7 +19,7 @@ const createProduct = async (req, res) => {
     const {
         name,
         id_category,
-        gold_age,
+        material,
         size,
         weight,
         price,
@@ -30,7 +30,7 @@ const createProduct = async (req, res) => {
         const newProduct = await Product.create({
             name,
             id_category,
-            gold_age,
+            material,
             size,
             weight,
             price,
@@ -101,7 +101,7 @@ const updateProduct = async (req, res) => {
     const {
         name,
         id_category,
-        gold_age,
+        material,
         size,
         weight,
         price,
@@ -116,7 +116,7 @@ const updateProduct = async (req, res) => {
         });
         detailProduct.name = name;
         detailProduct.id_category = id_category;
-        detailProduct.gold_age = gold_age;
+        detailProduct.material = material;
         detailProduct.size = size;
         detailProduct.weight = weight;
         detailProduct.price = price;

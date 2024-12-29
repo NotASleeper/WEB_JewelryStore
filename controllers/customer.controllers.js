@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { Customer } = require('../models');
 
 const createCustomer = async (req, res) => {
@@ -29,13 +30,26 @@ const createCustomer = async (req, res) => {
 };
 
 const getAllCustomer = async (req, res) => {
+    const { name } = req.query;
     try {
-        const customerList = await Customer.findAll({
-            where: {
-                status: 1,
-            }
-        });
-        res.status(200).send(customerList);
+        if (name) {
+            const customerList = await Customer.findAll({
+                where: {
+                    name: {
+                        [Op.like]: `%${name}%`,
+                    },
+                    status: 1,
+                }
+            });
+            res.status(200).send(customerList);
+        } else {
+            const customerList = await Customer.findAll({
+                where: {
+                    status: 1,
+                }
+            });
+            res.status(200).send(customerList);
+        }
     } catch (error) {
         res.status(500).send(error);
     }

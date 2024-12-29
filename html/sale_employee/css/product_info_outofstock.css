@@ -189,6 +189,7 @@ body {
 
 .product-container .product-details {
     display: grid;
+    width: auto;
     gap: 15px;
 }
 

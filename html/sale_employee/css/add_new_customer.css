@@ -333,14 +333,14 @@ input[type="text"] {
     margin: 10px;
 }
 
-.popup-content #cancelButton{
+.popup-content .cancel{
     background-color: #FFF9F8;
     border: 1px solid #FACDC3;
     border-radius: 5.5px;
     color: #EB2F06;
 }
 
-.popup-content #confirmButton{
+.popup-content .ok{
     background-color: #F5FFFA;
     border: 1px solid #C5F6DC;
     border-radius: 5.5px;

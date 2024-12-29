@@ -3,10 +3,10 @@ if (typeof customers === 'undefined') {
 }
 
 let sortOrder = 'none';
+const deletePopup = document.getElementById('delete_popup');
 
 document.addEventListener('DOMContentLoaded', function () {
     const logoutPopup = document.getElementById('logout_popup');
-    const deletePopup = document.getElementById('delete_popup');
     const cancelButton = document.getElementById('cancelButton');
     const confirmButton = document.getElementById('confirmButton');
     const cancelDeleteButton = document.getElementById('cancelDeleteButton');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     confirmButton.addEventListener('click', function () {
         // Thực hiện hành động đăng xuất, ví dụ: chuyển hướng đến trang đăng nhập
-        window.location.href = '../manager/login.html';
+        window.location.href = '/';
     });
 
     cancelDeleteButton.addEventListener('click', function () {
@@ -122,17 +122,20 @@ function deleteCustomer(customerId) {
     // Xử lý chỉnh sửa khách hàng ở đây
 
     console.log('Delete customer with ID:', customerId);
-    fetch(`http://localhost:5501/api/v1/customers/${customerId}`, {
+    fetch(`http://localhost:5501/api/v1/customers?id=${customerId}`, {
         method: 'DELETE'
     })
         .then(response => {
             if (response.ok) {
+                alert('Customer deleted successfully');
                 fetchCustomers(); // Refresh the customer list
             } else {
+                alert('Failed to delete customer');
                 console.error('Failed to delete customer');
             }
         })
         .catch(error => {
+            alert('Failed to delete customer');
             console.error('Error deleting customer:', error);
         });
 }

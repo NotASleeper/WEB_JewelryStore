@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   confirmButton.addEventListener('click', function () {
     // Thực hiện hành động đăng xuất, ví dụ: chuyển hướng đến trang đăng nhập
-    window.location.href = '../manager/login.html';
+    window.location.href = '/';
   });
 
 });

@@ -39,7 +39,7 @@ app.get('/admin/product', (req, res) => {
 
 app.use('/sale', express.static(path.join(__dirname, 'html/sale_employee')));
 app.get('/sale', (req, res) => {
-    res.sendFile(path.join(__dirname, 'html/sale/dashboard.html'));
+    res.sendFile(path.join(__dirname, 'html/sale_employee/dashboard.html'));
 });
 
 app.get('/sale/dashboard', (req, res) => {

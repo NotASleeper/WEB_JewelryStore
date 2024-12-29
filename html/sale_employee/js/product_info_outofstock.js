@@ -3,6 +3,10 @@ const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 // Kiểm tra xem ID có tồn tại không
 if (productId) {
+
+    const logoutPopup = document.getElementById('logout_popup');
+    const cancelButton = document.getElementById('cancelButton');
+    const confirmButton = document.getElementById('confirmButton');
     console.log('Product ID:', productId);
     // Fetch dữ liệu sản phẩm từ API
     fetch(`http://localhost:5501/api/v1/products?id=${productId}`)
@@ -21,6 +25,18 @@ if (productId) {
         .catch(error => {
             console.error('Error fetching product data:', error);
         });
+    document.getElementById('logout-ic').addEventListener('click', function () {
+        logoutPopup.style.display = '';
+    });
+
+    cancelButton.addEventListener('click', function () {
+        logoutPopup.style.display = 'none';
+    });
+
+    confirmButton.addEventListener('click', function () {
+        // Thực hiện hành động đăng xuất, ví dụ: chuyển hướng đến trang đăng nhập
+        window.location.href = '/';
+    });
     // Thực hiện các hành động khác với productId
 } else {
     console.error('Product ID not found in URL');
@@ -48,7 +64,7 @@ function displayProductInfo(product, categories) {
     document.getElementById('shape').textContent = product.shape;
     document.getElementById('purity').textContent = product.purity;
     document.getElementById('gemstone-size').textContent = product.gemstone_size;
-    document.getElementById('description').textContent ='Description: ' + product.description;
+    document.getElementById('description').textContent = 'Description: ' + product.description;
     document.getElementById('current-price').textContent = currentPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
     document.getElementById('discount').textContent = '↓ ' + product.discount + '%';
     document.getElementById('price').textContent = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";

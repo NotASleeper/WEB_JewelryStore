@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const productId = urlParams.get('id');
     // Kiểm tra xem ID có tồn tại không
     if (productId) {
+        const logoutPopup = document.getElementById('logout_popup');
+        const cancelButton = document.getElementById('cancelButton');
+        const confirmButton = document.getElementById('confirmButton');
         console.log('Product ID:', productId);
         // Fetch dữ liệu sản phẩm từ API
         fetch(`http://localhost:5501/api/v1/products?id=${productId}`)
@@ -22,6 +25,18 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => {
                 console.error('Error fetching product data:', error);
             });
+        document.getElementById('logout-ic').addEventListener('click', function () {
+            logoutPopup.style.display = '';
+        });
+
+        cancelButton.addEventListener('click', function () {
+            logoutPopup.style.display = 'none';
+        });
+
+        confirmButton.addEventListener('click', function () {
+            // Thực hiện hành động đăng xuất, ví dụ: chuyển hướng đến trang đăng nhập
+            window.location.href = '/';
+        });
         // Thực hiện các hành động khác với productId
     } else {
         console.error('Product ID not found in URL');

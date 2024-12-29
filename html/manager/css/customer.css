@@ -13,27 +13,41 @@ body {
     position: relative;
     display: flex;
     flex-direction: row;
+    min-height: 100vh;
 }
 
-/* phần dashboard */
+/* Menu Toggle Button */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #1279C3;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+}
+
+/* Left Container */
 .left-Container {
     display: flex;
     position: relative;
     width: 15%;
+    min-width: 200px;
     background-color: #1279C3;
     flex-direction: column;
+    z-index: 1;
+    transition: all 0.3s ease;
+    min-height: 100vh;
 }
 
 .logo {
     display: flex;
     padding-bottom: 150px;
 }
-
-.logo {
-    display: flex;
-    padding-bottom: 150px;
-}
-
 
 .logo-icon {
     position: relative;
@@ -46,7 +60,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .logo-icon .name {
@@ -54,7 +67,6 @@ body {
     width: 50px;
     height: 70px;
 }
-
 
 .logo-icon p {
     font-size: 20px;
@@ -79,7 +91,6 @@ body {
     align-items: center;
     color: #fff;
     justify-content: center;
-
 }
 
 .nav-options li {
@@ -89,6 +100,7 @@ body {
     border-radius: 5px;
     align-items: center;
     opacity: 0.3;
+    transition: all 0.3s ease;
 }
 
 .nav-options .option4 {
@@ -101,7 +113,7 @@ body {
     color: inherit;
 }
 
-.nav-options :hover,
+.nav-options li:hover,
 .nav-options li:active {
     background-color: rgba(18, 18, 18, 0.1);
     opacity: 1;
@@ -113,87 +125,75 @@ body {
     height: 24px;
     display: flex;
     margin: 0 10%;
-
 }
 
-/* phần nội dung page */
+/* Right Container */
 .right-Container {
     display: flex;
     position: relative;
     width: 85%;
     flex-direction: column;
-
 }
 
+/* Header Section */
 .header {
     display: flex;
     position: relative;
     flex-direction: row;
     width: 100%;
-    height: 10%;
+    height: auto;
+    padding: 20px;
+    align-items: center;
 }
 
 .search-container {
     display: flex;
     position: relative;
     width: 50%;
-    height: 40%;
-    margin-top: 3%;
-    margin-left: 5%;
-
+    height: 40px;
 }
 
 .search-container input[type="text"] {
     flex: 1;
-    width: 100%;
     padding: 10px;
     border: none;
-    outline: none;
     border-radius: 5px 0 0 5px;
     background-color: rgba(18, 121, 195, 0.1);
-
 }
 
 .search-container button {
     background-color: rgba(18, 121, 195, 0.1);
     color: gray;
     padding: 10px 15px;
-    border: none;
-    cursor: pointer;
     border-radius: 0 5px 5px 0;
+    cursor: pointer;
 }
 
 .space-search {
     width: 50%;
     float: left;
     height: 3%;
-
 }
 
 .avt-notice {
-    margin-top: 2%;
-    width: 20%;
-    clear: both;
-    height: 3%;
-
-
+    margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 
 .avt-content {
     display: flex;
-    flex-direction: row;
-    margin-top: 6%;
+    align-items: center;
+    gap: 15px;
 }
 
 .avt-content button {
-    display: flex;
     width: 36px;
     height: 36px;
-    border-radius: 36px;
+    border-radius: 50%;
     overflow: hidden;
-    border: none;
-    margin-right: 5px;
-
+    cursor: pointer;
+    background: none;
 }
 
 .avt-content button img {
@@ -202,187 +202,353 @@ body {
     object-fit: cover;
 }
 
-.avt-content p {
-    display: flex;
-    margin-right: 20px;
-}
-
 .avt-content img {
-    display: flex;
     width: 24px;
     height: 24px;
-    margin-right: 12%;
+    cursor: pointer;
 }
 
+/* Dashboard Title */
 .Dashboard-title {
-    position: relative;
     display: flex;
-    flex-direction: row;
-    height: 10%;
     align-items: center;
+    padding: 20px;
+    justify-content: space-between;
 }
 
 .Dashboard-title .p {
     font-size: 24px;
-    font-weight: semi-bold;
-    margin-left: 5%;
     color: #1279C3;
-
-}
-
-.space-title {
-    width: 47%;
-    float: left;
-    height: 3%;
-
+    font-weight: 600;
 }
 
 .Dashboard-title button {
-    margin-left: 2%;
-    color: #1279C3;
-    letter-spacing: 0.5px;
-    font-size: 15px;
-    background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    height: 35px;
-    padding: 0.5% 1%;
-    text-align: center;
-    text-decoration: none;
     display: flex;
-    cursor: pointer;
-    border-radius: 4px;
     align-items: center;
-    font-weight: 500;
-
+    gap: 10px;
+    padding: 8px 20px;
+    background-color: #FBFCFE;
+    border: 1px solid #DDE4F0;
+    border-radius: 4px;
+    color: #1279C3;
+    cursor: pointer;
 }
 
 .Dashboard-title button img {
     width: 24px;
     height: 24px;
-    margin-right: 5%;
 }
 
 .Dashboard-title .export {
-    margin-left: 30% !important;
-
+    margin-left: auto;
 }
 
-.Dashboard-title .addbtn {
-    margin-left: 3%;
-    width: 35% !important;
+/* Table Container */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 20px;
 }
 
-.Employee {
+/* Table Styles */
+.table {
+    width: 100%;
+    margin: 20px auto;
     border-collapse: collapse;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-
-
 }
 
-.Employee th {
-    width: 15%;
-    padding: 8px;
-    height: 65px;
+.table th {
+    padding: 15px;
     background-color: #1279C3;
     color: white;
     font-weight: 500;
-}
-
-.Employee .loyal {
-    width: 24px;
-    height: 24px;
-}
-
-.Employee #ID {
-    width: 10% !important;
-    height: 20%;
     text-align: left;
-    padding-left: 2%;
-    border-radius: 10px 0 0 0;
 }
 
-.Employee #ID1 {
-    width: 10% !important;
-    height: 20%;
-    text-align: left;
-    padding-left: 2%;
-    border-radius: 10px 0 0 0;
-    color: black;
-    font-weight: 500;
+.table img {
+    vertical-align: middle;
+    margin-left: 5px;
+    width: 16px;
 }
 
-.Employee #action {
+.table #ID {
+    width: 10%;
+    border-radius: 10px 0 0 0;
+    padding-left: 20px;
+}
+
+.table #action {
     border-radius: 0 10px 0 0;
+    width: 15%;
 }
 
-.Employee tr {
-    height: 20%;
-}
-
-.Employee td {
-
-    padding: 8px;
-    text-align: center;
-    height: 100px;
+.table td {
+    padding: 15px;
     color: #7D8398;
 }
 
-.Employee #name {
+.table #name {
     text-align: left;
-    padding-left: 2%;
-
+    padding-left: 20px;
 }
 
-.Employee tbody #action {
+.table tbody #action {
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    gap: 10px;
+}
+
+.table .Edit,
+.table .Delete {
+    padding: 8px 15px;
+    border-radius: 5px;
+    width: 80px;
+    display: inline-flex;
     align-items: center;
-}
-
-
-img {
-    max-width: 50px;
-}
-
-.Employee button {
-    background-color: #4CAF50;
-    position: relative;
-    width: 40%;
     justify-content: center;
-    padding-left: 10%;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    font-size: 16px;
-    padding: 10px;
-    margin: 10px;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-.Employee .Edit {
+.table .Edit {
     background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    border-radius: 5.5px;
+    border: 1px solid #DDE4F0;
     color: #1279C3;
 }
 
-.Employee .Delete {
+.table .Delete {
     background-color: #FFF9F8;
-    border: 1px solid#FACDC3;
-    border-radius: 5.5px;
+    border: 1px solid #FACDC3;
     color: #EB2F06;
-}
-
-tr:nth-child(odd) {
-    background-color: #ffffff;
-    /* Màu nền cho dòng lẻ */
 }
 
 tr:nth-child(even) {
     background-color: rgba(18, 121, 195, 0.1);
-    /* Màu nền cho dòng chẵn */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .left-Container {
+        position: fixed;
+        transform: translateX(-100%);
+    }
+
+    .left-Container.show {
+        transform: translateX(0);
+    }
+
+    .right-Container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .search-container {
+        width: 60%;
+    }
+
+    .table {
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    .table th,
+    .table td {
+        padding: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .avt-notice {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .Dashboard-title {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .Dashboard-title button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .table-wrapper {
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    .table {
+        min-width: 800px;
+        margin: 10px 0;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .table #action {
+        min-width: 180px;
+    }
+
+    .table .Edit,
+    .table .Delete {
+        padding: 6px 12px;
+        width: 70px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 15px;
+    }
+
+    .menu-toggle {
+        top: 10px;
+        left: 10px;
+    }
+
+    .avt-content .username {
+        display: none;
+    }
+
+    .Dashboard-title .p {
+        font-size: 20px;
+    }
+
+    .table-wrapper {
+        padding: 0 10px;
+    }
+
+    .table {
+        min-width: 650px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .table #ID,
+    .table #name {
+        padding-left: 10px;
+    }
+
+    .table .Edit,
+    .table .Delete {
+        padding: 5px 10px;
+        width: 65px;
+        font-size: 12px;
+    }
+
+    .table tbody #action {
+        gap: 5px;
+    }
+
+    /* Column widths for better mobile display */
+    .table th:nth-child(1),
+    .table td:nth-child(1) {
+        width: 15%;
+    }
+
+    .table th:nth-child(2),
+    .table td:nth-child(2) {
+        width: 20%;
+    }
+
+    .table th:nth-child(3),
+    .table td:nth-child(3) {
+        width: 15%;
+    }
+
+    .table th:nth-child(4),
+    .table td:nth-child(4) {
+        width: 20%;
+    }
+
+    .table th:nth-child(5),
+    .table td:nth-child(5) {
+        width: 15%;
+    }
+
+    .table th:nth-child(6),
+    .table td:nth-child(6) {
+        width: 15%;
+    }
+
+    /* Sticky action column */
+    .table #action {
+        position: sticky;
+        right: 0;
+        background: inherit;
+    }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 380px) {
+    .table {
+        min-width: 600px;
+    }
+
+    .table th,
+    .table td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .table .Edit,
+    .table .Delete {
+        width: 60px;
+        font-size: 11px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+    }
+
+    .right-Container {
+        background-color: #121212;
+    }
+
+    .search-container input[type="text"],
+    .search-container button {
+        background-color: #1e1e1e;
+        color: #e0e0e0;
+    }
+
+    .table td {
+        color: #e0e0e0;
+    }
+
+    tr:nth-child(even) {
+        background-color: #1e1e1e;
+    }
+
+    .Dashboard-title button {
+        background-color: #1e1e1e;
+        border-color: #333;
+    }
 }

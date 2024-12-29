@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Account.init({
-    usename: DataTypes.STRING,
+    username: DataTypes.STRING,
     password: DataTypes.STRING,
     status: DataTypes.BOOLEAN
   }, {

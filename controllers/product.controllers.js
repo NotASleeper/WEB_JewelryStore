@@ -150,6 +150,16 @@ const deleteProduct = async (req, res) => {
 const getProductByCategoryID = async (req, res) => {
     const { id_category } = req.params;
     try {
+        const category = await ProductCategory.findOne({
+            where: {
+                id: id_category,
+            }
+        })
+
+        if (!category) {
+            return res.status(404).send({ message: 'Category not found' });
+        }
+
         const productList = await Product.findAll({
             include: [{
                 model: Inventory,

@@ -32,8 +32,9 @@ body {
     justify-self: center;
     justify-content: center;
     position: relative;
-    left: 1150px;
-    top: 150px;
+    align-items: center;
+    left: 850px;
+    top: 80px;
     border-radius: 30px;
 }
 

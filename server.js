@@ -11,12 +11,59 @@ app.use(express.json());
 //dùng cors để gọi api
 app.use(cors());
 
-//cài đặt static file
-const publicPathDirectory = path.join(__dirname, "./public");
-app.use(express.static(publicPathDirectory));
+
 
 //dùng router
 app.use("/api/v1", rootRouter);
+
+//cài đặt static file cho manager
+app.use(express.static(path.join(__dirname, 'html')));
+app.use( express.static(path.join(__dirname, 'html/manager')));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/manager/login.html'));
+});
+
+app.use('/admin', express.static(path.join(__dirname, 'html/manager')));
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/manager/dashboard.html'));
+});
+
+app.get('/admin/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/manager/dashboard.html'));
+});
+
+app.get('/admin/product', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/manager/product.html'));
+});
+
+
+app.use('/sale', express.static(path.join(__dirname, 'html/sale_employee')));
+app.get('/sale', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/dashboard.html'));
+});
+
+app.get('/sale/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/dashboard.html'));
+});
+
+app.get('/sale/customer', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/customer.html'));
+});
+
+
+
+app.use('/warehouse',express.static(path.join(__dirname, 'html/warehouse_employee')));
+app.get('/warehouse', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/warehouse_employee/product.html'));
+});
+
+app.get('/warehouse', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/warehouse_employee/product.html'));
+});
+
+app.get('/warehouse/import', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/warehouse_employee/import.html'));
+});
 
 //lắng nghe sự kiện kết nối
 app.listen(5501, async () => {

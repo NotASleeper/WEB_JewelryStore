@@ -15,6 +15,21 @@ body {
     flex-direction: row;
 }
 
+/* phần menu toggle */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #1279C3;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+}
+
 /* phần dashboard */
 .left-Container {
     display: flex;
@@ -22,13 +37,15 @@ body {
     width: 15%;
     background-color: #1279C3;
     flex-direction: column;
+    min-width: 200px;
+    transition: all 0.3s ease;
+    z-index: 1000;
 }
 
 .logo {
     display: flex;
     padding-bottom: 150px;
 }
-
 
 .logo-icon {
     position: relative;
@@ -41,7 +58,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .logo-icon .name {
@@ -73,7 +89,6 @@ body {
     align-items: center;
     color: #fff;
     justify-content: center;
-
 }
 
 .nav-options li {
@@ -107,7 +122,6 @@ body {
     height: 24px;
     display: flex;
     margin: 0 10%;
-
 }
 
 /* phần nội dung page */
@@ -116,7 +130,6 @@ body {
     position: relative;
     width: 85%;
     flex-direction: column;
-
 }
 
 .header {
@@ -134,7 +147,6 @@ body {
     height: 30%;
     margin-top: 3%;
     margin-left: 5%;
-
 }
 
 .search-container input[type="text"] {
@@ -145,7 +157,6 @@ body {
     outline: none;
     border-radius: 5px 0 0 5px;
     background-color: rgba(18, 121, 195, 0.1);
-
 }
 
 .search-container button {
@@ -161,14 +172,12 @@ body {
     width: 50%;
     float: left;
     height: 3%;
-
 }
 
 .space-title {
-    width: 30%;
+    width: 11%;
     float: left;
     height: 3%;
-
 }
 
 .avt-notice {
@@ -176,8 +185,6 @@ body {
     width: 20%;
     clear: both;
     height: 3%;
-
-
 }
 
 .avt-content {
@@ -227,7 +234,6 @@ body {
     font-weight: semi-bold;
     margin-left: 5%;
     color: #1279C3;
-
 }
 
 .Dashboard-title img {
@@ -235,7 +241,6 @@ body {
     margin-left: 2%;
     margin-right: 2%;
 }
-
 
 .Dashboard-title .Date {
     width: fit-content;
@@ -253,7 +258,6 @@ body {
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
-
 }
 
 .date-picker-label {
@@ -262,7 +266,6 @@ body {
 
 .date-picker-input {
     padding: 5px;
-
     border: black solid 1px;
     border-radius: 10px;
 }
@@ -279,9 +282,7 @@ body {
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-
     border-radius: 4px;
-
 }
 
 .Dashboard-title .export {
@@ -308,7 +309,6 @@ body {
     margin-right: 5%;
 }
 
-
 .Dashboard-title .inner {
     margin-left: 1%;
     color: #1279C3;
@@ -321,7 +321,6 @@ body {
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-
     border-radius: 4px;
 }
 
@@ -346,7 +345,8 @@ body {
     margin-bottom: 1%;
 }
 
-.info #total {
+.info #total,
+.info #cost {
     font-size: 24px;
     font-weight: 500;
 }
@@ -384,13 +384,11 @@ body {
     margin: 20px auto;
 }
 
-
 .Product {
     border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-
 }
 
 .Product th {
@@ -410,7 +408,7 @@ body {
     border-radius: 10px 0 0 0;
 }
 
-.Product #action {
+.Product #last {
     border-radius: 0 10px 0 0;
 }
 
@@ -419,7 +417,6 @@ body {
 }
 
 .Product td {
-
     padding: 8px;
     text-align: center;
     height: 100px;
@@ -442,7 +439,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 .Product img {
     width: 16px;
@@ -481,10 +477,174 @@ body {
 
 tr:nth-child(odd) {
     background-color: #ffffff;
-    /* Màu nền cho dòng lẻ */
 }
 
 tr:nth-child(even) {
     background-color: rgba(18, 121, 195, 0.1);
-    /* Màu nền cho dòng chẵn */
+}
+
+/* Menu Toggle Button - Hidden by default */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #1279C3;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+}
+
+/* Media queries cho responsive */
+@media screen and (max-width: 1024px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-toggle {
+        top: 3.3%;
+        display: block;
+    }
+
+    .left-Container {
+        position: fixed;
+        left: -100%;
+        height: 100vh;
+    }
+
+    .left-Container.show {
+        left: 0;
+    }
+
+    .right-Container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .info .revenue,
+    .info .cost {
+        width: 25%;
+    }
+
+    .Linegraph {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .search-container {
+        width: 90%;
+        height: auto;
+        margin: 10px auto;
+    }
+
+    .avt-notice {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .avt-content {
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .Dashboard-title {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 10px;
+    }
+
+    .Dashboard-title .Date {
+        margin: 10px 0;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .Dashboard-title button,
+    .Dashboard-title .export,
+    .Dashboard-title .inner {
+        margin: 5px 5%;
+        padding: 8px 15px;
+        width: 90%;
+        height: auto;
+    }
+
+    .info {
+        flex-direction: column;
+        margin: 0 5%;
+    }
+
+    .info .revenue,
+    .info .cost {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .info .cost {
+        margin-left: 5%;
+    }
+
+    .Linegraph {
+        width: 95%;
+        height: 250px;
+    }
+
+    .Product {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .Product th,
+    .Product td {
+        min-width: 120px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Dashboard-title p {
+        font-size: 20px;
+    }
+
+    .date-picker-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .date-picker-input {
+        width: 100%;
+    }
+
+    .date-picker-label {
+        margin-bottom: 5px;
+    }
+
+    .info #total,
+    .info #cost,
+    .info #r {
+        font-size: 18px;
+    }
+
+    .Linegraph {
+        height: 200px;
+    }
+
+    .Product {
+        font-size: 14px;
+    }
+
+    .Product th,
+    .Product td {
+        padding: 8px;
+    }
 }

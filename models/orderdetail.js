@@ -16,6 +16,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   OrderDetail.init({
+    id_order: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'orderforms',
+        key: 'id'
+      }
+    },
+    id_product: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'products',
+        key: 'id'
+      }
+    },
     quantity: DataTypes.TINYINT,
     request: DataTypes.STRING,
     surcharge: DataTypes.BIGINT,

@@ -114,13 +114,17 @@ const login = async (req, res) => {
     if (!account) {
         res.status(404).send("Not found");
     }
-    var isAuth = (password == account.password);
-    if (isAuth) {
-        req.session.userId = account.id;
-        req.session.username = account.username;
-        res.status(200).send("Login succeeded", id_employee);
-    } else {
-        res.status(500).send("Username or password is not correct");
+    try {
+        var isAuth = (password == account.password);
+        if (isAuth) {
+            // req.session.userId = account.id;
+            // req.session.username = account.username;
+            res.status(200).send(account);
+        } else {
+            res.status(500).send("Username or password is not correct");
+        }
+    } catch (error) {
+        res.status(500).send(error);
     }
 }
 

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             password: password.value
         };
 
-        fetch('http://localhost:5501/api/v1/accounts', {
+        fetch('http://localhost:5501/api/v1/accounts/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 console.log('Login response:', data);
-                if (data.success) {
+                if (data) {
                     if (checlbox.checked) {
                         setCookie('username', username.value, 7);
                         setCookie('password', password.value, 7);
@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         .then(data => {
                             console.log('Staff:', data);
                             switch (data.id_position) {
-                                case 'STF01':
+                                case 1:
                                     window.location.href = '/admin';
                                     break;
-                                case 'STF02':
+                                case 2:
                                     window.location.href = '/sale';
                                     break;
-                                case 'STF03':
+                                case 3:
                                     window.location.href = '/warehouse';
                                     break;
                             }

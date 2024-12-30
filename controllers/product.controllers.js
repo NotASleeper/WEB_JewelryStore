@@ -75,6 +75,9 @@ const getAllProduct = async (req, res) => {
           {
             model: Gemstone,
           },
+          {
+            model: ProductCategory,
+          }
         ],
         where: {
           name: {
@@ -93,6 +96,9 @@ const getAllProduct = async (req, res) => {
           },
           {
             model: Gemstone,
+          },
+          {
+            model: ProductCategory,
           },
         ],
         where: {
@@ -118,6 +124,9 @@ const getDetailProduct = async (req, res) => {
         {
           model: Gemstone,
         },
+        {
+          model: ProductCategory,
+        }
       ],
       where: {
         id: id,

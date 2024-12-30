@@ -63,39 +63,41 @@ const getAllProduct = async () => {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const name = urlParams.get('name');
-        const url = "http://localhost:5501/api/v1/customers" + (name ? `?name=${name}` : "");
+        const url = "http://localhost:5501/api/v1/products/" + (name ? `?name=${name}` : "");
 
         const response = await fetch(url);
         const data = await response.json();
-        data.forEach(customer => {
-            var date = new Date(customer.birthday).toISOString().split('T')[0];
+        data.forEach(product => {
             const row = document.createElement('tr');
 
+            const idCell = document.createElement('td');
+            idCell.id = "ID";
+            idCell.textContent = product.id;
+            row.appendChild(idCell);
+
             const nameCell = document.createElement('td');
-            nameCell.id = "ID1";
-            nameCell.textContent = customer.name;
+            nameCell.id = "name";
+            nameCell.textContent = product.name;
             row.appendChild(nameCell);
 
-            const addressCell = document.createElement('td');
-            addressCell.id = "name";
-            addressCell.textContent = customer.address;
-            row.appendChild(addressCell);
+            const imgCell = document.createElement('td');
+            const img = document.createElement('img');
+            img.src = "./assets/product1.jpg";
+            img.alt = "Product image";
+            imgCell.appendChild(img);
+            row.appendChild(imgCell);
 
-            const phoneCell = document.createElement('td');
-            phoneCell.textContent = customer.phone;
-            row.appendChild(phoneCell);
+            const categoryCell = document.createElement('td');
+            categoryCell.textContent = product.ProductCategory.name;
+            row.appendChild(categoryCell);
 
-            const emailCell = document.createElement('td');
-            emailCell.textContent = customer.email;
-            row.appendChild(emailCell);
+            const priceCell = document.createElement('td');
+            priceCell.textContent = parseFloat(product.price).toLocaleString();
+            row.appendChild(priceCell);
 
-            const birthdayCell = document.createElement('td');
-            birthdayCell.textContent = date;
-            row.appendChild(birthdayCell);
-
-            const loyaltyCell = document.createElement('td');
-            loyaltyCell.textContent = customer.loyalty_point;
-            row.appendChild(loyaltyCell);
+            const quantityCell = document.createElement('td');
+            quantityCell.textContent = product.Inventory.quantity;
+            row.appendChild(quantityCell);
 
             const actionCell = document.createElement('td');
             actionCell.id = "action";
@@ -104,7 +106,7 @@ const getAllProduct = async () => {
             editButton.className = 'Edit';
             editButton.textContent = 'Info';
             editButton.addEventListener('click', () => {
-                window.location.href = "customer-info.html?id=" + customer.id;
+                window.location.href = "product-info.html?id=" + product.id;
             })
             actionCell.appendChild(editButton);
 

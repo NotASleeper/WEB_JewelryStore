@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const { Product, Inventory, ProductCategory, Gemstone } = require("../models");
 
 //Lấy product và số lượng
@@ -62,23 +63,44 @@ const createProduct = async (req, res) => {
 };
 
 const getAllProduct = async (req, res) => {
+  const { name } = req.query;
   try {
-    const productList = await Product.findAll({
-      include: [
-        {
-          model: Inventory,
-          attributes: ["quantity"],
+    if (name) {
+      const productList = await Product.findAll({
+        include: [
+          {
+            model: Inventory,
+            attributes: ["quantity"],
+          },
+          {
+            model: Gemstone,
+          },
+        ],
+        where: {
+          name: {
+            [Op.like]: `%${name}%`,
+          },
+          status: 1,
         },
-        {
-          model: Gemstone,
+      });
+      res.status(200).send(productList);
+    } else {
+      const productList = await Product.findAll({
+        include: [
+          {
+            model: Inventory,
+            attributes: ["quantity"],
+          },
+          {
+            model: Gemstone,
+          },
+        ],
+        where: {
+          status: 1,
         },
-      ],
-      where: {
-        status: 1,
-      },
-    });
-
-    res.status(200).send(productList);
+      });
+      res.status(200).send(productList);
+    }
   } catch (error) {
     res.status(500).send(error);
   }

@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('id_employee');
-    window.location.href = '/';
+    window.location.href = '/logout';
   });
 
 });

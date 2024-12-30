@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
             sessionStorage.removeItem('id_employee');
             sessionStorage.removeItem('token');
 
-            window.location.href = '/';
+            window.location.href = '/logout';
         });
         // Thực hiện các hành động khác với productId
     } else {

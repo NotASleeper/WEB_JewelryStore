@@ -19,7 +19,18 @@ app.use(express.json());
 //dùng cors để gọi api
 app.use(cors());
 
+const logout = (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).send('Failed to log out.');
+        }
+        res.redirect('/');
+    });
+};
 
+app.get('/logout', (req, res) => {
+    logout(req, res);
+});
 
 //dùng router
 app.use("/api/v1", rootRouter);

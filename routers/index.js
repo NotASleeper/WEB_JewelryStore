@@ -8,6 +8,7 @@ const { inventoryRouter } = require("./inventory.routers");
 const { gemstoneRouter } = require("./gemstone.routers");
 const { accountRouter } = require("./account.routers");
 const { orderFormRouter } = require("./orderform.routers");
+const { orderDetailRouter } = require("./orderdetail.routers");
 
 const rootRouter = express.Router();
 
@@ -20,6 +21,7 @@ rootRouter.use("/inventories", inventoryRouter);
 rootRouter.use("/gemstones", gemstoneRouter);
 rootRouter.use("/accounts", accountRouter);
 rootRouter.use("/order-forms", orderFormRouter);
+rootRouter.use("/order-details", orderDetailRouter);
 
 module.exports = {
   rootRouter,

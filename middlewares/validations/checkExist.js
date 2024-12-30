@@ -4,6 +4,7 @@ const checkExist = (Model) => {
         const model = await Model.findOne({
             where: {
                 id: id,
+                status: 1
             }
         })
         if (model) {

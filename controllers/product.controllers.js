@@ -24,6 +24,7 @@ const createProduct = async (req, res) => {
         weight,
         price,
         warranty_period,
+        discount,
         status
     } = req.body;
     try {
@@ -35,6 +36,7 @@ const createProduct = async (req, res) => {
             weight,
             price,
             warranty_period,
+            discount,
             status
         });
 
@@ -106,6 +108,7 @@ const updateProduct = async (req, res) => {
         weight,
         price,
         warranty_period,
+        discount,
     } = req.body;
     try {
         const detailProduct = await Product.findOne({
@@ -121,6 +124,7 @@ const updateProduct = async (req, res) => {
         detailProduct.weight = weight;
         detailProduct.price = price;
         detailProduct.warranty_period = warranty_period;
+        detailProduct.discount = discount;
         await detailProduct.save();
 
         res.status(200).send(detailProduct);

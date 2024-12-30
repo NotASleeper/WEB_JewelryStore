@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     weight: DataTypes.FLOAT,
     price: DataTypes.BIGINT,
     warranty_period: DataTypes.TINYINT,
+    discount: DataTypes.MEDIUMINT,
     status: DataTypes.BOOLEAN
   }, {
     sequelize,

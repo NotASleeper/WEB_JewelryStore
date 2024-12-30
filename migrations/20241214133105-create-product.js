@@ -34,6 +34,9 @@ module.exports = {
       warranty_period: {
         type: Sequelize.TINYINT
       },
+      discount: {
+        type: Sequelize.MEDIUMINT
+      },
       status: {
         type: Sequelize.BOOLEAN
       },

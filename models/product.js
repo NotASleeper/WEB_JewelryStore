@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     /**
@@ -9,7 +7,17 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ ProductCategory, Gemstone, Inventory, ImportDetail, OrderDetail, LiquidationDetail, WarrantyMaintainance, RefundForm, ProductImage }) {
+    static associate({
+      ProductCategory,
+      Gemstone,
+      Inventory,
+      ImportDetail,
+      OrderDetail,
+      LiquidationDetail,
+      WarrantyMaintainance,
+      RefundForm,
+      ProductImage,
+    }) {
       // define association here
       this.belongsTo(ProductCategory, { foreignKey: "id_category" });
       this.hasOne(Gemstone, { foreignKey: "id" });
@@ -22,18 +30,22 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(ProductImage, { foreignKey: "id_product" });
     }
   }
-  Product.init({
-    name: DataTypes.STRING,
-    material: DataTypes.STRING,
-    size: DataTypes.SMALLINT,
-    weight: DataTypes.FLOAT,
-    price: DataTypes.BIGINT,
-    warranty_period: DataTypes.TINYINT,
-    discount: DataTypes.MEDIUMINT,
-    status: DataTypes.BOOLEAN
-  }, {
-    sequelize,
-    modelName: 'Product',
-  });
+  Product.init(
+    {
+      name: DataTypes.STRING,
+      material: DataTypes.STRING,
+      size: DataTypes.SMALLINT,
+      weight: DataTypes.FLOAT,
+      price: DataTypes.BIGINT,
+      warranty_period: DataTypes.TINYINT,
+      discount: DataTypes.MEDIUMINT,
+      description: DataTypes.STRING,
+      status: DataTypes.BOOLEAN,
+    },
+    {
+      sequelize,
+      modelName: "Product",
+    }
+  );
   return Product;
 };

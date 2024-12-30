@@ -46,10 +46,10 @@
                 <img src="./assets/icons/cart_ic.png" alt="Cart" />
                 <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
                 <a class="user" href="/sale/profile">
-                    <img id="logout-ic" src="./assets/images/avt.png" alt="avatar" />
+                    <img  src="./assets/images/avt.png" alt="avatar" />
                     Employee
                 </a>
-                <img src="./assets/icons/logout_ic.png" alt="Log out" />
+                <img id="logout-ic" src="./assets/icons/logout_ic.png" alt="Log out" />
             </div>
         </div>
         <div class="content">
@@ -70,8 +70,8 @@
                         <img src="./assets/images/product1_1.png" alt="Product main image" style="width: 700px;">
                     </div>
                     <!-- Product Info -->
-                    <div class="product-details">
-                        <h2 id="mame">Product1</h2>
+                    <div class="product-details" width="100%">
+                        <h2 id="name">Product1</h2>
                         <div class="detail-row">
                             <span class="detail-label">Category:</span>
                             <span id="category">Necklace</span>
@@ -80,9 +80,10 @@
                             <span class="detail-label">Material:</span>
                             <span id="material">18K Yellow Gold - Weight: 3.75g</span>
                         </div>
-                        <div class="detail-row">
+                        <div class="detail-row" style="grid-template-columns: 120px auto auto;">
                             <span class="detail-label">Gemstone:</span>
                             <span id="gemstone">Moissanite Certificate</span>
+                            <a href="#" id="certificate">Certificate</a>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Size:</span>
@@ -108,12 +109,12 @@
                             <span class="detail-label">Gemstone size:</span>
                             <span id="gemstone-size">3mm x 3mm</span>
                         </div>
-                        <div class="description" id="description">
-                            Description: Mặt dây chuyền nữ Heart-shape Reverse MDA3103 nổi bật với vẻ đẹp lộng mạn độc
-                            đáo mà khó có món trang sức nào mang lại được. Dáng trái tim trong trang sức từ xưa đến nay
-                            luôn duy trì được sức hút của mình bởi đây được cho là hình dáng biểu tượng cho tình yêu.
-                            Tuy nhiên trong thiết kế ...
-                            <a class="see-more">Xem thêm</a>
+                        <div class="description" >
+                            <span class="detail-label">Description:</span>
+                            <span id="description">Mặt dây chuyền nữ Heart-shape Reverse MDA3103 nổi bật với vẻ đẹp lộng mạn độc
+                                đáo mà khó có món trang sức nào mang lại được. Dáng trái tim trong trang sức từ xưa đến nay
+                                luôn duy trì được sức hút của mình bởi đây được cho là hình dáng biểu tượng cho tình yêu.
+                                Tuy nhiên trong thiết kế ...</span>                            
                         </div>
 
                         <div class="price-section">
@@ -144,5 +145,6 @@
             </div>
         </div>
     </div>
-    <script src="../sale_employee/js/product_info.js"></script>
 </body>
+<script src="./js/product_info.js"></script>
+

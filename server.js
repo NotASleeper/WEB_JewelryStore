@@ -100,6 +100,12 @@ app.get('/sale/customerinfo', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/customer_info.html'));
 });
 
+app.get('/sale/productinfo', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/product_info.html'));
+});
+app.get('/sale/productinfo0', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/product_info_outofstock.html'));
+});
 
 app.use('/warehouse', express.static(path.join(__dirname, 'html/warehouse_employee')));
 app.get('/warehouse', checkAuth, (req, res) => {

@@ -56,26 +56,32 @@ function displayProductInfo(product, categories) {
     const category = categories.find(cat => cat.id === product.id_category);
     const categoryName = category ? category.name : 'Unknown Category';
     // Cập nhật DOM để hiển thị thông tin sản phẩm
-    document.getElementById('thumbnails').innerHTML = `<img src="${product.imageUrl}" alt="${product.name}"  class="thumbnail"> <img src="${product.imageUrl}" alt="${product.name}"  class="thumbnail">`;
-    document.getElementById('main-image').innerHTML = `<img src="${product.imageUrl}" alt="${product.name}" style="width: 700px;">`;
+    document.getElementById('thumbnails').innerHTML = `<img src="${!product.imageUrl?'':product.imageUrl}" alt="${product.name}"  class="thumbnail"> <img src="${!product.imageUrl?'':product.imageUrl}" alt="${product.name}"  class="thumbnail">`;
+    document.getElementById('main-image').innerHTML = `<img src="${!product.imageUrl?'':product.imageUrl}" alt="${product.name}" style="width: 700px;">`;
     document.getElementById('name').textContent = product.name;
     document.getElementById('category').textContent = categoryName;
-    document.getElementById('gemstone').textContent = product.gemstone;
+    document.getElementById('gemstone').textContent = product.Gemstone.name;
     document.getElementById('material').textContent = product.material;
-    document.getElementById('product-size').textContent = product.product_size;
-    document.getElementById('caratweigtht').textContent = product.carat_weight;
-    document.getElementById('color').textContent = product.id_category;
-    document.getElementById('shape').textContent = product.shape;
-    document.getElementById('purity').textContent = product.purity;
-    document.getElementById('gemstone-size').textContent = product.gemstone_size;
-    document.getElementById('description').textContent = 'Description: ' + product.description;
+    document.getElementById('product-size').textContent = product.size;
+    document.getElementById('caratweigtht').textContent = product.Gemstone.weight;
+    document.getElementById('color').textContent = product.Gemstone.color;
+    document.getElementById('shape').textContent = product.Gemstone.shape ? '' : product.Gemstone.shape;
+    document.getElementById('purity').textContent = product.Gemstone.purity;
+    document.getElementById('gemstone-size').textContent = product.Gemstone.size;
+    document.getElementById('description').textContent = product.description;
+    document.getElementById('certificate').href = product.Gemstone.certificate;
     document.getElementById('current-price').textContent = currentPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
-    document.getElementById('discount').textContent = '↓ ' + product.discount + '%';
+    if (product.discount === 0) {
+        document.getElementById('discount').style.display = 'none';
+        document.getElementById('price').style.display = 'none';
+    }
+    else
+        document.getElementById('discount').textContent = '↓ ' + product.discount + '%';
     document.getElementById('price').textContent = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
 
     document.getElementById('preorder').addEventListener('click', function () {
         // Lưu trữ dữ liệu sản phẩm trong localStorage
         localStorage.setItem('preorderProduct', JSON.stringify(product));
-        window.location.href = `pre-order_info.html`;
+        window.location.href = `/sale/preorder?id=${product.id}`;
     });
 }

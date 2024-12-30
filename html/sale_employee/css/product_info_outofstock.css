@@ -159,7 +159,7 @@ body {
 
 .product-container .product-grid {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr 1fr;
     gap: 30px;
 }
 

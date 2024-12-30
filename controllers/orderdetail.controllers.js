@@ -40,11 +40,12 @@ const getAllOrderDetail = async (req, res) => {
 }
 
 const getDetailOrderDetail = async (req, res) => {
-    const { id } = req.params;
+    const { id_order, id_product } = req.params;
     try {
         const detailOrderDetail = await OrderDetail.findOne({
             where: {
-                id: id,
+                id_order: id_order,
+                id_product: id_product,
                 status: 1,
             }
         });
@@ -55,10 +56,8 @@ const getDetailOrderDetail = async (req, res) => {
 }
 
 const updateOrderDetail = async (req, res) => {
-    const { id } = req.params;
+    const { id_order, id_product } = req.params;
     const {
-        id_order,
-        id_product,
         quantity,
         request,
         surcharge,
@@ -67,12 +66,11 @@ const updateOrderDetail = async (req, res) => {
     try {
         const detailOrderDetail = await OrderDetail.findOne({
             where: {
-                id: id,
+                id_order: id_order,
+                id_product: id_product,
                 status: 1,
             }
         });
-        detailOrderDetail.id_order = id_order;
-        detailOrderDetail.id_product = id_product;
         detailOrderDetail.quantity = quantity;
         detailOrderDetail.request = request;
         detailOrderDetail.surcharge = surcharge;
@@ -85,11 +83,12 @@ const updateOrderDetail = async (req, res) => {
 }
 
 const deleteOrderDetail = async (req, res) => {
-    const { id } = req.params;
+    const { id_order, id_product } = req.params;
     try {
         const detailOrderDetail = await OrderDetail.findOne({
             where: {
-                id: id,
+                id_order: id_order,
+                id_product: id_product,
                 status: 1,
             }
         });

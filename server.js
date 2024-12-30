@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const { sequelize } = require('./models');
 const { rootRouter } = require('./routers');
@@ -6,6 +7,12 @@ const app = express();
 const cors = require('cors');
 const checkAuth = require('./middlewares/validations/checkAuth');
 
+app.use(session({
+    secret: '123456', // Thay thế bằng một chuỗi bí mật của bạn
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Đặt thành true nếu bạn sử dụng HTTPS
+}));
 //cài ứng dụng kiểu json
 app.use(express.json());
 

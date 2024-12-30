@@ -7,6 +7,7 @@ if (productId) {
     const logoutPopup = document.getElementById('logout_popup');
     const cancelButton = document.getElementById('cancelButton');
     const confirmButton = document.getElementById('confirmButton');
+    document.getElementById('user').textContent = sessionStorage.getItem('username');
     console.log('Product ID:', productId);
     // Fetch dữ liệu sản phẩm từ API
     fetch(`http://localhost:5501/api/v1/products?id=${productId}`)

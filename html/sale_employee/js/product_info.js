@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const productId = urlParams.get('id');
     // Kiểm tra xem ID có tồn tại không
     if (productId) {
+        document.getElementById('user').textContent = sessionStorage.getItem('username');
         const logoutPopup = document.getElementById('logout_popup');
         const cancelButton = document.getElementById('cancelButton');
         const confirmButton = document.getElementById('confirmButton');

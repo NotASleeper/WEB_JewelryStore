@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const loyaltyInput = document.getElementById('loyalty');
     const AccumulatedInput = document.getElementById('Accumulated');
 
+    document.getElementById('user').textContent = sessionStorage.getItem('username');
+    
     const deletePopup = document.getElementById('delete_popup');
     getCustomerInfo(customerId);
 

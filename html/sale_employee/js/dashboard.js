@@ -8,6 +8,7 @@ if (typeof products === 'undefined') {
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  document.getElementById('user').textContent = sessionStorage.getItem('username');
   const lowerSlider = document.getElementById('lower');
   const upperSlider = document.getElementById('upper');
   const lowerValue = document.getElementById('lower-value');
@@ -143,9 +144,9 @@ function displayProducts(listproduct) {
     if (product.discount === 0) { clone.getElementById('discountic').style.display = 'none'; }
     else { clone.getElementById('discount').textContent = product.discount + " %"; }
     clone.querySelector('.product-cart').addEventListener('click', function () {
-      if (product.quantity === 0) { window.location.href = `/sale/productinfo0?id=${product.id}`; }
+      if (product.quantity === 0) { window.location.href = `/sale/productinfo?id=${product.id}`; }
       else {
-        window.location.href = `/sale/productinfo?id=${product.id}`;
+        window.location.href = `/sale/productinfo0?id=${product.id}`;
       }
     });
     clone.getElementById('price').textContent = product.price;

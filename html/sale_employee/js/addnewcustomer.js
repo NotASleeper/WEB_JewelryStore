@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const emailInput = document.getElementById('email');
     const birthdayInput = document.getElementById('birthday');
 
+    document.getElementById('user').textContent = sessionStorage.getItem('username');
+
     document.getElementById('logout-ic').addEventListener('click', function () {
         logoutPopup.style.display = '';
     });

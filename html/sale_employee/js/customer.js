@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('searchInfo');
     fetchCustomers();
 
+    document.getElementById('user').textContent = sessionStorage.getItem('username');
+
     document.getElementById('logout-ic').addEventListener('click', function () {
         logoutPopup.style.display = '';
     });

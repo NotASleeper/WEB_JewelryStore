@@ -132,7 +132,17 @@ body {
     margin-right: 5px;
 }
 
-
+input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border: 1px solid #121212;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: transparent;
+    margin-bottom: 3%;
+}
 
 .content {
     margin-top: 90px;
@@ -168,7 +178,7 @@ body {
     color: rgba(18, 18, 18, 0.5);
 }
 
-.input-container input[type="text"] {
+.input-container input {
     width: 100%;
     padding: 10px;
     border: none;
@@ -288,6 +298,37 @@ body {
 }
 
 
+.edit button {
+    background-color: #4CAF50;
+    position: relative;
+    width: 40%;
+    justify-content: center;
+    padding-left: 10%;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+.edit .SaveButton {
+    background-color: #F5FFFA;
+    border: 1px solid #C5F6DC;
+    border-radius: 5.5px;
+    color: #20BF6B;
+}
+
+.edit .CancelButton {
+    background-color: #FFF9F8;
+    border: 1px solid#FACDC3;
+    border-radius: 5.5px;
+    color: #EB2F06;
+}
+
+
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -298,7 +339,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Đảm bảo popup nằm trên các thành phần khác */
+    z-index: 1000;
+    /* Đảm bảo popup nằm trên các thành phần khác */
 }
 
 .popup-content {
@@ -326,16 +368,41 @@ body {
     margin: 10px;
 }
 
-.popup-content .cancel{
+.popup-content .cancel {
     background-color: #FFF9F8;
     border: 1px solid #FACDC3;
     border-radius: 5.5px;
     color: #EB2F06;
 }
 
-.popup-content .ok{
+.popup-content .ok {
     background-color: #F5FFFA;
     border: 1px solid #C5F6DC;
     border-radius: 5.5px;
     color: #20BF6B;
+}
+
+
+.inputPopup-container {
+    text-align: left;
+    width: fit-content;
+    padding: 20px;
+}
+
+.inputPopup-container label {
+    margin-left: 5px;
+    font-size: 12px;
+    color: rgba(18, 18, 18, 0.5);
+}
+
+.inputPopup-container input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border: 1px solid #121212;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: transparent;
+    margin-bottom: 3%;
 }

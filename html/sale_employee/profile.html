@@ -62,34 +62,34 @@
                 <div class="input-container">
                     <div class="name-input">
                         <label for="name">Name</label>
-                        <input type="text" id="name" placeholder="Employee1" name="name">
+                        <input type="text" id="name" placeholder="Employee1" name="name" readonly>
                     </div>
                     <div class="address-input">
                         <label for="address">Address</label>
-                        <input type="text" id="address" placeholder="26/8 Trương Định, Bến Thành, Quận 1, TP. Hồ Chí Minh"
-                            name="address">
+                        <input type="text" id="address"
+                            placeholder="26/8 Trương Định, Bến Thành, Quận 1, TP. Hồ Chí Minh" name="address" readonly>
                     </div>
                     <div class="phone-birthday-input">
                         <div class="phone-input">
                             <label for="phone">Phone</label>
-                            <input type="text" id="phone" placeholder="0123456789" name="phone">
+                            <input type="text" id="phone" placeholder="0123456789" name="phone" readonly>
                         </div>
                         <div class="birthday-input">
                             <label for="birthday">Birthday</label>
-                            <input type="text" id="birthday" placeholder="21/04/1999" name="birthday">
+                            <input type="date" id="birthday" placeholder="21/04/1999" name="birthday" readonly>
                         </div>
                     </div>
                     <div class="email-input">
                         <label for="email">Email</label>
-                        <input type="text" id="email" placeholder="em1@gmail.com" name="email">
+                        <input type="text" id="email" placeholder="em1@gmail.com" name="email" readonly>
                     </div>
                     <div class="position-input">
                         <label for="position">Position</label>
-                        <input type="text" id="position" placeholder="Manager" name="position">
+                        <input type="text" id="position" placeholder="Manager" name="position" readonly>
                     </div>
                     <div class="username-input">
                         <label for="username">Username</label>
-                        <input type="text" id="username" placeholder="admin123" name="username">
+                        <input type="text" id="username" placeholder="admin123" name="username" readonly>
                     </div>
                 </div>
                 <div class="image-container">
@@ -97,12 +97,17 @@
                         <div class="avatar">
                             <img src="./assets/images/avt.png" alt="Avatar" id="avatar">
                         </div>
-                        <button class="edit-avatar"><img src="./assets/icons/editimage_ic.png" alt="">Edit avatar</button>
+                        <button class="edit-avatar" id="edit-avatar"><img src="./assets/icons/editimage_ic.png"
+                                alt="">Edit avatar</button>
                     </div>
                     <div class="space"></div>
-                    <div class="edit-btn">
-                        <button>Change password</button>
-                        <button>Edit</button>
+                    <div class="edit-btn" id="viewMode">
+                        <button id="changePassword">Change password</button>
+                        <button id="edit">Edit</button>
+                    </div>
+                    <div id="editMode" class="edit" style="display: none; margin-left: 50px;">
+                        <button class="CancelButton" id="cancelSave" style="width: fit-content;">Cancel</button>
+                        <button class="SaveButton" id="save" style="width: fit-content;">Save</button>
                     </div>
                 </div>
             </div>
@@ -118,4 +123,40 @@
             </div>
         </div>
     </div>
+    <div id="changePassword-popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Change password</h3>
+            <p>You can change your password here</p>
+            <div class="inputPopup-container">
+                <div display="flex">
+                    <label for="oldPassword">Old password</label>
+                    <input type="password" id="oldPassword" required>
+                </div>
+                <div>
+                    <label for="newPassword">New password</label>
+                    <input class type="password" id="newPassword" required>
+                </div>
+                <div>
+                    <label for="confirmPassword">Confirm new password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelChange" class="cancel">Cancel</button>
+                <button type="submit" id="saveChange" class="ok">Save</button>
+            </div>
+        </div>
+    </div>
+    <div id="save_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Save and Exit</h3>
+            <p>Enter your password and save profile</p>
+            <input type="password" id="password" placeholder="Enter your password" style="margin-top: 20px;">
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelSaveEButton" class="cancel">Cancel</button>
+                <button id="confirmSaveEButton" class="ok">Save</button>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="./js/profile.js"></script>

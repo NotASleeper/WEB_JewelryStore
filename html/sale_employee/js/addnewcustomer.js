@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         sessionStorage.removeItem('username');
         sessionStorage.removeItem('id_employee');
         sessionStorage.removeItem('token');
+        sessionStorage.removeItem('idAccount');
 
         window.location.href = '/logout';
     });

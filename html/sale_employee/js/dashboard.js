@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Thực hiện hành động đăng xuất, ví dụ: chuyển hướng đến trang đăng nhập
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('idAccount');
     sessionStorage.removeItem('id_employee');
     window.location.href = '/logout';
   });

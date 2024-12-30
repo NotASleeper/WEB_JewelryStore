@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     sessionStorage.setItem('username', username.value);
                     sessionStorage.setItem('id_employee', data.id_employee);
                     sessionStorage.setItem('token', data.token);
+                    sessionStorage.setItem('idAccount', data.id);
                     fetch(`http://localhost:5501/api/v1/employees/${data.id_employee}`)
                         .then(response => response.json())
                         .then(data => {

@@ -1,6 +1,10 @@
 const getAllCustomer = async () => {
     try {
-        const response = await fetch('http://localhost:5501/api/v1/customers');
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const url = "http://localhost:5501/api/v1/customers" + (name ? `?name=${name}` : "");
+
+        const response = await fetch(url);
         const data = await response.json();
         data.forEach(customer => {
             var date = new Date(customer.birthday).toISOString().split('T')[0];
@@ -58,3 +62,17 @@ const getAllCustomer = async () => {
         console.error(error);
     }
 }
+
+document.getElementById('search').addEventListener('click', () => {
+    const input = document.getElementById('customerName').value;
+    const url = `http://localhost:5501/admin/customer.html?name=${encodeURIComponent(input)}`;
+    window.location.href = url;
+});
+
+document.getElementById('customerName').addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        const input = document.getElementById('customerName').value;
+        const url = `http://localhost:5501/admin/customer.html?name=${encodeURIComponent(input)}`;
+        window.location.href = url;
+    }
+});

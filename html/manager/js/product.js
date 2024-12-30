@@ -125,3 +125,17 @@ const getAllProduct = async () => {
         console.error(error);
     }
 }
+
+document.getElementById('search').addEventListener('click', () => {
+    const input = document.getElementById('productName').value;
+    const url = `http://localhost:5501/admin/product.html?name=${encodeURIComponent(input)}`;
+    window.location.href = url;
+});
+
+document.getElementById('productName').addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        const input = document.getElementById('productName').value;
+        const url = `http://localhost:5501/admin/product.html?name=${encodeURIComponent(input)}`;
+        window.location.href = url;
+    }
+});

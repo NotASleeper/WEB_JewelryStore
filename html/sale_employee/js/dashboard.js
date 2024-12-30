@@ -137,10 +137,11 @@ function displayProducts(listproduct) {
   productList.innerHTML = ''; // Xóa nội dung cũ
   listproduct.forEach(product => {
     const clone = document.importNode(template, true);
-    clone.getElementById('image') = product.image;
+    if (!product.imageUrl) { product.imageUrl = './assets/images/productdefault.png'; }
+    else { clone.getElementById('image').src = product.imageUrl; }
     clone.getElementById('name').textContent = product.name;
-    if (product.discount === 0) { clone.getElementById('disccount').style.display = 'none'; }
-    else { clone.getElementById('disccount').textContent = product.discount + "%"; }
+    if (product.discount === 0) { clone.getElementById('discountic').style.display = 'none'; }
+    else { clone.getElementById('discount').textContent = product.discount + " %"; }
     clone.querySelector('.product-cart').addEventListener('click', function () {
       if (product.quantity === 0) { window.location.href = `product_info_outofstock.html?id=${product.id}`; }
       else {
@@ -160,7 +161,10 @@ function filterProductsByName(searchinfo) {
 
 //lọc sản phẩm theo phân loại
 function filterProductsByCategory(category) {
-  const filteredProducts = category === 'all' ? allproduct : allproduct.filter(product => product.id_category === category);
+  const categoryNumber = isNaN(category) ? category : parseInt(category, 10);
+  const filteredProducts = category === 'all' ? allproduct : allproduct.filter(product => {
+    return product.id_category === categoryNumber;
+  });
   products = filteredProducts;
   displayProducts(filteredProducts);
 }

@@ -11,7 +11,10 @@ app.use(session({
     secret: '123456', // Thay thế bằng một chuỗi bí mật của bạn
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Đặt thành true nếu bạn sử dụng HTTPS
+    cookie: {
+        secure: false, // Đặt thành true nếu bạn sử dụng HTTPS
+        maxAge: 3600000 // 1 hour in milliseconds
+    }
 }));
 //cài ứng dụng kiểu json
 app.use(express.json());
@@ -37,7 +40,7 @@ app.use("/api/v1", rootRouter);
 
 //cài đặt static file cho manager
 app.use(express.static(path.join(__dirname, 'html')));
-app.use( express.static(path.join(__dirname, 'html/manager')));
+app.use(express.static(path.join(__dirname, 'html/manager')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'html/manager/login.html'));
 });
@@ -98,7 +101,7 @@ app.get('/sale/customerinfo', checkAuth, (req, res) => {
 });
 
 
-app.use('/warehouse',express.static(path.join(__dirname, 'html/warehouse_employee')));
+app.use('/warehouse', express.static(path.join(__dirname, 'html/warehouse_employee')));
 app.get('/warehouse', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/warehouse_employee/product.html'));
 });

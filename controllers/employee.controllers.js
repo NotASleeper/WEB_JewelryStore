@@ -77,6 +77,14 @@ const getDetailEmployee = async (req, res) => {
     const { id } = req.params;
     try {
         const detailEmployee = await Employee.findOne({
+            include: [
+                {
+                    model: PositionEmployee,
+                },
+                {
+                    model: Account,
+                }
+            ],
             where: {
                 id: id,
                 status: 1,

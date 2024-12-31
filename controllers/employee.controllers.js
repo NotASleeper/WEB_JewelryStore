@@ -29,8 +29,8 @@ const createEmployee = async (req, res) => {
 
 const getAllEmployee = async (req, res) => {
     const { name } = req.query;
-    if (name) {
-        try {
+    try {
+        if (name) {
             const employeeList = await Employee.findAll({
                 include: [
                     {
@@ -48,11 +48,7 @@ const getAllEmployee = async (req, res) => {
                 }
             });
             res.status(200).send(employeeList);
-        } catch (error) {
-            res.status(500).send(error);
-        }
-    } else {
-        try {
+        } else {
             const employeeList = await Employee.findAll({
                 include: [
                     {
@@ -67,9 +63,9 @@ const getAllEmployee = async (req, res) => {
                 }
             });
             res.status(200).send(employeeList);
-        } catch (error) {
-            res.status(500).send(error);
         }
+    } catch (error) {
+        res.status(500).send(error);
     }
 }
 

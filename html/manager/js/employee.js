@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 accountCell.textContent = employee.Account.username;
                 row.appendChild(accountCell);
 
-                const kpiCell = document.createElement('td');
-                kpiCell.textContent = "80%";
-                row.appendChild(kpiCell);
+                // const kpiCell = document.createElement('td');
+                // kpiCell.textContent = "80%";
+                // row.appendChild(kpiCell);
 
                 const actionCell = document.createElement('td');
                 actionCell.id = "action";
@@ -79,14 +79,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.getElementById('search').addEventListener('click', () => {
     const input = document.getElementById('employeeName').value;
-    const url = `http://localhost:5501/admin/employee.html?name=${encodeURIComponent(input)}`;
-    window.location.href = url;
+    if (input) {
+        const url = `http://localhost:5501/admin/employee.html?name=${encodeURIComponent(input)}`;
+        window.location.href = url;
+    } else {
+        const url = `http://localhost:5501/admin/employee.html`;
+        window.location.href = url;
+    }
 });
 
 document.getElementById('employeeName').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
         const input = document.getElementById('employeeName').value;
-        const url = `http://localhost:5501/admin/employee.html?name=${encodeURIComponent(input)}`;
-        window.location.href = url;
+        if (input) {
+            const url = `http://localhost:5501/admin/employee.html?name=${encodeURIComponent(input)}`;
+            window.location.href = url;
+        } else {
+            const url = `http://localhost:5501/admin/employee.html`;
+            window.location.href = url;
+        }
     }
 });

@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { Employee } = require('../models');
 
 const createEmployee = async (req, res) => {
@@ -27,9 +28,13 @@ const createEmployee = async (req, res) => {
 };
 
 const getAllEmployee = async (req, res) => {
+    const { name } = req.query;
     try {
         const employeeList = await Employee.findAll({
             where: {
+                name: {
+                    [Op.like]: `%${name}%`,
+                },
                 status: 1,
             }
         });

@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const savedUsername = getCookie('username');
     const savedPassword = getCookie('password');
     if (savedUsername && savedPassword) {
-        usernameInput.value = savedUsername;
-        passwordInput.value = savedPassword;
+        username.value = savedUsername;
+        password.value = savedPassword;
     }
 
     loginform.addEventListener('submit', function (event) {

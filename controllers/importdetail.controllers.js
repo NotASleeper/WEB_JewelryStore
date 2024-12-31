@@ -1,4 +1,4 @@
-const { ImportDetail } = require('../models');
+const { ImportDetail, Product, ProductCategory } = require('../models');
 
 const createImportDetail = async (req, res) => {
     const {
@@ -29,7 +29,13 @@ const getAllImportDetail = async (req, res) => {
         const ImportDetailList = await ImportDetail.findAll({
             where: {
                 status: 1,
-            }
+            },
+            include: [{
+                model: Product,
+                include: [{
+                    model: ProductCategory,
+                }],
+            }]
         });
         res.status(200).send(ImportDetailList);
     } catch (error) {
@@ -45,7 +51,13 @@ const getDetailImportDetail = async (req, res) => {
                 id_lot: id_lot,
                 id_product: id_product,
                 status: 1,
-            }
+            },
+            include: [{
+                model: Product,
+                include: [{
+                    model: ProductCategory,
+                }],
+            }]
         });
         res.status(200).send(detailImportDetail);
     } catch (error) {
@@ -105,9 +117,15 @@ const getAllImportDetailByImport = async (req, res) => {
 
         const ImportDetailList = await ImportDetail.findAll({
             where: {
-                //id_lot: id,
+                id_lot: id,
                 status: 1,
-            }
+            },
+            include: [{
+                model: Product,
+                include: [{
+                    model: ProductCategory,
+                }],
+            }]
         });
         res.status(200).send(ImportDetailList);
     } catch (error) {

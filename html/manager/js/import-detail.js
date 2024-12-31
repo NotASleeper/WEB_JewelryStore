@@ -22,48 +22,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
     (getAllImportDetail = async () => {
         try {
-            const url = `http://localhost:5501/api/v1/order-forms/id-customer/${id}`;
+            const url = `http://localhost:5501/api/v1/import-details/form/${id}`;
             console.log(url);
 
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
 
-            data.forEach(order => {
-                console.log(order.date_created);
+            data.forEach(importDetail => {
+                console.log(importDetail.date_created);
 
-                var date = new Date(order.date_created).toISOString().split('T')[0];
                 const row = document.createElement('tr');
 
                 const idCell = document.createElement('td');
-                idCell.id = "ID-content";
-                idCell.textContent = "OD" + order.id;
+                idCell.id = "ID";
+                idCell.textContent = importDetail.id_product;
                 row.appendChild(idCell);
 
-                const contentCell = document.createElement('td');
-                contentCell.textContent = "Buy Product";
-                row.appendChild(contentCell);
+                const nameCell = document.createElement('td');
+                nameCell.id = "name";
+                nameCell.textContent = importDetail.Product.name;
+                row.appendChild(nameCell);
 
-                const dateCell = document.createElement('td');
-                dateCell.textContent = date;
-                row.appendChild(dateCell);
+                const imgCell = document.createElement('td');
+                const img = document.createElement('img');
+                img.src = "./assets/product1.jpg";
+                img.alt = "Product image";
+                imgCell.appendChild(img);
+                row.appendChild(imgCell);
+
+                const categoryCell = document.createElement('td');
+                categoryCell.textContent = importDetail.Product.ProductCategory.name;
+                row.appendChild(categoryCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = "+" + parseFloat(order.total_price).toLocaleString();
+                priceCell.textContent = importDetail.price;
                 row.appendChild(priceCell);
 
-                const loyaltyCell = document.createElement('td');
-                loyaltyCell.textContent = (parseFloat(order.total_price) * 0.01).toLocaleString();
-                row.appendChild(loyaltyCell);
+                const quantityCell = document.createElement('td');
+                quantityCell.textContent = importDetail.quantity;
+                row.appendChild(quantityCell);
 
-                const actionCell = document.createElement('td');
-                actionCell.id = "action";
-                row.appendChild(actionCell);
-
-                const viewButton = document.createElement('button');
-                viewButton.className = "btn";
-                viewButton.textContent = "View";
-                actionCell.appendChild(viewButton);
+                const totalCell = document.createElement('td');
+                totalCell.textContent = importDetail.total;
+                row.appendChild(totalCell);
 
                 document.querySelector('tbody').appendChild(row);
             })

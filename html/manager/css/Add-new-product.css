@@ -89,10 +89,7 @@ body {
     opacity: 1;
 }
 
-.nav-options a {
-    text-decoration: none;
-    color: inherit;
-}
+
 
 .nav-options :hover,
 .nav-options li:active {

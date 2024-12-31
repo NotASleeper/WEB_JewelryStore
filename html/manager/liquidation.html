@@ -21,30 +21,29 @@
 
         <div class="navcontainer">
             <ul class="nav-options">
-                <li class="option1">
-
+                <li class="option1" onclick="redirectToNewPage('dashboard.html')">
                     <img src="./assets/dashboard.png" alt="Dashboard">
-                    <a href="dashboard.html">Dashboard</a>
+                    <p style="color: white;">Dashboard</p>
                 </li>
-                <li class="option2">
+                <li class="option2" onclick="redirectToNewPage('product.html')">
                     <img src="./assets/product.png" alt="Product">
-                    <a href="product.html">Product</a>
+                    <p style="color: white;">Product</p>
                 </li>
-                <li class="option3">
+                <li class="option3" onclick="redirectToNewPage('employee.html')">
                     <img src="./assets/employee.png" alt="Employee">
-                    <a href="employee.html">Employee</a>
+                    <p style="color: white;">Employee</p>
                 </li>
-                <li class="option4">
+                <li class="option4" onclick="redirectToNewPage('customer.html')">
                     <img src="./assets/customer.png" alt="Customer">
-                    <a href="customer.html">Customer</a>
+                    <p style="color: white;">Customer</p>
                 </li>
-                <li class="option5">
+                <li class="option5" onclick="redirectToNewPage('import.html')">
                     <img src="./assets/import.png" alt="Import">
-                    <a href="import.html">Import</a>
+                    <p style="color: white;">Import</p>
                 </li>
-                <li class="option6">
-                    <img src="./assets/liquidation-nav.png" alt="Import">
-                    <a href="liquidation.html">Liquidation</a>
+                <li class="option6" onclick="redirectToNewPage('liquidation.html')" alt="Liquidation">
+                    <img src="./assets/liquidation-nav.png">
+                    <p style="color: white;">Liquidation</p>
                 </li>
             </ul>
 
@@ -60,14 +59,10 @@
             <div class="avt-notice">
                 <div class="avt-content">
                     <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
-                            onclick="redirectToNewPage()"></button>
-                    <script>
-                        function redirectToNewPage() {
-                            window.location.href = "profile.html";
-                        }
-                    </script>
+                            onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
-                    <img src="./assets/logout.png" alt="logout">
+                    <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
+                        style="cursor: pointer;">
                     <img src="./assets/notice.png" alt="notice">
                 </div>
 

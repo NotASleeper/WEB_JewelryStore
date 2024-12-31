@@ -67,14 +67,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.getElementById('search').addEventListener('click', () => {
     const input = document.getElementById('customerName').value;
-    const url = `http://localhost:5501/admin/customer.html?name=${encodeURIComponent(input)}`;
-    window.location.href = url;
+    if (input) {
+        const url = `http://localhost:5501/admin/customer.html?name=${encodeURIComponent(input)}`;
+        window.location.href = url;
+    } else {
+        const url = `http://localhost:5501/admin/customer.html`;
+        window.location.href = url;
+    }
 });
 
 document.getElementById('customerName').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
         const input = document.getElementById('customerName').value;
-        const url = `http://localhost:5501/admin/customer.html?name=${encodeURIComponent(input)}`;
-        window.location.href = url;
+        if (input) {
+            const url = `http://localhost:5501/admin/customer.html?name=${encodeURIComponent(input)}`;
+            window.location.href = url;
+        } else {
+            const url = `http://localhost:5501/admin/customer.html`;
+            window.location.href = url;
+        }
     }
 });

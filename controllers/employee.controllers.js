@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Employee } = require('../models');
+const { Employee, PositionEmployee, Account } = require('../models');
 
 const createEmployee = async (req, res) => {
     const {
@@ -29,18 +29,47 @@ const createEmployee = async (req, res) => {
 
 const getAllEmployee = async (req, res) => {
     const { name } = req.query;
-    try {
-        const employeeList = await Employee.findAll({
-            where: {
-                name: {
-                    [Op.like]: `%${name}%`,
-                },
-                status: 1,
-            }
-        });
-        res.status(200).send(employeeList);
-    } catch (error) {
-        res.status(500).send(error);
+    if (name) {
+        try {
+            const employeeList = await Employee.findAll({
+                include: [
+                    {
+                        model: PositionEmployee,
+                    },
+                    {
+                        model: Account,
+                    }
+                ],
+                where: {
+                    name: {
+                        [Op.like]: `%${name}%`,
+                    },
+                    status: 1,
+                }
+            });
+            res.status(200).send(employeeList);
+        } catch (error) {
+            res.status(500).send(error);
+        }
+    } else {
+        try {
+            const employeeList = await Employee.findAll({
+                include: [
+                    {
+                        model: PositionEmployee,
+                    },
+                    {
+                        model: Account,
+                    }
+                ],
+                where: {
+                    status: 1,
+                }
+            });
+            res.status(200).send(employeeList);
+        } catch (error) {
+            res.status(500).send(error);
+        }
     }
 }
 

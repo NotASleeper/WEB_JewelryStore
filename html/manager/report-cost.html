@@ -11,6 +11,9 @@
 
 
 <body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <div class="left-Container">
         <div class="logo">
             <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
@@ -58,7 +61,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -94,49 +97,50 @@
 
 
         </div>
+        <div class="table-wrapper">
+            <table class="table">
+                <thead class="test">
+                    <tr>
+                        <th id="ID">ID</th>
+                        <th>Content</th>
+                        <th>Date <img src="./assets/upanddown.png" alt="" class="loyal"></th>
+                        <th>Total <img src="./assets/upanddown.png" alt="" class="loyal"></th>
 
-        <table class="table">
-            <thead class="test">
-                <tr>
-                    <th id="ID">ID</th>
-                    <th>Content</th>
-                    <th>Date <img src="./assets/upanddown.png" alt="" class="loyal"></th>
-                    <th>Total <img src="./assets/upanddown.png" alt="" class="loyal"></th>
-
-                    <th id="action">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td id="ID-content">B300934083540</td>
-                    <td>Sell product</td>
-                    <td>07/09/2024</td>
-                    <td>100,000,000 VND</td>
-                    <td id="action"><button class="btn">View</button></td>
-                </tr>
-                <tr>
-                    <td id="ID-content">B300934083540</td>
-                    <td>Sell product</td>
-                    <td>07/09/2024</td>
-                    <td>100,000,000 VND</td>
-                    <td id="action"><button class="btn">View</button></td>
-                </tr>
-                <tr>
-                    <td id="ID-content">B300934083540</td>
-                    <td>Sell product</td>
-                    <td>07/09/2024</td>
-                    <td>100,000,000 VND</td>
-                    <td id="action"><button class="btn">View</button></td>
-                </tr>
-                <tr>
-                    <td id="ID-content">B300934083540</td>
-                    <td>Sell product</td>
-                    <td>07/09/2024</td>
-                    <td>100,000,000 VND</td>
-                    <td id="action"><button class="btn">View</button></td>
-                </tr>
-            </tbody>
-        </table>
+                        <th id="action">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="ID-content">B300934083540</td>
+                        <td>Sell product</td>
+                        <td>07/09/2024</td>
+                        <td>100,000,000 VND</td>
+                        <td id="action"><button class="btn">View</button></td>
+                    </tr>
+                    <tr>
+                        <td id="ID-content">B300934083540</td>
+                        <td>Sell product</td>
+                        <td>07/09/2024</td>
+                        <td>100,000,000 VND</td>
+                        <td id="action"><button class="btn">View</button></td>
+                    </tr>
+                    <tr>
+                        <td id="ID-content">B300934083540</td>
+                        <td>Sell product</td>
+                        <td>07/09/2024</td>
+                        <td>100,000,000 VND</td>
+                        <td id="action"><button class="btn">View</button></td>
+                    </tr>
+                    <tr>
+                        <td id="ID-content">B300934083540</td>
+                        <td>Sell product</td>
+                        <td>07/09/2024</td>
+                        <td>100,000,000 VND</td>
+                        <td id="action"><button class="btn">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <script src="./javascript/basic-popup.js"></script>
 </body>
@@ -144,6 +148,22 @@
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const leftContainer = document.querySelector('.left-Container');
+
+        // Toggle menu khi click button
+        menuToggle.addEventListener('click', () => {
+            leftContainer.classList.toggle('show');
+        });
+
+        // Đóng menu khi click ra ngoài
+        document.addEventListener('click', (event) => {
+            if (!leftContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+                leftContainer.classList.remove('show');
+            }
+        });
+    });
 </script>
 
 </html>

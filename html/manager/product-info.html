@@ -93,46 +93,50 @@
 
                 <!-- Product Info -->
                 <div class="product-details">
-                    <h2>Product1</h2>
+                    <h2 id="name">Product1</h2>
 
                     <div class="detail-row">
                         <span class="detail-label">Category:</span>
-                        <span>Necklace</span>
+                        <span id="category">Necklace</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Material:</span>
-                        <span>18K Yellow Gold - Weight: 3.75g</span>
+                        <span id="material">18K Yellow Gold</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Weight:</span>
+                        <span id="weight">3.75g</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Gemstone:</span>
-                        <span>Moissanite Certificate</span>
+                        <span id="gemstone">Moissanite Certificate</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Size:</span>
-                        <span>50cm</span>
+                        <span id="size">50cm</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Carat weight:</span>
-                        <span>0.05</span>
+                        <span id="carat-weight">0.05</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Color:</span>
-                        <span>Colorless</span>
+                        <span id="color">Colorless</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Shape:</span>
-                        <span>Circle</span>
+                        <span id="shape">Circle</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Purity:</span>
-                        <span>IF</span>
+                        <span id="purity">IF</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Gemstone size:</span>
-                        <span>3mm x 3mm</span>
+                        <span id="gemstone-size">3mm x 3mm</span>
                     </div>
 
-                    <div class="description">
+                    <div id="description" class="description">
                         Description: Mặt dây chuyền nữ Heart-shape Reverse MDA3103 nổi bật với vẻ đẹp lộng mạn độc
                         đáo mà khó có món trang sức nào mang lại được. Dáng trái tim trong trang sức từ xưa đến nay
                         luôn duy trì được sức hút của mình bởi đây được cho là hình dáng biểu tượng cho tình yêu.
@@ -141,12 +145,12 @@
                     </div>
 
                     <div class="price-section">
-                        <span class="current-price">26,500,000VND</span>
-                        <span class="original-price">31,200,000VND</span>
-                        <span class="discount">↓ 15%</span>
+                        <span id="current-price" class="current-price">26,500,000VND</span>
+                        <span id="original-price" class="original-price">31,200,000VND</span>
+                        <span id="discount" class="discount">↓ 15%</span>
                     </div>
 
-                    <div class="quantity">
+                    <div id="quantity" class="quantity">
                         Quantity: 12
                     </div>
 
@@ -159,6 +163,9 @@
             </div>
         </div>
     </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/product-info.js"></script>
 
 </body>
 <script>

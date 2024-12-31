@@ -13,20 +13,40 @@ body {
     position: relative;
     display: flex;
     flex-direction: row;
+    min-height: 100vh;
 }
 
-/* phần dashboard */
+/* Menu Toggle Button */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    color: #1279C3;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+}
+
+/* Left Container - Sidebar */
 .left-Container {
     display: flex;
-    position: relative;
+    position: fixed;
     width: 15%;
+    min-width: 200px;
     background-color: #1279C3;
     flex-direction: column;
+    height: 100vh;
+    z-index: 1;
+    transition: all 0.3s ease;
 }
 
 .logo {
     display: flex;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
 }
 
 .logo-icon {
@@ -40,7 +60,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .logo-icon .name {
@@ -72,7 +91,7 @@ body {
     align-items: center;
     color: #fff;
     justify-content: center;
-
+    width: 100%;
 }
 
 .nav-options li {
@@ -82,6 +101,8 @@ body {
     border-radius: 5px;
     align-items: center;
     opacity: 0.3;
+    transition: all 0.3s ease;
+    padding: 0 20px;
 }
 
 .nav-options .option1 {
@@ -92,9 +113,10 @@ body {
 .nav-options a {
     text-decoration: none;
     color: inherit;
+    flex: 1;
 }
 
-.nav-options :hover,
+.nav-options li:hover,
 .nav-options li:active {
     background-color: rgba(18, 18, 18, 0.1);
     opacity: 1;
@@ -104,90 +126,79 @@ body {
 .nav-options li img {
     width: 24px;
     height: 24px;
-    display: flex;
-    margin: 0 10%;
-
+    margin-right: 15px;
 }
 
-/* phần nội dung page */
+/* Right Container */
 .right-Container {
     display: flex;
     position: relative;
     width: 85%;
+    margin-left: 15%;
     flex-direction: column;
-
+    flex: 1;
+    transition: all 0.3s ease;
 }
 
+/* Header Section */
 .header {
     display: flex;
     position: relative;
     flex-direction: row;
     width: 100%;
-    height: 10%;
+    height: auto;
+    padding: 20px;
+    align-items: center;
+    gap: 15px;
 }
 
 .search-container {
     display: flex;
     position: relative;
     width: 50%;
-    height: 40%;
-    margin-top: 3%;
-    margin-left: 5%;
-
+    height: 40px;
 }
 
 .search-container input[type="text"] {
     flex: 1;
-    width: 100%;
     padding: 10px;
     border: none;
-    outline: none;
     border-radius: 5px 0 0 5px;
     background-color: rgba(18, 121, 195, 0.1);
-
 }
 
 .search-container button {
     background-color: rgba(18, 121, 195, 0.1);
     color: gray;
     padding: 10px 15px;
-    border: none;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
 }
 
 .space-search {
-    width: 50%;
-    float: left;
-    height: 3%;
-
+    flex: 1;
 }
 
-
 .avt-notice {
-    margin-top: 2%;
-    width: 20%;
-    clear: both;
-    height: 3%;
-
-
+    margin-left: auto;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
 }
 
 .avt-content {
     display: flex;
-    flex-direction: row;
-    margin-top: 6%;
+    align-items: center;
+    gap: 15px;
 }
 
 .avt-content button {
-    display: flex;
     width: 36px;
     height: 36px;
-    border-radius: 36px;
+    border-radius: 50%;
     overflow: hidden;
-    border: none;
-    margin-right: 5px;
-
+    cursor: pointer;
+    background: none;
 }
 
 .avt-content button img {
@@ -196,36 +207,33 @@ body {
     object-fit: cover;
 }
 
-.avt-content p {
-    display: flex;
-    margin-right: 20px;
-}
-
 .avt-content img {
-    display: flex;
     width: 24px;
     height: 24px;
-    margin-right: 12%;
+    cursor: pointer;
 }
 
+/* Dashboard Title */
 .Dashboard-title {
     position: relative;
     display: flex;
     flex-direction: row;
-    height: 10%;
+    height: auto;
     align-items: center;
+    padding: 20px;
+    gap: 15px;
 }
 
 .Dashboard-title p {
     font-size: 24px;
-    font-weight: semi-bold;
-    margin-left: 5%;
+    font-weight: 500;
     color: #1279C3;
-
+    margin: 0;
 }
 
 .popup-container {
     position: relative;
+    margin: 0 15px;
 }
 
 .popup-container .filter-button {
@@ -237,17 +245,9 @@ body {
     align-items: center;
     gap: 4px;
     border: none;
-
 }
 
-
-
-.Dashboard-title img {
-    height: 10%;
-    margin-left: 2%;
-}
-
-.Dashboard-title .Date {
+.popup-container .Date {
     position: absolute;
     width: fit-content;
     padding: 15px 20px;
@@ -257,6 +257,7 @@ body {
     background: white;
     margin-left: 30px;
     display: none;
+    z-index: 100;
 }
 
 .popup-container .Date.active {
@@ -268,7 +269,6 @@ body {
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
-
 }
 
 .date-picker-label {
@@ -277,104 +277,79 @@ body {
 
 .date-picker-input {
     padding: 5px;
-
     border: black solid 1px;
     border-radius: 10px;
 }
 
-.Dashboard-title .space-title {
-    width: 75%;
-    float: left;
-    height: 3%;
-
+.space-title {
+    flex: 1;
 }
 
 .Dashboard-title button {
-    margin-left: 2%;
-    color: #1279C3;
-    letter-spacing: 0.5px;
-    font-size: 15px;
-    background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    height: 35px;
-    padding: 0.5% 1%;
-    text-align: center;
-    text-decoration: none;
     display: flex;
-    cursor: pointer;
-    border-radius: 4px;
     align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    color: #1279C3;
+    background-color: #FBFCFE;
+    border: 1px solid #DDE4F0;
+    border-radius: 4px;
+    cursor: pointer;
     font-weight: 500;
-
 }
 
 .Dashboard-title button img {
     width: 24px;
     height: 24px;
-    margin-right: 5%;
 }
 
-.Dashboard-title .addbtn {
-    width: 35% !important;
+/* Table Styles */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 20px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .table {
+    width: 100%;
+    min-width: 800px;
     border-collapse: collapse;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-
-
 }
 
 .table th {
-    width: 15%;
-    padding: 8px;
-    height: 65px;
+    padding: 15px;
     background-color: #1279C3;
     color: white;
     font-weight: 500;
+    text-align: center;
 }
 
 .table #ID {
-    width: 10% !important;
-    height: 20%;
-    text-align: left;
-    padding-left: 2%;
+    width: 10%;
     border-radius: 10px 0 0 0;
+    padding-left: 20px;
+    text-align: left;
 }
 
 .table #action {
+    display: flex;
     border-radius: 0 10px 0 0;
-}
-
-.table tr {
-    height: 20%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 15px;
 }
 
 .table td {
-
-    padding: 8px;
+    padding: 15px;
+    color: #7D8398;
     text-align: center;
 
-    height: 100px;
-    color: #7D8398;
-}
-
-.table #state {
-    padding: 8px;
-    text-align: center;
-    padding-left: 85px;
-    height: 100px;
-    color: #7D8398;
 }
 
 .table #ID-content {
-    width: 10% !important;
-    height: 20%;
-    text-align: left;
-    padding-left: 2%;
-    border-radius: 10px 0 0 0;
+    padding-left: 20px;
     color: black;
     font-weight: 500;
 }
@@ -385,37 +360,147 @@ body {
     align-items: center;
 }
 
-
 .table img {
+    vertical-align: middle;
+    margin-left: 5px;
     width: 16px;
-    height: 16px;
 }
 
-.table button,
-.table a {
-    position: relative;
-    display: flex;
-    width: 40%;
+.table .btn {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10px;
-    margin: 10px;
+    padding: 8px 20px;
     background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    border-radius: 5.5px;
+    border: 1px solid #DDE4F0;
+    border-radius: 5px;
     color: #1279C3;
-}
-
-
-
-tr:nth-child(odd) {
-    background-color: #ffffff;
-    /* Màu nền cho dòng lẻ */
+    text-decoration: none;
+    font-size: 14px;
+    min-width: 80px;
 }
 
 tr:nth-child(even) {
     background-color: rgba(18, 121, 195, 0.1);
-    /* Màu nền cho dòng chẵn */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1240px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .left-Container {
+        position: fixed;
+        left: -100%;
+        height: 100vh;
+    }
+
+    .left-Container.show {
+        left: 0;
+    }
+
+    .right-Container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+
+    .search-container {
+        width: 40%;
+        margin-left: 10%;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        top: 35px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-container {
+        width: 80%;
+        order: 1;
+    }
+
+    .avt-notice {
+        width: 100%;
+        order: 2;
+        justify-content: flex-end;
+    }
+
+    .Dashboard-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .popup-container {
+        margin: 10px 0;
+    }
+
+    .popup-container .Date {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 300px;
+        margin: 0;
+    }
+
+    .Dashboard-title button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu-toggle {
+        top: 25px;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .search-container input[type="text"] {
+        font-size: 14px;
+    }
+
+    .avt-content {
+        gap: 10px;
+    }
+
+    .Dashboard-title p {
+        font-size: 20px;
+    }
+
+    .date-picker-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .date-picker-input {
+        width: 100%;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .table .btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
 }

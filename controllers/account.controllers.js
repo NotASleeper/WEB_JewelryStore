@@ -109,10 +109,11 @@ const login = async (req, res) => {
     const account = await Account.findOne({
         where: {
             username: username,
+            status: 1,
         }
     })
     if (!account) {
-        res.status(404).send("Not found");
+        return res.status(404).send("Not found");
     }
     try {
         var isAuth = (password == account.password);

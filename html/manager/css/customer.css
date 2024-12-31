@@ -21,8 +21,8 @@ body {
     position: fixed;
     top: 20px;
     left: 20px;
-    background: #1279C3;
-    color: white;
+    background: transparent;
+    color: #1279C3;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -263,7 +263,7 @@ body {
     background-color: #1279C3;
     color: white;
     font-weight: 500;
-    text-align: left;
+    text-align: center;
 }
 
 .table img {
@@ -278,38 +278,41 @@ body {
     padding-left: 20px;
 }
 
-.table #action {
-    border-radius: 0 10px 0 0;
-    width: 15%;
-}
 
 .table td {
     padding: 15px;
     color: #7D8398;
+    text-align: center;
+    justify-content: center;
 }
 
 .table #name {
-    text-align: left;
     padding-left: 20px;
+}
+
+.table #action {
+    min-width: 160px;
+    border-radius: 0 10px 0 0;
 }
 
 .table tbody #action {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
+    padding: 8px;
 }
 
 .table .Edit,
 .table .Delete {
-    padding: 8px 15px;
-    border-radius: 5px;
-    width: 80px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    min-width: 65px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
     cursor: pointer;
-    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
 .table .Edit {
@@ -324,11 +327,13 @@ body {
     color: #EB2F06;
 }
 
+
 tr:nth-child(even) {
     background-color: rgba(18, 121, 195, 0.1);
 }
 
 /* Responsive Styles */
+
 @media screen and (max-width: 1024px) {
     .menu-toggle {
         display: block;
@@ -361,6 +366,8 @@ tr:nth-child(even) {
     .table td {
         padding: 12px;
     }
+
+
 }
 
 @media screen and (max-width: 768px) {
@@ -419,117 +426,202 @@ tr:nth-child(even) {
 
 @media screen and (max-width: 480px) {
     .menu-toggle {
-        top: 2%;
-        display: block;
+        top: 15px;
+        left: 15px;
     }
 
+    /* Header section */
     .header {
-        flex-direction: column;
+        padding: 15px;
+        margin-top: 20px;
     }
 
     .search-container {
-        width: 80%;
-        left: 10%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .avt-notice {
+        width: 100%;
+        margin-top: 15px;
     }
 
     .avt-content {
-        left: 10%;
-        margin-left: 10%;
+        justify-content: flex-end;
+        margin: 0;
+    }
+
+    .avt-content p {
+        display: none;
+        /* Hide username on mobile */
+    }
+
+    .avt-content img {
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+    }
+
+    .avt-content button {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Dashboard title section */
+    .Dashboard-title {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
     }
 
     .Dashboard-title .p {
         font-size: 20px;
+        width: 100%;
     }
 
-    .search-container {
-        width: 80%;
-        left: 10%;
+    .Dashboard-title button {
+        width: 100%;
+        justify-content: center;
+        padding: 8px 15px;
+    }
+
+    .Dashboard-title button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Table section */
+    .table-wrapper {
+        padding: 0 15px;
+        margin-top: 10px;
+    }
+
+    .table {
+        min-width: 800px;
+        /* Ensure table is scrollable */
+    }
+
+    .table th,
+    .table td {
+        padding: 10px 8px;
+        font-size: 13px;
+        white-space: nowrap;
+        /* Prevent text wrapping */
+    }
+
+    .table th {
+        padding: 12px 8px;
+    }
+
+    .table #ID,
+    .table #name {
+        padding-left: 15px;
+    }
+
+    /* Action buttons */
+    .table .Edit,
+    .table .Delete {
+        padding: 6px 10px;
+        font-size: 12px;
+        min-width: 70px;
+    }
+
+    .table #action {
+        min-width: 140px;
+    }
+
+    .table tbody #action {
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .table .Edit,
+    .table .Delete {
+        padding: 5px 8px;
+        font-size: 12px;
+        min-width: 55px;
+    }
+
+    /* Improved column widths */
+    .table th:nth-child(1) {
+        width: 15%;
+    }
+
+    .table th:nth-child(2) {
+        width: 20%;
+    }
+
+    .table th:nth-child(3) {
+        width: 12%;
+    }
+
+    .table th:nth-child(4) {
+        width: 20%;
+    }
+
+    .table th:nth-child(5) {
+        width: 12%;
+    }
+
+    .table th:nth-child(6) {
+        width: 10%;
+    }
+
+    .table th:nth-child(7) {
+        width: 11%;
+    }
+
+    /* Ensure text doesn't wrap */
+    .table td {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 120px;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 380px) {
+    .menu-toggle {
+        top: 10px;
+        left: 10px;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .Dashboard-title {
+        padding: 10px;
+    }
+
+    .Dashboard-title .p {
+        font-size: 18px;
     }
 
     .table-wrapper {
         padding: 0 10px;
     }
 
-    .table {
-        min-width: 650px;
-    }
-
     .table th,
     .table td {
-        padding: 8px;
-        font-size: 13px;
-    }
-
-    .table #ID,
-    .table #name {
-        padding-left: 10px;
-    }
-
-    .table .Edit,
-    .table .Delete {
-        padding: 5px 10px;
-        width: 65px;
+        padding: 8px 6px;
         font-size: 12px;
+    }
+
+    .table #action {
+        min-width: 120px;
     }
 
     .table tbody #action {
-        gap: 5px;
-    }
-
-    /* Column widths for better mobile display */
-    .table th:nth-child(1),
-    .table td:nth-child(1) {
-        width: 15%;
-    }
-
-    .table th:nth-child(2),
-    .table td:nth-child(2) {
-        width: 20%;
-    }
-
-    .table th:nth-child(3),
-    .table td:nth-child(3) {
-        width: 15%;
-    }
-
-    .table th:nth-child(4),
-    .table td:nth-child(4) {
-        width: 20%;
-    }
-
-    .table th:nth-child(5),
-    .table td:nth-child(5) {
-        width: 15%;
-    }
-
-    .table th:nth-child(6),
-    .table td:nth-child(6) {
-        width: 15%;
-    }
-
-    /* Sticky action column */
-    .table #action {
-        position: sticky;
-        right: 0;
-        background: inherit;
-    }
-}
-
-/* Small Mobile Styles */
-@media screen and (max-width: 380px) {
-    .table {
-        min-width: 600px;
-    }
-
-    .table th,
-    .table td {
-        padding: 6px;
-        font-size: 12px;
+        gap: 4px;
+        padding: 4px;
     }
 
     .table .Edit,
     .table .Delete {
-        width: 60px;
+        padding: 4px 6px;
         font-size: 11px;
+        min-width: 45px;
     }
 }

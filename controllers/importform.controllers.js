@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { ImportForm, Supplier } = require('../models');
+const { ImportForm, Supplier, Employee } = require('../models');
 
 const createImportForm = async (req, res) => {
     const {
@@ -40,6 +40,12 @@ const getAllImportForm = async (req, res) => {
                             },
                             status: 1
                         }
+                    },
+                    {
+                        model: Employee,
+                        where: {
+                            status: 1
+                        }
                     }
                 ]
             });
@@ -54,6 +60,12 @@ const getAllImportForm = async (req, res) => {
                         model: Supplier,
                         where: {
                             status: 1,
+                        }
+                    },
+                    {
+                        model: Employee,
+                        where: {
+                            status: 1
                         }
                     }
                 ]
@@ -73,7 +85,21 @@ const getDetailImportForm = async (req, res) => {
             where: {
                 id: id,
                 status: 1,
-            }
+            },
+            include: [
+                {
+                    model: Supplier,
+                    where: {
+                        status: 1,
+                    }
+                },
+                {
+                    model: Employee,
+                    where: {
+                        status: 1
+                    }
+                }
+            ]
         });
         res.status(200).send(detailImportForm);
     } catch (error) {

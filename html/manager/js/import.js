@@ -65,14 +65,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.getElementById('search').addEventListener('click', () => {
     const input = document.getElementById('supplierName').value;
-    const url = `http://localhost:5501/admin/import.html?supplier=${encodeURIComponent(input)}`;
-    window.location.href = url;
+    if (input) {
+        const url = `http://localhost:5501/admin/import.html?supplier=${encodeURIComponent(input)}`;
+        window.location.href = url;
+    } else {
+        const url = `http://localhost:5501/admin/import.html`;
+        window.location.href = url;
+    }
 });
 
 document.getElementById('supplierName').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
         const input = document.getElementById('supplierName').value;
-        const url = `http://localhost:5501/admin/import.html?supplier=${encodeURIComponent(input)}`;
-        window.location.href = url;
+        if (input) {
+            const url = `http://localhost:5501/admin/import.html?supplier=${encodeURIComponent(input)}`;
+            window.location.href = url;
+        } else {
+            const url = `http://localhost:5501/admin/import.html`;
+            window.location.href = url;
+        }
     }
 });

@@ -16,6 +16,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ImportDetail.init({
+    id_lot: {
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: "importforms",
+        key: "id",
+      },
+      type: DataTypes.INTEGER
+    },
+    id_product: {
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: "products",
+        key: "id",
+      },
+      type: DataTypes.INTEGER
+    },
     quantity: DataTypes.TINYINT,
     price: DataTypes.BIGINT,
     total: DataTypes.BIGINT,

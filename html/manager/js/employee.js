@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 accountCell.textContent = employee.Account.username;
                 row.appendChild(accountCell);
 
-                const kpiCell = document.createElement('td');
-                kpiCell.textContent = "80%";
-                row.appendChild(kpiCell);
+                // const kpiCell = document.createElement('td');
+                // kpiCell.textContent = "80%";
+                // row.appendChild(kpiCell);
 
                 const actionCell = document.createElement('td');
                 actionCell.id = "action";

@@ -1,4 +1,5 @@
-const { ImportForm } = require('../models');
+const { Op } = require('sequelize');
+const { ImportForm, Supplier } = require('../models');
 
 const createImportForm = async (req, res) => {
     const {
@@ -23,13 +24,43 @@ const createImportForm = async (req, res) => {
 };
 
 const getAllImportForm = async (req, res) => {
+    const { supplier } = req.query;
     try {
-        const ImportFormList = await ImportForm.findAll({
-            where: {
-                status: 1,
-            }
-        });
-        res.status(200).send(ImportFormList);
+        if (supplier) {
+            const ImportFormList = await ImportForm.findAll({
+                where: {
+                    status: 1,
+                },
+                include: [
+                    {
+                        model: Supplier,
+                        where: {
+                            name: {
+                                [Op.like]: `%${supplier}%`,
+                            },
+                            status: 1
+                        }
+                    }
+                ]
+            });
+            res.status(200).send(ImportFormList);
+        } else {
+            const ImportFormList = await ImportForm.findAll({
+                where: {
+                    status: 1,
+                },
+                include: [
+                    {
+                        model: Supplier,
+                        where: {
+                            status: 1,
+                        }
+                    }
+                ]
+            });
+            res.status(200).send(ImportFormList);
+        }
+
     } catch (error) {
         res.status(500).send(error);
     }

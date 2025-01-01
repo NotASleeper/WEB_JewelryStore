@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury store</title>
+    <title>Luxora</title>
     <link rel="stylesheet" href="./css/customer-info.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
@@ -58,7 +58,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -72,7 +72,7 @@
         <!-- Dashboard + btn view report -->
 
         <div class="main-content">
-            <div class="header">
+            <div class="title">
                 <p>Customer information</p>
             </div>
         </div>
@@ -141,8 +141,7 @@
                 </div>
             </div>
         </div>
-        <p style="font-size: 20px; margin-left:5%; margin-bottom:1%; color:#1279C3;">Purchase history</p>
-
+        <p class="table-title">Purchase history</p>
         <table class="table">
             <thead class="test">
                 <tr>
@@ -156,12 +155,20 @@
             </thead>
             <tbody>
                 <tr>
-                    <!-- <td id="ID-content">B070924095623</td>
+                    <td id="ID-content">B070924095623</td>
                     <td>Sell product</td>
                     <td>07/09/2024</td>
                     <td>+27,000,000 VND</td>
                     <td>2500</td>
-                    <td id="action"><button class="btn">View</button></td> -->
+                    <td id="action"><button class="btn">View</button></td>
+                </tr>
+                <tr>
+                    <td id="ID-content">B070924095623</td>
+                    <td>Sell product</td>
+                    <td>07/09/2024</td>
+                    <td>+27,000,000 VND</td>
+                    <td>2500</td>
+                    <td id="action"><button class="btn">View</button></td>
                 </tr>
             </tbody>
         </table>

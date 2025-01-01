@@ -16,6 +16,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   LiquidationDetail.init({
+    id_liq: {
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: "liquidationdetails",
+        key: "id",
+      },
+      type: DataTypes.INTEGER
+    },
+    id_product: {
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: "products",
+        key: "id",
+      },
+      type: DataTypes.INTEGER
+    },
     quantity: DataTypes.SMALLINT,
     price_down: DataTypes.BIGINT,
     total: DataTypes.BIGINT,

@@ -52,9 +52,28 @@ const checkExistImportDetail = (Model) => {
     }
 }
 
+const checkExistLiquidationDetail = (Model) => {
+    return async (req, res, next) => {
+        const { id_liq, id_product } = req.params;
+        const model = await Model.findOne({
+            where: {
+                id_liq: id_liq,
+                id_product: id_product,
+                status: 1
+            }
+        })
+        if (model) {
+            next();
+        } else {
+            res.status(404).send("Not found");
+        }
+    }
+}
+
 
 module.exports = {
     checkExist,
     checkExistOrderDetail,
     checkExistImportDetail,
+    checkExistLiquidationDetail
 }

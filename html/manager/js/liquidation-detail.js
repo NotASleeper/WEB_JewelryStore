@@ -1,17 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     const id = getQueryParam('id');
 
-    (getDetailImport = async () => {
+    (getDetailLiquidation = async () => {
         try {
-            const response = await fetch(`http://localhost:5501/api/v1//import-forms/${id}`, {});
+            const response = await fetch(`http://localhost:5501/api/v1//liquidation-forms/${id}`, {});
             const data = await response.json();
             console.log(data);
-            var date = new Date(data.date_created).toISOString().split('T')[0];
+            var date_created = new Date(data.date_created).toISOString().split('T')[0];
+            var date_accepted = new Date(data.date_accepted).toISOString().split('T')[0];
             document.getElementById('id').value = data.id;
-            document.getElementById('supplier').value = data.Supplier.name;
-            document.getElementById('employee').value = data.Employee.name;
-            document.getElementById('created').value = date;
-            document.getElementById('accepted').value = "";
+            document.getElementById('creator').value = data.create.name;
+            document.getElementById('inspector').value = data.accept.name;
+            document.getElementById('date-created').value = date_created;
+            document.getElementById('date-accepted').value = date_accepted;
             document.getElementById('state').value = "";
 
             console.log("Succeeded");
@@ -20,28 +21,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })();
 
-    (getAllImportDetail = async () => {
+    (getAllLiquidationDetail = async () => {
         try {
-            const url = `http://localhost:5501/api/v1/import-details/form/${id}`;
+            const url = `http://localhost:5501/api/v1/liquidation-details/form/${id}`;
             console.log(url);
 
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
 
-            data.forEach(importDetail => {
-                console.log(importDetail.date_created);
+            data.forEach(liquidationDetail => {
 
                 const row = document.createElement('tr');
 
                 const idCell = document.createElement('td');
                 idCell.id = "ID";
-                idCell.textContent = importDetail.id_product;
+                idCell.textContent = liquidationDetail.id_product;
                 row.appendChild(idCell);
 
                 const nameCell = document.createElement('td');
                 nameCell.id = "name";
-                nameCell.textContent = importDetail.Product.name;
+                nameCell.textContent = liquidationDetail.Product.name;
                 row.appendChild(nameCell);
 
                 const imgCell = document.createElement('td');
@@ -52,19 +52,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(imgCell);
 
                 const categoryCell = document.createElement('td');
-                categoryCell.textContent = importDetail.Product.ProductCategory.name;
+                categoryCell.textContent = liquidationDetail.Product.ProductCategory.name;
                 row.appendChild(categoryCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = importDetail.price;
+                priceCell.textContent = liquidationDetail.price_down;
                 row.appendChild(priceCell);
 
                 const quantityCell = document.createElement('td');
-                quantityCell.textContent = importDetail.quantity;
+                quantityCell.textContent = liquidationDetail.quantity;
                 row.appendChild(quantityCell);
 
                 const totalCell = document.createElement('td');
-                totalCell.textContent = importDetail.total;
+                totalCell.textContent = liquidationDetail.total;
                 row.appendChild(totalCell);
 
                 document.querySelector('tbody').appendChild(row);

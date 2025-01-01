@@ -87,20 +87,20 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>ID:</label>
-                            <input type="text" value="LOT001">
+                            <input id="id" type="text" value="LOT001">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Creator:</label>
-                            <input type="text" value="Employee3">
+                            <input id="creator" type="text" value="Employee3">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label>Inspector:</label>
-                            <input type="text" value="">
+                            <input id="inspector" type="text" value="">
                         </div>
                     </div>
                 </div>
@@ -111,14 +111,21 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Date Created:</label>
-                            <input type="text" value="02/09/2024">
+                            <input id="date-created" type="text" value="02/09/2024">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date Accepted:</label>
+                            <input id="date-accepted" type="text" value="02/09/2024">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>State </label>
-                            <input type="Waiting" value=" ">
+                            <input id="state" type="Waiting" value=" ">
                         </div>
                     </div>
                 </div>
@@ -128,7 +135,7 @@
             display: flex;
             gap: 69%;
         ">
-            <p style="font-size: 20px; margin-left:5%; margin-bottom:1%; color:#1279C3;">Purchase history</p>
+            <p style="font-size: 20px; margin-left:5%; margin-bottom:1%; color:#1279C3;">Liquidation Product</p>
             <p style="color:#7D8398">Total: 20,000,000VND</p>
         </div>
 
@@ -145,7 +152,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <td id="ID">1</td>
                     <td id="name">Product 1 <br> Gold, Amethyst</td>
                     <td><img src="./assets/product1.jpg" alt="Product image"></td>
@@ -154,7 +161,7 @@
                     <td>2</td>
                     <td>20,000,000 VND</td>
 
-                </tr>
+                </tr> -->
 
             </tbody>
 
@@ -165,7 +172,8 @@
         </div>
     </div>
     </div>
-
+    <script src="js/utils.js"></script>
+    <script src="./js/liquidation-detail.js"></script>
 </body>
 <script>
     function redirectToNewPage(newPage) {

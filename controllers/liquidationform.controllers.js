@@ -74,7 +74,20 @@ const getDetailLiquidationForm = async (req, res) => {
             where: {
                 id: id,
                 status: 1,
-            }
+            },
+            include: [{
+                model: Employee,
+                as: "create",
+                where: {
+                    status: 1
+                }
+            }, {
+                model: Employee,
+                as: "accept",
+                where: {
+                    status: 1
+                }
+            }]
         });
         res.status(200).send(detailLiquidationForm);
     } catch (error) {

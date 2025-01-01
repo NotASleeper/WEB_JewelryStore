@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const editButton = document.createElement('button');
                 editButton.className = 'Edit';
-                editButton.textContent = 'Info';
+                editButton.textContent = 'View';
                 editButton.addEventListener('click', () => {
                     window.location.href = "customer-info.html?id=" + customer.id;
                 })

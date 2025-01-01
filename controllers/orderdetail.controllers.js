@@ -1,4 +1,4 @@
-const { OrderDetail } = require('../models');
+const { OrderDetail, Product, ProductCategory } = require('../models');
 
 const createOrderDetail = async (req, res) => {
     const {
@@ -100,10 +100,36 @@ const deleteOrderDetail = async (req, res) => {
     }
 }
 
+const getAllOrderDetailByOrder = async (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+
+    try {
+        console.log(id);
+
+        const OrderDetailList = await OrderDetail.findAll({
+            where: {
+                id_order: id,
+                status: 1,
+            },
+            include: [{
+                model: Product,
+                include: [{
+                    model: ProductCategory,
+                }],
+            }]
+        });
+        res.status(200).send(OrderDetailList);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     createOrderDetail,
     getAllOrderDetail,
     getDetailOrderDetail,
     updateOrderDetail,
     deleteOrderDetail,
+    getAllOrderDetailByOrder,
 }

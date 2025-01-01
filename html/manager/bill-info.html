@@ -11,6 +11,9 @@
 
 
 <body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <div class="left-Container">
         <div class="logo">
             <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
@@ -55,7 +58,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -71,11 +74,7 @@
         <!-- Dashboard + btn view report -->
 
         <div class="main-content" style="margin-top: 3%;">
-            <div class="header">
-                <p>Bill information</p>
-            </div>
-
-
+            <p>Bill information</p>
         </div>
         <div class="product-container">
 
@@ -97,7 +96,7 @@
                 </div>
 
             </div>
-            <div class="form-container" style="margin-left: 100px;">
+            <div class="form-container">
                 <div class="form-section">
                     <div class="form-row">
                         <div class="form-group">
@@ -119,11 +118,10 @@
             display: flex;
             gap: 69%;
         ">
-            <p style="font-size: 20px; margin-left:5%; margin-bottom:1%; color:#1279C3;">Purchase history</p>
+            <p>Purchase history</p>
             <p style="color:#7D8398">Total: 250,000,000VND</p>
         </div>
-
-        <table class="Product">
+        <table class="table">
             <thead class="test">
                 <tr>
                     <th id="ID">NO.</th>
@@ -195,6 +193,12 @@
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
+    const menuToggle = document.querySelector('.menu-toggle');
+    const leftContainer = document.querySelector('.left-Container');
+
+    menuToggle.addEventListener('click', () => {
+        leftContainer.classList.toggle('show');
+    });
 </script>
 
 </html>

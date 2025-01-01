@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury store</title>
+    <title>Luxora</title>
     <link rel="stylesheet" href="./css/import.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
 
 <body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <div class="left-Container">
         <div class="logo">
             <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
@@ -58,7 +61,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -72,17 +75,15 @@
         <!-- Dashboard + btn view report -->
         <div class="Dashboard-title">
             <p>Import</p>
-            <img src="./assets/filter.png" alt="">
-            <div class="Date">
-                <p style="color:black; font-size:16px;">Date</p>
-                <div class="date-picker">
-                    <input type="date">
-                    <span class="calendar-icon"></span>
+            <div class="popup-container">
+                <div class="Date" id="filterPopup">
+                    <div class="date-picker-container">
+                        <span class="date-picker-label">Date</span>
+                        <input type="date" class="date-picker-input">
+                    </div>
                 </div>
             </div>
-
-            <div class="space-title"></div>
-            <button><img src="./assets/export.png" alt="">Export</button>
+            <button class="export"><img src="./assets/export.png" alt="">Export</button>
 
         </div>
 
@@ -104,7 +105,7 @@
                     <td>07/09/2024</td>
                     <td>100,000,000 VND</td>
                     <td id="state"><button class="btn"><img src="./assets/loading.png" alt=""></button></td>
-                    <td id="action"><a href="import-detail.html" class="btn">View</a></td>
+                    <td id="action"><button onclick="redirectToNewPage('import-detail.html')">View</button></td>
                 </tr> -->
             </tbody>
         </table>
@@ -115,6 +116,22 @@
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const leftContainer = document.querySelector('.left-Container');
+
+        // Toggle menu khi click button
+        menuToggle.addEventListener('click', () => {
+            leftContainer.classList.toggle('show');
+        });
+
+        // Đóng menu khi click ra ngoài
+        document.addEventListener('click', (event) => {
+            if (!leftContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+                leftContainer.classList.remove('show');
+            }
+        });
+    });
 </script>
 
 </html>

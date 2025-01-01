@@ -58,7 +58,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -72,17 +72,17 @@
         <!-- Dashboard + btn view report -->
         <div class="Dashboard-title">
             <p>Liquidation</p>
-            <img src="./assets/filter.png" alt="">
-            <div class="Date">
-                <p style="color:black; font-size:16px;">Date</p>
-                <div class="date-picker">
-                    <input type="date">
-                    <span class="calendar-icon"></span>
+            <div class="popup-container">
+                <div class="Date" id="filterPopup">
+                    <div class="date-picker-container">
+                        <span class="date-picker-label">Date</span>
+                        <input type="date" class="date-picker-input">
+                    </div>
                 </div>
             </div>
 
             <div class="space-title"></div>
-            <button><img src="./assets/export.png" alt="">Export</button>
+            <button class="export"><img src="./assets/export.png" alt="">Export</button>
 
         </div>
 

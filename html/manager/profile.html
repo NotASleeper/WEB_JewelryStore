@@ -11,6 +11,9 @@
 
 
 <body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <div class="left-Container">
         <div class="logo">
             <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
@@ -54,7 +57,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -122,6 +125,23 @@
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const leftContainer = document.querySelector('.left-Container');
+
+        // Toggle menu khi click button
+        menuToggle.addEventListener('click', () => {
+            leftContainer.classList.toggle('show');
+        });
+
+        // Đóng menu khi click ra ngoài
+        document.addEventListener('click', (event) => {
+            if (!leftContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+                leftContainer.classList.remove('show');
+            }
+        });
+    });
+
 </script>
 
 </html>

@@ -396,11 +396,6 @@ tr:nth-child(even) {
         flex-direction: column;
     }
 
-    .table-container {
-        margin: 0;
-        padding: 1rem;
-    }
-
     .table {
         font-size: 0.9rem;
     }
@@ -413,12 +408,10 @@ tr:nth-child(even) {
 
 @media screen and (max-width: 480px) {
 
-    /* Container styles */
     .right-Container {
         padding: 0.75rem;
     }
 
-    /* Header adjustments */
     .header {
         padding: 0.75rem;
         width: 60%;
@@ -438,7 +431,6 @@ tr:nth-child(even) {
         height: 20px;
     }
 
-    /* Title */
     .main-content p {
         font-size: 1.25rem;
         margin-bottom: 1rem;

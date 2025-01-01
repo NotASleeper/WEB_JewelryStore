@@ -11,6 +11,9 @@
 
 
 <body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <div class="left-Container">
         <div class="logo">
             <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
@@ -55,7 +58,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -70,15 +73,10 @@
 
         <!-- Dashboard + btn view report -->
 
-        <div class="main-content" style="margin-top: 5%;">
-            <div class="header">
-                <p>Import Detail</p>
-            </div>
+        <div class="Dashboard-title">
+            <p>Import Detail</p>
+            <button><a href="report.html" style="text-decoration: none; color:#1279C3 ;">View Report</a></button>
 
-            <div class="Dashboard-title">
-                <div class="space-title" style="width:87%"></div>
-                <button><img src="./assets/export.png" alt="">Export</button>
-            </div>
         </div>
         <div class="product-container">
 
@@ -106,7 +104,7 @@
                 </div>
 
             </div>
-            <div class="form-container" style="margin-left: 100px;">
+            <div class="form-container">
                 <div class="form-section">
                     <div class="form-row">
                         <div class="form-group">
@@ -131,41 +129,39 @@
                 </div>
             </div>
         </div>
-        <div class="table-info" style="
-            display: flex;
-            gap: 69%;
-        ">
-            <p style="font-size: 20px; margin-left:5%; margin-bottom:1%; color:#1279C3;">Import Product</p>
-            <p style="color:#7D8398">Total: 250,000,000VND</p>
+        <div class="table-info">
+            <p>Import Product</p>
+            <p>Total: 250,000,000VND</p>
         </div>
+        <div class=" table-wrapper">
+            <table class="table">
+                <thead class="test">
+                    <tr>
+                        <th id="ID">NO.</th>
+                        <th>Product</th>
+                        <th>Image</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th id="action">Total price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="ID">1</td>
+                        <td id="name">Product 1 <br> Gold, Amethyst</td>
+                        <td><img src="./assets/product1.jpg" alt="Product image"></td>
+                        <td>Necklace</td>
+                        <td>10,000,000 VND</td>
+                        <td>2</td>
+                        <td>20,000,000 VND</td>
 
-        <table class="Product">
-            <thead class="test">
-                <tr>
-                    <th id="ID">NO.</th>
-                    <th>Name</th>
-                    <th>Image</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th id="action">Total price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- <tr>
-                    <td id="ID">1</td>
-                    <td id="name">Product 1 <br> Gold, Amethyst</td>
-                    <td><img src="./assets/product1.jpg" alt="Product image"></td>
-                    <td>Necklace</td>
-                    <td>10,000,000 VND</td>
-                    <td>2</td>
-                    <td>20,000,000 VND</td>
+                    </tr>
 
-                </tr> -->
+                </tbody>
 
-            </tbody>
-
-        </table>
+            </table>
+        </div>
         <div class="actions">
             <button class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
             <button class="btn btn-save " style="font-weight: 600;">Accept</button>
@@ -179,6 +175,12 @@
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
+    const menuToggle = document.querySelector('.menu-toggle');
+    const leftContainer = document.querySelector('.left-Container');
+
+    menuToggle.addEventListener('click', () => {
+        leftContainer.classList.toggle('show');
+    });
 </script>
 
 </html>

@@ -1,4 +1,5 @@
-const { LiquidationForm } = require('../models');
+const { Op } = require('sequelize');
+const { LiquidationForm, Employee } = require('../models');
 
 const createLiquidationForm = async (req, res) => {
     const {
@@ -27,13 +28,40 @@ const createLiquidationForm = async (req, res) => {
 };
 
 const getAllLiquidationForm = async (req, res) => {
+    const { employee } = req.query;
     try {
-        const LiquidationFormList = await LiquidationForm.findAll({
-            where: {
-                status: 1,
-            }
-        });
-        res.status(200).send(LiquidationFormList);
+        if (employee) {
+            const LiquidationFormList = await LiquidationForm.findAll({
+                where: {
+                    status: 1,
+                },
+                include: [{
+                    model: Employee,
+                    as: "create",
+                    where: {
+                        name: {
+                            [Op.like]: `%${employee}%`,
+                        },
+                        status: 1
+                    }
+                }]
+            });
+            res.status(200).send(LiquidationFormList);
+        } else {
+            const LiquidationFormList = await LiquidationForm.findAll({
+                where: {
+                    status: 1,
+                },
+                include: [{
+                    model: Employee,
+                    as: "create",
+                    where: {
+                        status: 1
+                    }
+                }]
+            });
+            res.status(200).send(LiquidationFormList);
+        }
     } catch (error) {
         res.status(500).send(error);
     }

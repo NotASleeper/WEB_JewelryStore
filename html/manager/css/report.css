@@ -1,50 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
-    border: 0;
-    outline: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
 body {
-    position: relative;
+    background-color: #f5f6fa;
+    min-height: 100vh;
     display: flex;
-    flex-direction: row;
 }
 
-/* phần menu toggle */
+/* Menu Toggle Button */
 .menu-toggle {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #1279C3;
-    color: white;
+    top: 1.25rem;
+    left: 1.25rem;
+    background: white;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 0.75rem;
+    border-radius: 8px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 1000;
     display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* phần dashboard */
-.left-Container {
-    display: flex;
-    position: relative;
-    width: 15%;
-    background-color: #1279C3;
-    flex-direction: column;
-    min-width: 200px;
-    transition: all 0.3s ease;
-    z-index: 1000;
+.menu-toggle i {
+    color: #1279C3;
+    font-size: 1.25rem;
 }
+
+/* Left Sidebar */
+.left-Container {
+    width: 260px;
+    background-color: #1279C3;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+/* Logo Styles */
 
 .logo {
     display: flex;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
 }
 
 .logo-icon {
@@ -72,135 +80,116 @@ body {
     color: #fff;
 }
 
+
+/* Navigation Menu */
 .navcontainer {
-    position: relative;
-    width: 100%;
-    height: 76.9vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex: 1;
+    padding: 1rem 0;
 }
 
 .nav-options {
+    list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    height: 50%;
-    align-items: center;
-    color: #fff;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
 }
 
 .nav-options li {
     display: flex;
-    width: 100%;
-    height: 20%;
-    border-radius: 5px;
     align-items: center;
-    opacity: 0.3;
-}
-
-.nav-options .option1 {
-    background-color: rgba(18, 18, 18, 0.1);
-    opacity: 1;
-}
-
-.nav-options a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.nav-options :hover,
-.nav-options li:active {
-    background-color: rgba(18, 18, 18, 0.1);
-    opacity: 1;
-    cursor: pointer;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
 }
 
 .nav-options li img {
     width: 24px;
     height: 24px;
-    display: flex;
-    margin: 0 10%;
+    margin-right: 1rem;
 }
 
-/* phần nội dung page */
+.nav-options li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-options li:hover,
+.nav-options .option2 {
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+
+
+/* Main Content Area */
 .right-Container {
-    display: flex;
-    position: relative;
-    width: 85%;
-    flex-direction: column;
+    margin-left: 260px;
+    flex: 1;
+    padding: 30px;
+    background-color: #f5f6fa;
 }
 
+/* Header Section */
 .header {
     display: flex;
-    position: relative;
-    flex-direction: row;
-    width: 100%;
-    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    background: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+/* Search Bar */
 .search-container {
     display: flex;
-    position: relative;
-    width: 50%;
-    height: 30%;
-    margin-top: 3%;
-    margin-left: 5%;
+    align-items: center;
+    flex: 1;
+    max-width: 400px;
 }
 
-.search-container input[type="text"] {
-    flex: 1;
+.search-container input {
     width: 100%;
-    padding: 10px;
-    border: none;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
     outline: none;
-    border-radius: 5px 0 0 5px;
-    background-color: rgba(18, 121, 195, 0.1);
+    border-color: #1279C3;
+    background-color: white;
 }
 
 .search-container button {
-    background-color: rgba(18, 121, 195, 0.1);
-    color: gray;
-    padding: 10px 15px;
+    background: none;
     border: none;
+    padding: 10px 15px;
+    color: #666;
     cursor: pointer;
-    border-radius: 0 5px 5px 0;
+    margin-left: -40px;
 }
 
-.space-search {
-    width: 50%;
-    float: left;
-    height: 3%;
-}
-
-.space-title {
-    width: 11%;
-    float: left;
-    height: 3%;
-}
-
-.avt-notice {
-    margin-top: 2%;
-    width: 20%;
-    clear: both;
-    height: 3%;
-}
-
+/* User Profile Section */
 .avt-content {
     display: flex;
-    flex-direction: row;
-    margin-top: 6%;
+    align-items: center;
+    gap: 20px;
 }
 
 .avt-content button {
-    display: flex;
-    width: 36px;
-    height: 36px;
-    border-radius: 36px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     overflow: hidden;
-    border: none;
-    margin-right: 5px;
+    padding: 0;
+    cursor: pointer;
 }
 
 .avt-content button img {
@@ -210,455 +199,326 @@ body {
 }
 
 .avt-content p {
-    display: flex;
-    margin-right: 20px;
+    font-weight: 500;
+    color: #333;
 }
 
 .avt-content img {
-    display: flex;
     width: 24px;
     height: 24px;
-    margin-right: 12%;
+    cursor: pointer;
 }
 
+/* Dashboard Title Section */
 .Dashboard-title {
-    position: relative;
     display: flex;
-    flex-direction: row;
-    height: 10%;
     align-items: center;
+    gap: 20px;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 30px;
 }
 
+/* Report Title */
 .Dashboard-title p {
-    font-size: 24px;
-    font-weight: semi-bold;
-    margin-left: 5%;
+    font-size: 20px;
+    font-weight: 600;
     color: #1279C3;
+    margin-right: 20px;
 }
 
-.Dashboard-title img {
-    height: 10%;
-    margin-left: 2%;
-    margin-right: 2%;
-}
-
-.Dashboard-title .Date {
-    width: fit-content;
-    padding: 15px 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    background: white;
-    margin-top: 80px;
-    margin-left: 30px;
+/* Date Range Container */
+.Date {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .date-picker-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 8px;
 }
 
 .date-picker-label {
-    min-width: 50px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .date-picker-input {
-    padding: 5px;
-    border: black solid 1px;
-    border-radius: 10px;
+    padding: 8px 12px;
+    border: 1px solid #e0e6ed;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    width: 130px;
 }
 
+.date-picker-input:focus {
+    outline: none;
+    border-color: #1279C3;
+}
 
-.Dashboard-title .export {
-    margin-left: 42%;
-    color: #1279C3;
-    letter-spacing: 0.5px;
-    font-size: 15px;
-    background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    height: 35px;
-    padding: 0.5% 1%;
-    text-align: center;
-    text-decoration: none;
+/* Export Button */
+.Dashboard-title button {
     display: flex;
-    cursor: pointer;
-    border-radius: 4px;
     align-items: center;
-    font-weight: 500;
-}
-
-.Dashboard-title .export img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5%;
-}
-
-.Dashboard-title .inner {
-    margin-left: 1%;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #fff;
+    border: 1px solid #e0e6ed;
+    border-radius: 6px;
     color: #1279C3;
-    letter-spacing: 0.5px;
-    font-size: 15px;
-    background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    padding: 0.5% 1%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
-.info {
-    display: flex;
-    flex-direction: row;
+.export {
+    margin-left: auto;
 }
 
-.info .cost {
-    width: 20%;
+.export:hover {
+    background-color: #f8fafc;
 }
 
-.info .revenue {
-    display: flex;
-    flex-direction: column;
-    width: 15%;
-    margin-left: 5%;
-}
-
-.info #r {
-    font-size: 20px;
-    margin-bottom: 1%;
-}
-
-.info #total,
-.info #cost {
-    font-size: 24px;
-    font-weight: 500;
-}
-
-.info .fluctuation {
-    display: flex;
-    flex-direction: row;
-}
-
-.info .fluctuation i {
-    display: flex;
-    color: #149D52;
-}
-
-.info.fluctuation p {
-    display: flex;
-    letter-spacing: 1px;
-    opacity: 50%;
-}
-
-.info .fluctuation #percent {
-    color: #149D52 !important;
-    opacity: 1 !important;
-}
-
-.info #date {
-    opacity: 50%;
-    margin-top: 0.5%;
-}
-
-.Linegraph {
-    display: flex;
-    width: 80%;
-    height: 300px;
-    margin: 20px auto;
-}
-
-.Product {
-    border-collapse: collapse;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.Product th {
-    width: 25%;
-    padding: 8px;
-    height: 65px;
-    background-color: #1279C3;
-    color: white;
-    font-weight: 500;
-}
-
-.Product #ID {
-    width: 10% !important;
-    height: 20%;
-    text-align: left;
-    padding-left: 2%;
-    border-radius: 10px 0 0 0;
-}
-
-.Product #last {
-    border-radius: 0 10px 0 0;
-}
-
-.Product tr {
-    height: 20%;
-}
-
-.Product td {
-    padding: 8px;
-    text-align: center;
-    height: 100px;
-    color: #7D8398;
-}
-
-.Product #ID-content {
-    width: 10% !important;
-    height: 20%;
-    text-align: left;
-    padding-left: 2%;
-    border-radius: 10px 0 0 0;
-    color: black;
-    font-weight: 500;
-}
-
-.Product tbody #action {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.Product img {
+.export img {
     width: 16px;
     height: 16px;
 }
 
-.Product button {
-    background-color: #4CAF50;
-    position: relative;
-    width: 40%;
-    justify-content: center;
-    padding-left: 10%;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
+/* Statistics Cards */
+.info {
     display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.revenue,
+.cost {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    flex: 1;
+}
+
+.info #r {
     font-size: 16px;
-    padding: 10px;
-    margin: 10px;
+    color: #666;
+    margin-bottom: 10px;
 }
 
-.Product .Edit {
-    background-color: #FBFCFE;
-    border: 1px solid#DDE4F0;
-    border-radius: 5.5px;
-    color: #1279C3;
+.info #total,
+.info #cost {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
 }
 
-.Product .Delete {
-    background-color: #FFF9F8;
-    border: 1px solid#FACDC3;
-    border-radius: 5.5px;
-    color: #EB2F06;
+.fluctuation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
-tr:nth-child(odd) {
-    background-color: #ffffff;
+.fluctuation i {
+    color: #22c55e;
 }
 
-tr:nth-child(even) {
-    background-color: rgba(18, 121, 195, 0.1);
+.fluctuation #percent {
+    color: #22c55e;
+    font-weight: 500;
 }
 
-/* Menu Toggle Button - Hidden by default */
-.menu-toggle {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #1279C3;
+.info #date {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Chart Section */
+.Linegraph {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 30px;
+    height: 400px;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 30px;
+}
+
+.table th {
+    background-color: #1279C3;
     color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 2;
-    display: none;
+    padding: 15px;
+    text-align: left;
+    font-weight: 500;
 }
 
-/* Media queries cho responsive */
-@media screen and (max-width: 1024px) {
-    .menu-toggle {
-        display: block;
+.table th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.table th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.table td {
+    padding: 15px;
+    color: #666;
+    background-color: white;
+}
+
+.table tr:nth-child(even) td {
+    background-color: #f8f9fa;
+}
+
+.table #ID-content {
+    font-weight: 500;
+    color: #333;
+}
+
+.table img {
+    width: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .info {
+        flex-direction: column;
     }
 
+    .revenue,
+    .cost {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
     .menu-toggle {
-        top: 3.3%;
         display: block;
     }
 
     .left-Container {
-        position: fixed;
-        left: -100%;
-        height: 100vh;
+        transform: translateX(-100%);
     }
 
     .left-Container.show {
-        left: 0;
+        transform: translateX(0);
+    }
+
+    .logo-icon p,
+    .nav-options li a span {
+        display: none;
     }
 
     .right-Container {
-        width: 100%;
-        margin-left: 0;
+        margin-left: 80px;
     }
 
-    .Dashboard-title .export {
-        margin-left: 20%;
-    }
-
-    .info .revenue,
-    .info .cost {
-        width: 25%;
-    }
-
-    .Linegraph {
-        width: 90%;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .Dashboard-title .export {
-        margin-left: 10%;
-    }
-
-}
-
-@media screen and (max-width: 820px) {
-    .Dashboard-title .export {
-        margin-left: 5%;
-    }
-
-}
-
-@media screen and (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-    }
-
-    .search-container {
-        width: 90%;
-        height: auto;
-        margin: 10px auto;
-    }
-
-    .avt-notice {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .avt-content {
+    .nav-options li a {
         justify-content: center;
-        margin-top: 0;
+        padding: 12px;
+    }
+
+    .nav-options li img {
+        margin: 0;
     }
 
     .Dashboard-title {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .left-Container {
+        transform: translateX(-100%);
+        width: 260px;
+    }
+
+    .left-Container.show {
+        transform: translateX(0);
+    }
+
+    .right-Container {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .header {
         flex-direction: column;
-        height: auto;
-        padding: 15px 0;
-        gap: 10px;
+        gap: 15px;
     }
 
-    .Dashboard-title .Date {
-        margin: 10px 0;
-        width: 90%;
-        margin-left: 5%;
+    .search-container {
+        max-width: 100%;
     }
 
-    .Dashboard-title button,
-    .Dashboard-title .export,
-    .Dashboard-title .inner {
-        margin: 5px 5%;
-        padding: 8px 15px;
-        width: 90%;
-        height: auto;
-    }
-
-    .info {
+    .Date {
         flex-direction: column;
-        margin: 0 5%;
+        align-items: stretch;
     }
 
-    .info .revenue,
-    .info .cost {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    .info .cost {
-        margin-left: 5%;
-    }
-
-    .Linegraph {
-        width: 95%;
-        height: 250px;
-    }
-
-    .Product {
+    .table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
     }
-
-    .Product th,
-    .Product td {
-        min-width: 120px;
-    }
 }
 
-@media screen and (max-width: 480px) {
-    .menu-toggle {
-        top: 2%;
-        display: block;
+@media (max-width: 480px) {
+    .right-Container {
+        padding: 0.75rem;
     }
 
-    .Dashboard-title p {
-        font-size: 20px;
+    .header {
+        padding: 0.75rem;
+        width: 65%;
     }
 
-    .search-container {
-        width: 80%;
-        left: 10%;
+    .avt-content {
+        gap: 0.5rem;
     }
 
-    .date-picker-container {
+    .avt-content button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .Dashboard-title {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 1rem;
+        text-align: center;
+        width: 65%;
     }
 
-    .date-picker-input {
-        width: 100%;
+    .export {
+        margin: 0;
     }
 
-    .date-picker-label {
-        margin-bottom: 5px;
-    }
-
-    .info #total,
-    .info #cost,
-    .info #r {
-        font-size: 18px;
+    .info {
+        width: 65%;
     }
 
     .Linegraph {
-        height: 200px;
-    }
-
-    .Product {
-        font-size: 14px;
-    }
-
-    .Product th,
-    .Product td {
-        padding: 8px;
+        width: 65%;
     }
 }

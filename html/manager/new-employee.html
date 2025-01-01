@@ -11,6 +11,9 @@
 
 
 <body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <div class="left-Container">
         <div class="logo">
             <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
@@ -69,9 +72,7 @@
         <!-- Dashboard + btn view report -->
 
         <div class="main-content">
-            <div class="header">
-                <p>Add new employee</p>
-            </div>
+            <p>Add new employee</p>
         </div>
         <div class="product-container">
 
@@ -123,7 +124,7 @@
                         </div>
                     </div>
 
-                    <div class="form-row" style="display: flex; flex-direction: row;">
+                    <div class="form-row">
                         <div class="form-group">
                             <label>Account:</label>
                             <div class="account-group">
@@ -145,7 +146,6 @@
                         <img src="./assets/avatar.jpg" alt="Avatar" class="avatar">
                     </div>
                 </div>
-                <div class="space-form" style="width:550px"></div>
             </div>
         </div>
     </div>
@@ -156,6 +156,12 @@
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
+    const menuToggle = document.querySelector('.menu-toggle');
+    const leftContainer = document.querySelector('.left-Container');
+
+    menuToggle.addEventListener('click', () => {
+        leftContainer.classList.toggle('show');
+    });
 </script>
 
 </html>

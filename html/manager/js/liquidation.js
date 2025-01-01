@@ -25,14 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(dateCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = liquidationForm.total_price;
+                priceCell.textContent = parseFloat(liquidationForm.total_price).toLocaleString() + " VND";
                 row.appendChild(priceCell);
 
                 const imgCell = document.createElement('td');
                 imgCell.id = "state";
+                const button = document.createElement('button');
+                button.className = "btn";
                 const img = document.createElement('img');
                 img.src = "./assets/loading.png";
-                imgCell.appendChild(img);
+                button.appendChild(img);
+                imgCell.appendChild(button);
                 row.appendChild(imgCell);
 
                 const actionCell = document.createElement('td');

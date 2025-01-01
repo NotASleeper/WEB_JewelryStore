@@ -64,6 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const viewButton = document.createElement('button');
                 viewButton.className = "btn";
                 viewButton.textContent = "View";
+                //viewButton.href = "order-detail.html?id="+ order.id;
+                viewButton.addEventListener('click', () => {
+                    window.location.href = "order-detail.html?id=" + order.id;
+                });
                 actionCell.appendChild(viewButton);
 
                 document.querySelector('tbody').appendChild(row);

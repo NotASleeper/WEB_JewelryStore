@@ -1,4 +1,4 @@
-const { OrderForm } = require('../models');
+const { OrderForm, Customer, Employee } = require('../models');
 
 const createOrderForm = async (req, res) => {
     const {
@@ -48,7 +48,12 @@ const getDetailOrderForm = async (req, res) => {
             where: {
                 id: id,
                 status: 1,
-            }
+            },
+            include: [{
+                model: Customer,
+            }, {
+                model: Employee,
+            }]
         });
         res.status(200).send(detailOrderForm);
     } catch (error) {

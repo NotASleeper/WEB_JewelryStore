@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
     const id = getQueryParam('id');
 
-    (getDetailLiquidation = async () => {
+    (getDetailOrder = async () => {
         try {
-            const response = await fetch(`http://localhost:5501/api/v1//liquidation-forms/${id}`, {});
+            const response = await fetch(`http://localhost:5501/api/v1/order-forms/${id}`, {});
             const data = await response.json();
             console.log(data);
             var date_created = new Date(data.date_created).toISOString().split('T')[0];
-            var date_accepted = new Date(data.date_accepted).toISOString().split('T')[0];
+            var date_payment = new Date(data.date_payment).toISOString().split('T')[0];
             document.getElementById('id').value = data.id;
-            document.getElementById('creator').value = data.create.name;
-            document.getElementById('inspector').value = data.accept.name;
-            document.getElementById('date-created').value = date_created;
-            document.getElementById('date-accepted').value = date_accepted;
-            document.getElementById('state').value = "";
+            document.getElementById('employee').value = data.Employee.name;
+            document.getElementById('customer').value = data.Customer.name;
+            document.getElementById('created').value = date_created;
+            document.getElementById('payment').value = date_payment;
+            document.getElementById('coupon').value = "";
 
             console.log("Succeeded");
         } catch (error) {
@@ -21,28 +21,33 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })();
 
-    (getAllLiquidationDetail = async () => {
+    (getAllOrderDetail = async () => {
         try {
-            const url = `http://localhost:5501/api/v1/liquidation-details/form/${id}`;
+            const url = `http://localhost:5501/api/v1/order-details/form/${id}`;
             console.log(url);
 
+            let total = 0;
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
-            let total = 0;
 
-            data.forEach(liquidationDetail => {
-
+            data.forEach(ordertDetail => {
+                console.log(ordertDetail.date_created);
+                total += parseFloat(ordertDetail.total);
                 const row = document.createElement('tr');
 
                 const idCell = document.createElement('td');
                 idCell.id = "ID";
-                idCell.textContent = liquidationDetail.id_product;
+                idCell.textContent = ordertDetail.id_product;
                 row.appendChild(idCell);
+
+                const requestCell = document.createElement('td');
+                requestCell.textContent = ordertDetail.request;
+                row.appendChild(requestCell);
 
                 const nameCell = document.createElement('td');
                 nameCell.id = "name";
-                nameCell.textContent = liquidationDetail.Product.name;
+                nameCell.textContent = ordertDetail.Product.name;
                 row.appendChild(nameCell);
 
                 const imgCell = document.createElement('td');
@@ -53,25 +58,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(imgCell);
 
                 const categoryCell = document.createElement('td');
-                categoryCell.textContent = liquidationDetail.Product.ProductCategory.name;
+                categoryCell.textContent = ordertDetail.Product.ProductCategory.name;
                 row.appendChild(categoryCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = parseFloat(liquidationDetail.price_down).toLocaleString() + " VND";
+                priceCell.textContent = parseFloat(ordertDetail.surcharge).toLocaleString() + " VND";
                 row.appendChild(priceCell);
 
                 const quantityCell = document.createElement('td');
-                quantityCell.textContent = liquidationDetail.quantity;
+                quantityCell.textContent = ordertDetail.quantity;
                 row.appendChild(quantityCell);
 
                 const totalCell = document.createElement('td');
-                totalCell.textContent = parseFloat(liquidationDetail.total).toLocaleString() + " VND";
+                totalCell.textContent = parseFloat(ordertDetail.total).toLocaleString() + " VND";
                 row.appendChild(totalCell);
 
                 document.querySelector('tbody').appendChild(row);
-                total += liquidationDetail.total;
+                document.getElementById('total').innerText = "Total: " + total.toLocaleString() + " VND";
             })
-            document.getElementById('total').innerText = "Total: " + total.toLocaleString() + " VND";
+
             console.log("Succeeded");
         } catch (error) {
             console.error(error);

@@ -74,7 +74,7 @@
         <!-- Dashboard + btn view report -->
 
         <div class="Dashboard-title">
-            <p>Import Detail</p>
+            <p>Order Detail</p>
             <button><a href="report.html" style="text-decoration: none; color:#1279C3 ;">View Report</a></button>
 
         </div>
@@ -84,21 +84,21 @@
                 <div class="form-section">
                     <div class="form-row">
                         <div class="form-group">
-                            <label>LOT:</label>
+                            <label>ID:</label>
                             <input id="id" type="text" value="LOT001">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Supplier:</label>
-                            <input id="supplier" type="text" value="Supplier1">
+                            <label>Employee:</label>
+                            <input id="employee" type="text" value="Employee1">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Employee:</label>
-                            <input id="employee" type="text" value="Employee1">
+                            <label>Customer:</label>
+                            <input id="customer" type="text" value="Supplier1">
                         </div>
                     </div>
                 </div>
@@ -115,29 +115,30 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Date Accepted </label>
-                            <input id="accepted" type="text" value=" ">
+                            <label>Date Payment </label>
+                            <input id="payment" type="text" value=" ">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>State:</label>
-                            <input id="state" type="text" value="Waiting">
+                            <label>Coupon:</label>
+                            <input id="coupon" type="text" value="Waiting">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="table-info">
-            <p>Import Product</p>
-            <p>Total: 250,000,000VND</p>
+            <p>Order Product</p>
+            <p id="total">Total: 250,000,000VND</p>
         </div>
         <div class=" table-wrapper">
             <table class="table">
                 <thead class="test">
                     <tr>
-                        <th id="ID">NO.</th>
+                        <th id="ID">ID</th>
+                        <th>Request</th>
                         <th>Product</th>
                         <th>Image</th>
                         <th>Category</th>
@@ -147,8 +148,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td id="ID">1</td>
+                        <td>Mua hàng</td>
                         <td id="name">Product 1 <br> Gold, Amethyst</td>
                         <td><img src="./assets/product1.jpg" alt="Product image"></td>
                         <td>Necklace</td>
@@ -156,7 +158,7 @@
                         <td>2</td>
                         <td>20,000,000 VND</td>
 
-                    </tr>
+                    </tr> -->
 
                 </tbody>
 
@@ -169,7 +171,7 @@
     </div>
     </div>
     <script src="js/utils.js"></script>
-    <script src="js/import-detail.js"></script>
+    <script src="js/order-detail.js"></script>
 </body>
 <script>
     function redirectToNewPage(newPage) {

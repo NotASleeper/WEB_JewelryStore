@@ -11,6 +11,7 @@ const { orderFormRouter } = require("./orderform.routers");
 const { orderDetailRouter } = require("./orderdetail.routers");
 const { importFormRouter } = require("./importform.routers");
 const { importDetailRouter } = require("./importdetail.routers");
+const { liquidationFormRouter } = require("./liquidationform.routers");
 
 const rootRouter = express.Router();
 
@@ -26,6 +27,7 @@ rootRouter.use("/order-forms", orderFormRouter);
 rootRouter.use("/order-details", orderDetailRouter);
 rootRouter.use("/import-forms", importFormRouter);
 rootRouter.use("/import-details", importDetailRouter);
+rootRouter.use("/liquidation-forms", liquidationFormRouter);
 
 module.exports = {
   rootRouter,

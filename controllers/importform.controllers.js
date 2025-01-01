@@ -150,26 +150,10 @@ const deleteImportForm = async (req, res) => {
     }
 }
 
-const getAllImportFormByCustomer = async (req, res) => {
-    const { id } = req.params;
-    try {
-        const ImportFormList = await ImportForm.findAll({
-            where: {
-                id_customer: id,
-                status: 1,
-            }
-        });
-        res.status(200).send(ImportFormList);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-}
-
 module.exports = {
     createImportForm,
     getAllImportForm,
     getDetailImportForm,
     updateImportForm,
     deleteImportForm,
-    getAllImportFormByCustomer,
 }

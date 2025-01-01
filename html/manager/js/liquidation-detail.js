@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
+            let total = 0;
 
             data.forEach(liquidationDetail => {
 
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(categoryCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = liquidationDetail.price_down;
+                priceCell.textContent = parseFloat(liquidationDetail.price_down).toLocaleString() + " VND";
                 row.appendChild(priceCell);
 
                 const quantityCell = document.createElement('td');
@@ -64,12 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(quantityCell);
 
                 const totalCell = document.createElement('td');
-                totalCell.textContent = liquidationDetail.total;
+                totalCell.textContent = parseFloat(liquidationDetail.total).toLocaleString() + " VND";
                 row.appendChild(totalCell);
 
                 document.querySelector('tbody').appendChild(row);
+                total += liquidationDetail.total;
             })
-
+            document.getElementById('total').innerText = "Total: " + total.toLocaleString() + " VND";
             console.log("Succeeded");
         } catch (error) {
             console.error(error);

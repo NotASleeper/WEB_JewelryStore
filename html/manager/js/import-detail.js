@@ -25,13 +25,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const url = `http://localhost:5501/api/v1/import-details/form/${id}`;
             console.log(url);
 
+            let total = 0;
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
 
             data.forEach(importDetail => {
                 console.log(importDetail.date_created);
-
+                total += parseFloat(importDetail.total);
                 const row = document.createElement('tr');
 
                 const idCell = document.createElement('td');
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(categoryCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = importDetail.price;
+                priceCell.textContent = parseFloat(importDetail.price).toLocaleString() + " VND";
                 row.appendChild(priceCell);
 
                 const quantityCell = document.createElement('td');
@@ -64,10 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(quantityCell);
 
                 const totalCell = document.createElement('td');
-                totalCell.textContent = importDetail.total;
+                totalCell.textContent = parseFloat(importDetail.total).toLocaleString() + " VND";
                 row.appendChild(totalCell);
 
                 document.querySelector('tbody').appendChild(row);
+                document.getElementById('total').innerText = "Total: " + total.toLocaleString() + " VND";
             })
 
             console.log("Succeeded");

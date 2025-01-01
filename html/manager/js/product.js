@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(categoryCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = parseFloat(product.price).toLocaleString();
+                priceCell.textContent = parseFloat(product.price).toLocaleString() + " VND";
                 row.appendChild(priceCell);
 
                 const quantityCell = document.createElement('td');

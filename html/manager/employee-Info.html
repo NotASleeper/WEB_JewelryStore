@@ -11,6 +11,9 @@
 
 
 <body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
     <div class="left-Container">
         <div class="logo">
             <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')" style="cursor:pointer;">
@@ -69,9 +72,7 @@
         <!-- Dashboard + btn view report -->
 
         <div class="main-content">
-            <div class="header">
-                <p>Employee information</p>
-            </div>
+            <p>Employee information</p>
         </div>
         <div class="product-container">
 
@@ -121,7 +122,7 @@
                             <label>Account:</label>
                             <div class="account-group">
                                 <input id="account" type="text" style="width: 245px;" value="123@co">
-                                <a href="#" class="reset-btn">Reset password</a>
+                                <button class="btn-edit" onclick="redirectToNewPage('')">Reset password</button>
                             </div>
                         </div>
 
@@ -129,8 +130,9 @@
 
 
                     <div class="actions">
-                        <button class="btn btn-delete">Delete</button>
-                        <a href="update-employee-Info.html  " class="btn btn-edit">Edit</a>
+                        <button onclick="redirectToNewPage('update-employee-info.html')" class="btn btn-edit">Edit</a>
+                            <button class="btn btn-delete">Delete</button>
+
                     </div>
                 </div>
                 <div class="avatar-container">
@@ -138,7 +140,7 @@
                         <img src="./assets/avatar.jpg" alt="Avatar" class="avatar">
                     </div>
                 </div>
-                <div class="space-form" style="width:550px"></div>
+
             </div>
         </div>
     </div>
@@ -151,6 +153,12 @@
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
+    const menuToggle = document.querySelector('.menu-toggle');
+    const leftContainer = document.querySelector('.left-Container');
+
+    menuToggle.addEventListener('click', () => {
+        leftContainer.classList.toggle('show');
+    });
 </script>
 
 </html>

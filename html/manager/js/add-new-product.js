@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 const getCategoryID = async () => {
-    console.log(1);
     const response = await fetch(`http://localhost:5501/api/v1/product-categories/`, {});
     const data = await response.json();
 
@@ -53,11 +52,9 @@ const createProduct = async (name, category, material, size, weight, price, disc
             },
             body: JSON.stringify(product)
         });
+        const data = await response.json()
 
         console.log('Success:');
-        const data = await response.json()
-        console.log(data);
-
         return data;
     } catch (error) {
         console.error('Error:', error);
@@ -99,7 +96,7 @@ const saveClick = async () => {
         return;
     }
 
-    const userConfirmed = confirm('Are you sure you want to create product?');
+    const userConfirmed = confirm('Are you sure you want to add new product?');
     if (!userConfirmed) {
         return;
     }

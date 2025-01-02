@@ -48,6 +48,7 @@ const createProduct = async (req, res) => {
 
     await Inventory.create({
       id: newProduct.id,
+      quantity: 0,
     });
 
     await Gemstone.create({

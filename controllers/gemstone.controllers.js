@@ -1,30 +1,32 @@
 const { Gemstone } = require('../models');
 
-// const createGemstone = async (req, res) => {
-//     const {
-//         name,
-//         size,
-//         weight,
-//         color,
-//         purity,
-//         certificate,
-//         status
-//     } = req.body;
-//     try {
-//         const newGemstone = await Gemstone.create({
-//             name,
-//             size,
-//             weight,
-//             color,
-//             purity,
-//             certificate,
-//             status,
-//         });
-//         res.status(201).send(newGemstone);
-//     } catch (error) {
-//         res.status(500).send(error);
-//     }
-// };
+const createGemstone = async (req, res) => {
+    const {
+        id,
+        name,
+        size,
+        weight,
+        color,
+        purity,
+        certificate,
+        status
+    } = req.body;
+    try {
+        const newGemstone = await Gemstone.create({
+            id,
+            name,
+            size,
+            weight,
+            color,
+            purity,
+            certificate,
+            status,
+        });
+        res.status(201).send(newGemstone);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
 
 const getAllGemstone = async (req, res) => {
     try {
@@ -102,7 +104,7 @@ const deleteGemstone = async (req, res) => {
 }
 
 module.exports = {
-    // createGemstone,
+    createGemstone,
     getAllGemstone,
     getDetailGemstone,
     updateGemstone,

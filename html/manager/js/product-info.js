@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
             //document.getElementById('shape').innerText = data.accumulated_point;
             document.getElementById('purity').innerText = data.Gemstone.purity;
             document.getElementById('gemstone-size').innerText = data.Gemstone.size + "mm x " + data.Gemstone.size + "mm";
-            document.getElementById('description').innerText = "Description:" + (data.description ? "data.description" : "");
+            document.getElementById('description').innerText = "Description: " + (data.description ? data.description : "");
             document.getElementById('current-price').innerText = (parseFloat(data.price) * (1. - parseFloat(data.discount) / 100)).toLocaleString() + "VND";
             document.getElementById('original-price').innerText = parseFloat(data.price).toLocaleString() + "VND";
             document.getElementById('discount').innerText = "↓ " + data.discount + "%";

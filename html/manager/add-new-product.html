@@ -7,6 +7,7 @@
     <title>Luxora</title>
     <link rel="stylesheet" href="./css/Add-new-product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <script src="js/add-new-product.js"></script>
 </head>
 
 
@@ -79,72 +80,77 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Name:</label>
-                            <input type="text" value="">
+                            <input id="name" type="text" value="Neck">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Category</label>
-                            <input type="text" value="Choose category">
+                            <input list="categoryList" id="category" name="category">
+                            <datalist id="categoryList">
+                                <!-- <option value="Item 1">
+                                <option value="Item 2">
+                                <option value="Item 3"> -->
+                            </datalist>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label>Material</label>
-                            <input type="text" value="">
+                            <input id="material" type="text" value="Iron">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label>Weight</label>
-                            <input type="text" value="">
+                            <input id="weight" type="text" value="10">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label>Gemstone</label>
-                            <input type="text" value="">
+                            <input id="gemstone-name" type="text" value="Gem">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Size</label>
-                            <input type="text" value="">
+                            <input id="size" type="text" value="10">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Carat weight</label>
-                            <input type="text" value="">
+                            <input id="gemstone-weight" type="text" value="10">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Color</label>
-                            <input type="text" value="">
+                            <input id="color" type="text" value="red">
                         </div>
                     </div>
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="form-group">
                             <label>Shape</label>
-                            <input type="text" value="">
+                            <input id="shape" type="text" value="">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-row">
                         <div class="form-group">
                             <label>Purity</label>
-                            <input type="text" value="">
+                            <input id="purity" type="text" value="100">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Gemstone size</label>
-                            <input type="text" value="">
+                            <input id="gemstone-size" type="text" value="10">
                         </div>
                     </div>
                 </div>
@@ -152,33 +158,33 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Certificate</label>
-                            <input type="text" value="">
+                            <input id="certificate" type="text" value="0">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Description</label>
-                            <input type="text" value="">
+                            <input id="description" type="text" value="Vòng">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Price</label>
-                            <input type="text" value="">
+                            <input id="price" type="text" value="100000">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Discount</label>
-                            <input type="text" value="">
+                            <input id="discount" type="text" value="0">
                         </div>
                     </div>
 
                     <div class="actions">
-                        <button class="btn btn-save">Save</button>
+                        <button class="btn btn-save" onclick="saveClick()">Save</button>
                         <button class="btn btn-cancel">Cancel</button>
                     </div>
                 </div>
@@ -189,7 +195,6 @@
         </div>
     </div>
     </div>
-
 </body>
 <script>
     function redirectToNewPage(newPage) {

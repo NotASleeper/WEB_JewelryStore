@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const deletePopup = document.getElementById('delete_popup');
     getCustomerInfo(customerId);
+    getAllCustomerOrder(customerId);
 
     document.getElementById('logout-ic').addEventListener('click', function () {
         logoutPopup.style.display = '';
@@ -115,6 +116,34 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+const getAllCustomerOrder = async (id) => {
+    try {
+        const url = `http://localhost:5501/api/v1/order-forms?id=${id}`;
+        console.log(url);
+        const template = document.getElementById('bill').content;
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+
+        data.forEach(order => {
+            const clone = document.importNode(template, true);
+            clone.getElementById('ID-content').textContent = order.id;
+            clone.getElementById('content').textContent = 'Shopping';
+            clone.getElementById('date_created').textContent = order.date_created;
+            clone.getElementById('money').textContent = '+' + order.total_price;
+            clone.getElementById('loyalty').textContent =  order.total_price / 1000000;
+            clone.getElementById('viewBill').addEventListener('click', function () {
+                window.location.href = `/sale/billinfo?id=${order.id}`;
+            });
+            document.getElementById('billTable').appendChild(clone);
+        })
+
+        console.log("Succeeded");
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 function editMode() {
     document.getElementById('name').removeAttribute('readonly');

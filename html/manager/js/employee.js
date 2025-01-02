@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('tbody').appendChild(row);
                 sum += 1;
             })
-            document.getElementById('Sum').innerText = "Sum: " + sum;
+            document.getElementById('sum').innerText = "Sum: " + sum;
             console.log("Succeeded");
         } catch (error) {
             console.error(error);

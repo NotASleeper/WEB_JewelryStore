@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(quantityCell);
 
                 const totalCell = document.createElement('td');
-                totalCell.textContent = parseFloat(liquidationDetail.total).toLocaleString() + " VND";
+                totalCell.textContent = "+" + parseFloat(liquidationDetail.total).toLocaleString() + " VND";
                 row.appendChild(totalCell);
 
                 document.querySelector('tbody').appendChild(row);
                 total += liquidationDetail.total;
             })
-            document.getElementById('total').innerText = "Total: " + total.toLocaleString() + " VND";
+            document.getElementById('total').innerText = "Total: +" + total.toLocaleString() + " VND";
             console.log("Succeeded");
         } catch (error) {
             console.error(error);

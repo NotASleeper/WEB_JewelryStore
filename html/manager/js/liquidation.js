@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(dateCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = parseFloat(liquidationForm.total_price).toLocaleString() + " VND";
+                priceCell.textContent = "-" + parseFloat(liquidationForm.total_price).toLocaleString() + " VND";
                 row.appendChild(priceCell);
 
                 const imgCell = document.createElement('td');

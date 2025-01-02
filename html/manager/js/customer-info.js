@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(dateCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = "+" + parseFloat(order.total_price).toLocaleString();
+                priceCell.textContent = "+" + parseFloat(order.total_price).toLocaleString() + " VND";
                 row.appendChild(priceCell);
 
                 const loyaltyCell = document.createElement('td');

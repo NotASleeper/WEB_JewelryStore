@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(dateCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = parseFloat(liquidationForm.total_price).toLocaleString() + " VND";
+                priceCell.textContent = "-" + parseFloat(liquidationForm.total_price).toLocaleString() + " VND";
                 row.appendChild(priceCell);
 
                 const imgCell = document.createElement('td');
@@ -41,11 +41,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const actionCell = document.createElement('td');
                 actionCell.id = "action";
 
-                const viewButton = document.createElement('a');
-                viewButton.className = "btn";
-                //viewButton.style = "font-weight: 600";
+                const viewButton = document.createElement('button');
+                viewButton.addEventListener('click', () => {
+                    window.location.href = 'liquidation-detail.html?id=' + liquidationForm.id;
+                })
                 viewButton.textContent = 'View';
-                viewButton.href = "liquidation-detail.html?id=" + liquidationForm.id;
+                //viewButton.href = "liquidation-detail.html?id=" + liquidationForm.id;
                 actionCell.appendChild(viewButton);
 
                 // const deleteButton = document.createElement('button');

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(dateCell);
 
                 const priceCell = document.createElement('td');
-                priceCell.textContent = parseFloat(importForm.total_price).toLocaleString() + "VND";
+                priceCell.textContent = "-" + parseFloat(importForm.total_price).toLocaleString() + "VND";
                 row.appendChild(priceCell);
 
                 const imgCell = document.createElement('td');
@@ -41,10 +41,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const actionCell = document.createElement('td');
                 actionCell.id = "action";
 
-                const viewButton = document.createElement('a');
-                viewButton.className = 'btn';
+                const viewButton = document.createElement('button');
+                viewButton.addEventListener('click', () => {
+                    window.location.href = 'import-detail.html?id=' + importForm.id;
+                })
                 viewButton.textContent = 'View';
-                viewButton.href = "import-detail.html?id=" + importForm.id;
+                //viewButton.href = "import-detail.html?id=" + importForm.id;
                 actionCell.appendChild(viewButton);
 
                 // const deleteButton = document.createElement('button');

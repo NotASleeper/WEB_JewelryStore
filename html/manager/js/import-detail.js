@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(quantityCell);
 
                 const totalCell = document.createElement('td');
-                totalCell.textContent = parseFloat(importDetail.total).toLocaleString() + " VND";
+                totalCell.textContent = "-" + parseFloat(importDetail.total).toLocaleString() + " VND";
                 row.appendChild(totalCell);
 
                 document.querySelector('tbody').appendChild(row);
-                document.getElementById('total').innerText = "Total: " + total.toLocaleString() + " VND";
+                document.getElementById('total').innerText = "Total: -" + total.toLocaleString() + " VND";
             })
 
             console.log("Succeeded");

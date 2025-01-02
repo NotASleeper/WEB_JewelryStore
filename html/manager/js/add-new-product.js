@@ -29,7 +29,7 @@ const getCategoryID = async () => {
     }
 }
 
-const createProduct = async (name, category, material, size, weight, price, discount, description) => {
+const createProduct = async (name, material, size, weight, price, discount, description) => {
     const id_category = await getCategoryID();
     const product = {
         name: name,

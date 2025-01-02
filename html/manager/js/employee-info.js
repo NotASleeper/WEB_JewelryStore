@@ -21,3 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })();
 })
+
+document.getElementById('edit').addEventListener('click', () => {
+    const id = getQueryParam('id');
+    window.location.href = "http://localhost:5501/admin/update-employee-info.html?id=" + id;
+})

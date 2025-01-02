@@ -7,6 +7,8 @@
     <title>Luxora</title>
     <link rel="stylesheet" href="./css/product-info-update.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <script src="js/utils.js"></script>
+    <script src="js/product-info-update.js"></script>
 </head>
 
 
@@ -100,85 +102,90 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Product name</label>
-                            <input type="text" value="Product1">
+                            <input id="name" type="text" value="Product1">
                         </div>
                     </div>
 
                     <div class="form-row two-cols">
                         <div class="form-group">
                             <label>Material</label>
-                            <input type="text" value="18K Yellow Gold">
+                            <input id="material" type="text" value="18K Yellow Gold">
                         </div>
                         <div class="form-group">
                             <label>Weight</label>
-                            <input type="text" value="3.75g">
+                            <input id="weight" type="text" value="3.75g">
                         </div>
                     </div>
 
                     <div class="form-row two-cols">
                         <div class="form-group">
                             <label>Gemstone</label>
-                            <input type="text" value="Moissanite">
+                            <input id="gemstone-name" type="text" value="Moissanite">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Shape</label>
                             <input type="text" value="Circle">
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Category</label>
-                            <input type="text" value="Necklace">
+                            <input list="categoryList" id="category" name="category">
+                            <datalist id="categoryList">
+                                <!-- <option value="Item 1">
+                                <option value="Item 2">
+                                <option value="Item 3"> -->
+                            </datalist>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Size</label>
-                            <input type="text" value="50cm">
+                            <input id="size" type="text" value="50cm">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Carat weight</label>
-                            <input type="text" value="0.05">
+                            <input id="gemstone-weight" type="text" value="0.05">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Color</label>
-                            <input type="text" value="Colorless">
+                            <input id="color" type="text" value="Colorless">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Purity</label>
-                            <input type="text" value="IF">
+                            <input id="purity" type="text" value="IF">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Gemstone size</label>
-                            <input type="text" value="0.05">
+                            <input id="gemstone-size" type="text" value="0.05">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Certificate</label>
-                            <input type="text" value="link">
+                            <input id="certificate" type="text" value="link">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea
+                            <textarea id="description"
                                 rows="4">Mặt dây chuyền nữ Heart-shape Reverse MDA3103 nổi bật với vẻ đẹp lộng mạn độc đáo mà khó có món trang sức nào mang lại được...</textarea>
                         </div>
                     </div>
@@ -186,20 +193,20 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Price</label>
-                            <input type="text" value="31,200,000VND">
+                            <input id="price" type="text" value="31,200,000VND">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Discount</label>
-                            <input type="text" value="15%">
+                            <input id="discount" type="text" value="15%">
                         </div>
                     </div>
 
                     <div class="actions">
-                        <button class="btn btn-save">Save</button>
-                        <button class="btn btn-cancel">Cancel</button>
+                        <button class="btn btn-save" onclick="saveClick()">Save</button>
+                        <button class="btn btn-cancel" onclick="history.back()">Cancel</button>
 
                     </div>
                 </div>

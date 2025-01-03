@@ -43,6 +43,8 @@ const createProduct = async (name, material, size, weight, price, discount, desc
         description: description,
         status: 1,
     }
+    console.log(product);
+
 
     try {
         const response = await fetch('http://localhost:5501/api/v1/products/', {
@@ -53,10 +55,12 @@ const createProduct = async (name, material, size, weight, price, discount, desc
             body: JSON.stringify(product)
         });
         const data = await response.json()
+        console.log(data);
 
         console.log('Success:');
         return data;
     } catch (error) {
+        throw error;
         console.error('Error:', error);
     }
 }
@@ -101,8 +105,10 @@ const saveClick = async () => {
         return;
     }
 
-    const data = await createProduct(name, category, material, size, weight, price, discount, description);
+    const data = await createProduct(name, material, size, weight, price, discount, description);
     await createGemstone(data.id, gemstoneName, gemstoneSize, gemstoneWeight, color, purity, certificate);
+    console.log(data);
+
     window.location.href = 'product-info.html?id=' + data.id
 }
 

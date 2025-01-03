@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(priceCell);
 
                 const quantityCell = document.createElement('td');
-                quantityCell.textContent = product.Inventory.quantity;
+                quantityCell.textContent = (product.Inventory.quantity ? product.Inventory.quantity : "0");
                 row.appendChild(quantityCell);
 
                 const actionCell = document.createElement('td');

@@ -107,6 +107,10 @@ app.get('/sale/productinfo0', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/product_info_outofstock.html'));
 });
 
+app.get('/sale/checkout', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/checkout.html'));
+});
+
 app.use('/warehouse', express.static(path.join(__dirname, 'html/warehouse_employee')));
 app.get('/warehouse', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/warehouse_employee/product.html'));

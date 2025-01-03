@@ -70,13 +70,13 @@
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Name:</label>
-                                        <input type="text" value="">
+                                        <input id="nameCus" type="text" value="">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Address: </label>
-                                        <input type="text" value=" ">
+                                        <input id="address" type="text" value=" ">
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Phone number:</label>
-                                        <input type="text" value="">
+                                        <input id="phone" type="text" value="">
                                     </div>
                                 </div>
                             </div>
@@ -108,135 +108,100 @@
                                 <th id="action">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td id="ID">
-                                    <div style="display: flex;">
-                                        <img src="./assets/images/product1_1.png" alt="Product" />
-                                        <div class="info">
-                                            <p class="name">Product 1</p>
-                                            <div class="price">
-                                                <p>9,900,000VND</p>
-                                                <div class="discount">
-                                                    <img src="./assets/icons/decrease_ic.png" alt="Discount" />
-                                                    <p>10%</p>
-                                                </div>
-                                            </div>
-                                            <p class="origin-price">10,000,000VND</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>1</td>
-                                <td>Note1</td>
-                                <td>100,000VND</td>
-                                <td>10,000,000VND</td>
-                                <td id="action">
-                                    <button class="Edit">
-                                        <img src="./assets/icons/edit_ic.png" alt="Edit" />
-                                    </button>
-                                    <button class="Delete">
-                                        <img src="./assets/icons/delete_ic_2.png" alt="Delete" />
-                                    </button>                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td id="ID">
-                                    <div style="display: flex;">
-                                        <img src="./assets/images/product1_1.png" alt="Product" />
-                                        <div class="info">
-                                            <p class="name">Product 1</p>
-                                            <div class="price">
-                                                <p>9,900,000VND</p>
-                                                <div class="discount">
-                                                    <img src="./assets/icons/decrease_ic.png" alt="Discount" />
-                                                    <p>10%</p>
-                                                </div>
-                                            </div>
-                                            <p class="origin-price">10,000,000VND</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>1</td>
-                                <td>Note1</td>
-                                <td>100,000VND</td>
-                                <td>10,000,000VND</td>
-                                <td id="action">
-                                    <button class="Edit">
-                                        <img src="./assets/icons/edit_ic.png" alt="Edit" />
-                                    </button>
-                                    <button class="Delete">
-                                        <img src="./assets/icons/delete_ic_2.png" alt="Delete" />
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td id="ID" style="font-weight: bolder; color: #121212;">Total</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td style="color: #EB2F06; font-weight: bolder;">20,000,000VND</td>
-                            </tr>
+                        <tbody id="cartTable">
+
+
                         </tbody>
                     </table>
                 </div>
                 <div class="form-group-3" style="margin-top: 10px; width: 50%;"">
                     <p>Redeem {x} accumulated points</p>
-                    <input type="checkbox" id="redeem" name="redeem" value="redeem" >
+                    <input type=" checkbox" id="redeem" name="redeem" value="redeem">
                 </div>
                 <div class="form-group-4" style="margin-top: 10px; width: 80%;"">
                     <label >Discount:</label>
-                    <input type=" text" value="" style="width: 50%;">
-                </div>
-                <div class="form-group-4" style="margin-top: 10px; width: 50%;"">
-                    <label>Total payment:</label>
-                    <label class="total">20,000,000VND</label>
-                </div>
-                <div class=" form-group" style="margin-top: 10px; width: 80%;">
-                    <p style="font-size: 18px; font-weight: 500;">Pay:</p>
-                    <div class="form-group-2">
-                        <div class="radio">
-                            <input type="radio" id="cash" name="services" value="gift-wrap" checked="">
-                            <label for="cash">
-                                <img src="./assets/icons/cash_ic.png" alt="Cash" />
-                                Cash
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" id="card" name="services" value="express-delivery">
-                            <label for="card">
-                                <img src="./assets/icons/card_ic.png" alt="Card" />
-                                Card
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" id="banktransfer" name="services" value="express-delivery">
-                            <label for="banktransfer">
-                                <img src="./assets/icons/bank_ic.png" alt="bank" />
-                                Bank Transfer
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" id="momo" name="services" value="express-delivery">
-                            <label for="momo">
-                                <img src="./assets/icons/momo_ic.png" alt="bank" />
-                                Momo
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" id="VNPay" name="services" value="express-delivery">
-                            <label for="VNPay">
-                                <img src="./assets/icons/VNPay_ic.png" alt="bank" />
-                                VNPay
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="actions">
-                    <button class="btn btn-cancel">Cancel</button>
-                    <button class="btn btn-save">Save</button>
+                    <div>
+                    <input id="discount" type=" text" value="" style="width: 50%;">
+                    <label id="discountValue" ></label>
                 </div>
             </div>
+            <div class="form-group-4" style="margin-top: 10px; width: 50%;"">
+                    <label>Total payment:</label>
+                    <label id="totalPayment" class="total">20,000,000VND</label>
+            </div>
+            <div class=" form-group" style="margin-top: 10px; width: 80%;">
+                <p style="font-size: 18px; font-weight: 500;">Pay:</p>
+                <div class="form-group-2">
+                    <div class="radio">
+                        <input type="radio" id="cash" name="services" value="gift-wrap" checked="">
+                        <label for="cash">
+                            <img src="./assets/icons/cash_ic.png" alt="Cash" />
+                            Cash
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="card" name="services" value="express-delivery">
+                        <label for="card">
+                            <img src="./assets/icons/card_ic.png" alt="Card" />
+                            Card
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="banktransfer" name="services" value="express-delivery">
+                        <label for="banktransfer">
+                            <img src="./assets/icons/bank_ic.png" alt="bank" />
+                            Bank Transfer
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="momo" name="services" value="express-delivery">
+                        <label for="momo">
+                            <img src="./assets/icons/momo_ic.png" alt="bank" />
+                            Momo
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="VNPay" name="services" value="express-delivery">
+                        <label for="VNPay">
+                            <img src="./assets/icons/VNPay_ic.png" alt="bank" />
+                            VNPay
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <button id="cancelCheckout" class="btn btn-cancel">Cancel</button>
+                <button id="saveCheckout" class="btn btn-save">Save</button>
+            </div>
+        </div>
 
+    </div>
+    </div>
+    <div id="edit_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Edit detail</h3>
+            <div class="inputPopup-container">
+                <div display="flex">
+                    <label>Product</label>
+                    <input type="text" id="productEdit" readonly>
+                </div>
+                <div>
+                    <label for="newPassword">Quantity</label>
+                    <input type="number" id="quantityEdit" required>
+                </div>
+                <div>
+                    <label for="confirmPassword">Note</label>
+                    <input type="text" id="noteEdit">
+                </div>
+                <div>
+                    <label for="confirmPassword">Surcharge</label>
+                    <input type="number" id="surchargeEdit">
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelChange" class="cancel">Cancel</button>
+                <button type="submit" id="saveChange" class="ok">Save</button>
+            </div>
         </div>
     </div>
     <div id="logout_popup" class="popup-overlay" style="display: none;">
@@ -249,6 +214,49 @@
             </div>
         </div>
     </div>
+    <template id="cartitem">
+        <tr>
+            <td id="ID">
+                <div style="display: flex;">
+                    <img id="img" src="./assets/images/product1_1.png" alt="Product" />
+                    <div class="info">
+                        <p id="name" class="name">Product 1</p>
+                        <div class="price">
+                            <p id="current_price">9,900,000VND</p>
+                            <div id="discount" class="discount">
+                                <img src="./assets/icons/decrease_ic.png" alt="Discount" />
+                                <p id="value">10%</p>
+                            </div>
+                        </div>
+                        <p id="price" class="origin-price">10,000,000VND</p>
+                    </div>
+                </div>
+            </td>
+            <td id="quantity">1</td>
+            <td id="note">Note1</td>
+            <td id="surcharge">100,000VND</td>
+            <td id="money">10,000,000VND</td>
+            <td id="action">
+                <button id="edititem" class="Edit">
+                    <img src="./assets/icons/edit_ic.png" alt="Edit" />
+                </button>
+                <button id="deleteitem" class="Delete">
+                    <img src="./assets/icons/delete_ic_2.png" alt="Delete" />
+                </button>
+            </td>
+        </tr>
+    </template>
+    <template id="totalTemplate">
+        <tr>
+            <td id="ID" style="font-weight: bolder; color: #121212;">Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="totalMoney" style="color: #EB2F06; font-weight: bolder;">20,000,000VND</td>
+            <td></td>
+        </tr>
+    </template>
+    <script src="./js/checkout.js"></script>
 </body>
 <script>
     function redirectToNewPage(newPage) {

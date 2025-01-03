@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let day = monday.getDate();
         let month = monday.toLocaleString('default', { month: 'short' });
         let year = monday.getFullYear();
-        document.getElementById('date').innerText = "From " + `${day} ${month} ${year}`;
+        document.getElementById('date').innerText = "Sales from " + `${day} ${month} ${year}`;
     })()
 });
 
@@ -62,7 +62,7 @@ async function updateChart(date) {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['01', '02', '03', '04', '05', '06', '07'],
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             datasets: [{
                 label: 'This week',
                 data: thisWeekRevenue,
@@ -120,7 +120,7 @@ const ctxLine = document.getElementById('myLineChart').getContext('2d');
 new Chart(ctxLine, {
     type: 'line',
     data: {
-        labels: ['01', '02', '03', '04', '05', '06', '07'],
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         datasets: [{
             label: 'This week',
             data: [80, 70, 85, 90, 75, 65, 88],

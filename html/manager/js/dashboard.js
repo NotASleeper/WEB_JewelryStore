@@ -19,6 +19,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     updateChart(new Date());
+
+    //Lấy dữ liệu
+    (getRevenueDetail = async () => {
+        const date = new Date();
+        let revenue = await getWeeklyRevenue(date);
+        const thisWeek = Object.values(revenue).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        revenue = await getWeeklyRevenue(getLastWeekDate(date));
+        const lastWeek = Object.values(revenue).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        document.getElementById('total').innerText = parseFloat(thisWeek).toLocaleString() + "VND";
+
+        if (thisWeek > lastWeek) {
+            const percent = ((thisWeek / lastWeek) - 1) * 100;
+            document.getElementById('arrow').className = "fa-solid fa-arrow-up";
+            document.getElementById('arrow').style = "color: #149D52";
+            document.getElementById('percent').innerText = percent.toFixed(2) + "%";
+            document.getElementById('percent').style = "color: #149D52";
+        } else if (thisWeek < lastWeek) {
+            const percent = ((lastWeek / thisWeek) - 1) * 100;
+            document.getElementById('arrow').className = "fa-solid fa-arrow-down";
+            document.getElementById('arrow').style = "color: #EB2F06";
+            document.getElementById('percent').innerText = percent.toFixed(2) + "%";
+            document.getElementById('percent').style = "color: #EB2F06";
+        } else {
+            document.getElementById('titelText').innerText = "";
+        }
+
+        const monday = getMonday(date);
+        let day = monday.getDate();
+        let month = monday.toLocaleString('default', { month: 'short' });
+        let year = monday.getFullYear();
+        document.getElementById('date').innerText = "From " + `${day} ${month} ${year}`;
+    })()
 });
 
 
@@ -145,7 +177,6 @@ async function getWeeklyRevenue(date) {
     const response = await fetch(`http://localhost:5501/api/v1/revenues/weekly/${date}`);
     const data = await response.json();
     const revenue = Object.values(data)
-    console.log(revenue);
 
     return revenue;
 }

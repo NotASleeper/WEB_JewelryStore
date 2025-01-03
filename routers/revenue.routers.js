@@ -1,9 +1,10 @@
 const express = require('express');
-const { getDailyRevenue } = require('../controllers/revenue.controllers');
+const { getDailyRevenue, getWeeklyRevenue } = require('../controllers/revenue.controllers');
 
 const revenueRouter = express.Router();
 
-revenueRouter.get("/:date", getDailyRevenue);
+revenueRouter.get("/daily/:date", getDailyRevenue);
+revenueRouter.get("/weekly/:date", getWeeklyRevenue);
 
 module.exports = {
     revenueRouter,

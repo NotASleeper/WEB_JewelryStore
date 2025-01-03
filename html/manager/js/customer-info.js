@@ -132,3 +132,27 @@ const updateCustomer = async (name, address, phone, email, birthday, loyalty, ac
         console.error('Error:', error);
     }
 }
+
+const deleteCustomer = async () => {
+    const id = getQueryParam('id');
+    try {
+        const response = await fetch(`http://localhost:5501/api/v1/customers/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        console.log('Success:');
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+const deleteClick = () => {
+    const userConfirmed = confirm('Are you sure you want to delete this customer?');
+    if (!userConfirmed) {
+        return;
+    }
+    deleteCustomer();
+    window.location.href = "customer.html";
+}

@@ -1,3 +1,5 @@
+const { or } = require("sequelize");
+
 let allproduct;
 let customerid;
 let couponid;
@@ -45,8 +47,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function filterCustomer(search) {
-    return customers.find(customer => customer.phone.includes(search)||
-    customer.name.toLowerCase().includes(search));
+    return customers.find(customer => customer.phone.includes(search) ||
+        customer.name.toLowerCase().includes(search));
 }
 
 async function fetchCustomers() {
@@ -101,10 +103,10 @@ async function createOrder() {
         id_employee: sessionStorage.getItem('idStaff'),
         is_used_point: false,
         id_coupon: couponid,
-        total_price:0,
+        total_price: 0,
         date_created: Date.now(),
-        date_payment:null,
-        status:1,
+        date_payment: null,
+        status: 1,
     };
 
     try {
@@ -132,12 +134,13 @@ async function createOrder() {
             const currentPrice = product1.price * (1 - product1.discount / 100) * item.quantity + item.surcharge;
 
             const orderDetail = {
-                idOrder: orderId,
-                idProduct: item.id,
+                id_order: orderId,
+                id_product: item.id,
                 quantity: item.quantity,
                 request: item.note,
                 surcharge: item.surcharge,
-                total: currentPrice
+                total: currentPrice,
+                status: 1,
             };
             console.log(orderDetail);
             const orderDetailResponse = await fetch('http://localhost:5501/api/v1/order-details', {
@@ -163,7 +166,16 @@ async function createOrder() {
             totalPrice += currentPrice;
             totalPayment += currentPrice;
         }
-        let updateOrder = await getOrder(orderId);
+        const order = await getOrder(orderId);
+        let updateOrder = {
+            id_customer: order.id_customer,
+            id_employee: order.id_employee,
+            is_used_point: order.is_used_point,
+            id_coupon: order.id_coupon,
+            total_price: totalPrice,
+            date_created: order.date_created,
+            date_payment: order.date_payment,
+        }
 
 
         updateOrder.totalPrice = totalPrice;

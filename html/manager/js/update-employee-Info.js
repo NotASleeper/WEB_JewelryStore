@@ -128,13 +128,17 @@ const saveClick = async () => {
         return;
     }
 
-    if (await isAccountExist(username)) {
-        alert('Account already exist');
-        return;
+    const savedUsername = getCookie('username');
+    if (savedUsername != username) {
+        if (await isAccountExist(username)) {
+            alert('Account already exist');
+            return;
+        }
+        await updateAccount(username);
     }
 
     const data = await updateEmployee(name, address, phone, email, birthday);
-    await updateAccount(username);
+
     window.location.href = 'employee-info.html?id=' + data.id;
 }
 
@@ -144,4 +148,15 @@ const isAccountExist = async (username) => {
 
     const isExist = await data.some(user => user.username === username);
     return isExist;
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
 }

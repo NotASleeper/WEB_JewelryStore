@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     updateChart(new Date());
 
-    //Lấy dữ liệu
+    //Lấy dữ liệu cho grapgh
     (getRevenueDetail = async () => {
         const date = new Date();
         let revenue = await getWeeklyRevenue(date);
@@ -50,6 +50,75 @@ document.addEventListener('DOMContentLoaded', function () {
         let month = monday.toLocaleString('default', { month: 'short' });
         let year = monday.getFullYear();
         document.getElementById('date').innerText = "Sales from " + `${day} ${month} ${year}`;
+    })();
+
+    //Lấy dữ liệu bán chạy
+    (getBestSales = async () => {
+        const date = new Date();
+        const url = "http://localhost:5501/api/v1/revenues/best-sales/" + formatDate(date);
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        data.forEach(product => {
+            const list = document.createElement('li');
+            list.id = "last";
+            list.className = "product";
+
+            const img = document.createElement('img');
+            img.src = "./assets/product1.jpg";
+            img.alt = "product1"
+            list.appendChild(img);
+
+            const name = document.createElement('p');
+            name.id = "name";
+            name.innerText = product.Product.name;
+            list.appendChild(name);
+
+            const space = document.createElement('div');
+            space.className = "space between";
+            list.appendChild(space);
+
+            const ammount = document.createElement('p');
+            ammount.id = "ammount";
+            ammount.innerText = "AMNT:" + product.total_quantity;
+            list.appendChild(ammount);
+
+            document.getElementById('sale').appendChild(list);
+        })
+    })();
+
+    (getBestSellers = async () => {
+        const date = new Date();
+        const url = "http://localhost:5501/api/v1/revenues/best-sellers/" + formatDate(date);
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        data.forEach(employee => {
+            const list = document.createElement('li');
+            list.id = "last";
+            list.className = "product";
+
+            const img = document.createElement('img');
+            img.src = "./assets/product1.jpg";
+            img.alt = "product1"
+            list.appendChild(img);
+
+            const name = document.createElement('p');
+            name.id = "name";
+            name.innerText = employee.Employee.name;
+            list.appendChild(name);
+
+            const space = document.createElement('div');
+            space.className = "space between";
+            list.appendChild(space);
+
+            const ammount = document.createElement('p');
+            ammount.id = "ammount";
+            ammount.innerText = "AMNT:" + employee.total_orders;
+            list.appendChild(ammount);
+
+            document.getElementById('sellers').appendChild(list);
+        })
     })()
 });
 
@@ -193,4 +262,13 @@ function getLastWeekDate(date) {
     const currentDate = new Date(date);
     currentDate.setDate(currentDate.getDate() - 7);
     return currentDate.toISOString().split('T')[0];
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
 }

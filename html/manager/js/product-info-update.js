@@ -84,7 +84,7 @@ const saveClick = async () => {
         return;
     }
 
-    const userConfirmed = confirm('Are you sure you want to update product?');
+    const userConfirmed = confirm('Are you sure you want to update this product?');
     if (!userConfirmed) {
         return;
     }

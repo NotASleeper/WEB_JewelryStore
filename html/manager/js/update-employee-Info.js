@@ -123,7 +123,7 @@ const saveClick = async () => {
         return;
     }
 
-    const userConfirmed = confirm('Are you sure you want to add new employee?');
+    const userConfirmed = confirm('Are you sure you want to update this employee?');
     if (!userConfirmed) {
         return;
     }

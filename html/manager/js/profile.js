@@ -1,20 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
     const savedUsername = getCookie('username');
-    console.log(savedUsername);
 
     (getDetailEmployee = async () => {
         try {
-            const response = await fetch(`http://localhost:5501/api/v1/employees/${id}`, {});
+            const response = await fetch(`http://localhost:5501/api/v1/accounts/username/${savedUsername}`, {});
             const data = await response.json();
             console.log(data);
-            var date = new Date(data.birthday).toISOString().split('T')[0];
-            document.getElementById('name').value = data.name;
-            document.getElementById('address').value = data.address;
-            document.getElementById('phone').value = data.phone;
-            document.getElementById('email').value = data.email;
+            var date = new Date(data.Employee.birthday).toISOString().split('T')[0];
+            document.getElementById('name').value = data.Employee.name;
+            document.getElementById('address').value = data.Employee.address;
+            document.getElementById('phone').value = data.Employee.phone;
+            document.getElementById('email').value = data.Employee.email;
             document.getElementById('birthday').value = date;
-            document.getElementById('position').value = data.PositionEmployee.name_position;
-            document.getElementById('account').value = data.Account.username;
+            document.getElementById('position').value = data.Employee.PositionEmployee.name_position;
+            document.getElementById('username').value = data.username;
 
             console.log("Succeeded");
         } catch (error) {

@@ -1,5 +1,3 @@
-const { or } = require("sequelize");
-
 let allproduct;
 let customerid;
 let couponid;
@@ -124,12 +122,12 @@ async function createOrder() {
         }
 
         const orderData = await orderResponse.json();
-        const orderId = orderData.idOrder;
+        console.log(orderData);
+        const orderId = orderData.id;
         let totalPrice = 0;
         let totalPayment = 0;
         // Add order details
         for (const item of cart) {
-            console.log(item)
             const product1 = allproduct.find(product => product.id === parseInt(item.id))
             const currentPrice = product1.price * (1 - product1.discount / 100) * item.quantity + item.surcharge;
 
@@ -140,9 +138,8 @@ async function createOrder() {
                 request: item.note,
                 surcharge: item.surcharge,
                 total: currentPrice,
-                status: 1,
+                status: 1
             };
-            console.log(orderDetail);
             const orderDetailResponse = await fetch('http://localhost:5501/api/v1/order-details', {
                 method: 'POST',
                 headers: {
@@ -166,15 +163,15 @@ async function createOrder() {
             totalPrice += currentPrice;
             totalPayment += currentPrice;
         }
-        const order = await getOrder(orderId);
+        const order1 = await getOrder(orderId);
         let updateOrder = {
-            id_customer: order.id_customer,
-            id_employee: order.id_employee,
-            is_used_point: order.is_used_point,
-            id_coupon: order.id_coupon,
+            id_customer: order1.id_customer,
+            id_employee: order1.id_employee,
+            is_used_point: order1.is_used_point,
+            id_coupon: order1.id_coupon,
             total_price: totalPrice,
-            date_created: order.date_created,
-            date_payment: order.date_payment,
+            date_created: order1.date_created,
+            date_payment: order1.date_payment,
         }
 
 
@@ -182,7 +179,7 @@ async function createOrder() {
         updateOrder.totalPayment = totalPayment;
 
 
-        const updateOrderResponse = await fetch(`http://localhost:5501/api/v1/order-forms?id=${orderId}`, {
+        const updateOrderResponse = await fetch(`http://localhost:5501/api/v1/order-forms/${orderId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -263,7 +260,7 @@ function removeFromCart(productId) {
 
 async function getOrder(id) {
     try {
-        const response = await fetch(`http://localhost:5501/api/v1/order-forms?id=${id}`);
+        const response = await fetch(`http://localhost:5501/api/v1/order-forms/${id}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

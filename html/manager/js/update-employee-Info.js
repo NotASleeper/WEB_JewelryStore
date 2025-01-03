@@ -128,7 +128,20 @@ const saveClick = async () => {
         return;
     }
 
+    if (await isAccountExist(username)) {
+        alert('Account already exist');
+        return;
+    }
+
     const data = await updateEmployee(name, address, phone, email, birthday);
     await updateAccount(username);
     window.location.href = 'employee-info.html?id=' + data.id;
+}
+
+const isAccountExist = async (username) => {
+    const response = await fetch("http://localhost:5501/api/v1/accounts/");
+    const data = await response.json();
+
+    const isExist = await data.some(user => user.username === username);
+    return isExist;
 }

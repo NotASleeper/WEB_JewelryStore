@@ -33,7 +33,7 @@ new Chart(ctx, {
             borderRadius: 2,
             barPercentage: 0.5
         }, {
-            label: 'Next week',
+            label: 'Last week',
             data: [65, 68, 60, 65, 70, 75, 62],
             backgroundColor: '#E0E0E0',
             borderRadius: 2,

@@ -17,6 +17,7 @@ const { couponRouter } = require("./coupon.routers");
 const { refundFormRouter } = require("./refundform.routers");
 const { serviceActivityRouter } = require("./serviceactivity.routers");
 const { warrantyMaintainanceRouter } = require("./WarrantyMaintainance.routers");
+const { revenueRouter } = require("./revenue.routers");
 
 const rootRouter = express.Router();
 
@@ -38,6 +39,7 @@ rootRouter.use("/coupons", couponRouter);
 rootRouter.use("/refund-forms", refundFormRouter);
 rootRouter.use("/service-activities", serviceActivityRouter);
 rootRouter.use("/warranty-maintainances", warrantyMaintainanceRouter);
+rootRouter.use("/revenues", revenueRouter);
 
 module.exports = {
   rootRouter,

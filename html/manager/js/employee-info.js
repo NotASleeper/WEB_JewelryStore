@@ -26,3 +26,43 @@ document.getElementById('edit').addEventListener('click', () => {
     const id = getQueryParam('id');
     window.location.href = "http://localhost:5501/admin/update-employee-info.html?id=" + id;
 })
+
+const deleteEmployee = async () => {
+    const id = getQueryParam('id');
+    try {
+        const response = await fetch(`http://localhost:5501/api/v1/employees/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        console.log('Success:');
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+const deleteAccount = async () => {
+    const id = getQueryParam('id');
+    try {
+        const response = await fetch(`http://localhost:5501/api/v1/accounts/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        console.log('Success:');
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+const deleteClick = () => {
+    const userConfirmed = confirm('Are you sure you want to delete this employee?');
+    if (!userConfirmed) {
+        return;
+    }
+    deleteEmployee();
+    deleteAccount();
+    window.location.href = "employee.html";
+}

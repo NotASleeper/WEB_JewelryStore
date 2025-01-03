@@ -129,6 +129,6 @@ const saveClick = async () => {
     }
 
     const data = await updateEmployee(name, address, phone, email, birthday);
-    await updateEmployee(username);
+    await updateAccount(username);
     window.location.href = 'employee-info.html?id=' + data.id;
 }

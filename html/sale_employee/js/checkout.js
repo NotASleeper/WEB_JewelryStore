@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         document.getElementById('edit_popup').style.display = 'none';
     });
     document.getElementById('saveChange').addEventListener('click', function () {
-        editItem();
+        UpdateDetail();
     });
     search.addEventListener('change', async function () {
         const customer = filterCustomer(search.value.toLowerCase());
@@ -171,7 +171,7 @@ async function createOrder() {
             id_coupon: order1.id_coupon,
             total_price: totalPrice,
             date_created: order1.date_created,
-            date_payment: order1.date_payment,
+            date_payment: Date.now()
         }
 
 
@@ -276,7 +276,7 @@ async function getOrder(id) {
     }
 }
 
-function editItem() {
+function UpdateDetail() {
     const id = document.getElementById('edit_popup').dataset.id;
     const quantity = parseInt(document.getElementById('quantityEdit').value);
     const surcharge = parseFloat(document.getElementById('surchargeEdit').value);

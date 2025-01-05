@@ -18,9 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
             leftContainer.classList.remove('show');
         }
     });
-    updateChart(new Date());
 
-    //Lấy dữ liệu cho grapgh
+    //Load chart
+    updateChart(new Date());
+    updateLineChart(new Date());
+
+    //Lấy dữ liệu title
     (getRevenueDetail = async () => {
         const date = new Date();
         let revenue = await getWeeklyRevenue(date);
@@ -186,61 +189,66 @@ async function updateChart(date) {
 }
 
 const ctxLine = document.getElementById('myLineChart').getContext('2d');
-new Chart(ctxLine, {
-    type: 'line',
-    data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        datasets: [{
-            label: 'This week',
-            data: [80, 70, 85, 90, 75, 65, 88],
-            borderColor: '#1279C3',
-            backgroundColor: '#1279C3',
-            tension: 0.4,
-            pointRadius: 4,
-            pointBackgroundColor: '#1279C3'
-        }, {
-            label: 'Last week',
-            data: [65, 68, 60, 65, 70, 75, 62],
-            borderColor: '#E0E0E0',
-            backgroundColor: '#E0E0E0',
-            tension: 0.4,
-            pointRadius: 4,
-            pointBackgroundColor: '#E0E0E0'
-        }]
-    }, options: {
-        maintainAspectRatio: false,
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'bottom',
-                labels: {
-                    usePointStyle: true,
-                    pointStyle: 'circle',
-                    padding: 20
-                }
-            }
-        },
-        scales: {
-            x: {
-                grid: {
-                    display: false
-                },
-                ticks: {
-                    padding: 10
+async function updateLineChart(date) {
+    const thisWeekBill = await getWeeklyBill(date);
+    const lastWeekBill = await getWeeklyBill(getLastWeekDate(date));
+
+    new Chart(ctxLine, {
+        type: 'line',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'This week',
+                data: thisWeekBill,
+                borderColor: '#1279C3',
+                backgroundColor: '#1279C3',
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: '#1279C3'
+            }, {
+                label: 'Last week',
+                data: lastWeekBill,
+                borderColor: '#E0E0E0',
+                backgroundColor: '#E0E0E0',
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: '#E0E0E0'
+            }]
+        }, options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        padding: 20
+                    }
                 }
             },
-            y: {
-                display: false,
-                beginAtZero: true
-            }
-        },
-        elements: {
-            line: {
-                borderWidth: 2
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        padding: 10
+                    }
+                },
+                y: {
+                    display: false,
+                    beginAtZero: true
+                }
+            },
+            elements: {
+                line: {
+                    borderWidth: 2
+                }
             }
         }
-    }
-});
+    });
+}
 
 async function getWeeklyRevenue(date) {
     const response = await fetch(`http://localhost:5501/api/v1/revenues/weekly/${date}`);
@@ -271,4 +279,12 @@ function formatDate(dateString) {
     const day = String(date.getDate()).padStart(2, '0');
 
     return `${year}-${month}-${day}`;
+}
+
+async function getWeeklyBill(date) {
+    const response = await fetch(`http://localhost:5501/api/v1/revenues/bills/${date}`);
+    const data = await response.json();
+    const bill = Object.values(data)
+
+    return bill;
 }

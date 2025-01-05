@@ -26,17 +26,17 @@ const getDailyRevenue = async (req, res) => {
     const { date } = req.params;
     try {
         const orderForm = await OrderForm.findAll({
-            where: { date_created: date },
+            where: { date_created: date, status: 1 },
             attributes: ['total_price']
         });
 
         const importForm = await ImportForm.findAll({
-            where: { date_created: date },
+            where: { date_created: date, status: 1 },
             attributes: ['total_price']
         });
 
         const liquidationForm = await LiquidationForm.findAll({
-            where: { date_created: date },
+            where: { date_created: date, status: 1 },
             attributes: ['total_price']
         });
 
@@ -62,17 +62,17 @@ const getWeeklyRevenue = async (req, res) => {
             const day = weekDates[i];
 
             const orderForms = await OrderForm.findAll({
-                where: { date_created: day },
+                where: { date_created: day, status: 1 },
                 attributes: ['total_price']
             });
 
             const importForms = await ImportForm.findAll({
-                where: { date_created: day },
+                where: { date_created: day, status: 1 },
                 attributes: ['total_price']
             });
 
             const liquidationForms = await LiquidationForm.findAll({
-                where: { date_created: day },
+                where: { date_created: day, status: 1 },
                 attributes: ['total_price']
             });
 
@@ -104,7 +104,8 @@ const getBestSalesByWeek = async (req, res) => {
             where: {
                 createdAt: {
                     [Op.between]: [startDate, endDate]
-                }
+                },
+                status: 1
             },
             group: ['id_product'],
             order: [[sequelize.fn('SUM', sequelize.col('quantity')), 'DESC']],
@@ -137,6 +138,7 @@ const getBestSellersByWeek = async (req, res) => {
                 date_created: {
                     [Op.between]: [startDate, endDate],
                 },
+                status: 1
             },
             group: ['id_employee'],
             order: [[sequelize.literal('total_orders'), 'DESC']],
@@ -152,10 +154,37 @@ const getBestSellersByWeek = async (req, res) => {
     }
 }
 
+const getWeeklyBills = async (req, res) => {
+    const { date } = req.params;
+    const weekDates = getWeekDates(date);
+    try {
+        const weeklyBills = {};
+
+        for (let i = 0; i < weekDates.length; i++) {
+            const day = weekDates[i];
+            const nextDay = new Date(day);
+            nextDay.setDate(nextDay.getDate() + 1);
+            const count = await OrderForm.count({
+                where: {
+                    date_created: {
+                        [Op.gte]: new Date(day),
+                        [Op.lt]: nextDay,
+                    }
+                },
+            });
+            weeklyBills[i + 1] = count;
+        }
+
+        res.status(200).json(weeklyBills);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
 
 module.exports = {
     getDailyRevenue,
     getWeeklyRevenue,
     getBestSalesByWeek,
     getBestSellersByWeek,
+    getWeeklyBills,
 }

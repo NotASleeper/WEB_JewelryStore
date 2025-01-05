@@ -129,6 +129,35 @@ const login = async (req, res) => {
     }
 }
 
+const getDetailAccountByUsername = async (req, res) => {
+    const { username } = req.params;
+    console.log(username);
+
+    try {
+        const detailAccount = await Account.findOne({
+            where: {
+                username: username,
+                status: 1,
+            },
+            include: [{
+                model: Employee,
+                where: {
+                    id: { [Op.col]: 'Account.id_employee' }
+                },
+                include: [{
+                    model: PositionEmployee,
+                    where: {
+                        id: { [Op.col]: 'Employee.id_position' }
+                    }
+                }]
+            }]
+        });
+        res.status(200).send(detailAccount);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     createAccount,
     getAllAccount,
@@ -136,4 +165,5 @@ module.exports = {
     updateAccount,
     deleteAccount,
     login,
+    getDetailAccountByUsername,
 }

@@ -727,3 +727,27 @@ input:checked[type="checkbox"]:before {
     border-radius: 5.5px;
     color: #20BF6B;
 }
+
+.inputPopup-container {
+    text-align: left;
+    width: fit-content;
+    padding: 20px;
+}
+
+    .inputPopup-container label {
+        margin-left: 5px;
+        font-size: 12px;
+        color: rgba(18, 18, 18, 0.5);
+    }
+
+    .inputPopup-container input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border: 1px solid #121212;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 16px;
+        background-color: transparent;
+        margin-bottom: 3%;
+    }

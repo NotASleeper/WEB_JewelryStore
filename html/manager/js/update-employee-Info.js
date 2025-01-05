@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const id = getQueryParam('id');
+
+    (getDetailEmployee = async () => {
+        try {
+            const response = await fetch(`http://localhost:5501/api/v1/employees/${id}`, {});
+            const data = await response.json();
+            console.log(data);
+            var date = new Date(data.birthday).toISOString().split('T')[0];
+            document.getElementById('name').value = data.name;
+            document.getElementById('address').value = data.address;
+            document.getElementById('phone').value = data.phone;
+            document.getElementById('email').value = data.email;
+            document.getElementById('birthday').value = date;
+            document.getElementById('position').value = data.PositionEmployee.name_position;
+            document.getElementById('account').value = data.Account.username;
+
+            console.log("Succeeded");
+        } catch (error) {
+            console.error(error);
+        }
+    })();
+
     (getAllPosition = async () => {
         try {
             const response = await fetch(`http://localhost:5501/api/v1/position-employees/`, {});
@@ -32,7 +54,8 @@ const getPositionID = async () => {
     }
 }
 
-const createEmployee = async (name, address, phone, email, birthday) => {
+const updateEmployee = async (name, address, phone, email, birthday) => {
+    const id = getQueryParam('id');
     const id_position = await getPositionID();
     const employee = {
         name: name,
@@ -41,12 +64,11 @@ const createEmployee = async (name, address, phone, email, birthday) => {
         phone: phone,
         email: email,
         birthday: birthday,
-        status: 1,
     }
 
     try {
-        const response = await fetch('http://localhost:5501/api/v1/employees/', {
-            method: 'POST',
+        const response = await fetch(`http://localhost:5501/api/v1/employees/${id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -61,17 +83,15 @@ const createEmployee = async (name, address, phone, email, birthday) => {
     }
 }
 
-const createAccount = async (id_employee, username) => {
+const updateAccount = async (username) => {
+    const id = getQueryParam('id');
     const account = {
-        id_employee: id_employee,
         username: username,
-        password: 123,
-        status: 1,
     }
 
     try {
-        const response = await fetch(`http://localhost:5501/api/v1/accounts/`, {
-            method: 'POST',
+        const response = await fetch(`http://localhost:5501/api/v1/accounts/${id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -103,20 +123,24 @@ const saveClick = async () => {
         return;
     }
 
-    const userConfirmed = confirm('Are you sure you want to add new employee?');
+    const userConfirmed = confirm('Are you sure you want to update this employee?');
     if (!userConfirmed) {
         return;
     }
 
-    if (await isAccountExist(username)) {
-        alert('Account already exist');
-        return;
+    const savedUsername = getCookie('username');
+    if (savedUsername != username) {
+        if (await isAccountExist(username)) {
+            alert('Account already exist');
+            return;
+        }
+        await updateAccount(username);
     }
 
-    const data = await createEmployee(name, address, phone, email, birthday);
-    await createAccount(data.id, username);
+    const data = await updateEmployee(name, address, phone, email, birthday);
+
     window.location.href = 'employee-info.html?id=' + data.id;
-};
+}
 
 const isAccountExist = async (username) => {
     const response = await fetch("http://localhost:5501/api/v1/accounts/");
@@ -124,4 +148,15 @@ const isAccountExist = async (username) => {
 
     const isExist = await data.some(user => user.username === username);
     return isExist;
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
 }

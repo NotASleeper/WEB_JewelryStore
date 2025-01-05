@@ -107,6 +107,39 @@ app.get('/sale/productinfo0', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/sale_employee/product_info_outofstock.html'));
 });
 
+app.get('/sale/checkout', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/checkout.html'));
+});
+
+app.get('/sale/service', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/pre-order.html'));
+});
+
+app.get('/sale/preorder', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/pre-order.html'));
+});
+
+app.get('/sale/preorderinfo', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/pre-order_info.html'));
+});
+
+app.get('/sale/warranty', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/warranty.html'));
+});
+
+app.get('/sale/warrantyinfo', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/warrantyinfo.html'));
+});
+
+app.get('/sale/refund', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/refund.html'));
+});
+
+app.get('/sale/refundinfo', checkAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'html/sale_employee/refund_info.html'));
+});
+
+
 app.use('/warehouse', express.static(path.join(__dirname, 'html/warehouse_employee')));
 app.get('/warehouse', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'html/warehouse_employee/product.html'));

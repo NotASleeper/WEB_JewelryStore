@@ -1,7 +1,9 @@
 const { Op } = require('sequelize');
-const { Employee, PositionEmployee, Account } = require('../models');
+const { Employee, PositionEmployee, Account, EmployeeImage } = require('../models');
+const uploadCloud = require('../middlewares/upload/cloudinary');
 
 const createEmployee = async (req, res) => {
+    uploadCloud.single('img')
     const {
         name,
         id_position,
@@ -21,6 +23,13 @@ const createEmployee = async (req, res) => {
             birthday,
             status,
         });
+        if (req.file) {
+            const link_img = req.file.path;
+            const newEmployeeImage = await EmployeeImage.create({
+                id: newEmployee.id,
+                url: link_img,
+            });
+        }
         res.status(201).send(newEmployee);
     } catch (error) {
         res.status(500).send(error);

@@ -6,6 +6,22 @@ const { rootRouter } = require('./routers');
 const app = express();
 const cors = require('cors');
 const checkAuth = require('./middlewares/validations/checkAuth');
+const cloudinary = require('./middlewares/upload/cloudinary');
+const multer = require('multer');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+require('dotenv').config();
+
+//Thiết lập cloudinary để lưu ảnh
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: "STORE",
+    allowedFormats: ['jpg', 'png', 'jpeg'],
+    transformation: [{ width: 500, height: 500, crop: 'limit' }],
+
+})
+const upload = multer({
+    storage: storage,
+})
 
 app.use(session({
     secret: '123456', // Thay thế bằng một chuỗi bí mật của bạn
@@ -34,6 +50,25 @@ const logout = (req, res) => {
 app.get('/logout', (req, res) => {
     logout(req, res);
 });
+
+app.post('/upload', upload.fields([{ name: "img", maxCount: 1 }]), (req, res) => {
+    try {
+        console.log('Uploaded files:', JSON.stringify(req.files, null, 2));
+
+        if (req.files && req.files.img && req.files.img[0]) {
+            const link_img = req.files.img[0].path; // Accessing the file path
+            res.send({ link_img }); // Send a JSON response
+        } else {
+            res.status(400).send({ error: 'No file uploaded or incorrect field name' });
+        }
+    } catch (error) {
+        console.error('Upload Error:', JSON.stringify(error, null, 2));
+        res.status(500).send({ error: error.message });
+    }
+});
+
+
+
 
 //dùng router
 app.use("/api/v1", rootRouter);

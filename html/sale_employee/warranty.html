@@ -55,8 +55,8 @@
         </div>
         <div class="searchbar">
             <div class="searchinput">
-                <input id="searchInfo" placeholder="Search Product Here">
-                <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+                <input id="searchInfo" placeholder="Search Warranty Here">
+                <i id="searchic" class="fas fa-search"></i> <!-- Font Awesome Icon -->
             </div>
             <div class="filter">
                 <img src="./assets/icons/filter_ic.png" />
@@ -89,165 +89,27 @@
                         <th>Date</th>
                         <th>Product</th>
                         <th>Content</th>
-                        <th id="state">Status</th>
                         <th id="action">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
+                <tbody id="warrantyTable">
+                    <!-- <tr>
+                        <td>WAR001</td>
                         <td>Customer1</td>
                         <td>02/09/2024</td>
                         <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
+                        <td>Jewelry brightening</td>
+                        <td>
                             <div class="loading">
                                 <img src="./assets/icons/loading_ic.png" alt="Loading" />
                             </div>
                         </td>
-                        <td id="action">
+                        <td>
                             <button class="Edit">Edit</button>
                             <button class="Delete">Delete</button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td id="content">Jewelry brightening</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
+                    </tr> -->
+                    
                 </tbody>
             </table>
         </div>
@@ -262,6 +124,19 @@
             </div>
         </div>
     </div>
+    <template id="warranty-template">
+        <tr id="tr">
+            <td id="ID_tbody">WAR001</td>
+            <td id="customer">Customer1</td>
+            <td id="date">02/09/2024</td>
+            <td id="product">Product1</td>
+            <td id="content">Jewelry brightening</td>            
+            <td id="action">
+                <button class="View">View</button>
+            </td>
+        </tr>
+    </template>    
+    
 </body>
 <script>
     function redirectToNewPage(newPage) {
@@ -269,3 +144,4 @@
     }
 </script>
 <script src="./js/logout.js"></script>
+<script src="./js/warranty.js"></script>

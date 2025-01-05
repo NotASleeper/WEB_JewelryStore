@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('searchInfo').addEventListener('keydown', function (event) {
-        if (event.key !== 'Enter') {
+        if (event.key === 'Enter') {
             const searchInfo = document.getElementById('searchInfo').value;
             const filteredList = preOrderList.filter(p => p.id.toString().includes(searchInfo));
             displayPreOrderList(filteredList);
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             displayPreOrderList(preOrderList);
         }
     });
+    
 });
 
 function getPreOrderList() {
@@ -69,12 +70,17 @@ function displayPreOrderList(preOrderList) {
         }
         row.getElementById('date').textContent = formatDate(preOrder.date_created);
         row.getElementById('price').textContent = preOrder.total_price;
-        row.getElementById('editPreOrder').addEventListener('click', function () {
+        row.getElementById('editPreOrder').addEventListener('click', function (event) {
+            event.stopPropagation();
             window.location.href = `/sale/preorderinfo?mode=edit&id=${preOrder.id}`;
         });
-        row.getElementById('deletePreOrder').addEventListener('click', function () {
+        row.getElementById('deletePreOrder').addEventListener('click', function (event) {
+            event.stopPropagation();
             deletePopup.style.display = '';
             deletePopup.setAttribute('data-id', preOrder.id);
+        });
+        row.getElementById('tr').addEventListener('click', function () {
+            window.location.href = '/sale/preorderinfo?mode=view';
         });
         preOrderTable.appendChild(row);
     });

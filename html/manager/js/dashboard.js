@@ -199,7 +199,8 @@ async function updateLineChart(date) {
             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             datasets: [{
                 label: 'This week',
-                data: thisWeekBill,
+                // data: thisWeekBill,
+                data: [10, 20, 15, 25, 30, 22, 18],
                 borderColor: '#1279C3',
                 backgroundColor: '#1279C3',
                 tension: 0.4,
@@ -207,7 +208,8 @@ async function updateLineChart(date) {
                 pointBackgroundColor: '#1279C3'
             }, {
                 label: 'Last week',
-                data: lastWeekBill,
+                // data: lastWeekBill,
+                data: [8, 15, 12, 20, 25, 18, 15],
                 borderColor: '#E0E0E0',
                 backgroundColor: '#E0E0E0',
                 tension: 0.4,

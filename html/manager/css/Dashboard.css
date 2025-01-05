@@ -367,10 +367,11 @@ body {
 
 .Linegraph {
     margin-top: 1.5rem;
+    padding: 1rem;
 }
 
 /* Responsive Design */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1600px) {
     .conclusion {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -378,9 +379,7 @@ body {
     .bill {
         grid-column: span 2;
     }
-}
 
-@media screen and (max-width: 1200px) {
     .right-Container {
         margin-left: 220px;
     }
@@ -389,6 +388,8 @@ body {
         width: 220px;
     }
 }
+
+/* */
 
 @media screen and (max-width: 1024px) {
     .menu-toggle {

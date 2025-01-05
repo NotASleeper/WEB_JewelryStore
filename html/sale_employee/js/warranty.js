@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     //tìm kiếm phiếu bảo hành
-    document.getElementById('searchinput').addEventListener('keydown', function (event) {
+    document.getElementById('searchInfo').addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
-            const searchValue = document.getElementById('searchinput').value;
+            const searchValue = document.getElementById('searchInfo').value;
             const filteredList = warrantyList.filter(w => w.id.toString().includes(searchValue));
             displayWarrantyList(filteredList);
         }
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
         displayWarrantyList(filteredList);
     });
 
-    document.getElementById('searchinput').addEventListener('click', function () {
-        const searchValue = document.getElementById('searchinput').value;
+    document.getElementById('searchInfo').addEventListener('click', function () {
+        const searchValue = document.getElementById('searchInfo').value;
         if (searchValue === '') {
             displayWarrantyList(warrantyList);
         }

@@ -163,7 +163,7 @@ app.get('/sale/warranty', checkAuth, (req, res) => {
 });
 
 app.get('/sale/warrantyinfo', checkAuth, (req, res) => {
-    res.sendFile(path.join(__dirname, 'html/sale_employee/warrantyinfo.html'));
+    res.sendFile(path.join(__dirname, 'html/sale_employee/warranty_info.html'));
 });
 
 app.get('/sale/refund', checkAuth, (req, res) => {

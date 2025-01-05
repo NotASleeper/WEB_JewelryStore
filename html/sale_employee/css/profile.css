@@ -87,6 +87,7 @@ body {
 
 .nav img {
     vertical-align: middle;
+
 }
 
 .nav ul {
@@ -314,6 +315,29 @@ input {
     background: #FBFCFE;
     border: 1px solid #DDE4F0;
     color: #1279C3;
+}
+
+.edit button {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edit .SaveButton {
+    background-color: #F5FFFA;
+    border: 1px solid #C5F6DC;
+    border-radius: 5.5px;
+    color: #20BF6B;
+}
+
+.edit .CancelButton {
+    margin-left: 0.3rem;
+    background-color: #FFF9F8;
+    border: 1px solid#FACDC3;
+    border-radius: 5.5px;
+    color: #EB2F06;
 }
 
 .edit-btn button:hover {

@@ -13,31 +13,29 @@
     <div class="layout">
         <div class="header">
             <div class="logo">
-                <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')">
+                <div class="logo-icon" onclick="redirectToNewPage('/sale/dashboard')">
                     <img src="./assets/icons/logo.png" alt="" class="name">
                     <p>Luxora</p>
                 </div>
-
             </div>
             <div class="container_nav">
                 <div class="nav">
                     <ul>
                         <li class="nav-item" id="nav_dashboard">
-                            <a href="dashboard.html">
-                                <img src="./assets/icons/product.png" style="height: 16px; width: 16px;"
-                                    alt="dashboard">
+                            <a href="product.html">
+                                <img src="./assets/icons/product.png" alt="dashboard">
                                 Product
                             </a>
                         </li>
                         <li class="nav-item" id="nav_service">
-                            <a href="pre-order.html">
-                                <img src="./assets/icons/import.png" style="height: 16px; width: 16px;" alt="dashboard">
-                                Warehouse receipt
+                            <a href="import.html">
+                                <img src="./assets/icons/import.png" alt="service">
+                                Import
                             </a>
                         </li>
-                        <li class="nav-selected" id="nav_customer">
-                            <a href="customer.html">
-                                <img src="./assets/icons/export.png" style="height: 16px; width: 16px;" alt="dashboard">
+                        <li class="nav-item" id="nav_customer">
+                            <a href="liquidation.html">
+                                <img src="./assets/icons/export.png" alt="customer">
                                 Export
                             </a>
                         </li>
@@ -47,69 +45,122 @@
             <div class="right-container">
                 <img src="./assets/icons/cart_ic.png" alt="Cart" />
                 <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
-                <a class="user" href="profile.html">
-                    <img src="./assets/images/avt.png" alt="avatar" />
-                    Employee
+                <a class="user" href="/sale/profile" style="display: flex;">
+                    <img id="avt" src="./assets/images/avt.png" alt="avatar" />
+                    <p id="user" style="color: white;"></p>
                 </a>
-                <img src="./assets/icons/logout_ic.png" alt="Log out" />
+                <img id="logout-ic" src="./assets/icons/logout_ic.png" alt="Log out" />
             </div>
         </div>
+        <div class="main-content">
+            <div class="title">
+                <p>Profile</p>
+            </div>
+        </div>
+        <div class="content">
 
-        <div class="header-space" style="height: 200px; position: relative;"></div>
-        <div class="Dashboard-title">
-            <p>Profile</p>
-        </div>
-        <div class="container" style="margin-left: 20%;">
-            <div class="input-container">
-                <div class="name-input">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Employee1" name="name">
-                </div>
-                <div class="address-input">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" placeholder="26/8 Trương Định, Bến Thành, Quận 1, TP. Hồ Chí Minh"
-                        name="address">
-                </div>
-                <div class="phone-birthday-input">
-                    <div class="phone-input">
-                        <label for="phone">Phone</label>
-                        <input type="text" id="phone" placeholder="0123456789" name="phone">
+            <div class="container">
+                <div class="input-container">
+                    <div class="name-input">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Employee1" name="name" readonly>
                     </div>
-                    <div class="birthday-input">
-                        <label for="birthday">Birthday</label>
-                        <input type="text" id="birthday" placeholder="21/04/1999" name="birthday">
+                    <div class="address-input">
+                        <label for="address">Address</label>
+                        <input type="text" id="address"
+                            placeholder="26/8 Trương Định, Bến Thành, Quận 1, TP. Hồ Chí Minh" name="address" readonly>
+                    </div>
+                    <div class="phone-birthday-input">
+                        <div class="phone-input">
+                            <label for="phone">Phone</label>
+                            <input type="text" id="phone" placeholder="0123456789" name="phone" readonly>
+                        </div>
+                        <div class="birthday-input">
+                            <label for="birthday">Birthday</label>
+                            <input type="date" id="birthday" placeholder="21/04/1999" name="birthday" readonly>
+                        </div>
+                    </div>
+                    <div class="email-input">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" placeholder="em1@gmail.com" name="email" readonly>
+                    </div>
+                    <div class="position-input">
+                        <label for="position">Position</label>
+                        <input type="text" id="position" placeholder="Manager" name="position" readonly>
+                    </div>
+                    <div class="username-input">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="admin123" name="username" readonly>
                     </div>
                 </div>
-                <div class="email-input">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" placeholder="em1@gmail.com" name="email">
-                </div>
-                <div class="position-input">
-                    <label for="position">Position</label>
-                    <input type="text" id="position" placeholder="Manager" name="position">
-                </div>
-                <div class="username-input">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="admin123" name="username">
+                <div class="image-container">
+                    <div class="avatar-container">
+                        <div class="avatar">
+                            <img src="./assets/images/avt.png" alt="Avatar" id="avatar">
+                        </div>
+                        <button class="edit-avatar" id="edit-avatar"><img src="./assets/icons/editimage_ic.png"
+                                alt="">Edit avatar</button>
+                    </div>
+                    <div class="space"></div>
+                    <div class="edit-btn" id="viewMode">
+                        <button id="changePassword">Change password</button>
+                        <button id="edit">Edit</button>
+                    </div>
+                    <div id="editMode" class="edit" style="display: none; gap: 0,3rem; margin-top: 1rem;">
+                        <button class="SaveButton" id="save" style="width: fit-content;">Save</button>
+                        <button class="CancelButton" id="cancelSave" style="width: fit-content;">Cancel</button>
+
+                    </div>
                 </div>
             </div>
-            <div class="image-container">
-                <div class="avatar-container">
-                    <div class="avatar">
-                        <img src="./assets/images/avatar.jpg" alt="Avatar" id="avatar">
-                    </div>
-                    <button class="edit-avatar"><img src="./assets/icons/editimage.png" alt="">Edit avatar</button>
-                </div>
-                <div class="space"></div>
-                <div class="edit-btn">
-                    <button>Change password</button>
-                    <button>Edit</button>
-                </div>
+        </div>
+    </div>
+    <div id="logout_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Log out</h3>
+            <p>Do you really want to log out?</p>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="confirmButton" class="ok">Ok</button>
+                <button id="cancelButton" class="cancel">Cancel</button>
+
             </div>
         </div>
+    </div>
+    <div id="changePassword-popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Change password</h3>
+            <p>You can change your password here</p>
+            <div class="inputPopup-container">
+                <div display="flex">
+                    <label for="oldPassword">Old password</label>
+                    <input type="password" id="oldPassword" required>
+                </div>
+                <div>
+                    <label for="newPassword">New password</label>
+                    <input class type="password" id="newPassword" required>
+                </div>
+                <div>
+                    <label for="confirmPassword">Confirm new password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-around;">
+                <button type="submit" id="saveChange" class="ok">Save</button>
+                <button id="cancelChange" class="cancel">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+    <div id="save_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Save and Exit</h3>
+            <p>Enter your password and save profile</p>
+            <input type="password" id="password" placeholder="Enter your password" style="margin-top: 20px;">
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelSaveEButton" class="cancel">Cancel</button>
+                <button id="confirmSaveEButton" class="ok">Save</button>
+            </div>
+        </div>
+    </div>
 </body>
-<script>
-    function redirectToNewPage(newPage) {
-        window.location.href = newPage;
-    }
-</script>
+<script src="./js/profile.js"></script>

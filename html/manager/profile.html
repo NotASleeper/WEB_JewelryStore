@@ -118,31 +118,63 @@
                     <button>Change password</button>
                     <button>Edit</button>
                 </div>
+                <div id="editMode" class="edit" style="display: none; gap: 0,3rem; margin-top: 1rem;">
+                    <button class="SaveButton" id="save" style="width: fit-content;">Save</button>
+                    <button class="CancelButton" id="cancelSave" style="width: fit-content;">Cancel</button>
+
+                </div>
+            </div>
+            <div id="logout_popup" class="popup-overlay" style="display: none;">
+                <div class="popup-content">
+                    <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Log out</h3>
+                    <p>Do you really want to log out?</p>
+                    <div style="display: flex; justify-content: space-around;">
+                        <button id="confirmButton" class="ok">Ok</button>
+                        <button id="cancelButton" class="cancel">Cancel</button>
+
+                    </div>
+                </div>
+            </div>
+            <div id="changePassword-popup" class="popup-overlay" style="display: none;">
+                <div class="popup-content">
+                    <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Change password</h3>
+                    <p>You can change your password here</p>
+                    <div class="inputPopup-container">
+                        <div display="flex">
+                            <label for="oldPassword">Old password</label>
+                            <input type="password" id="oldPassword" required>
+                        </div>
+                        <div>
+                            <label for="newPassword">New password</label>
+                            <input class type="password" id="newPassword" required>
+                        </div>
+                        <div>
+                            <label for="confirmPassword">Confirm new password</label>
+                            <input type="password" id="confirmPassword" required>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-around;">
+                        <button type="submit" id="saveChange" class="ok">Save</button>
+                        <button id="cancelChange" class="cancel">Cancel</button>
+
+                    </div>
+                </div>
+            </div>
+            <div id="save_popup" class="popup-overlay" style="display: none;">
+                <div class="popup-content">
+                    <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Save and Exit</h3>
+                    <p>Enter your password and save profile</p>
+                    <input type="password" id="password" placeholder="Enter your password" style="margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-around;">
+                        <button id="cancelSaveEButton" class="cancel">Cancel</button>
+                        <button id="confirmSaveEButton" class="ok">Save</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
-<script>
-    function redirectToNewPage(newPage) {
-        window.location.href = newPage;
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const leftContainer = document.querySelector('.left-Container');
 
-        // Toggle menu khi click button
-        menuToggle.addEventListener('click', () => {
-            leftContainer.classList.toggle('show');
-        });
-
-        // Đóng menu khi click ra ngoài
-        document.addEventListener('click', (event) => {
-            if (!leftContainer.contains(event.target) && !menuToggle.contains(event.target)) {
-                leftContainer.classList.remove('show');
-            }
-        });
-    });
-
-</script>
+<script src="./js/profile-ui.js"></script>
 
 </html>

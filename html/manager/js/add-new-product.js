@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
+
     (getAllCategory = async () => {
         try {
             const response = await fetch(`http://localhost:5501/api/v1/product-categories/`, {});

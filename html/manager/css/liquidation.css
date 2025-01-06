@@ -48,8 +48,8 @@ body {
     z-index: 999;
 }
 
-/* Logo Styles */
 
+/* Logo */
 .logo {
     display: flex;
     padding-bottom: 100px;
@@ -80,8 +80,7 @@ body {
     color: #fff;
 }
 
-
-/* Navigation Menu */
+/* Navigation */
 .navcontainer {
     flex: 1;
     padding: 1rem 0;
@@ -125,9 +124,9 @@ body {
 
 /* Main Content Area */
 .right-Container {
-    margin-left: 260px;
     flex: 1;
-    padding: 30px;
+    margin-left: 260px;
+    padding: 1.5rem;
     background-color: #f5f6fa;
 }
 
@@ -136,11 +135,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
     background: white;
     padding: 15px 30px;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
 }
 
 /* Search Bar */

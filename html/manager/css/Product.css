@@ -134,11 +134,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
     background: white;
     padding: 15px 30px;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
 }
 
 /* Search Bar */

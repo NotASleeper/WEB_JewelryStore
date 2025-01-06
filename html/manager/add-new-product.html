@@ -57,8 +57,8 @@
         <div class="header">
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img id="avatar" style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
-                            onclick="redirectToNewPage('profile.html')"></button>
+                    <button class="avt"><img class="avatar" style="cursor: pointer;" src="./assets/avatar.jpg"
+                            alt="Avatar" onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
                         style="cursor: pointer;">
@@ -188,24 +188,25 @@
                         <button class="btn btn-cancel">Cancel</button>
                     </div>
                 </div>
-                <div class="thumbnail-box add-image-box">
-                    <img src="./assets/newimg.png" alt="" style="height: 45px; width: 45px;">
+                <div class="thumbnail-box avatar-container">
+                    <div class="avatar-preview">
+                        <label class="upload-button">
+                            <img class="upload-icon" src="./assets/newimg.png" alt=""
+                                style="cursor:pointer; height: 5rem; width: 5rem;">
+                            <input type="file" class="file-input" accept="image/*">
+                        </label>
+                        <img id="preview" style="display: none;">
+                        <div class="loading"></div>
+                    </div>
+
+                    <div class="error-message"></div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+    <script src="./js/uploadproductimg.js"></script>
 </body>
-<script>
-    function redirectToNewPage(newPage) {
-        window.location.href = newPage;
-    }
-    const menuToggle = document.querySelector('.menu-toggle');
-    const leftContainer = document.querySelector('.left-Container');
 
-    menuToggle.addEventListener('click', () => {
-        leftContainer.classList.toggle('show');
-    });
-</script>
 
 </html>

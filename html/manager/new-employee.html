@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury store</title>
+    <title>Luxora</title>
     <link rel="stylesheet" href="./css/new-employee.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <script src="js/new-employee.js"></script>
@@ -59,7 +59,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/employee.png" alt="Avatar"
+                    <button class="avt"><img id="small-avatar" style="cursor: pointer;" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -149,27 +149,27 @@
                         <button class="btn btn-save" onclick="saveClick()">Save</button>
                     </div>
                 </div>
-                <div class="avatar-container">
-                    <div class="avatar">
-                        <img src="./assets/avatar.jpg" alt="Avatar" class="avatar">
+                <div class="image-container">
+                    <div class="avatar-container">
+                        <div class="avatar-preview">
+                            <div class="upload-icon">↑</div>
+                            <img id="preview" style="display: none;">
+                            <div class="loading"></div>
+                        </div>
+                        <label class="upload-button">
+                            <img src="./assets/editimage.png" alt="">
+                            edit avatar
+                            <input type="file" class="file-input" accept="image/*">
+                        </label>
+                        <div class="error-message"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
-
+    <script src="./js/uploadavatar.js"></script>
 </body>
-<script>
-    function redirectToNewPage(newPage) {
-        window.location.href = newPage;
-    }
-    const menuToggle = document.querySelector('.menu-toggle');
-    const leftContainer = document.querySelector('.left-Container');
 
-    menuToggle.addEventListener('click', () => {
-        leftContainer.classList.toggle('show');
-    });
-</script>
 
 </html>

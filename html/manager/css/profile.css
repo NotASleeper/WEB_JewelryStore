@@ -237,7 +237,7 @@ body {
     margin-bottom: 2rem;
 }
 
-.avatar {
+.avatar-preview {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -246,18 +246,18 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.avatar img {
+.avatar-preview img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.edit-avatar {
+.upload-button {
     position: absolute;
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.9);
+    background: #C3C3C3;
     padding: 0.5rem 1rem;
     border-radius: 6px;
     display: flex;
@@ -268,13 +268,64 @@ body {
     transition: all 0.3s ease;
 }
 
-.edit-avatar:hover {
+.upload-button:hover {
     background: white;
 }
 
-.edit-avatar img {
+.upload-button img {
     width: 20px;
     height: 20px;
+}
+
+.upload-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 24px;
+}
+
+
+.file-input {
+    display: none;
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: none;
+    border-top-color: transparent;
+    display: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 3px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 /* Edit Buttons */

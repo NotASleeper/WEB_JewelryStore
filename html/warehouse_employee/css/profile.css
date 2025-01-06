@@ -16,6 +16,10 @@ body {
 
 }
 
+body button {
+    cursor: pointer;
+}
+
 .layout {
     display: flex;
     flex-direction: column;
@@ -317,6 +321,12 @@ input {
     color: #1279C3;
 }
 
+
+
+.edit-btn button:hover {
+    background: #f0f7ff;
+}
+
 .edit button {
     padding: 0.75rem 1rem;
     border-radius: 8px;
@@ -338,10 +348,6 @@ input {
     border: 1px solid#FACDC3;
     border-radius: 5.5px;
     color: #EB2F06;
-}
-
-.edit-btn button:hover {
-    background: #f0f7ff;
 }
 
 .popup-overlay {

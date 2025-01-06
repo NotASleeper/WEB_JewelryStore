@@ -146,21 +146,22 @@
             </div>
             <div style="display: flex; justify-content: space-around;">
                 <button type="submit" id="saveChange" class="ok">Save</button>
-                <button id="cancelChange" class="cancel">Cancel</button>
+                <button id="cancelChange" class="cancel" ">Cancel</button>
 
             </div>
         </div>
     </div>
-    <div id="save_popup" class="popup-overlay" style="display: none;">
-        <div class="popup-content">
-            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Save and Exit</h3>
-            <p>Enter your password and save profile</p>
-            <input type="password" id="password" placeholder="Enter your password" style="margin-top: 20px;">
-            <div style="display: flex; justify-content: space-around;">
-                <button id="cancelSaveEButton" class="cancel">Cancel</button>
-                <button id="confirmSaveEButton" class="ok">Save</button>
+    <div id=" save_popup" class="popup-overlay" style="display: none;">
+                    <div class="popup-content">
+                        <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Save and Exit</h3>
+                        <p>Enter your password and save profile</p>
+                        <input type="password" id="password" placeholder="Enter your password"
+                            style="margin-top: 20px;">
+                        <div style="display: flex; justify-content: space-around;">
+                            <button id="cancelSaveEButton" class="cancel" style="cursor: pointer;">Cancel</button>
+                            <button id="confirmSaveEButton" class="ok" style="cursor: pointer;">Save</button>
+                        </div>
+                    </div>
             </div>
-        </div>
-    </div>
 </body>
 <script src="./js/profile.js"></script>

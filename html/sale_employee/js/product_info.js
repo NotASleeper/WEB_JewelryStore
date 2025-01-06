@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const confirmButton = document.getElementById('confirmButton');
         console.log('Product ID:', productId);
         // Fetch dữ liệu sản phẩm từ API
-        fetch(`http://localhost:5501/api/v1/products?id=${productId}`)
+        fetch(`http://localhost:5501/api/v1/products/${productId}`)
             .then(response => response.json())
             .then(data => {
                 fetch('http://localhost:5501/api/v1/product-categories')
                     .then(response => response.json())
                     .then(categories => {
                         // Hiển thị thông tin sản phẩm lên màn hình
-                        displayProductInfo(data[0], categories);
+                        displayProductInfo(data, categories);
                     })
                     .catch(error => {
                         console.error('Error fetching categories:', error);

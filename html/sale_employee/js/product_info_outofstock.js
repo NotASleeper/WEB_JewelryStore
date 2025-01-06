@@ -10,14 +10,15 @@ if (productId) {
     document.getElementById('user').textContent = sessionStorage.getItem('username');
     console.log('Product ID:', productId);
     // Fetch dữ liệu sản phẩm từ API
-    fetch(`http://localhost:5501/api/v1/products?id=${productId}`)
+    fetch(`http://localhost:5501/api/v1/products/${productId}`)
         .then(response => response.json())
         .then(data => {
+            console.log('Product data:', data);
             fetch('http://localhost:5501/api/v1/product-categories')
                 .then(response => response.json())
                 .then(categories => {
                     // Hiển thị thông tin sản phẩm lên màn hình
-                    displayProductInfo(data[0], categories);
+                    displayProductInfo(data, categories);
                 })
                 .catch(error => {
                     console.error('Error fetching categories:', error);
@@ -84,6 +85,6 @@ function displayProductInfo(product, categories) {
     document.getElementById('preorder').addEventListener('click', function () {
         // Lưu trữ dữ liệu sản phẩm trong localStorage
         localStorage.setItem('preorderProduct', JSON.stringify(product));
-        window.location.href = `/sale/preorder?id=${product.id}`;
+        window.location.href = `/sale/preorderinfo?mode=add&idproduct=${productId}`;
     });
 }

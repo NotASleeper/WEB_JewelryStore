@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
             data.forEach(category => {
                 const detailList = document.getElementById('categoryList');
                 const option = document.createElement('option');
-                option.value = category.name;
+                option.innerText = category.name;
                 detailList.appendChild(option);
             });
 

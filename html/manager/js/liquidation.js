@@ -1,14 +1,48 @@
 document.addEventListener('DOMContentLoaded', function () {
-    (getAllLiquidationForm = async () => {
-        try {
-            const urlParams = new URLSearchParams(window.location.search);
-            const employee = urlParams.get('employee');
-            const url = "http://localhost:5501/api/v1/liquidation-forms" + (employee ? `?employee=${employee}` : "");
+    getAllLiquidationForm(null);
+})
 
-            const response = await fetch(url);
-            const data = await response.json();
-            data.forEach(liquidationForm => {
-                var date = new Date(liquidationForm.date_created).toISOString().split('T')[0];
+document.getElementById('search').addEventListener('click', () => {
+    const input = document.getElementById('employeeName').value;
+    if (input) {
+        const url = `http://localhost:5501/admin/liquidation.html?employee=${encodeURIComponent(input)}`;
+        window.location.href = url;
+    } else {
+        const url = `http://localhost:5501/admin/liquidation.html`;
+        window.location.href = url;
+    }
+});
+
+document.getElementById('employeeName').addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        const input = document.getElementById('employeeName').value;
+        if (input) {
+            const url = `http://localhost:5501/admin/liquidation.html?employee=${encodeURIComponent(input)}`;
+            window.location.href = url;
+        } else {
+            const url = `http://localhost:5501/admin/liquidation.html`;
+            window.location.href = url;
+        }
+    }
+});
+
+document.getElementById('dateInput').addEventListener('change', (event) => {
+    console.log('Date changed to:', event.target.value);
+    getAllLiquidationForm(event.target.value);
+});
+
+const getAllLiquidationForm = async (datePicked) => {
+    clearTbody();
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const employee = urlParams.get('employee');
+        const url = "http://localhost:5501/api/v1/liquidation-forms" + (employee ? `?employee=${employee}` : "");
+
+        const response = await fetch(url);
+        const data = await response.json();
+        data.forEach(liquidationForm => {
+            var date = new Date(liquidationForm.date_created).toISOString().split('T')[0];
+            if (datePicked == null || date == datePicked) {
                 const row = document.createElement('tr');
 
                 const idCell = document.createElement('td');
@@ -57,35 +91,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(actionCell);
 
                 document.querySelector('tbody').appendChild(row);
-            })
+            }
+        })
 
-            console.log("Succeeded");
-        } catch (error) {
-            console.error(error);
-        }
-    })()
-})
-
-document.getElementById('search').addEventListener('click', () => {
-    const input = document.getElementById('employeeName').value;
-    if (input) {
-        const url = `http://localhost:5501/admin/liquidation.html?employee=${encodeURIComponent(input)}`;
-        window.location.href = url;
-    } else {
-        const url = `http://localhost:5501/admin/liquidation.html`;
-        window.location.href = url;
+        console.log("Succeeded");
+    } catch (error) {
+        console.error(error);
     }
-});
+}
 
-document.getElementById('employeeName').addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        const input = document.getElementById('employeeName').value;
-        if (input) {
-            const url = `http://localhost:5501/admin/liquidation.html?employee=${encodeURIComponent(input)}`;
-            window.location.href = url;
-        } else {
-            const url = `http://localhost:5501/admin/liquidation.html`;
-            window.location.href = url;
-        }
+const clearTbody = () => {
+    const tbody = document.querySelector('tbody');
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
     }
-});
+};

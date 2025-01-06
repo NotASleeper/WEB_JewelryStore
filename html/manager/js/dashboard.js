@@ -27,10 +27,17 @@ document.addEventListener('DOMContentLoaded', function () {
     (getRevenueDetail = async () => {
         const date = new Date();
         let revenue = await getWeeklyRevenue(date);
+        let bill = await getWeeklyBill(date);
         const thisWeek = Object.values(revenue).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        const thisWeekBill = Object.values(bill).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         revenue = await getWeeklyRevenue(getLastWeekDate(date));
+        bill = await getWeeklyBill(getLastWeekDate(date));
         const lastWeek = Object.values(revenue).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        const lastWeekBill = Object.values(bill).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         document.getElementById('total').innerText = parseFloat(thisWeek).toLocaleString() + "VND";
+        document.getElementById('billAmmount').innerText = parseInt(thisWeekBill).toLocaleString();
+        console.log(thisWeekBill);
+
 
         if (thisWeek > lastWeek) {
             const percent = ((thisWeek / lastWeek) - 1) * 100;
@@ -48,11 +55,29 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('titelText').innerText = "";
         }
 
+        if (thisWeekBill > lastWeekBill) {
+            const percent = ((thisWeekBill / lastWeekBill) - 1) * 100;
+            document.getElementById('billArrow').className = "fa-solid fa-arrow-up";
+            document.getElementById('billArrow').style = "color: #149D52";
+            document.getElementById('billPercent').innerText = percent.toFixed(2) + "%";
+            document.getElementById('billPercent').style = "color: #149D52";
+        } else if (thisWeekBill < lastWeekBill) {
+            const percent = ((lastWeekBill / thisWeekBill) - 1) * 100;
+            document.getElementById('billArrow').className = "fa-solid fa-arrow-down";
+            document.getElementById('billArrow').style = "color: #EB2F06";
+            document.getElementById('billPercent').innerText = percent.toFixed(2) + "%";
+            document.getElementById('billPercent').style = "color: #EB2F06";
+        } else {
+            document.getElementById('titelText').innerText = "";
+        }
+
+
         const monday = getMonday(date);
         let day = monday.getDate();
         let month = monday.toLocaleString('default', { month: 'short' });
         let year = monday.getFullYear();
         document.getElementById('date').innerText = "Sales from " + `${day} ${month} ${year}`;
+        document.getElementById('billDate').innerText = "Sales from " + `${day} ${month} ${year}`;
     })();
 
     //Lấy dữ liệu bán chạy
@@ -199,8 +224,8 @@ async function updateLineChart(date) {
             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             datasets: [{
                 label: 'This week',
-                // data: thisWeekBill,
-                data: [10, 20, 15, 25, 30, 22, 18],
+                data: thisWeekBill,
+                //data: [10, 20, 15, 25, 30, 22, 18],
                 borderColor: '#1279C3',
                 backgroundColor: '#1279C3',
                 tension: 0.4,
@@ -208,8 +233,8 @@ async function updateLineChart(date) {
                 pointBackgroundColor: '#1279C3'
             }, {
                 label: 'Last week',
-                // data: lastWeekBill,
-                data: [8, 15, 12, 20, 25, 18, 15],
+                data: lastWeekBill,
+                //data: [8, 15, 12, 20, 25, 18, 15],
                 borderColor: '#E0E0E0',
                 backgroundColor: '#E0E0E0',
                 tension: 0.4,

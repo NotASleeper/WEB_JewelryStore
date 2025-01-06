@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     getAllLiquidationForm("");
 })
 
@@ -67,7 +68,11 @@ const getAllLiquidationForm = async (datePicked) => {
                 const button = document.createElement('button');
                 button.className = "btn";
                 const img = document.createElement('img');
-                img.src = "./assets/loading.png";
+                if (liquidationForm.id_employee_accepted == null) {
+                    img.src = "./assets/loading.png";
+                } else {
+                    img.src = "./assets/accepted_ic.png";
+                }
                 button.appendChild(img);
                 imgCell.appendChild(button);
                 row.appendChild(imgCell);

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     const savedUsername = getCookie('username');
 
     (getDetailEmployee = async () => {

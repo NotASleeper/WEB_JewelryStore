@@ -43,7 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     sessionStorage.setItem('id_employee', data.id_employee);
                     sessionStorage.setItem('token', data.token);
                     sessionStorage.setItem('idAccount', data.id);
-                    sessionStorage.setItem('url', data.Employee.EmployeeImage.url)
+                    if (!data.Employee.EmployeeImage.url) {
+                        sessionStorage.setItem('url', 'https://res.cloudinary.com/djf63iwha/image/upload/v1736132847/STORE/zkflbugtasfw9qyuzpgw.jpg');
+                    } else {
+                        sessionStorage.setItem('url', data.Employee.EmployeeImage.url)
+                    }
                     fetch(`http://localhost:5501/api/v1/employees/${data.id_employee}`)
                         .then(response => response.json())
                         .then(data => {

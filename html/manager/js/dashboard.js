@@ -6,6 +6,7 @@ function redirectToNewPage(newPage) {
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.querySelector('.menu-toggle');
     const leftContainer = document.querySelector('.left-Container');
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
 
     // Toggle menu khi click button
     menuToggle.addEventListener('click', () => {

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     const id = getQueryParam('id');
 
     (getDetailEmployee = async () => {
@@ -16,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('account').value = data.Account.username;
             document.getElementById('profileAvatar').src = data.EmployeeImage.url;
 
-            document.getElementById('avatar').src = sessionStorage.getItem('url');
             console.log("Succeeded");
         } catch (error) {
             console.error(error);

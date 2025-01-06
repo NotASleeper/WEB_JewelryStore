@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     getAllImportForm("");
 })
 
@@ -67,7 +68,7 @@ const getAllImportForm = async (datePicked) => {
                 const button = document.createElement('button');
                 button.className = "btn"
                 const img = document.createElement('img');
-                img.src = "./assets/loading.png";
+                img.src = "./assets/accepted_ic.png";
                 button.appendChild(img);
                 imgCell.appendChild(button);
                 row.appendChild(imgCell);

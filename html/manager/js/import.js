@@ -1,14 +1,48 @@
 document.addEventListener('DOMContentLoaded', function () {
-    (getAllImportForm = async () => {
-        try {
-            const urlParams = new URLSearchParams(window.location.search);
-            const supplier = urlParams.get('supplier');
-            const url = "http://localhost:5501/api/v1/import-forms" + (supplier ? `?supplier=${supplier}` : "");
+    getAllImportForm(null);
+})
 
-            const response = await fetch(url);
-            const data = await response.json();
-            data.forEach(importForm => {
-                var date = new Date(importForm.date_created).toISOString().split('T')[0];
+document.getElementById('search').addEventListener('click', () => {
+    const input = document.getElementById('supplierName').value;
+    if (input) {
+        const url = `http://localhost:5501/admin/import.html?supplier=${encodeURIComponent(input)}`;
+        window.location.href = url;
+    } else {
+        const url = `http://localhost:5501/admin/import.html`;
+        window.location.href = url;
+    }
+});
+
+document.getElementById('supplierName').addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        const input = document.getElementById('supplierName').value;
+        if (input) {
+            const url = `http://localhost:5501/admin/import.html?supplier=${encodeURIComponent(input)}`;
+            window.location.href = url;
+        } else {
+            const url = `http://localhost:5501/admin/import.html`;
+            window.location.href = url;
+        }
+    }
+});
+
+document.getElementById('dateInput').addEventListener('change', (event) => {
+    console.log('Date changed to:', event.target.value);
+    getAllImportForm(event.target.value);
+});
+
+const getAllImportForm = async (datePicked) => {
+    clearTbody();
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const supplier = urlParams.get('supplier');
+        const url = "http://localhost:5501/api/v1/import-forms" + (supplier ? `?supplier=${supplier}` : "");
+
+        const response = await fetch(url);
+        const data = await response.json();
+        data.forEach(importForm => {
+            var date = new Date(importForm.date_created).toISOString().split('T')[0];
+            if (datePicked == null || date == datePicked) {
                 const row = document.createElement('tr');
 
                 const idCell = document.createElement('td');
@@ -57,35 +91,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 row.appendChild(actionCell);
 
                 document.querySelector('tbody').appendChild(row);
-            })
+            }
+        })
 
-            console.log("Succeeded");
-        } catch (error) {
-            console.error(error);
-        }
-    })()
-})
-
-document.getElementById('search').addEventListener('click', () => {
-    const input = document.getElementById('supplierName').value;
-    if (input) {
-        const url = `http://localhost:5501/admin/import.html?supplier=${encodeURIComponent(input)}`;
-        window.location.href = url;
-    } else {
-        const url = `http://localhost:5501/admin/import.html`;
-        window.location.href = url;
+        console.log("Succeeded");
+    } catch (error) {
+        console.error(error);
     }
-});
+}
 
-document.getElementById('supplierName').addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        const input = document.getElementById('supplierName').value;
-        if (input) {
-            const url = `http://localhost:5501/admin/import.html?supplier=${encodeURIComponent(input)}`;
-            window.location.href = url;
-        } else {
-            const url = `http://localhost:5501/admin/import.html`;
-            window.location.href = url;
-        }
+const clearTbody = () => {
+    const tbody = document.querySelector('tbody');
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
     }
-});
+};

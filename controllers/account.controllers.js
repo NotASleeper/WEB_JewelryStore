@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Account, Employee, PositionEmployee } = require('../models');
+const { Account, Employee, PositionEmployee, EmployeeImage } = require('../models');
 
 const createAccount = async (req, res) => {
     const {
@@ -149,6 +149,8 @@ const getDetailAccountByUsername = async (req, res) => {
                     where: {
                         id: { [Op.col]: 'Employee.id_position' }
                     }
+                }, {
+                    model: EmployeeImage,
                 }]
             }]
         });

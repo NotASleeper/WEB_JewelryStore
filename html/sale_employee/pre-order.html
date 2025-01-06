@@ -55,8 +55,8 @@
         </div>
         <div class="searchbar">
             <div class="searchinput">
-                <input id="searchInfo" placeholder="Search Product Here">
-                <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+                <input id="searchInfo" placeholder="Search PreOrder Here">
+                <i id="searchic" class="fas fa-search"></i> <!-- Font Awesome Icon -->
             </div>
             <div class="filter">
                 <img src="./assets/icons/filter_ic.png" />
@@ -87,167 +87,24 @@
                         <th id="ID_thead">ID</th>
                         <th>Customer</th>
                         <th>Date</th>
-                        <th>Product</th>
                         <th>Price</th>
-                        <th id="state">Status</th>
                         <th id="action">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
+                <tbody id="pre-order-table">
+                    <!-- <tr>
+                        <td>PRE001</td>
                         <td>Customer1</td>
                         <td>02/09/2024</td>
                         <td>Product1</td>
                         <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
+                        <td>Processing</td>
                         <td id="action">
                             <button class="Edit">Edit</button>
                             <button class="Delete">Delete</button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">PRE001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>Product1</td>
-                        <td>8,750,000VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
+                    </tr> -->
+                    
                 </tbody>
             </table>
         </div>
@@ -262,6 +119,28 @@
             </div>
         </div>
     </div>
+    <div id="delete_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Delete preorder</h3>
+            <p>Do you really want to delete this pre-order?</p>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelDeleteButton" class="cancel">Cancel</button>
+                <button id="confirmDeleteButton" class="ok">Ok</button>
+            </div>
+        </div>
+    </div>
+    <template id="pre-order-template">
+        <tr id="tr">
+            <td id="ID_tbody">PRE001</td>
+            <td id="customer">Customer1</td>
+            <td id="date">02/09/2024</td>
+            <td id="price">8,750,000VND</td>            
+            <td id="action">
+                <button id="editPreOrder" class="Edit">Edit</button>
+                <button id="deletePreOrder" class="Delete">Delete</button>
+            </td>
+        </tr>
+    </template>
 </body>
 <script>
     function redirectToNewPage(newPage) {
@@ -269,3 +148,4 @@
     }
 </script>
 <script src="./js/logout.js"></script>
+<script src="./js/pre-order.js"></script>

@@ -56,7 +56,7 @@
         <div class="searchbar">
             <div class="searchinput">
                 <input id="searchInfo" placeholder="Search Product Here">
-                <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+                <i id="searchic" class="fas fa-search"></i> <!-- Font Awesome Icon -->
             </div>
             <div class="filter">
                 <img src="./assets/icons/filter_ic.png" />
@@ -92,107 +92,8 @@
                         <th id="action">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">REF001</td>
-                        <td>Customer1</td>
-                        <td>02/09/2024</td>
-                        <td>B300934083540</td>
-                        <td>Product1</td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
+                <tbody id="refundTable">
+
                 </tbody>
             </table>
         </div>
@@ -207,6 +108,18 @@
             </div>
         </div>
     </div>
+    <template id="refundTemplate">
+        <tr id="tr">
+            <td id="ID_tbody">REF001</td>
+            <td id="customer">Customer1</td>
+            <td id="date">02/09/2024</td>
+            <td id="bill">B300934083540</td>
+            <td id="product">Product1</td>
+            <td id="action">
+                <button class="View">View</button>
+            </td>
+        </tr>
+    </template>
 </body>
 <script>
     function redirectToNewPage(newPage) {
@@ -214,3 +127,4 @@
     }
 </script>
 <script src="./js/logout.js"></script>
+<script src="./js/refund.js"></script>

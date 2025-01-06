@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('birthday').value = date;
             document.getElementById('position').value = data.PositionEmployee.name_position;
             document.getElementById('account').value = data.Account.username;
+            document.getElementById('profileAvatar').src = data.EmployeeImage.url;
+            document.getElementById('avatar').src = data.EmployeeImage.url;
 
             console.log("Succeeded");
         } catch (error) {

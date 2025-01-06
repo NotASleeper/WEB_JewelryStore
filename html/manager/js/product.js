@@ -218,3 +218,40 @@ const clearTbody = () => {
         tbody.removeChild(tbody.firstChild);
     }
 };
+
+const exportTableToPDF = () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.text("Product Table", 20, 20);
+
+    const table = document.querySelector("table");
+    const rows = [];
+    const headers = [];
+
+    table.querySelectorAll("thead th").forEach((header, index, headerArr) => {
+        if (index < headerArr.length - 1) {
+            headers.push(header.textContent);
+        }
+    });
+
+    table.querySelectorAll("tbody tr").forEach(row => {
+        const rowData = [];
+        row.querySelectorAll("td").forEach((cell, index, cellArr) => {
+            if (index < cellArr.length - 1) {
+                rowData.push(cell.textContent);
+            }
+        });
+        rows.push(rowData);
+    });
+
+    doc.autoTable({
+        head: [headers],
+        body: rows,
+        startY: 30,
+        styles: { cellWidth: 'wrap' },
+        headStyles: { overflow: 'linebreak' },
+    });
+
+    doc.save("product_table.pdf");
+};

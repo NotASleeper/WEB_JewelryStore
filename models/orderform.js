@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     total_price: DataTypes.BIGINT,
     date_created: DataTypes.DATE,
     date_payment: DataTypes.DATE,
-    status: DataTypes.BOOLEAN
+    status: DataTypes.BOOLEAN,
+    is_preordered: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'OrderForm',

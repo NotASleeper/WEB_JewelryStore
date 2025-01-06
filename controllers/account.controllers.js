@@ -110,7 +110,13 @@ const login = async (req, res) => {
         where: {
             username: username,
             status: 1,
-        }
+        },
+        include: [{
+            model: Employee,
+            include: [{
+                model: EmployeeImage,
+            }]
+        }],
     })
     if (!account) {
         return res.status(404).send("Not found");

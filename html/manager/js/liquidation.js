@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    getAllLiquidationForm(null);
+    getAllLiquidationForm("");
 })
 
 document.getElementById('search').addEventListener('click', () => {
@@ -42,7 +42,7 @@ const getAllLiquidationForm = async (datePicked) => {
         const data = await response.json();
         data.forEach(liquidationForm => {
             var date = new Date(liquidationForm.date_created).toISOString().split('T')[0];
-            if (datePicked == null || date == datePicked) {
+            if (datePicked == "" || date == datePicked) {
                 const row = document.createElement('tr');
 
                 const idCell = document.createElement('td');

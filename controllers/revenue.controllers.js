@@ -62,17 +62,32 @@ const getWeeklyRevenue = async (req, res) => {
             const day = weekDates[i];
 
             const orderForms = await OrderForm.findAll({
-                where: { date_created: day, status: 1 },
+                where: {
+                    date_created: {
+                        [Op.between]: [new Date(`${day}T00:00:00.000Z`), new Date(`${day}T23:59:59.999Z`)]
+                    },
+                    status: 1
+                },
                 attributes: ['total_price']
             });
 
             const importForms = await ImportForm.findAll({
-                where: { date_created: day, status: 1 },
+                where: {
+                    date_created: {
+                        [Op.between]: [new Date(`${day}T00:00:00.000Z`), new Date(`${day}T23:59:59.999Z`)]
+                    },
+                    status: 1
+                },
                 attributes: ['total_price']
             });
 
             const liquidationForms = await LiquidationForm.findAll({
-                where: { date_created: day, status: 1 },
+                where: {
+                    date_created: {
+                        [Op.between]: [new Date(`${day}T00:00:00.000Z`), new Date(`${day}T23:59:59.999Z`)]
+                    },
+                    status: 1
+                },
                 attributes: ['total_price']
             });
 
@@ -163,8 +178,10 @@ const getWeeklyBills = async (req, res) => {
             const day = weekDates[i];
             const count = await OrderForm.count({
                 where: {
-                    date_created: day,
-                    status: 1,
+                    date_created: {
+                        [Op.between]: [new Date(`${day}T00:00:00.000Z`), new Date(`${day}T23:59:59.999Z`)]
+                    },
+                    status: 1
                 },
             });
             weeklyBills[i + 1] = count;

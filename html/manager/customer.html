@@ -7,6 +7,8 @@
     <title>Luxora</title>
     <link rel="stylesheet" href="./css/customer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 </head>
 
 
@@ -62,7 +64,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
+                    <button class="avt"><img id="avatar" style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -79,7 +81,7 @@
                 <p id="E">Customer</p>
             </div>
             <div class="space-title"></div>
-            <button class="export"><img src="./assets/export.png" alt="">Export</button>
+            <button onclick="exportTableToPDF()" class="export"><img src="./assets/export.png" alt="">Export</button>
 
         </div>
         <div class="table-wrapper">

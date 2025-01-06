@@ -58,7 +58,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
+                    <button class="avt"><img id="avatar" style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -75,7 +75,7 @@
 
         <div class="Dashboard-title">
             <p>Import Detail</p>
-            <button><a href="report.html" style="text-decoration: none; color:#1279C3 ;">View Report</a></button>
+            <!-- <button><a href="report.html" style="text-decoration: none; color:#1279C3 ;">View Report</a></button> -->
 
         </div>
         <div class="product-container">
@@ -113,17 +113,17 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="form-group">
                             <label>Date Accepted </label>
                             <input id="accepted" type="text" value=" ">
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>State:</label>
-                            <input id="state" type="text" value="Waiting">
+                            <input id="state" type="text" value="Accepted">
                         </div>
                     </div>
                 </div>
@@ -163,8 +163,8 @@
             </table>
         </div>
         <div class="actions">
-            <button class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
-            <button class="btn btn-save " style="font-weight: 600;">Accept</button>
+            <button onclick="history.back()" class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
+            <!-- <button class="btn btn-save " style="font-weight: 600;">Accept</button> -->
         </div>
     </div>
     </div>

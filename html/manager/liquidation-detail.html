@@ -56,7 +56,7 @@
         <div class="header">
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
+                    <button class="avt"><img id="avatar" style="cursor: pointer;" src="./assets/avatar.jpg" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <p class="username">admin</p>
                     <img src="./assets/logout.png" alt="logout" onclick="redirectToNewPage('login.html')"
@@ -74,7 +74,7 @@
         <div class="main-content">
             <div class="Dashboard-title">
                 <p>Liquidation detail</p>
-                <button><img src="./assets/export.png" alt="">Export</button>
+                <!-- <button><img src="./assets/export.png" alt="">Export</button> -->
             </div>
         </div>
         <div class="product-container">
@@ -164,8 +164,8 @@
 
         </table>
         <div class="actions">
-            <button class="btn btn-save " style="font-weight: 600;">Accept</button>
-            <button class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
+            <button onclick="acceptClick()" id="accept" class="btn btn-save " style="font-weight: 600;">Accept</button>
+            <button onclick="history.back()" class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
 
         </div>
     </div>

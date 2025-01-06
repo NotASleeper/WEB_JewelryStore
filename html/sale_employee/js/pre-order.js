@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelDelete = document.getElementById('cancelDeleteButton');
     const confirmDelete = document.getElementById('confirmDeleteButton');
     //thêm mới đơn đặt hàng
-    document.getElementById('addNewPreOrderForm').addEventListener('click', function (event) {
-        window.location.href = '/sale/preorderinfo?mode=add';
-    });
+    
     //hiển thị danh sách đơn đặt hàng
     getPreOrderList();
 
@@ -66,21 +64,19 @@ function displayPreOrderList(preOrderList) {
         const row = document.importNode(template, true);
         row.getElementById('ID_tbody').textContent = preOrder.id;
         if (preOrder.id_customer !== null) {
-            row.getElementById('customer').textContent = await getCustomerByID(preOrder.id_customer).name;
+            const customer = await getCustomerByID(preOrder.id_customer);
+            console.log(customer);
+            row.getElementById('customer').textContent = customer.name;
         }
         row.getElementById('date').textContent = formatDate(preOrder.date_created);
-        row.getElementById('price').textContent = preOrder.total_price;
-        row.getElementById('editPreOrder').addEventListener('click', function (event) {
-            event.stopPropagation();
-            window.location.href = `/sale/preorderinfo?mode=edit&id=${preOrder.id}`;
-        });
+        row.getElementById('price').textContent = preOrder.total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
         row.getElementById('deletePreOrder').addEventListener('click', function (event) {
             event.stopPropagation();
             deletePopup.style.display = '';
             deletePopup.setAttribute('data-id', preOrder.id);
         });
         row.getElementById('tr').addEventListener('click', function () {
-            window.location.href = '/sale/preorderinfo?mode=view';
+            window.location.href = '/sale/preorderinfo?mode=view&id=' + preOrder.id;
         });
         preOrderTable.appendChild(row);
     });

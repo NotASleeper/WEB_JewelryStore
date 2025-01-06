@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     const id = getQueryParam('id');
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
 
     (getDetailImport = async () => {
         try {
-            const response = await fetch(`http://localhost:5501/api/v1//import-forms/${id}`, {});
+            const response = await fetch(`http://localhost:5501/api/v1/import-forms/${id}`, {});
             const data = await response.json();
             console.log(data);
             var date = new Date(data.date_created).toISOString().split('T')[0];

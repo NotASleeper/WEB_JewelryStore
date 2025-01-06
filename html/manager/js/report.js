@@ -3,6 +3,7 @@ function redirectToNewPage(newPage) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     const menuToggle = document.querySelector('.menu-toggle');
     const leftContainer = document.querySelector('.left-Container');
 

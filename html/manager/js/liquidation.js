@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     getAllLiquidationForm("");
 })
 
@@ -67,7 +68,11 @@ const getAllLiquidationForm = async (datePicked) => {
                 const button = document.createElement('button');
                 button.className = "btn";
                 const img = document.createElement('img');
-                img.src = "./assets/loading.png";
+                if (liquidationForm.id_employee_accepted == null) {
+                    img.src = "./assets/loading.png";
+                } else {
+                    img.src = "./assets/accepted_ic.png";
+                }
                 button.appendChild(img);
                 imgCell.appendChild(button);
                 row.appendChild(imgCell);
@@ -105,4 +110,41 @@ const clearTbody = () => {
     while (tbody.firstChild) {
         tbody.removeChild(tbody.firstChild);
     }
+};
+
+const exportTableToPDF = () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.text("Liquidation Table", 20, 20);
+
+    const table = document.querySelector("table");
+    const rows = [];
+    const headers = [];
+
+    table.querySelectorAll("thead th").forEach((header, index, headerArr) => {
+        if (index < headerArr.length - 2) {
+            headers.push(header.textContent);
+        }
+    });
+
+    table.querySelectorAll("tbody tr").forEach(row => {
+        const rowData = [];
+        row.querySelectorAll("td").forEach((cell, index, cellArr) => {
+            if (index < cellArr.length - 2) {
+                rowData.push(cell.textContent);
+            }
+        });
+        rows.push(rowData);
+    });
+
+    doc.autoTable({
+        head: [headers],
+        body: rows,
+        startY: 30,
+        styles: { cellWidth: 'wrap' },
+        headStyles: { overflow: 'linebreak' },
+    });
+
+    doc.save("liquidation_table.pdf");
 };

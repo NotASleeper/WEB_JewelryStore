@@ -72,7 +72,7 @@
                 <div>
                     <div class="subtitle-container">
                         <p class="subtitle">Customer</p>
-                        <div class="searchinput">
+                        <div id="searchinput" class="searchinput">
                             <input id="searchInfo" placeholder="Search Customer Here">
                             <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
                         </div>
@@ -83,13 +83,13 @@
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Name:</label>
-                                        <input type="text" value="">
+                                        <input id="customer" type="text" value="">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Address: </label>
-                                        <input type="text" value=" ">
+                                        <input id="address" type="text" value=" ">
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Phone number:</label>
-                                        <input type="text" value="">
+                                        <input id="phone" type="text" value="">
                                     </div>
                                 </div>
                             </div>
@@ -125,104 +125,70 @@
                             <tr>
                                 <td id="ID">
                                     <div style="display: flex;">
-                                        <img src="./assets/images/product1_1.png" alt="Product" />
+                                        <img id="img" src="./assets/images/product1_1.png" alt="Product" />
                                         <div class="info">
-                                            <p class="name">Product 1</p>
+                                            <p id="product" class="name">Product 1</p>
                                             <div class="price">
-                                                <p>9,900,000VND</p>
-                                                <div class="discount">
+                                                <p id="currentPrice">9,900,000VND</p>
+                                                <div id="discount" class="discount">
                                                     <img src="./assets/icons/decrease_ic.png" alt="Discount" />
-                                                    <p>10%</p>
+                                                    <p id="value">10%</p>
                                                 </div>
                                             </div>
-                                            <p class="origin-price">10,000,000VND</p>
+                                            <p id="price" class="origin-price">10,000,000VND</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td>1</td>
-                                <td>Note1</td>
-                                <td>100,000VND</td>
-                                <td>10,000,000VND</td>
-                                <td id="action">
-                                    <button class="Delete">
-                                        <img src="./assets/icons/delete_ic_2.png" alt="Delete" />
+                                <td id="quantity">1</td>
+                                <td id="note">Note1</td>
+                                <td id="surcharge">100,000VND</td>
+                                <td id="money">10,000,000VND</td>
+                                <td id="action" >
+                                    <button id="edititem" class="Edit">
+                                        <img src="./assets/icons/edit_ic.png" alt="Edit" />
                                     </button>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td id="ID">
-                                    <div style="display: flex;">
-                                        <img src="./assets/images/product1_1.png" alt="Product" />
-                                        <div class="info">
-                                            <p class="name">Product 1</p>
-                                            <div class="price">
-                                                <p>9,900,000VND</p>
-                                                <div class="discount">
-                                                    <img src="./assets/icons/decrease_ic.png" alt="Discount" />
-                                                    <p>10%</p>
-                                                </div>
-                                            </div>
-                                            <p class="origin-price">10,000,000VND</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>1</td>
-                                <td>Note1</td>
-                                <td>100,000VND</td>
-                                <td>10,000,000VND</td>
-                                <td id="action">
-                                    <button class="Delete">
-                                        <img src="./assets/icons/delete_ic_2.png" alt="Delete" />
-                                    </button>
-                                </td>
-                            </tr>
+                            </tr> 
                             <tr>
                                 <td id="ID" style="font-weight: bolder; color: #121212;">Total</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td style="color: #EB2F06; font-weight: bolder;">20,000,000VND</td>                                
+                                <td id="total" style="color: #EB2F06; font-weight: bolder;">20,000,000VND</td>   
+                                <td id="action"></td>                             
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="form-group" style="margin-top: 10px;">
-                    <p>State:</p>
-                    <p>Waiting</p>
-                </div>
-                <div class="form-group" style="margin-top: 10px; width: 50%;">
+                <!-- <div class="form-group" style="margin-top: 10px; width: 50%;">
                     <p>Pay:</p>
                     <select id="pay" >
                         <option value="" disabled selected>Select payment method</option>
                         <option value="1" data-icon="./assets/icons/cash_ic.png">
-                            <div>
-                                <img src="./assets/icons/cash_ic.png" alt=""/>
+                                <!-- <img src="./assets/icons/cash_ic.png" alt=""/> -->
                                 Cash On Delivery
-                            </div>
                         </option>
                         <option value="2">
-                            <div>
-                                <img src="./assets/icons/momo_ic.png" alt=""/>
+                                <!-- <img src="./assets/icons/momo_ic.png" alt=""/> -->
                                 Momo
-                            </div>
                         </option>
                         <option value="3">
-                            <div>
-                                <img src="./assets/icons/VNPay_ic.png" alt=""/>
+                                <!-- <img src="./assets/icons/VNPay_ic.png" alt=""/> -->
                                 VNPay
-                            </div>
                         </option>
                         <option value="4">
-                            <div>
-                                <img src="./assets/icons/bank_ic.png" alt=""/>
+                                <!-- <img src="./assets/icons/bank_ic.png" alt=""/> -->
                                 Bank Transfer
-                            </div>
                         </option>
                     </select>
+                </div> -->
+                <div id="actions" class="actions">
+                    <button id="cancel" class="btn btn-cancel">Cancel</button>
+                    <button id="save" class="btn btn-save">Save</button>
                 </div>
-                <div class="actions">
-                    <button class="btn btn-cancel">Cancel</button>
-                    <button class="btn btn-save">Save</button>
+                <div id="actions_pay" class="actions">
+                    <button id="cancelPay" class="btn btn-cancel">Cancel</button>
+                    <button id="savePay" class="btn btn-save">Pay</button>
                 </div>
             </div>
 
@@ -235,6 +201,33 @@
             <div style="display: flex; justify-content: space-around;">
                 <button id="cancelButton" class="cancel">Cancel</button>
                 <button id="confirmButton" class="ok">Ok</button>
+            </div>
+        </div>
+    </div>
+    <div id="edit_popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Edit detail</h3>
+            <div class="inputPopup-container">
+                <div display="flex">
+                    <label>Product</label>
+                    <input type="text" id="productEdit" readonly>
+                </div>
+                <div>
+                    <label for="newPassword">Quantity</label>
+                    <input type="number" id="quantityEdit">
+                </div>
+                <div>
+                    <label for="confirmPassword">Note</label>
+                    <input type="text" id="noteEdit">
+                </div>
+                <div>
+                    <label for="confirmPassword">Surcharge</label>
+                    <input type="number" id="surchargeEdit">
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelChange" class="cancel">Cancel</button>
+                <button type="submit" id="saveChange" class="ok">Save</button>
             </div>
         </div>
     </div>

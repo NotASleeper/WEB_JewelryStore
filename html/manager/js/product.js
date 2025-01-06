@@ -7,6 +7,7 @@ function formatPrice(price) {
 let minPrice = 0;
 let maxPrice = 0;
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     const menuToggle = document.querySelector('.menu-toggle');
     const leftContainer = document.querySelector('.left-Container');
 
@@ -216,4 +217,41 @@ const clearTbody = () => {
     while (tbody.firstChild) {
         tbody.removeChild(tbody.firstChild);
     }
+};
+
+const exportTableToPDF = () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.text("Product Table", 20, 20);
+
+    const table = document.querySelector("table");
+    const rows = [];
+    const headers = [];
+
+    table.querySelectorAll("thead th").forEach((header, index, headerArr) => {
+        if (index < headerArr.length - 1) {
+            headers.push(header.textContent);
+        }
+    });
+
+    table.querySelectorAll("tbody tr").forEach(row => {
+        const rowData = [];
+        row.querySelectorAll("td").forEach((cell, index, cellArr) => {
+            if (index < cellArr.length - 1) {
+                rowData.push(cell.textContent);
+            }
+        });
+        rows.push(rowData);
+    });
+
+    doc.autoTable({
+        head: [headers],
+        body: rows,
+        startY: 30,
+        styles: { cellWidth: 'wrap' },
+        headStyles: { overflow: 'linebreak' },
+    });
+
+    doc.save("product_table.pdf");
 };

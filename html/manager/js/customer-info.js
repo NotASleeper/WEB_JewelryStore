@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
+
     const id = getQueryParam('id');
 
     (getDetailCustomer = async () => {

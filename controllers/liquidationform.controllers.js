@@ -84,6 +84,7 @@ const getDetailLiquidationForm = async (req, res) => {
             }, {
                 model: Employee,
                 as: "accept",
+                required: false,
                 where: {
                     status: 1
                 }

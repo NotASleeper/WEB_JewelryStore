@@ -1,19 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     const id = getQueryParam('id');
 
     (getDetailLiquidation = async () => {
         try {
-            const response = await fetch(`http://localhost:5501/api/v1//liquidation-forms/${id}`, {});
+            const response = await fetch(`http://localhost:5501/api/v1/liquidation-forms/${id}`, {});
             const data = await response.json();
             console.log(data);
             var date_created = new Date(data.date_created).toISOString().split('T')[0];
-            var date_accepted = new Date(data.date_accepted).toISOString().split('T')[0];
+            if (data.id_employee_accepted == null) {
+                var date_accepted = "";
+                document.getElementById('inspector').value = "";
+                document.getElementById('state').value = "Waiting";
+            } else {
+                var date_accepted = new Date(data.date_accepted).toISOString().split('T')[0];
+                document.getElementById('inspector').value = data.accept.name;
+                document.getElementById('state').value = "Accepted";
+                document.getElementById('accept').classList.add('hidden');
+                document.getElementById('accept').remove();
+            }
             document.getElementById('id').value = data.id;
             document.getElementById('creator').value = data.create.name;
-            document.getElementById('inspector').value = data.accept.name;
             document.getElementById('date-created').value = date_created;
             document.getElementById('date-accepted').value = date_accepted;
-            document.getElementById('state').value = "";
 
             console.log("Succeeded");
         } catch (error) {
@@ -78,3 +87,35 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })()
 })
+
+const acceptClick = async () => {
+    const id = getQueryParam('id');
+    const userConfirmed = confirm('Are you sure you want to accept this form?');
+    if (!userConfirmed) {
+        return;
+    }
+    const now = new Date();
+    const isoString = now.toISOString();
+    const accept = {
+        id_employee_accepted: sessionStorage.getItem('idAccount'),
+        date_accepted: isoString,
+    }
+    console.log(JSON.stringify(accept));
+
+    try {
+        const response = await fetch(`http://localhost:5501/api/v1/liquidation-forms/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(accept)
+        });
+
+        const data = await response.json()
+        console.log('Success:');
+        location.reload();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}

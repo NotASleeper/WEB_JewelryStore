@@ -118,7 +118,6 @@ const getBestSalesByWeek = async (req, res) => {
 
         res.json(bestSales);
     } catch (error) {
-        throw error;
         res.status(500).send(error);
     }
 }
@@ -156,20 +155,16 @@ const getBestSellersByWeek = async (req, res) => {
 
 const getWeeklyBills = async (req, res) => {
     const { date } = req.params;
-    const weekDates = getWeekDates(date);
     try {
+        const weekDates = getWeekDates(date);
         const weeklyBills = {};
 
         for (let i = 0; i < weekDates.length; i++) {
             const day = weekDates[i];
-            const nextDay = new Date(day);
-            nextDay.setDate(nextDay.getDate() + 1);
             const count = await OrderForm.count({
                 where: {
-                    date_created: {
-                        [Op.gte]: new Date(day),
-                        [Op.lt]: nextDay,
-                    }
+                    date_created: day,
+                    status: 1,
                 },
             });
             weeklyBills[i + 1] = count;

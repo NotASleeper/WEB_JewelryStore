@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             customerid = customer.idCustomer;
             document.getElementById('nameCus').value = customer.name;
             document.getElementById('address').value = customer.address;
-            document.getElementById('phone').value = customer.phone
+            document.getElementById('phone').value = customer.phone;
+            document.getElementById('point').textContent ='Redeem '+ customer.accumulated_point+' accumulated points';
         }
     })
     document.getElementById('discount').addEventListener('change', async function () {
@@ -96,10 +97,12 @@ async function createOrder() {
         alert('Invalid coupon code');
         return;
     }
+
+    const usePoint = document.getElementById('usePoint').checked;
     const order = {
         id_customer: customerid,
         id_employee: sessionStorage.getItem('idStaff'),
-        is_used_point: false,
+        is_used_point: usePoint,
         id_coupon: couponid,
         total_price: 0,
         date_created: Date.now(),
@@ -150,16 +153,19 @@ async function createOrder() {
             if (!orderDetailResponse.ok) {
                 throw new Error('Failed to add order detail');
             }
-            // const inventoryResponse = await fetch(`http://localhost:5501/api/v1/inventories/${item.id}`, {
-            //     method: 'PUT',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(),
-            // });
-            // if (!orderDetailResponse.ok) {
-            //     throw new Error('Failed to add order detail');
-            // }
+            const res = await fetch(`http://localhost:5501/api/v1/inventories/${item.id}`);
+            let inventory = await res.json();
+            inventory.quantity -= item.quantity;
+            const inventoryResponse = await fetch(`http://localhost:5501/api/v1/inventories/${item.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(inventory),
+            });
+            if (!inventoryResponse.ok) {
+                throw new Error('Failed to update inventory');
+            }
             totalPrice += currentPrice;
             totalPayment += currentPrice;
         }
@@ -174,7 +180,10 @@ async function createOrder() {
             date_payment: Date.now()
         }
 
-
+        totalPayment = totalPayment * (1 - discount.discount / 100);
+        if (usePoint) {
+            totalPayment = totalPayment - customer.accumulated_point * 1000;
+        }
         updateOrder.totalPrice = totalPrice;
         updateOrder.totalPayment = totalPayment;
 
@@ -209,7 +218,7 @@ function displayCart() {
         const product = allproduct.find(product => product.id === parseInt(item.id));
         const currentPrice = product.price * (1 - product.discount / 100);
         template.getElementById('img').src = !product.imageUrl ? './assets/images/productdefault.png' : product.imageUrl;
-        template.getElementById('name').textContent = product.nameProduct;
+        template.getElementById('name').textContent = product.name;
         template.getElementById('current_price').textContent = currentPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VND';
         if (product.discount == 0) {
             template.getElementById('discount').style.display = 'none';

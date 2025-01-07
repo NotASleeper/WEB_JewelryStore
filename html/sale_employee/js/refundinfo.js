@@ -108,26 +108,26 @@ async function createRefund(customerID) {
             alert('Refund created successfully');
             window.location.href = '/sale/refund';
 
-            // let inventory = await getInventoryDetail(product);
-            // inventory.quantity += document.getElementById('product').quantity;
-            // try {
-            //     fetch(`http://localhost:5501/api/v1/inventories`, {
-            //         method: 'PUT',
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //         },
-            //         body: JSON.stringify(inventory)
-            //     })
-            //         .then(response => response.json())
-            //         .then(data => {
-            //             alert('Refund created successfully');
-            //             window.location.href = '/sale/refund';
-            //         })
-            //         .catch(error => console.error('Error updating inventory:', error));
-            // }
-            // catch (error) {
-            //     console.error('Error updating inventory:', error);
-            // }
+            let inventory = await getInventoryDetail(product);
+            inventory.quantity += parseInt(document.getElementById('product').quantity);
+            try {
+                fetch(`http://localhost:5501/api/v1/inventories/${product}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(inventory)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert('Refund created successfully');
+                        window.location.href = '/sale/refund';
+                    })
+                    .catch(error => console.error('Error updating inventory:', error));
+            }
+            catch (error) {
+                console.error('Error updating inventory:', error);
+            }
         }
         catch (error) {
             console.error('Error deleting order:', error);

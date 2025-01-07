@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('bill').addEventListener('keydown', function (event) {
             if (event.key === 'Enter') {
-                console.log(this.value);
                 checkBill(customer.id, this.value);
             }
         });
@@ -99,43 +98,75 @@ async function createRefund(customerID) {
             throw new Error('Failed to create refund');
         }
         try {
-            const response = await fetch(`http://localhost:5501/api/v1/order-forms/${document.getElementById('bill').value}`, {
+            const url = `http://localhost:5501/api/v1/order-details/${document.getElementById('bill').value}/${product}`;
+            let detail;            
+            const response = await fetch(url, {
                 method: 'DELETE'
             });
             if (!response.ok) {
+                console.log(response);
                 throw new Error('Failed to delete order detail');
             }
-            alert('Refund created successfully');
-            window.location.href = '/sale/refund';
-
-            let inventory = await getInventoryDetail(product);
-            inventory.quantity += parseInt(document.getElementById('product').quantity);
+            detail = await response.json();
+            console.log(detail);
+            let order = await getOrderDetail(document.getElementById('bill').value);
+            console.log(order);
+            order.total_price -= detail.total;
             try {
-                fetch(`http://localhost:5501/api/v1/inventories/${product}`, {
+                fetch(`http://localhost:5501/api/v1/order-forms/${document.getElementById('bill').value}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(inventory)
+                    body: JSON.stringify(order)
                 })
                     .then(response => response.json())
-                    .then(data => {
-                        alert('Refund created successfully');
-                        window.location.href = '/sale/refund';
+                    .then(async data => {
+                        let inventory = await getInventoryDetail(product);
+                        const selectedOption = document.getElementById('product').selectedOptions[0];
+                        const quantity = selectedOption.getAttribute('quantity'); 
+                        inventory.quantity += parseInt(quantity);
+                        try {
+                            fetch(`http://localhost:5501/api/v1/inventories/${product}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(inventory)
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    alert('Refund created successfully');
+                                    window.location.href = '/sale/refund';
+                                })
+                                .catch(error => {
+                                    console.error('Error updating inventory:', error);
+                                    alert('Failed to update inventory');
+                                });
+                        }
+                        catch (error) {
+                            console.error('Error updating inventory:', error);
+                            alert('Failed to create refund');
+                        }
                     })
-                    .catch(error => console.error('Error updating inventory:', error));
+                    .catch(error => {
+                        console.error('Error updating order:', error);
+                        alert('Failed to create refund');
+                    })
             }
             catch (error) {
-                console.error('Error updating inventory:', error);
+                alert('Failed to create refund');
+                console.error('Error updating order:', error);
             }
         }
         catch (error) {
-            console.error('Error deleting order:', error);
-        }
+            console.error('Error deleting details:', error);
+            alert('Failed to create refund');
+        };
     }
     catch (error) {
-        alert('Failed to create refund');
         console.error('Error creating refund:', error);
+        alert('Failed to create refund');
     }
 }
 
@@ -192,7 +223,7 @@ async function checkBill(id, bill) {
             const product = await getProductByID(d.id_product);
             const option = document.createElement('option');
             option.value = d.id_product;
-            option.quantity = d.quantity;
+            option.setAttribute('quantity', d.quantity);
             option.text = product.name;
             document.getElementById('product').add(option);
         });
@@ -212,6 +243,20 @@ async function getDetailByID(id) {
         return data;
     } catch (error) {
         console.error('Error fetching detail:', error);
+        return null;
+    }
+}
+
+async function getOrderDetail(id) {
+    try {
+        const response = await fetch(`http://localhost:5501/api/v1/order-forms/${id}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch order');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching order:', error);
         return null;
     }
 }

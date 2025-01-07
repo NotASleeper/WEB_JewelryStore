@@ -183,31 +183,22 @@ function filterLiquidation() {
 
 document.getElementById("search").addEventListener("click", () => {
   const input = document.getElementById("employeeName").value;
-  if (input) {
-    const url = `http://localhost:5501/warehouse/liquidation.html?employee=${encodeURIComponent(
-      input
-    )}`;
-    window.location.href = url;
-  } else {
-    const url = `http://localhost:5501/warehouse/liquidation.html`;
-    window.location.href = url;
-  }
+  searchLiquidation(input);
 });
 
-document
-  .getElementById("employeeName")
+function searchLiquidation(input) {
+  const filterResult = listLiquidationForm.filter((t) =>
+    t.create.name.toLowerCase().includes(input) || t.id.toString().includes(input)
+  );
+  clearTbody();
+  displayLiquidationList(filterResult);
+}
+
+document.getElementById("employeeName")
   .addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       const input = document.getElementById("employeeName").value;
-      if (input) {
-        const url = `http://localhost:5501/warehouse/liquidation.html?employee=${encodeURIComponent(
-          input
-        )}`;
-        window.location.href = url;
-      } else {
-        const url = `http://localhost:5501/warehouse/liquidation.html`;
-        window.location.href = url;
-      }
+      searchLiquidation(input);
     }
   });
 

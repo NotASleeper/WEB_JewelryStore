@@ -67,32 +67,22 @@ function filterImport() {
 }
 
 document.getElementById("search").addEventListener("click", () => {
-  const input = document.getElementById("supplierName").value;
-  if (input) {
-    const url = `http://localhost:5501/warehouse/import.html?supplier=${encodeURIComponent(
-      input
-    )}`;
-    window.location.href = url;
-  } else {
-    const url = `http://localhost:5501/warehouse/import.html`;
-    window.location.href = url;
-  }
-
+  const input = document.getElementById("supplierName").value.toLowerCase();
+  searchImport(input);
 });
+
+function searchImport(input) {
+  const filterResult = listImportForm.filter((t) =>
+    t.Supplier.name.toLowerCase().includes(input));
+  clearTbody();
+  displayImportList(filterResult);
+}
 
 document.getElementById("supplierName")
   .addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
-      const input = document.getElementById("supplierName").value;
-      if (input) {
-        const url = `http://localhost:5501/warehouse/import.html?supplier=${encodeURIComponent(
-          input
-        )}`;
-        window.location.href = url;
-      } else {
-        const url = `http://localhost:5501/warehouse/import.html`;
-        window.location.href = url;
-      }
+      const input = document.getElementById("supplierName").value.toLowerCase();
+      searchImport(input);
     }
   });
 

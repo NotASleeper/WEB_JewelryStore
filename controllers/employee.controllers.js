@@ -65,6 +65,9 @@ const getAllEmployee = async (req, res) => {
                     },
                     {
                         model: Account,
+                    },
+                    {
+                        model: EmployeeImage,
                     }
                 ],
                 where: {

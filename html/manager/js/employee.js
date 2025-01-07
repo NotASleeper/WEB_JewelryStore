@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const imgCell = document.createElement("td");
         const img = document.createElement("img");
         if (!employee.EmployeeImage) {
-          img.src = 'https://res.cloudinary.com/djf63iwha/image/upload/v1736132847/STORE/zkflbugtasfw9qyuzpgw.jpg';
+          img.src = 'https://res.cloudinary.com/djf63iwha/image/upload/v1736245616/STORE/tdeqhzrfjbktbuanbmvm.jpg';
         } else {
           img.src = employee.EmployeeImage.url;
         }

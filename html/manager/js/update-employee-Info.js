@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('position').value = data.PositionEmployee.name_position;
             document.getElementById('account').value = data.Account.username;
 
+            if (!data.EmployeeImage) {
+                document.getElementById('preview').src = "https://res.cloudinary.com/djf63iwha/image/upload/v1736245616/STORE/tdeqhzrfjbktbuanbmvm.jpg"
+            } else {
+                document.getElementById('preview').src = data.EmployeeImage.url;
+            }
             console.log("Succeeded");
         } catch (error) {
             console.error(error);

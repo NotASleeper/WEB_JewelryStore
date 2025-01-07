@@ -145,7 +145,7 @@ function displayCart() {
       console.log(item);
       const currentPrice = product.price * (1 - product.discount / 100);
       
-      template.getElementById('img').src = product.imageUrl ? './assets/images/productdefault.png' : product.imageUrl;
+      template.getElementById('img').src = !product.imageUrl ? './assets/images/productdefault.png' : product.imageUrl;
       template.getElementById('name').textContent = product.name;
       template.getElementById('current_price').textContent = currentPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VND';
       if (product.discount == 0) {

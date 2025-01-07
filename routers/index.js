@@ -16,6 +16,7 @@ const { liquidationDetailRouter } = require("./liquidationdetail.routers");
 const { couponRouter } = require("./coupon.routers");
 const { refundFormRouter } = require("./refundform.routers");
 const { serviceActivityRouter } = require("./serviceactivity.routers");
+const { supplierRouter } = require("./supplier.routers");
 const { warrantyMaintainanceRouter } = require("./WarrantyMaintainance.routers");
 const { revenueRouter } = require("./revenue.routers");
 
@@ -38,6 +39,7 @@ rootRouter.use("/liquidation-details", liquidationDetailRouter);
 rootRouter.use("/coupons", couponRouter);
 rootRouter.use("/refund-forms", refundFormRouter);
 rootRouter.use("/service-activities", serviceActivityRouter);
+rootRouter.use("/suppliers", supplierRouter);
 rootRouter.use("/warranty-maintainances", warrantyMaintainanceRouter);
 rootRouter.use("/revenues", revenueRouter);
 

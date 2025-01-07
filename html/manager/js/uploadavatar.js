@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     const preview = document.getElementById('preview');
-    const smallavatar = document.getElementById('small-avatar');
     const fileInput = document.querySelector('.file-input');
     const uploadIcon = document.querySelector('.upload-icon');
     const loading = document.querySelector('.loading')
@@ -48,14 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const reader = new FileReader();
             reader.onload = function (e) {
                 preview.src = e.target.result;
-                smallavatar.src = e.target.result;
                 preview.style.display = 'block';
-                uploadIcon.style.display = 'none';
+                //uploadIcon.style.display = 'none';
             };
             reader.readAsDataURL(file);
 
-            //upload file
-            uploadFile(file);
+            console.log(file);
         }
     });
 

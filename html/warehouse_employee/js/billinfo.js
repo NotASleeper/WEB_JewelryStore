@@ -30,7 +30,7 @@ function getBillDetail(id) {
             const row = document.importNode(template, true);
             const product = await getProductByID(detail.id_product);
             row.getElementById('ID').textContent = i++;
-            row.getElementById('name').innerHTML = detail.Product.name+'<br>'+detail.Product.material+', '+product.Gemstone.name;
+            row.getElementById('name').innerHTML = '<b>'+detail.Product.name+'</b><br>'+detail.Product.material+', '+product.Gemstone.name;
             row.getElementById('quantity').textContent = detail.quantity;
             row.getElementById('total').textContent = detail.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
             row.getElementById('category').textContent = detail.Product.ProductCategory.name;

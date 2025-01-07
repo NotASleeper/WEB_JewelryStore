@@ -8,6 +8,7 @@ if (typeof products === 'undefined') {
 
 document.addEventListener('DOMContentLoaded', function () {
   fetchProducts();
+  updateSliderTrack();
   document.getElementById('avt').src = sessionStorage.getItem('url');
   document.getElementById('user').textContent = sessionStorage.getItem('username');
   const lowerSlider = document.getElementById('lower');
@@ -21,39 +22,40 @@ document.addEventListener('DOMContentLoaded', function () {
   const confirmButton = document.getElementById('confirmButton');
   const cartPopup = document.getElementById('cart');
 
-  
+
   document.getElementById('cart_ic').addEventListener('click', function () {
     cartPopup.style.display = '';
     displayCart();
-});
+  });
 
-document.getElementById('cancelBT').addEventListener('click', function () {
+  document.getElementById('cancelBT').addEventListener('click', function () {
     sessionStorage.removeItem('cart');
     cartPopup.style.display = 'none';
-});
+  });
 
-document.getElementById('checkoutBT').addEventListener('click', function () {
+  document.getElementById('checkoutBT').addEventListener('click', function () {
     if (sessionStorage.getItem('cart') != null) {
-        redirectToNewPage('/sale/checkout');
+      redirectToNewPage('/sale/checkout');
     }
     else {
-        alert('Cart is empty!');
+      alert('Cart is empty!');
     }
-});
+  });
 
-document.getElementById('exit-ic').addEventListener('click', function () {
+  document.getElementById('exit-ic').addEventListener('click', function () {
     cartPopup.style.display = 'none';
-});
+  });
+
 
   //custom slider
   lowerSlider.addEventListener('input', function () {
+    console.log(lowerSlider.value);
     const lower = parseInt(lowerSlider.value);
     const upper = parseInt(upperSlider.value);
 
-    if (lower > upper - 100000) {
-      lowerSlider.value = upper - 100000;
+    if (lower > upper) {
+      lowerSlider.value = upper;
     }
-
     lowerValue.textContent = lowerSlider.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     filterProductsByPrice();
     updateSliderTrack();
@@ -63,8 +65,8 @@ document.getElementById('exit-ic').addEventListener('click', function () {
     const lower = parseInt(lowerSlider.value);
     const upper = parseInt(upperSlider.value);
 
-    if (upper < lower + 100000) {
-      upperSlider.value = lower + 100000;
+    if (upper < lower) {
+      upperSlider.value = lower;
     }
 
     upperValue.textContent = upperSlider.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -72,7 +74,6 @@ document.getElementById('exit-ic').addEventListener('click', function () {
     filterProductsByPrice();
   });
 
-  updateSliderTrack();
 
   //lấy dữ liệu ban đầu
 
@@ -132,7 +133,7 @@ document.getElementById('exit-ic').addEventListener('click', function () {
 function getCart() {
   console.log(sessionStorage.getItem('cart'));
   return JSON.parse(sessionStorage.getItem('cart')) || [];
-  
+
 }
 function displayCart() {
   const cart = getCart();
@@ -141,30 +142,30 @@ function displayCart() {
   cartContainer.innerHTML = ''; // Clear existing items
 
   cart.forEach(item => {
-      const template = document.getElementById('cartitem').content.cloneNode(true);
-      const product = allproduct.find(p => p.id === parseInt(item.id));
-      console.log(item);
-      const currentPrice = product.price * (1 - product.discount / 100);
-      
-      template.getElementById('img').src = !product.imageUrl ? './assets/images/productdefault.png' : product.imageUrl;
-      template.getElementById('name').textContent = product.name;
-      template.getElementById('current_price').textContent = currentPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VND';
-      if (product.discount == 0) {
-          template.getElementById('discount').style.display = 'none';
-          template.getElementById('price').style.display = 'none';
-      }
-      else {
-          template.getElementById('price').textContent = product.price;
-          template.getElementById('value').textContent = product.discount + '%';
-      }
-      template.getElementById('quantity').textContent = item.quantity;
-      template.getElementById('total').textContent = (currentPrice * item.quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VND';
-      total += currentPrice * item.quantity;
-      // Add event listener for delete button
-      template.getElementById('delete').addEventListener('click', function () {
-          removeFromCart(item.id);
-      });
-      cartContainer.appendChild(template);
+    const template = document.getElementById('cartitem').content.cloneNode(true);
+    const product = allproduct.find(p => p.id === parseInt(item.id));
+    console.log(item);
+    const currentPrice = product.price * (1 - product.discount / 100);
+
+    template.getElementById('img').src = !product.imageUrl ? './assets/images/productdefault.png' : product.imageUrl;
+    template.getElementById('name').textContent = product.name;
+    template.getElementById('current_price').textContent = currentPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VND';
+    if (product.discount == 0) {
+      template.getElementById('discount').style.display = 'none';
+      template.getElementById('price').style.display = 'none';
+    }
+    else {
+      template.getElementById('price').textContent = product.price;
+      template.getElementById('value').textContent = product.discount + '%';
+    }
+    template.getElementById('quantity').textContent = item.quantity;
+    template.getElementById('total').textContent = (currentPrice * item.quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VND';
+    total += currentPrice * item.quantity;
+    // Add event listener for delete button
+    template.getElementById('delete').addEventListener('click', function () {
+      removeFromCart(item.id);
+    });
+    cartContainer.appendChild(template);
   });
 
 
@@ -199,7 +200,9 @@ function fetchProducts() {
       const maxPrice = Math.max(...allproduct.map(product => product.price));
       document.getElementById('max-value').textContent = maxPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
       document.getElementById('lower').min = 0;
+      document.getElementById('lower').max = maxPrice;
       document.getElementById('lower').value = 0;
+      document.getElementById('upper').min = 0;
       document.getElementById('upper').max = maxPrice;
       document.getElementById('upper').value = maxPrice;
       document.getElementById('upper-value').textContent = maxPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -253,7 +256,7 @@ function filterProductsByCategory(category) {
 function filterProductsByPrice() {
   const lower = parseInt(document.getElementById('lower').value);
   const upper = parseInt(document.getElementById('upper').value);
-  const filteredProducts = products.filter(product => product.price >= lower && product.price <= upper);
+  const filteredProducts = allproduct.filter(product => product.price >= lower && product.price <= upper);
   products = filteredProducts;
   displayProducts(filteredProducts);
 }

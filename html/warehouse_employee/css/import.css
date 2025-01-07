@@ -109,18 +109,18 @@ body {
     font-weight: bold;
 }
 
-.right-container{
+.right-container {
     display: flex;
     right: 0;
 }
 
-.right-container img{
+.right-container img {
     width: 24px;
     height: 24px;
     margin-right: 20px;
 }
 
-.user{
+.user {
     display: flex;
     margin-right: 20px;
     color: #fff;
@@ -128,12 +128,13 @@ body {
     font-size: small;
 }
 
-.user img{
+.user img {
     width: 24px;
     height: 24px;
     border-radius: 50%;
     margin-right: 5px;
 }
+
 .searchbar {
     background-color: #1279C3;
     width: 100%;
@@ -151,7 +152,7 @@ body {
     height: 30px;
     width: 30%;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;    
+    border-radius: 8px;
     position: relative;
     display: flex;
     left: 0;
@@ -180,17 +181,17 @@ body {
     opacity: 40%;
 }
 
-.searchbar .searchinput input:focus{
+.searchbar .searchinput input:focus {
     outline: none;
 }
 
-.searchbar img{
+.searchbar img {
     width: 24px;
     height: 24px;
     margin-left: 20px;
 }
 
-.button-add{
+.button-add {
     height: fit-content;
     width: fit-content;
     background-color: #FBFCFE;
@@ -203,12 +204,12 @@ body {
     justify-content: center;
 }
 
-.button-add img{
+.button-add img {
     width: 24px;
     height: 24px;
 }
 
-.button-add p{    
+.button-add p {
     color: #1279C3;
     font-size: medium;
     margin-left: 5px;
@@ -259,6 +260,7 @@ body {
     padding-left: 2%;
     border-radius: 0 10px 0 0;
 }
+
 .table #state {
     padding: 8px;
     text-align: center;
@@ -274,17 +276,17 @@ body {
 }
 
 
-.table .loading{
-    
+.table .loading {
+
     width: fit-content;
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 9px;
     padding-top: 5px;
     border: 1px solid #1279C3;
-} 
+}
 
-.table .accepted{
+.table .accepted {
     width: fit-content;
     border-radius: 5px;
     padding-left: 9px;
@@ -293,7 +295,7 @@ body {
     border: 1px solid #149D52;
 }
 
-.table .denied{
+.table .denied {
     width: fit-content;
     border-radius: 5px;
     padding-left: 9px;
@@ -303,7 +305,7 @@ body {
 }
 
 
-.table .Edit{
+.table .Edit {
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
     border-radius: 5.5px;

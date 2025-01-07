@@ -1,237 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luxora</title>
-    <link rel="stylesheet" href="./css/import.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <div class="layout">
-      <div class="header">
-        <div class="logo">
-          <div class="logo-icon" onclick="redirectToNewPage('product.html')">
-            <img src="./assets/icons/logo.png" alt="" class="name" />
-            <p>Luxora</p>
-          </div>
-        </div>
-        <div class="container_nav">
-          <div class="nav">
-            <ul>
-              <li class="nav-item" id="nav_dashboard">
-                <a href="product.html">
-                  <img src="./assets/icons/product.png" alt="dashboard" />
-                  Product
-                </a>
-              </li>
-              <li class="nav-selected" id="nav_service">
-                <a href="import.html">
-                  <img src="./assets/icons/import.png" alt="service" />
-                  Import
-                </a>
-              </li>
-              <li class="nav-item" id="nav_customer">
-                <a href="bill.html">
-                  <img src="./assets/icons/export.png" alt="customer" />
-                  Export
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="right-container">
-          <img
-            src="./assets/icons/non_notification_ic.png"
-            alt="Notification"
-          />
-          <a class="user" href="profile.html">
-            <img id="avatar" src="./assets/images/avt.png" alt="avatar" />
-            Employee
-          </a>
-          <img src="./assets/icons/logout_ic.png" alt="Log out" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxora</title>
+  <link rel="stylesheet" href="./css/import.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="layout">
+    <div class="header">
+      <div class="logo">
+        <div class="logo-icon" onclick="redirectToNewPage('product.html')">
+          <img src="./assets/icons/logo.png" alt="" class="name" />
+          <p>Luxora</p>
         </div>
       </div>
-      <div class="searchbar">
-        <div class="searchinput">
-          <input id="supplierName" placeholder="Search Import Here" />
-          <i id="search" class="fas fa-search"></i>
-          <!-- Font Awesome Icon -->
+      <div class="container_nav">
+        <div class="nav">
+          <ul>
+            <li class="nav-item" id="nav_dashboard">
+              <a href="product.html">
+                <img src="./assets/icons/product.png" alt="dashboard" />
+                Product
+              </a>
+            </li>
+            <li class="nav-selected" id="nav_service">
+              <a href="import.html">
+                <img src="./assets/icons/import.png" alt="service" />
+                Import
+              </a>
+            </li>
+            <li class="nav-item" id="nav_customer">
+              <a href="bill.html">
+                <img src="./assets/icons/export.png" alt="customer" />
+                Export
+              </a>
+            </li>
+          </ul>
         </div>
-
-        <img src="./assets/icons/filter_ic.png" alt="Filter" />
-        <button
-          id="addNewImportForm"
-          class="button-add"
-          onclick="redirectToNewPage('add-updateimport.html')"
-        >
-          <img src="./assets/icons/add_ic.png" alt="Add" />
-          <p>Add New Import Form</p>
-        </button>
       </div>
-
-      <div class="content">
-        <table class="table">
-          <thead class="test">
-            <tr>
-              <th id="ID">LOT</th>
-              <th>Supplier</th>
-              <th>
-                Date
-                <img src="./assets/icons/arrange_ic.png" alt="" class="loyal" />
-              </th>
-              <th>
-                Total
-                <img src="./assets/icons/arrange_ic.png" alt="" class="loyal" />
-              </th>
-              <th>State</th>
-              <th id="action">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="ID-content">LOT1</td>
-              <td>TNHH Supplier1</td>
-              <td>07/09/2024</td>
-              <td>100,000,000 VND</td>
-              <td id="state">
-                <div style="justify-items: center">
-                  <div class="loading">
-                    <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                  </div>
-                </div>
-              </td>
-              <td id="action">
-                <button
-                  class="Edit"
-                  onclick="redirectToNewPage('add-updateimport.html')"
-                >
-                  Edit
-                </button>
-                <button class="Delete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td id="ID-content">LOT1</td>
-              <td>TNHH Supplier1</td>
-              <td>07/09/2024</td>
-              <td>100,000,000 VND</td>
-              <td id="state">
-                <div style="justify-items: center">
-                  <div class="loading">
-                    <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                  </div>
-                </div>
-              </td>
-              <td id="action">
-                <button
-                  class="Edit"
-                  onclick="redirectToNewPage('add-updateimport.html')"
-                >
-                  Edit
-                </button>
-                <button class="Delete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td id="ID-content">LOT1</td>
-              <td>TNHH Supplier1</td>
-              <td>07/09/2024</td>
-              <td>100,000,000 VND</td>
-              <td id="state">
-                <div style="justify-items: center">
-                  <div class="loading">
-                    <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                  </div>
-                </div>
-              </td>
-              <td id="action">
-                <button
-                  class="Edit"
-                  onclick="redirectToNewPage('add-updateimport.html')"
-                >
-                  Edit
-                </button>
-                <button class="Delete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td id="ID-content">LOT1</td>
-              <td>TNHH Supplier1</td>
-              <td>07/09/2024</td>
-              <td>100,000,000 VND</td>
-              <td id="state">
-                <div style="justify-items: center">
-                  <div class="denied">
-                    <img src="./assets/icons/denied_ic.png" alt="Denied" />
-                  </div>
-                </div>
-              </td>
-              <td id="action">
-                <button
-                  class="Edit"
-                  onclick="redirectToNewPage('add-updateimport.html')"
-                >
-                  Edit
-                </button>
-                <button class="Delete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td id="ID-content">LOT1</td>
-              <td>TNHH Supplier1</td>
-              <td>07/09/2024</td>
-              <td>100,000,000 VND</td>
-              <td id="state">
-                <div style="justify-items: center">
-                  <div class="accepted">
-                    <img src="./assets/icons/accepted_ic.png" alt="Accepted" />
-                  </div>
-                </div>
-              </td>
-              <td id="action">
-                <button
-                  class="View"
-                  onclick="redirectToNewPage('import_detail.html')"
-                >
-                  View
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td id="ID-content">LOT1</td>
-              <td>TNHH Supplier1</td>
-              <td>07/09/2024</td>
-              <td>100,000,000 VND</td>
-              <td id="state">
-                <div style="justify-items: center">
-                  <div class="accepted">
-                    <img src="./assets/icons/accepted_ic.png" alt="Accepted" />
-                  </div>
-                </div>
-              </td>
-              <td id="action">
-                <button
-                  class="View"
-                  onclick="redirectToNewPage('import_detail.html')"
-                >
-                  View
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="right-container">
+        <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
+        <a class="user" href="profile.html">
+          <img id="avatar" src="./assets/images/avt.png" alt="avatar" />
+          Employee
+        </a>
+        <img src="./assets/icons/logout_ic.png" alt="Log out" />
       </div>
     </div>
-    <script src="./js/import.js"></script>
-  </body>
-  <script>
-    function redirectToNewPage(newPage) {
-      window.location.href = newPage;
-    }
-  </script>
+    <div class="searchbar">
+      <div class="searchinput">
+        <input id="supplierName" placeholder="Search Import Here" />
+        <i id="search" class="fas fa-search"></i>
+        <!-- Font Awesome Icon -->
+      </div>
+
+      <div class="filter" id="filterBT">
+        <img src="./assets/icons/filter_ic.png" />
+      </div>
+      <div class="filterList" id="filterList" style="display: none">
+        <div class="Date">
+          <p style="color: black; font-size: 16px">From:</p>
+          <div class="date-picker">
+            <input id="from" type="date" />
+          </div>
+        </div>
+        <div class="Date">
+          <p style="color: black; font-size: 16px">To:</p>
+          <div style="margin-left: 20px" class="date-picker">
+            <input id="to" type="date" />
+          </div>
+        </div>
+      </div>
+      <button id="addNewImportForm" class="button-add" onclick="redirectToNewPage('add-updateimport.html')">
+        <img src="./assets/icons/add_ic.png" alt="Add" />
+        <p>Add New Import Form</p>
+      </button>
+    </div>
+
+    <div class="content">
+      <table class="table">
+        <thead class="test">
+          <tr>
+            <th id="ID">LOT</th>
+            <th>Supplier</th>
+            <th>
+              Date
+              <img src="./assets/icons/arrange_ic.png" alt="" class="loyal" />
+            </th>
+            <th>
+              Total
+              <img src="./assets/icons/arrange_ic.png" alt="" class="loyal" />
+            </th>
+            <th>State</th>
+            <th id="action">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="ID-content">LOT1</td>
+            <td>TNHH Supplier1</td>
+            <td>07/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div style="justify-items: center">
+                <div class="loading">
+                  <img src="./assets/icons/loading_ic.png" alt="Loading" />
+                </div>
+              </div>
+            </td>
+            <td id="action">
+              <button class="Edit" onclick="redirectToNewPage('add-updateimport.html')">
+                Edit
+              </button>
+              <button class="Delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID-content">LOT1</td>
+            <td>TNHH Supplier1</td>
+            <td>07/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div style="justify-items: center">
+                <div class="loading">
+                  <img src="./assets/icons/loading_ic.png" alt="Loading" />
+                </div>
+              </div>
+            </td>
+            <td id="action">
+              <button class="Edit" onclick="redirectToNewPage('add-updateimport.html')">
+                Edit
+              </button>
+              <button class="Delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID-content">LOT1</td>
+            <td>TNHH Supplier1</td>
+            <td>07/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div style="justify-items: center">
+                <div class="loading">
+                  <img src="./assets/icons/loading_ic.png" alt="Loading" />
+                </div>
+              </div>
+            </td>
+            <td id="action">
+              <button class="Edit" onclick="redirectToNewPage('add-updateimport.html')">
+                Edit
+              </button>
+              <button class="Delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID-content">LOT1</td>
+            <td>TNHH Supplier1</td>
+            <td>07/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div style="justify-items: center">
+                <div class="denied">
+                  <img src="./assets/icons/denied_ic.png" alt="Denied" />
+                </div>
+              </div>
+            </td>
+            <td id="action">
+              <button class="Edit" onclick="redirectToNewPage('add-updateimport.html')">
+                Edit
+              </button>
+              <button class="Delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID-content">LOT1</td>
+            <td>TNHH Supplier1</td>
+            <td>07/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div style="justify-items: center">
+                <div class="accepted">
+                  <img src="./assets/icons/accepted_ic.png" alt="Accepted" />
+                </div>
+              </div>
+            </td>
+            <td id="action">
+              <button class="View" onclick="redirectToNewPage('import_detail.html')">
+                View
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID-content">LOT1</td>
+            <td>TNHH Supplier1</td>
+            <td>07/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div style="justify-items: center">
+                <div class="accepted">
+                  <img src="./assets/icons/accepted_ic.png" alt="Accepted" />
+                </div>
+              </div>
+            </td>
+            <td id="action">
+              <button class="View" onclick="redirectToNewPage('import_detail.html')">
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="./js/import.js"></script>
+</body>
+<script>
+  function redirectToNewPage(newPage) {
+    window.location.href = newPage;
+  }
+</script>
+
 </html>

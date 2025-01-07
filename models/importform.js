@@ -11,13 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Employee, Supplier, ImportDetail }) {
       // define association here
-      this.belongsTo(Employee, { foreignKey: "id_employee" });
+      this.belongsTo(Employee, { foreignKey: "id_employee", as: "create" });
+      this.belongsTo(Employee, { foreignKey: "id_employee_accepted", as: "accept" });
       this.belongsTo(Supplier, { foreignKey: "id_supplier" });
       this.hasMany(ImportDetail, { foreignKey: "id_lot" });
     }
   }
   ImportForm.init({
     date_created: DataTypes.DATE,
+    date_accepted: DataTypes.DATE,
     total_price: DataTypes.BIGINT,
     status: DataTypes.BOOLEAN
   }, {

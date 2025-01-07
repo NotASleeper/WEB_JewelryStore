@@ -19,7 +19,17 @@ module.exports = {
       date_created: {
         type: Sequelize.DATE
       },
+      date_accepted: {
+        type: Sequelize.DATE
+      },
       id_employee: {
+        references: {
+          model: "employees",
+          references: "id",
+        },
+        type: Sequelize.INTEGER
+      },
+      id_employee_accepted: {
         references: {
           model: "employees",
           references: "id",

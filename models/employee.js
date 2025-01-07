@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(PositionEmployee, { foreignKey: "id_position" });
       this.hasOne(Account, { foreignKey: "id_employee" });
       this.hasMany(ImportForm, { foreignKey: "id_employee" });
+      this.hasMany(ImportForm, { foreignKey: "id_employee_accepted" });
       this.hasMany(OrderForm, { foreignKey: "id_employee" });
       this.hasMany(LiquidationForm, { foreignKey: "id_employee_created" });
       this.hasMany(LiquidationForm, { foreignKey: "id_employee_accepted" });

@@ -68,7 +68,13 @@ const getAllImportForm = async (datePicked) => {
                 const button = document.createElement('button');
                 button.className = "btn"
                 const img = document.createElement('img');
-                img.src = "./assets/accepted_ic.png";
+                if (importForm.id_employee_accepted == null) {
+                    img.src = "./assets/loading.png";
+                } else if (importForm.id_employee_accepted != null && importForm.date_accepted == null) {
+                    img.src = "./assets/denied_ic.png";
+                } else if (importForm.id_employee_accepted != null && importForm.date_accepted != null) {
+                    img.src = "./assets/accepted_ic.png";
+                }
                 button.appendChild(img);
                 imgCell.appendChild(button);
                 row.appendChild(imgCell);

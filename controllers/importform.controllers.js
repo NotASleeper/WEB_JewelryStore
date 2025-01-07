@@ -5,7 +5,9 @@ const createImportForm = async (req, res) => {
     const {
         id_supplier,
         id_employee,
+        id_employee_accepted,
         date_created,
+        date_accepted,
         total_price,
         status,
     } = req.body;
@@ -13,7 +15,9 @@ const createImportForm = async (req, res) => {
         const newImportForm = await ImportForm.create({
             id_supplier,
             id_employee,
+            id_employee_accepted,
             date_created,
+            date_accepted,
             total_price,
             status
         });
@@ -43,6 +47,7 @@ const getAllImportForm = async (req, res) => {
                     },
                     {
                         model: Employee,
+                        as: "create",
                         where: {
                             status: 1
                         }
@@ -64,6 +69,7 @@ const getAllImportForm = async (req, res) => {
                     },
                     {
                         model: Employee,
+                        as: "create",
                         where: {
                             status: 1
                         }
@@ -86,20 +92,22 @@ const getDetailImportForm = async (req, res) => {
                 id: id,
                 status: 1,
             },
-            include: [
-                {
-                    model: Supplier,
-                    where: {
-                        status: 1,
-                    }
-                },
-                {
-                    model: Employee,
-                    where: {
-                        status: 1
-                    }
+            include: [{
+                model: Employee,
+                as: "create",
+                where: {
+                    status: 1
                 }
-            ]
+            }, {
+                model: Employee,
+                as: "accept",
+                required: false,
+                where: {
+                    status: 1
+                }
+            }, {
+                model: Supplier
+            }]
         });
         res.status(200).send(detailImportForm);
     } catch (error) {
@@ -112,8 +120,10 @@ const updateImportForm = async (req, res) => {
     const {
         id_supplier,
         id_employee,
+        id_employee_accepted,
         date_created,
-        total_price,
+        date_accepted,
+        total_price
     } = req.body;
     try {
         const detailImportForm = await ImportForm.findOne({
@@ -124,7 +134,9 @@ const updateImportForm = async (req, res) => {
         });
         detailImportForm.id_supplier = id_supplier;
         detailImportForm.id_employee = id_employee;
+        detailImportForm.id_employee_accepted = id_employee_accepted;
         detailImportForm.date_created = date_created;
+        detailImportForm.date_accepted = date_accepted;
         detailImportForm.total_price = total_price;
         await detailImportForm.save();
         res.status(200).send(detailImportForm);

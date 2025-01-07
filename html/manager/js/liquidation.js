@@ -70,7 +70,9 @@ const getAllLiquidationForm = async (datePicked) => {
                 const img = document.createElement('img');
                 if (liquidationForm.id_employee_accepted == null) {
                     img.src = "./assets/loading.png";
-                } else {
+                } else if (liquidationForm.id_employee_accepted != null && liquidationForm.date_accepted == null) {
+                    img.src = "./assets/denied_ic.png";
+                } else if (liquidationForm.id_employee_accepted != null && liquidationForm.date_accepted != null) {
                     img.src = "./assets/accepted_ic.png";
                 }
                 button.appendChild(img);

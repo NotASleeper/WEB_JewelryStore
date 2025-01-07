@@ -1,4 +1,4 @@
-const { LiquidationDetail, Product, ProductCategory } = require('../models');
+const { LiquidationDetail, Product, ProductCategory, Inventory } = require('../models');
 
 const createLiquidationDetail = async (req, res) => {
     const {
@@ -124,6 +124,8 @@ const getAllLiquidationDetailByLiquidation = async (req, res) => {
                 model: Product,
                 include: [{
                     model: ProductCategory,
+                }, {
+                    model: Inventory,
                 }],
             }]
         });

@@ -94,6 +94,7 @@ function displayCustomers(customers) {
     customerList.innerHTML = ''; // Clear existing rows
 
     customers.forEach(customer => {
+        console.log(customer);
         const clone = document.importNode(template, true);
         clone.getElementById('name').textContent = customer.name;
         clone.getElementById('address').textContent = customer.address;

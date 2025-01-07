@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const customer = filterCustomer(search.value.toLowerCase());
         console.log(customer);
         if (customer !== null) {
-            customerid = customer.idCustomer;
+            customerid = customer.id;
             document.getElementById('nameCus').value = customer.name;
             document.getElementById('address').value = customer.address;
             document.getElementById('phone').value = customer.phone;
@@ -171,6 +171,13 @@ async function createOrder() {
             totalPrice += currentPrice;
             totalPayment += currentPrice;
         }
+
+
+        totalPayment = totalPayment * (1 - discount.discount / 100);
+        const customer = await getCustomerByID(customerid);
+        if (usePoint) {
+            totalPayment = totalPayment - customer.accumulated_point * 1000;
+        }
         const order1 = await getOrder(orderId);
         let updateOrder = {
             id_customer: order1.id_customer,
@@ -181,15 +188,7 @@ async function createOrder() {
             date_created: order1.date_created,
             date_payment: Date.now()
         }
-
-        totalPayment = totalPayment * (1 - discount.discount / 100);
-        if (usePoint) {
-            totalPayment = totalPayment - customer.accumulated_point * 1000;
-        }
         updateOrder.totalPrice = totalPrice;
-        updateOrder.totalPayment = totalPayment;
-
-
         const updateOrderResponse = await fetch(`http://localhost:5501/api/v1/order-forms/${orderId}`, {
             method: 'PUT',
             headers: {
@@ -199,16 +198,44 @@ async function createOrder() {
         });
 
         if (!updateOrderResponse.ok) {
+            console.log(updateOrderResponse);
             throw new Error('Failed to update order with total price and payment');
         }
         alert('Order created successfully!');
         sessionStorage.removeItem('cart');
+        let customerUpdate = await getCustomerByID(order1.id_customer);
+
+        
+        customerUpdate.accumulated_point = Math.floor(totalPrice / 1000);
+        if (usePoint) {
+            if (customerUpdate.loyalty_point === null) {
+                customerUpdate.loyalty_point = Math.floor(totalPrice / 1000);
+            }
+            else {
+                customerUpdate.loyalty_point += Math.floor(totalPrice / 1000);
+            }
+        }
+        customerUpdate.loyalty_point += Math.floor(totalPrice / 1000);
+        const customerResponse = await fetch(`http://localhost:5501/api/v1/customers/${order1.id_customer}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(customerUpdate),
+        });
+        if (!customerResponse.ok) {
+            console.log('Failed to update customer point', customerResponse);
+            alert('Failed to update customer point');
+            throw new Error('Failed to update customer point');
+        }
         redirectToNewPage('/sale');
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error creating order:', error);
         alert('Failed to create order');
     }
 }
+
 function displayCart() {
     const cart = getCart();
     const cartContainer = document.getElementById('cartTable');
@@ -283,6 +310,24 @@ async function getOrder(id) {
         return data;
     } catch (error) {
         console.error('Error fetching orders:', error);
+        return null;
+    }
+}
+
+async function getCustomerByID(id) {
+    try {
+        const response = await fetch(`http://localhost:5501/api/v1/customers/${id}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const text = await response.text();
+        if (!text) {
+            return null;
+        }
+        const data = JSON.parse(text);
+        return data;
+    } catch (error) {
+        console.error('Error fetching customer:', error);
         return null;
     }
 }

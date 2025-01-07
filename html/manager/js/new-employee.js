@@ -33,25 +33,32 @@ const getPositionID = async () => {
     }
 }
 
-const createEmployee = async (name, address, phone, email, birthday) => {
+const createEmployee = async (name, address, phone, email, birthday, img) => {
     const id_position = await getPositionID();
-    const employee = {
-        name: name,
-        id_position: id_position,
-        address: address,
-        phone: phone,
-        email: email,
-        birthday: birthday,
-        status: 1,
-    }
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('id_position', id_position);
+    formData.append('address', address);
+    formData.append('phone', phone);
+    formData.append('email', email);
+    formData.append('birthday', birthday);
+    formData.append('status', 1);
+    formData.append('img', img);
+    // const employee = {
+    //     name: name,
+    //     id_position: id_position,
+    //     address: address,
+    //     phone: phone,
+    //     email: email,
+    //     birthday: birthday,
+    //     status: 1,
+    //     image
+    // }
 
     try {
         const response = await fetch('http://localhost:5501/api/v1/employees/', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(employee)
+            body: formData
         });
 
         const data = await response.json()
@@ -92,6 +99,7 @@ const saveClick = async () => {
     const birthday = document.getElementById('birthday').value;
     const username = document.getElementById('account').value;
     const position = document.getElementById('position').value;
+    const img = document.getElementById('file-input').files[0];
 
     if (name.trim() === '' ||
         address.trim() === '' ||
@@ -99,7 +107,8 @@ const saveClick = async () => {
         email.trim() === '' ||
         birthday.trim() === '' ||
         username.trim() === '' ||
-        position.trim() === '') {
+        position.trim() === '' ||
+        !img) {
         alert('Please fill in all required fields');
         return;
     }
@@ -114,7 +123,9 @@ const saveClick = async () => {
         return;
     }
 
-    const data = await createEmployee(name, address, phone, email, birthday);
+    const data = await createEmployee(name, address, phone, email, birthday, img);
+    console.log(data);
+
     await createAccount(data.id, username);
     window.location.href = 'employee-info.html?id=' + data.id;
 };

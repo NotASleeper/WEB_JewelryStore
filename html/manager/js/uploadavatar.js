@@ -52,8 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
             reader.readAsDataURL(file);
 
-            //upload file
-            //uploadFile(file);
+            console.log(file);
         }
     });
 

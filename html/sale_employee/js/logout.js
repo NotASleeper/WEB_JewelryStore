@@ -1,6 +1,7 @@
 const logoutPopup = document.getElementById('logout_popup');
 const cancelButton = document.getElementById('cancelButton');
 const confirmButton = document.getElementById('confirmButton');
+document.getElementById('avt').src = sessionStorage.getItem('url');
 document.getElementById('user').textContent = sessionStorage.getItem('username');
 document.getElementById('logout-ic').addEventListener('click', function () {
     logoutPopup.style.display = '';

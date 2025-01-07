@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
     const birthdayInput = document.getElementById('birthday');
+    document.getElementById('avt').src = sessionStorage.getItem('url');
 
     document.getElementById('user').textContent = sessionStorage.getItem('username');
 
@@ -36,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
         if (nameInput.value.trim() === '' && addressInput.value.trim() === '' &&
             phoneInput.value.trim() === '' && emailInput.value.trim() === '' &&
             birthdayInput.value.trim() === '') {
-                window.location.href = '/sale/customer';
+            window.location.href = '/sale/customer';
         }
-        else {            
+        else {
             savePopup.style.display = '';
         }
     });
-    
+
     document.getElementById('saveButton').addEventListener('click', function () {
         createCustomer(nameInput.value, addressInput.value, phoneInput.value, emailInput.value, birthdayInput.value);
     });
@@ -63,7 +64,7 @@ function createCustomer(name, address, phone, email, birthday) {
         address: address,
         phone: phone,
         email: email,
-        birthday: birthday,        
+        birthday: birthday,
         loyalty_point: 0,
         accumulated_point: 0,
         status: 1
@@ -75,18 +76,18 @@ function createCustomer(name, address, phone, email, birthday) {
         },
         body: JSON.stringify(customer)
     })
-    .then(response => {
-        if (response.ok) {
-            console.log(response);
-            alert('Customer saved successfully');
-            window.location.href = '/sale/customer'; // Chuyển hướng về trang danh sách khách hàng sau khi lưu thành công
-        } else {
+        .then(response => {
+            if (response.ok) {
+                console.log(response);
+                alert('Customer saved successfully');
+                window.location.href = '/sale/customer'; // Chuyển hướng về trang danh sách khách hàng sau khi lưu thành công
+            } else {
+                alert('Failed to save customer');
+                console.error('Failed to save customer');
+            }
+        })
+        .catch(error => {
+            console.error('Error saving customer:', error);
             alert('Failed to save customer');
-            console.error('Failed to save customer');
-        }
-    })
-    .catch(error => {
-        console.error('Error saving customer:', error);
-        alert('Failed to save customer');
-    });
+        });
 }

@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const birthdayInput = document.getElementById('birthday');
     const loyaltyInput = document.getElementById('loyalty');
     const AccumulatedInput = document.getElementById('Accumulated');
+    document.getElementById('avt').src = sessionStorage.getItem('url');
 
     document.getElementById('user').textContent = sessionStorage.getItem('username');
-    
+
     const deletePopup = document.getElementById('delete_popup');
     getCustomerInfo(customerId);
     getAllCustomerOrder(customerId);
@@ -132,7 +133,7 @@ const getAllCustomerOrder = async (id) => {
             clone.getElementById('content').textContent = 'Shopping';
             clone.getElementById('date_created').textContent = order.date_created;
             clone.getElementById('money').textContent = '+' + order.total_price;
-            clone.getElementById('loyalty').textContent =  order.total_price / 1000000;
+            clone.getElementById('loyalty').textContent = order.total_price / 1000000;
             clone.getElementById('viewBill').addEventListener('click', function () {
                 window.location.href = `/sale/billinfo?id=${order.id}`;
             });

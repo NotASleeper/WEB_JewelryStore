@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelSave = document.getElementById('cancelSaveEButton');
     const save = document.getElementById('confirmSaveEButton');
 
+    document.getElementById('avt').src = sessionStorage.getItem('url');
 
     document.getElementById('user').textContent = sessionStorage.getItem('username');
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     displayProfile();
     viewMode();
 

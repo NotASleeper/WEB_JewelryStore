@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmDeleteButton = document.getElementById('confirmDeleteButton');
     const searchInput = document.getElementById('searchInfo');
     fetchCustomers();
+    document.getElementById('avt').src = sessionStorage.getItem('url');
 
     document.getElementById('user').textContent = sessionStorage.getItem('username');
 

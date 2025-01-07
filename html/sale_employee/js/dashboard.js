@@ -8,6 +8,7 @@ if (typeof products === 'undefined') {
 
 document.addEventListener('DOMContentLoaded', function () {
   fetchProducts();
+  document.getElementById('avt').src = sessionStorage.getItem('url');
   document.getElementById('user').textContent = sessionStorage.getItem('username');
   const lowerSlider = document.getElementById('lower');
   const upperSlider = document.getElementById('upper');

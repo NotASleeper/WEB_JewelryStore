@@ -192,34 +192,36 @@ body {
 }
 
 .Date {
-    border: black solid 1px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    width: 15%;
-    height: 80%;
-    align-items: center;
-    margin-left: 2%;
-    border-radius: 5px;
-}
-
-.Date p {
-    margin-left: 5px;
-    margin-right: 15%;
-}
-
-.Date .date-picker {
     display: flex;
     align-items: center;
-    border-radius: 10px;
-    padding: 5px;
+    gap: 15px;
 }
 
-.Date .date-picker .calendar-icon {
-    margin-left: 5px;
-    font-size: 18px;
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
+.date-picker-label {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.date-picker-input {
+    padding: 8px 12px;
+    border: 1px solid #e0e6ed;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    width: 130px;
+}
+
+.date-picker-input:focus {
+    outline: none;
+    border-color: #1279C3;
+}
 
 .button-add {
     height: fit-content;

@@ -25,8 +25,8 @@ const upload = multer({
 })
 
 //Thiết lập payload
-app.use(bodyParser.json({ limit: '10mb' }));
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+app.use(bodyParser.json({ limit: '30mb' }));
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
 app.use(session({
     secret: '123456', // Thay thế bằng một chuỗi bí mật của bạn

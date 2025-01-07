@@ -9,7 +9,7 @@ const employeeRouter = express.Router();
 employeeRouter.post("/", uploadCloud.single('img'), createEmployee);
 employeeRouter.get("/", getAllEmployee);
 employeeRouter.get("/:id", checkExist(Employee), getDetailEmployee);
-employeeRouter.put("/:id", checkExist(Employee), updateEmployee);
+employeeRouter.put("/:id", checkExist(Employee), uploadCloud.single('img'), updateEmployee);
 employeeRouter.delete("/:id", checkExist(Employee), deleteEmployee);
 
 module.exports = {

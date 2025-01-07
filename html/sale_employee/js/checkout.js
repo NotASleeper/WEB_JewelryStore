@@ -5,6 +5,8 @@ let customers;
 document.addEventListener('DOMContentLoaded', async function () {
     allproduct = await getProduct();
     await fetchCustomers();
+    document.getElementById('avt').src = sessionStorage.getItem('url');
+
     document.getElementById('user').textContent = sessionStorage.getItem('username');
     const search = document.getElementById('searchInfo');
     displayCart();
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             document.getElementById('nameCus').value = customer.name;
             document.getElementById('address').value = customer.address;
             document.getElementById('phone').value = customer.phone;
-            document.getElementById('point').textContent ='Redeem '+ customer.accumulated_point+' accumulated points';
+            document.getElementById('point').textContent = 'Redeem ' + customer.accumulated_point + ' accumulated points';
         }
     })
     document.getElementById('discount').addEventListener('change', async function () {
@@ -101,7 +103,7 @@ async function createOrder() {
     const usePoint = document.getElementById('usePoint').checked;
     const order = {
         id_customer: customerid,
-        id_employee: sessionStorage.getItem('idStaff'),
+        id_employee: sessionStorage.getItem('id_employee'),
         is_used_point: usePoint,
         id_coupon: couponid,
         total_price: 0,

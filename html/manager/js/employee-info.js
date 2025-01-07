@@ -16,11 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("phone").value = data.phone;
       document.getElementById("email").value = data.email;
       document.getElementById("birthday").value = date;
-      document.getElementById("position").value =
-        data.PositionEmployee.name_position;
+      document.getElementById("position").value = data.PositionEmployee.name_position;
       document.getElementById("account").value = data.Account.username;
-      document.getElementById("profileAvatar").src = data.EmployeeImage.url;
 
+      if (!data.EmployeeImage) {
+        document.getElementById('profileAvatar').src = "https://res.cloudinary.com/djf63iwha/image/upload/v1736245616/STORE/tdeqhzrfjbktbuanbmvm.jpg"
+      } else {
+        document.getElementById('profileAvatar').src = data.EmployeeImage.url;
+      }
       console.log("Succeeded");
     } catch (error) {
       console.error(error);

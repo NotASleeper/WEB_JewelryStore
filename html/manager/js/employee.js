@@ -21,7 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const imgCell = document.createElement("td");
         const img = document.createElement("img");
-        img.src = "./assets/photo.png";
+        if (!employee.EmployeeImage) {
+          img.src = 'https://res.cloudinary.com/djf63iwha/image/upload/v1736245616/STORE/tdeqhzrfjbktbuanbmvm.jpg';
+        } else {
+          img.src = employee.EmployeeImage.url;
+        }
         img.alt = "Employee image";
         imgCell.appendChild(img);
         row.appendChild(imgCell);

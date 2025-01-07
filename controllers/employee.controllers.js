@@ -3,7 +3,7 @@ const { Employee, PositionEmployee, Account, EmployeeImage } = require('../model
 const uploadCloud = require('../middlewares/upload/cloudinary');
 
 const createEmployee = async (req, res) => {
-    uploadCloud.single('img')
+    uploadCloud.single('img');
     const {
         name,
         id_position,
@@ -65,6 +65,9 @@ const getAllEmployee = async (req, res) => {
                     },
                     {
                         model: Account,
+                    },
+                    {
+                        model: EmployeeImage,
                     }
                 ],
                 where: {
@@ -106,6 +109,7 @@ const getDetailEmployee = async (req, res) => {
 
 const updateEmployee = async (req, res) => {
     const { id } = req.params;
+    uploadCloud.single('img');
     const {
         name,
         id_position,
@@ -119,7 +123,7 @@ const updateEmployee = async (req, res) => {
             where: {
                 id: id,
                 status: 1,
-            }
+            },
         });
         detailEmployee.name = name;
         detailEmployee.id_position = id_position;
@@ -128,7 +132,18 @@ const updateEmployee = async (req, res) => {
         detailEmployee.email = email;
         detailEmployee.birthday = birthday;
         await detailEmployee.save();
-        res.status(200).send(detailEmployee);
+        let employeeImage = null;
+        if (req.file) {
+            const link_img = req.file.path;
+            employeeImage = await EmployeeImage.findOne({
+                where: {
+                    id: id,
+                },
+            });
+            employeeImage.url = link_img;
+            await employeeImage.save();
+        }
+        res.status(200).send({ detailEmployee, employeeImage });
     } catch (error) {
         res.status(500).send(error);
     }

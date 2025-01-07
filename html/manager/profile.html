@@ -7,7 +7,6 @@
     <title>Luxora</title>
     <link rel="stylesheet" href="./css/profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <script src="js/profile.js"></script>
 </head>
 
 
@@ -58,7 +57,7 @@
             <div class="space-search"></div>
             <div class="avt-notice">
                 <div class="avt-content">
-                    <button class="avt"><img id="small-avatar" style="cursor: pointer;" alt="Avatar"
+                    <button class="avt"><img id="avatar" style="cursor: pointer;" alt="Avatar"
                             onclick="redirectToNewPage('profile.html')"></button>
                     <a class="user" href="/sale/profile" style="display: flex;">
                         <img id="avt" src="./assets/images/avt.png" alt="avatar" />
@@ -102,7 +101,12 @@
                 </div>
                 <div class="position-input">
                     <label for="position">Position</label>
-                    <input type="text" id="position" placeholder="Manager" name="position" readonly>
+                    <input list="positionList" id="position" name="position">
+                    <datalist id="positionList">
+                        <!-- <option value="Item 1">
+                        <option value="Item 2">
+                        <option value="Item 3"> -->
+                    </datalist>
                 </div>
                 <div class="username-input">
                     <label for="username">Username</label>
@@ -112,19 +116,20 @@
             <div class="image-container">
                 <div class="avatar-container">
                     <div class="avatar-preview">
-                        <div class="upload-icon">↑</div>
-                        <img id="preview" style="display: none;">
+                        <!-- <div class="upload-icon">↑</div>
+                        <img id="preview" style="display: none;"> -->
+                        <img id="preview">
                         <div class="loading"></div>
                     </div>
                     <label class="upload-button">
                         <img src="./assets/editimage.png" alt="">
                         edit avatar
-                        <input type="file" class="file-input" accept="image/*">
+                        <input id="file-input" type="file" class="file-input" accept="image/*">
                     </label>
                     <div class="error-message"></div>
                 </div>
                 <div class="space"></div>
-                <div class="edit-btn" id="viewMode">
+                <div class="edit-btn">
                     <button id="changePassword">Change password</button>
                     <button id="edit">Edit</button>
                 </div>
@@ -134,57 +139,57 @@
 
                 </div>
             </div>
-        </div>
-        <div id="logout_popup" class="popup-overlay" style="display: none;">
-            <div class="popup-content">
-                <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Log out</h3>
-                <p>Do you really want to log out?</p>
-                <div style="display: flex; justify-content: space-around;">
-                    <button id="confirmButton" class="ok">Ok</button>
-                    <button id="cancelButton" class="cancel">Cancel</button>
+            <div id="logout_popup" class="popup-overlay" style="display: none;">
+                <div class="popup-content">
+                    <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Log out</h3>
+                    <p>Do you really want to log out?</p>
+                    <div style="display: flex; justify-content: space-around;">
+                        <button id="confirmButton" class="ok">Ok</button>
+                        <button id="cancelButton" class="cancel">Cancel</button>
 
+                    </div>
+                </div>
+            </div>
+            <div id="changePassword-popup" class="popup-overlay" style="display: none;">
+                <div class="popup-content">
+                    <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Change password</h3>
+                    <p>You can change your password here</p>
+                    <div class="inputPopup-container">
+                        <div display="flex">
+                            <label for="oldPassword">Old password</label>
+                            <input type="password" id="oldPassword" required>
+                        </div>
+                        <div>
+                            <label for="newPassword">New password</label>
+                            <input class type="password" id="newPassword" required>
+                        </div>
+                        <div>
+                            <label for="confirmPassword">Confirm new password</label>
+                            <input type="password" id="confirmPassword" required>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-around;">
+                        <button type="submit" id="saveChange" class="ok">Save</button>
+                        <button id="cancelChange" class="cancel">Cancel</button>
+
+                    </div>
+                </div>
+            </div>
+            <div id="save_popup" class="popup-overlay" style="display: none;">
+                <div class="popup-content">
+                    <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Save and Exit</h3>
+                    <p>Enter your password and save profile</p>
+                    <input type="password" id="password" placeholder="Enter your password" style="margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-around;">
+                        <button id="confirmSaveEButton" class="ok">Save</button>
+                        <button id="cancelSaveEButton" class="cancel">Cancel</button>
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="changePassword-popup" class="popup-overlay" style="display: none;">
-            <div class="popup-content">
-                <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Change password</h3>
-                <p>You can change your password here</p>
-                <div class="inputPopup-container">
-                    <div display="flex">
-                        <label for="oldPassword">Old password</label>
-                        <input type="password" id="oldPassword" required>
-                    </div>
-                    <div>
-                        <label for="newPassword">New password</label>
-                        <input class type="password" id="newPassword" required>
-                    </div>
-                    <div>
-                        <label for="confirmPassword">Confirm new password</label>
-                        <input type="password" id="confirmPassword" required>
-                    </div>
-                </div>
-                <div style="display: flex; justify-content: space-around;">
-                    <button type="submit" id="saveChange" class="ok">Save</button>
-                    <button id="cancelChange" class="cancel">Cancel</button>
-
-                </div>
-            </div>
-        </div>
-        <div id="save_popup" class="popup-overlay" style="display: none;">
-            <div class="popup-content">
-                <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Save and Exit</h3>
-                <p>Enter your password and save profile</p>
-                <input type="password" id="password" placeholder="Enter your password" style="margin-top: 20px;">
-                <div style="display: flex; justify-content: space-around;">
-                    <button id="confirmSaveEButton" class="ok">Save</button>
-                    <button id="cancelSaveEButton" class="cancel">Cancel</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="./js/uploadavatar.js"></script>
+        <script src="js/profile.js"></script>
+        <script src="./js/uploadavatar.js"></script>
 
 </body>
 

@@ -78,7 +78,7 @@ async function createRefund(customerID) {
     }
     const product = document.getElementById('product').value;
     const refund = {
-        id_employee: sessionStorage.getItem('idStaff'),
+        id_employee: sessionStorage.getItem('id_employee'),
         id_customer: customerID,
         id_order: document.getElementById('bill').value,
         id_product: product,

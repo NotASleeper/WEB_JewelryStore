@@ -177,7 +177,7 @@ async function createWarranty(customerID, productID, activityID, type) {
       : parseInt(document.getElementById("surcharge").value);
   const price = type === 1 ? 0 : activity.price;
   const data = {
-    id_employee: sessionStorage.getItem("idStaff"),
+    id_employee: sessionStorage.getItem("id_employee"),
     id_customer: customerID,
     id_order: null,
     id_product: productID ? productID : null,

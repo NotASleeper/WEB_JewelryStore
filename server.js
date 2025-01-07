@@ -10,6 +10,7 @@ const cloudinary = require('./middlewares/upload/cloudinary');
 const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 require('dotenv').config();
+const bodyParser = require('body-parser');
 
 //Thiết lập cloudinary để lưu ảnh
 const storage = new CloudinaryStorage({
@@ -22,6 +23,10 @@ const storage = new CloudinaryStorage({
 const upload = multer({
     storage: storage,
 })
+
+//Thiết lập payload
+app.use(bodyParser.json({ limit: '30mb' }));
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
 app.use(session({
     secret: '123456', // Thay thế bằng một chuỗi bí mật của bạn

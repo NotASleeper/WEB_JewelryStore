@@ -181,6 +181,60 @@ body {
     outline: none;
 }
 
+.Date {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    width: 15%;
+    height: 80%;
+    align-items: center;
+    margin-left: 2%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.Date input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border: 1px solid #121212;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: transparent;
+    margin-bottom: 3%;
+}
+
+.Date p {
+    margin-left: 5px;
+    margin-right: 15%;
+}
+
+.Date .date-picker {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.Date .date-picker .calendar-icon {
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+.filterList {
+    background-color: #fff;
+    width: fit-content;
+    border: 1px solid #121212;
+    border-radius: 10px;
+    height: fit-content;
+    z-index: 1000;
+    margin-left: 10px;
+    padding: 10px;
+    padding-right: 20px;
+}
+
+
 .filter{
     height: 24px;
     width: 24px;

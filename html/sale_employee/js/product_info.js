@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     productId = urlParams.get('id');
     // Kiểm tra xem ID có tồn tại không
     if (productId) {
+        document.getElementById('avt').src = sessionStorage.getItem('url');
+
         document.getElementById('user').textContent = sessionStorage.getItem('username');
         const logoutPopup = document.getElementById('logout_popup');
         const cancelButton = document.getElementById('cancelButton');
@@ -55,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const category = categories.find(cat => cat.id === product.id_category);
             const categoryName = category ? category.name : 'Unknown Category';
             // Cập nhật DOM để hiển thị thông tin sản phẩm
-            document.getElementById('thumbnails').innerHTML = `<img src="${!product.imageUrl?'':product.imageUrl}" alt="${product.name}"  class="thumbnail"> <img src="${!product.imageUrl?'':product.imageUrl}" alt="${product.name}"  class="thumbnail">`;
-            document.getElementById('main-image').innerHTML = `<img src="${!product.imageUrl?'':product.imageUrl}" alt="${product.name}" style="width: 700px;">`;
+            document.getElementById('thumbnails').innerHTML = `<img src="${!product.imageUrl ? '' : product.imageUrl}" alt="${product.name}"  class="thumbnail"> <img src="${!product.imageUrl ? '' : product.imageUrl}" alt="${product.name}"  class="thumbnail">`;
+            document.getElementById('main-image').innerHTML = `<img src="${!product.imageUrl ? '' : product.imageUrl}" alt="${product.name}" style="width: 700px;">`;
             document.getElementById('name').textContent = !product.name ? '' : product.name;
             document.getElementById('category').textContent = categoryName;
             document.getElementById('gemstone').textContent = product.Gemstone.name;
@@ -94,11 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
             existingProduct.quantity++;
         }
         else {
-            cart.push({ 
-                id: productId,               
+            cart.push({
+                id: productId,
                 quantity: 1,
                 surcharge: 0,
-                note: ''                
+                note: ''
             });
         }
         sessionStorage.setItem('cart', JSON.stringify(cart));

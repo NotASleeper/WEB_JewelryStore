@@ -4,6 +4,27 @@ document.addEventListener('DOMContentLoaded', function () {
     //hiển thị danh sách đơn trả hàng
     getRefundList(refundList);
 
+    const filterPopup = document.getElementById('filterList');
+    const filterBtn = document.getElementById('filterBT');
+    filterBtn.addEventListener('click', function () {
+        if (filterPopup.style.display === 'none') {
+            filterPopup.style.display = '';
+        }
+        else {
+            filterPopup.style.display = 'none';
+        }
+    });
+
+
+    document.getElementById('from').addEventListener('change', function () {
+        filterRefund();
+    });
+
+    document.getElementById('to').addEventListener('change', function () {
+        filterRefund();
+    });
+
+
     //thêm mới đơn trả hàng
     document.getElementById('addNewRefundForm').addEventListener('click', function () {
         window.location.href = '/sale/refundinfo?mode=add';
@@ -31,6 +52,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+function filterRefund() {
+    const sDate = document.getElementById('from').value;
+    const eDate = document.getElementById('to').value;
+    let filterResult;
+    const startDate = sDate ? new Date(sDate) : null;
+    const endDate = eDate ? new Date(eDate) : null;
+
+    if (startDate && endDate && startDate > endDate) {
+        alert('Invalid date range');
+        return;
+    }
+    if (!startDate && !endDate) {
+        filterResult = refundList;
+    } else if (!startDate) {
+        filterResult = refundList.filter(t => new Date(t.date_created) <= endDate);
+    } else if (!endDate) {
+        filterResult = refundList.filter(t => new Date(t.date_created) >= startDate);
+    } else {
+        filterResult = refundList.filter(t => {
+            const date = new Date(t.date_created);
+            return date >= startDate && date <= endDate;
+        });
+    }
+    displayRefundList(filterResult);
+}
 
 function getRefundList() {
     fetch('http://localhost:5501/api/v1/refund-forms')

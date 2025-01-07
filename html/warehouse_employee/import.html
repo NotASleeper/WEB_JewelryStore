@@ -58,17 +58,22 @@
         <!-- Font Awesome Icon -->
       </div>
 
-      <div class="Date">
-        <div class="date-picker-container">
-          <span class="date-picker-label">From</span>
-          <input type="date" class="date-picker-input">
+      <div class="filter" id="filterBT">
+        <img src="./assets/icons/filter_ic.png" />
+      </div>
+      <div class="filterList" id="filterList" style="display: none">
+        <div class="Date">
+          <p style="color: black; font-size: 16px">From:</p>
+          <div class="date-picker">
+            <input id="from" type="date" />
+          </div>
         </div>
-
-        <div class="date-picker-container">
-          <span class="date-picker-label">To</span>
-          <input type="date" class="date-picker-input">
+        <div class="Date">
+          <p style="color: black; font-size: 16px">To:</p>
+          <div style="margin-left: 20px" class="date-picker">
+            <input id="to" type="date" />
+          </div>
         </div>
-
       </div>
       <button id="addNewImportForm" class="button-add" onclick="redirectToNewPage('add-updateimport.html')">
         <img src="./assets/icons/add_ic.png" alt="Add" />

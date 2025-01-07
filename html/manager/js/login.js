@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     sessionStorage.setItem('token', data.token);
                     sessionStorage.setItem('idAccount', data.id);
                     if (!data.Employee.EmployeeImage.url) {
-                        sessionStorage.setItem('url', 'https://res.cloudinary.com/djf63iwha/image/upload/v1736132847/STORE/zkflbugtasfw9qyuzpgw.jpg');
+                        sessionStorage.setItem('url', 'https://res.cloudinary.com/djf63iwha/image/upload/v1736245616/STORE/tdeqhzrfjbktbuanbmvm.jpg');
                     } else {
                         sessionStorage.setItem('url', data.Employee.EmployeeImage.url)
                     }

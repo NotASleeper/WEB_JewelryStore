@@ -3,7 +3,7 @@ const deletePopup = document.getElementById("delete_popup");
 const cancelDeleteButton = document.getElementById("cancelDeleteButton");
 const confirmDeleteButton = document.getElementById("confirmDeleteButton");
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("avatar").src = sessionStorage.getItem("url");
+  document.getElementById("avt").src = sessionStorage.getItem("url");
   getAllLiquidationForm("");
   const filterPopup = document.getElementById("filterList");
   const filterBtn = document.getElementById("filterBT");

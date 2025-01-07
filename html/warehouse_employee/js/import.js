@@ -3,7 +3,7 @@ const deletePopup = document.getElementById("delete_popup");
 const cancelDeleteButton = document.getElementById("cancelDeleteButton");
 const confirmDeleteButton = document.getElementById("confirmDeleteButton");
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("avatar").src = sessionStorage.getItem("url");
+  document.getElementById("avt").src = sessionStorage.getItem("url");
   getAllImportForm();
 
   const filterPopup = document.getElementById("filterList");
@@ -63,7 +63,7 @@ function filterImport() {
     });
   }
   clearTbody();
-  displayLiquidationList(filterResult);
+  displayImportList(filterResult);
 }
 
 document.getElementById("search").addEventListener("click", () => {

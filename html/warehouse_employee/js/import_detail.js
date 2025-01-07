@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const id = getQueryParam("id");
-  document.getElementById("avatar").src = sessionStorage.getItem("url");
+  document.getElementById("avt").src = sessionStorage.getItem("url");
 
   (getDetailImport = async () => {
     try {

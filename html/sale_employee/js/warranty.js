@@ -4,6 +4,26 @@ document.addEventListener("DOMContentLoaded", function () {
   //hiển thị danh sách phiếu bảo hành
   getWarrantyList();
 
+  const filterPopup = document.getElementById('filterList');
+  const filterBtn = document.getElementById('filterBT');
+  filterBtn.addEventListener('click', function () {
+    if (filterPopup.style.display === 'none') {
+      filterPopup.style.display = '';
+    }
+    else {
+      filterPopup.style.display = 'none';
+    }
+  });
+
+
+  document.getElementById('from').addEventListener('change', function () {
+    filterWarranty();
+  });
+
+  document.getElementById('to').addEventListener('change', function () {
+    filterWarranty();
+  });
+
   //thêm mới phiếu bảo hành
   document
     .getElementById("addNewWarrantyForm")
@@ -39,6 +59,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function filterWarranty() {
+  const sDate = document.getElementById('from').value;
+  const eDate = document.getElementById('to').value;
+  let filterResult;
+  const startDate = sDate ? new Date(sDate) : null;
+  const endDate = eDate ? new Date(eDate) : null;
+
+  if (startDate && endDate && startDate > endDate) {
+    alert('Invalid date range');
+    return;
+  }
+  if (!startDate && !endDate) {
+    filterResult = warrantyList;
+  } else if (!startDate) {
+    filterResult = warrantyList.filter(t => new Date(t.date_created) <= endDate);
+  } else if (!endDate) {
+    filterResult = warrantyList.filter(t => new Date(t.date_created) >= startDate);
+  } else {
+    filterResult = warrantyList.filter(t => {
+      const date = new Date(t.date_created);
+      return date >= startDate && date <= endDate;
+    });
+  }
+  displayWarrantyList(filterResult);
+}
 
 function getWarrantyList() {
   fetch("http://localhost:5501/api/v1/warranty-maintainances")
@@ -125,7 +171,6 @@ async function getActivityByID(id) {
 
 function formatDate(date) {
   const dateObj = new Date(date);
-  return `${dateObj.getDate()}/${
-    dateObj.getMonth() + 1
-  }/${dateObj.getFullYear()}`;
+  return `${dateObj.getDate()}/${dateObj.getMonth() + 1
+    }/${dateObj.getFullYear()}`;
 }

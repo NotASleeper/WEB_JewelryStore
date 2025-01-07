@@ -58,10 +58,23 @@
                 <input id="searchInfo" placeholder="Search PreOrder Here">
                 <i id="searchic" class="fas fa-search"></i> <!-- Font Awesome Icon -->
             </div>
-            <div class="filter">
+            <div id="filterBT" class="filter">
                 <img src="./assets/icons/filter_ic.png" />
             </div>
-            
+            <div class="filterList" id="filterList" style="display: none">
+                <div class="Date">
+                    <p style="color: black; font-size: 16px">From:</p>
+                    <div class="date-picker">
+                        <input id="from" type="date" />
+                    </div>
+                </div>
+                <div class="Date">
+                    <p style="color: black; font-size: 16px">To:</p>
+                    <div style="margin-left: 20px" class="date-picker">
+                        <input id="to" type="date" />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="content">

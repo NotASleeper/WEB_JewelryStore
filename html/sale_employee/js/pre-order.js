@@ -5,7 +5,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelDelete = document.getElementById('cancelDeleteButton');
     const confirmDelete = document.getElementById('confirmDeleteButton');
     //thêm mới đơn đặt hàng
-    
+
+    const filterPopup = document.getElementById('filterList');
+    const filterBtn = document.getElementById('filterBT');
+    filterBtn.addEventListener('click', function () {
+        if (filterPopup.style.display === 'none') {
+            filterPopup.style.display = '';
+        }
+        else {
+            filterPopup.style.display = 'none';
+        }
+    });
+
+
+    document.getElementById('from').addEventListener('change', function () {
+        filterPreOrder();
+    });
+
+    document.getElementById('to').addEventListener('change', function () {
+        filterPreOrder();
+    });
+
     //hiển thị danh sách đơn đặt hàng
     getPreOrderList();
 
@@ -41,8 +61,34 @@ document.addEventListener('DOMContentLoaded', function () {
             displayPreOrderList(preOrderList);
         }
     });
-    
+
 });
+
+function filterPreOrder() {
+    const sDate = document.getElementById('from').value;
+    const eDate = document.getElementById('to').value;
+    let filterResult;
+    const startDate = sDate ? new Date(sDate) : null;
+    const endDate = eDate ? new Date(eDate) : null;
+
+    if (startDate && endDate && startDate > endDate) {
+        alert('Invalid date range');
+        return;
+    }
+    if (!startDate && !endDate) {
+        filterResult = preOrderList;
+    } else if (!startDate) {
+        filterResult = preOrderList.filter(t => new Date(t.date_created) <= endDate);
+    } else if (!endDate) {
+        filterResult = preOrderList.filter(t => new Date(t.date_created) >= startDate);
+    } else {
+        filterResult = preOrderList.filter(t => {
+            const date = new Date(t.date_created);
+            return date >= startDate && date <= endDate;
+        });
+    }
+    displayPreOrderList(filterResult);
+}
 
 function getPreOrderList() {
     fetch('http://localhost:5501/api/v1/order-forms')

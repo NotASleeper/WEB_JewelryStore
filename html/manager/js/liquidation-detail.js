@@ -12,11 +12,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 var date_accepted = "";
                 document.getElementById('inspector').value = "";
                 document.getElementById('state').value = "Waiting";
-            } else {
+                document.getElementById('cancel').innerText = "Deny";
+            } else if (data.id_employee_accepted != null && data.date_accepted == null) {
+                var date_accepted = "";
+                document.getElementById('inspector').value = data.accept.name;
+                document.getElementById('state').value = "Denied";
+                document.getElementById('accept').remove();
+            } else if (data.id_employee_accepted != null && data.date_accepted != null) {
                 var date_accepted = new Date(data.date_accepted).toISOString().split('T')[0];
                 document.getElementById('inspector').value = data.accept.name;
                 document.getElementById('state').value = "Accepted";
-                document.getElementById('accept').classList.add('hidden');
                 document.getElementById('accept').remove();
             }
             document.getElementById('id').value = data.id;
@@ -112,10 +117,83 @@ const acceptClick = async () => {
         });
 
         const data = await response.json()
+        await acceptForm();
         console.log('Success:');
         location.reload();
         return data;
     } catch (error) {
         console.error('Error:', error);
+    }
+}
+
+const acceptForm = async () => {
+    const id = getQueryParam('id');
+    const url = `http://localhost:5501/api/v1/liquidation-details/form/${id}`;
+    console.log(url);
+
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+
+    data.forEach(async liquidationDetail => {
+        const currentQuantity = liquidationDetail.Product.Inventory.quantity;
+        const newQuantity = currentQuantity - liquidationDetail.quantity;
+        const id = liquidationDetail.id_product;
+        const quantity = {
+            quantity: newQuantity,
+        }
+        console.log(quantity);
+
+        try {
+            const response = await fetch(`http://localhost:5501/api/v1/inventories/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(quantity)
+            });
+
+            return response;
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    })
+}
+
+const denyForm = async () => {
+    const id = getQueryParam('id');
+    const userConfirmed = confirm('Are you sure you want to deny this form?');
+    if (!userConfirmed) {
+        return;
+    }
+    const deny = {
+        id_employee_accepted: sessionStorage.getItem('idAccount'),
+    }
+    console.log(JSON.stringify(deny));
+
+    try {
+        const response = await fetch(`http://localhost:5501/api/v1/liquidation-forms/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(deny)
+        });
+
+        const data = await response.json()
+        console.log('Success:');
+        location.reload();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+const cancelClick = async () => {
+    if (document.getElementById('cancel').innerText == "Deny") {
+        await denyForm()
+    } else if (document.getElementById('cancel').innerText == "Cancel") {
+        location.reload();
+        history.back();
     }
 }

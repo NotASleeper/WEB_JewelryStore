@@ -123,7 +123,7 @@ const updateEmployee = async (req, res) => {
             where: {
                 id: id,
                 status: 1,
-            }
+            },
         });
         detailEmployee.name = name;
         detailEmployee.id_position = id_position;
@@ -132,9 +132,10 @@ const updateEmployee = async (req, res) => {
         detailEmployee.email = email;
         detailEmployee.birthday = birthday;
         await detailEmployee.save();
+        let employeeImage = null;
         if (req.file) {
             const link_img = req.file.path;
-            const employeeImage = await EmployeeImage.findOne({
+            employeeImage = await EmployeeImage.findOne({
                 where: {
                     id: id,
                 },
@@ -142,7 +143,7 @@ const updateEmployee = async (req, res) => {
             employeeImage.url = link_img;
             await employeeImage.save();
         }
-        res.status(200).send(detailEmployee);
+        res.status(200).send({ detailEmployee, employeeImage });
     } catch (error) {
         res.status(500).send(error);
     }

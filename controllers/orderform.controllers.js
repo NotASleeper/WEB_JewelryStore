@@ -10,6 +10,7 @@ const createOrderForm = async (req, res) => {
         date_created,
         date_payment,
         status,
+        is_preordered
     } = req.body;
     try {
         const newOrderForm = await OrderForm.create({
@@ -21,6 +22,7 @@ const createOrderForm = async (req, res) => {
             date_created,
             date_payment,
             status,
+            is_preordered
         });
         res.status(201).send(newOrderForm);
     } catch (error) {
@@ -71,6 +73,7 @@ const updateOrderForm = async (req, res) => {
         total_price,
         date_created,
         date_payment,
+        is_preordered,
     } = req.body;
     try {
         const detailOrderForm = await OrderForm.findOne({
@@ -86,6 +89,7 @@ const updateOrderForm = async (req, res) => {
         detailOrderForm.total_price = total_price;
         detailOrderForm.date_created = date_created;
         detailOrderForm.date_payment = date_payment;
+        detailOrderForm.is_preordered = is_preordered;
         await detailOrderForm.save();
         res.status(200).send(detailOrderForm);
     } catch (error) {

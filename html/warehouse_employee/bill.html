@@ -59,14 +59,12 @@
                 <input id="searchInfo" placeholder="Search Bill Here">
                 <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
             </div>
-            <div class="filter">
-                <img src="./assets/icons/filter_ic.png" />
-            </div>
-            <div class="Date">
-                <p style="color:black; font-size:16px;">Date</p>
-                <div class="date-picker">
-                    <input type="date">
-                    <span class="calendar-icon"></span>
+            <div class="popup-container">
+                <div class="Date" id="filterPopup">
+                    <div class="date-picker-container">
+                        <span class="date-picker-label">Date</span>
+                        <input id="dateInput" type="date" class="date-picker-input">
+                    </div>
                 </div>
             </div>
         </div>

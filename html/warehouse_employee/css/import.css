@@ -109,18 +109,18 @@ body {
     font-weight: bold;
 }
 
-.right-container{
+.right-container {
     display: flex;
     right: 0;
 }
 
-.right-container img{
+.right-container img {
     width: 24px;
     height: 24px;
     margin-right: 20px;
 }
 
-.user{
+.user {
     display: flex;
     margin-right: 20px;
     color: #fff;
@@ -128,19 +128,21 @@ body {
     font-size: small;
 }
 
-.user img{
+.user img {
     width: 24px;
     height: 24px;
     border-radius: 50%;
     margin-right: 5px;
 }
+
 .searchbar {
     background-color: #1279C3;
     width: 100%;
     height: 60px;
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 15px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     position: fixed;
     margin-top: 70px;
     display: flex;
@@ -148,14 +150,16 @@ body {
 }
 
 .searchbar .searchinput {
+    margin-top: 0.4rem;
     height: 30px;
     width: 30%;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;    
+    border-radius: 8px;
     position: relative;
     display: flex;
     left: 0;
 }
+
 
 .searchbar .searchinput input {
     height: 100%;
@@ -180,17 +184,52 @@ body {
     opacity: 40%;
 }
 
-.searchbar .searchinput input:focus{
+.searchbar .searchinput input:focus {
     outline: none;
 }
 
-.searchbar img{
+.searchbar img {
     width: 24px;
     height: 24px;
     margin-left: 20px;
 }
 
-.button-add{
+/* Date Range Container */
+.Date {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 1rem;
+}
+
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-picker-label {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.date-picker-input {
+    padding: 8px 12px;
+    border: 1px solid #e0e6ed;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    width: 130px;
+}
+
+.date-picker-input:focus {
+    outline: none;
+    border-color: #1279C3;
+}
+
+.button-add {
+    margin-top: 0.4rem;
     height: fit-content;
     width: fit-content;
     background-color: #FBFCFE;
@@ -203,12 +242,12 @@ body {
     justify-content: center;
 }
 
-.button-add img{
+.button-add img {
     width: 24px;
     height: 24px;
 }
 
-.button-add p{    
+.button-add p {
     color: #1279C3;
     font-size: medium;
     margin-left: 5px;
@@ -259,6 +298,7 @@ body {
     padding-left: 2%;
     border-radius: 0 10px 0 0;
 }
+
 .table #state {
     padding: 8px;
     text-align: center;
@@ -274,17 +314,17 @@ body {
 }
 
 
-.table .loading{
-    
+.table .loading {
+
     width: fit-content;
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 9px;
     padding-top: 5px;
     border: 1px solid #1279C3;
-} 
+}
 
-.table .accepted{
+.table .accepted {
     width: fit-content;
     border-radius: 5px;
     padding-left: 9px;
@@ -293,7 +333,7 @@ body {
     border: 1px solid #149D52;
 }
 
-.table .denied{
+.table .denied {
     width: fit-content;
     border-radius: 5px;
     padding-left: 9px;
@@ -303,7 +343,7 @@ body {
 }
 
 
-.table .Edit{
+.table .Edit {
     background-color: #FBFCFE;
     border: 1px solid#DDE4F0;
     border-radius: 5.5px;

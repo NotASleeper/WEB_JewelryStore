@@ -130,13 +130,15 @@ body {
     margin-right: 5px;
 }
 
+
 .searchbar {
     background-color: #1279C3;
     width: 100%;
     height: 60px;
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 15px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     position: fixed;
     margin-top: 70px;
     display: flex;
@@ -144,6 +146,7 @@ body {
 }
 
 .searchbar .searchinput {
+    margin-top: 0.4rem;
     height: 30px;
     width: 30%;
     background-color: rgba(255, 255, 255, 0.1);
@@ -152,6 +155,7 @@ body {
     display: flex;
     left: 0;
 }
+
 
 .searchbar .searchinput input {
     height: 100%;
@@ -180,15 +184,9 @@ body {
     outline: none;
 }
 
-.filter {
-    height: 24px;
-    width: 24px;
-    margin-left: 10px;
-}
-
-.filter img {
-    height: 24px;
-    width: 24px;
+.popup-container {
+    border-radius: 0.3rem;
+    margin-left: 1rem;
 }
 
 .Date {
@@ -204,8 +202,8 @@ body {
 }
 
 .date-picker-label {
-    color: #64748b;
-    font-size: 14px;
+    color: white;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -224,6 +222,7 @@ body {
 }
 
 .button-add {
+    margin-top: 0.4rem;
     height: fit-content;
     width: fit-content;
     background-color: #FBFCFE;

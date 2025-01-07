@@ -115,7 +115,7 @@ body {
     text-decoration: underline;
 }
 
-.error p{
+.error p {
     color: #EB2F06;
     font-size: 14px;
     margin-top: 5px;
@@ -283,41 +283,5 @@ body {
 
     .login_gg .icon {
         left: 12%;
-    }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    .login_form {
-        background-color: rgba(33, 33, 33, 0.8);
-    }
-
-    #Login,
-    .username input,
-    .password input,
-    .Recall_pass label,
-    .Recall_pass a,
-    #or {
-        color: #ffffff;
-    }
-
-    .username input,
-    .password input {
-        border-color: #ffffff;
-    }
-
-    .username .icon,
-    .password .icon {
-        color: #ffffff;
-    }
-
-    .login_norbtn button,
-    .login_gg button {
-        background-color: #454545;
-    }
-
-    .login_norbtn button:hover,
-    .login_gg button:hover {
-        background-color: #2d2d2d;
     }
 }

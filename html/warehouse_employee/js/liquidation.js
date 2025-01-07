@@ -76,7 +76,7 @@ function displayLiquidationList(list) {
     const imgCell = document.createElement("td");
     imgCell.id = "state";
     const div1 = document.createElement("div");
-    div1.style = "justify-items: center;";
+    div1.style = "justify-items: center; align-items: center;";
 
     const div2 = document.createElement("div");
     div2.className = "accepted";
@@ -100,12 +100,21 @@ function displayLiquidationList(list) {
       div1.appendChild(div4);
       button.className = "Delete";
       button.textContent = "Delete";
-      button.addEventListener("click", async () => {
+      button.addEventListener("click", async (event) => {
+        event.stopPropagation();
         deletePopup.style.display = "";
         deletePopup.setAttribute("data-form-id", liquidationForm.id);
       });
+      row.addEventListener("click", () => {
+        window.location.href =
+          "liquidation-detail.html?id=" + liquidationForm.id;
+      });
       actionCell.appendChild(button);
     } else {
+      row.addEventListener("click", () => {
+        window.location.href =
+          "liquidation-detail.html?id=" + liquidationForm.id;
+      });
       if (liquidationForm.date_accepted) {
         img.src = "./assets/icons/accepted_ic.png";
         img.alt = "Accepted";
@@ -229,6 +238,32 @@ const clearTbody = () => {
 };
 
 function deleteLiquidation(id) {
+  fetch("http://localhost:5501/api/v1/liquidation-details/form/" + id, {})
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((d) => {
+        fetch(
+          `http://localhost:5501/api/v1/liquidation-details/${d.id_liq}/${d.id_product}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => { })
+          .catch((error) => {
+            alert("Error deleting detail");
+            console.error("Error deleting detail:", error);
+          });
+        alert("Deleted successfully");
+      });
+    })
+    .catch((error) => {
+      alert("Error fetching details");
+      console.error("Error fetching details:", error);
+    });
   fetch(`http://localhost:5501/api/v1/liquidation-forms/${id}`, {
     method: "DELETE",
     headers: {
@@ -237,32 +272,6 @@ function deleteLiquidation(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      fetch("http://localhost:5501/api/v1/liquidation-details/form/" + id, {})
-        .then((response) => response.json())
-        .then((data) => {
-          data.forEach((d) => {
-            fetch(
-              `http://localhost:5501/api/v1/liquidation-details/${d.id_liq}/${d.id_product}`,
-              {
-                method: "DELETE",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }
-            )
-              .then((response) => response.json())
-              .then((data) => {})
-              .catch((error) => {
-                alert("Error deleting detail");
-                console.error("Error deleting detail:", error);
-              });
-            alert("Deleted successfully");
-          });
-        })
-        .catch((error) => {
-          alert("Error fetching details");
-          console.error("Error fetching details:", error);
-        });
       getAllLiquidationForm();
     })
     .catch((error) => {

@@ -58,8 +58,12 @@
     <div class="right-Content">
         <!-- Dashboard + btn view report -->
         <div class="space-header" style="height: 100px;"></div>
-        <div class="main-content" style="margin-top: 3%;">
-            <p>Liquidation</p>
+        <div class="main-content" style="margin-top: 3%; display: flex;" >
+            <p>Add New Liquidation</p>
+            <button id="addNewDetail" class="button-add">
+                <img src="./assets/icons/add_ic.png" alt="Add" />
+                <p>Add New Detail</p>
+            </button>
         </div>
         <div class="product-container">
 
@@ -67,41 +71,23 @@
                 <div class="form-section">
                     <div class="form-row">
                         <div class="form-group">
-                            <label>ID:</label>
-                            <input type="text" value="LIQ001">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
                             <label>Creator:</label>
-                            <input type="text" value="">
+                            <input id="staff" type="text" value="">
                         </div>
                     </div>
-                </div>
-
-            </div>
-            <div class="form-container" style="margin-left: 100px;">
-                <div class="form-section">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Date:</label>
-                            <input type="text" value="02/09/2024">
+                            <input id="date" type="text" value="02/09/2024">
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>State:</label>
-                            <input type="text" value="Accepted - 02/09/2024 12:24:36">
-                        </div>
-                    </div>
-
                 </div>
+
             </div>
         </div>
         <div class="table-info">
             <div class="space-table-info" style="width: 500px;"></div>
-            <p style="color:#7D8398; margin-left: 84% ;">Total: 250,000,000VND</p>
+            <p id="money" style="color:#7D8398; margin-left: 84% ;">Total: 0 VND</p>
         </div>
 
         <table class="table">
@@ -109,41 +95,77 @@
                 <tr>
                     <th id="ID">NO.</th>
                     <th>Name</th>
-                    <th>Image</th>
                     <th>Category</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total price</th>
                     <th id="action">Action</th>
-
                 </tr>
             </thead>
-            <tbody style="    border: 1px solid rgba(85, 86, 90, 12%);">
-                <tr>
-                    <td id="ID">1</td>
-                    <td id="name">Product 1 <br> Gold, Amethyst</td>
-                    <td><img src="./assets/images/product1.jpg" alt="Product image"></td>
-                    <td>Necklace</td>
-                    <td>10,000,000 VND</td>
-                    <td>2</td>
-                    <td>20,000,000 VND</td>
-                    <td id="state">
-                        <div class="accepted">
-                            <img src="./assets/icons/delete_ic_2.png" alt="delete" />
-                        </div>
-                    </td>
-                </tr>
+            <tbody style="border: 1px solid rgba(85, 86, 90, 12%);" id="detailTable">
+                
             </tbody>
 
         </table>
         <div class="actions">
-            <button class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
-            <button class="btn btn-save " style="font-weight: 600;">Accept</button>
+            <button id="cancelBT" class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
+            <button id="saveBT" class="btn btn-save " style="font-weight: 600;">Save</button>
         </div>
     </div>
+    <div id="adddetail_popup" class="popup-overlay" style="display: none; ">
+        <div class="popup-content" style="width: 35%;">
+            <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Edit detail</h3>
+            <div class="inputPopup-container">
+                <div >
+                    <label>Product</label>
+                    <select id="product">
+                        <option value="" selected disabled>Select product</option>
+                    </select>
+                </div>
+                <div >
+                    <label>Category</label>
+                    <select id="category">
+                        <option value="">Select category</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Selling price</label>
+                    <input type="number" id="sellingPrice" required>
+                </div>
+                <div>
+                    <label>Price</label>
+                    <input type="number" id="price1" readonly>
+                </div>
+                <div>
+                    <label>Quantity</label>
+                    <input type="number" id="quantity1" required>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-around;">
+                <button id="cancelChange" class="cancel">Cancel</button>
+                <button type="submit" id="saveChange" class="ok">Add</button>
+            </div>
+        </div>
+    </div>
+    <template id="detailTemplate">
+        <tr>
+            <td id="ID">1</td>
+            <td id="name">Product 1 <br> Gold, Amethyst</td>
+            <td id="categorydetail">Necklace</td>
+            <td id="price">10,000,000 VND</td>
+            <td id="quantity">2</td>
+            <td id="total">20,000,000 VND</td>
+            <td id="state">
+                <div id="delete" class="accepted">
+                    <img src="./assets/icons/delete_ic_2.png" alt="delete" />
+                </div>
+            </td>
+        </tr>
+    </template>
 </body>
 <script>
     function redirectToNewPage(newPage) {
         window.location.href = newPage;
     }
 </script>
+<script src="./js/addnewliquidation.js"></script>

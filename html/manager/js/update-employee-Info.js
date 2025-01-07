@@ -1,3 +1,4 @@
+let oldUsername = "";
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('avatar').src = sessionStorage.getItem('url');
     const id = getQueryParam('id');
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('birthday').value = date;
             document.getElementById('position').value = data.PositionEmployee.name_position;
             document.getElementById('account').value = data.Account.username;
+            oldUsername = data.Account.username;
 
             if (!data.EmployeeImage) {
                 document.getElementById('preview').src = "https://res.cloudinary.com/djf63iwha/image/upload/v1736245616/STORE/tdeqhzrfjbktbuanbmvm.jpg"
@@ -134,8 +136,7 @@ const saveClick = async () => {
         return;
     }
 
-    const savedUsername = getCookie('username');
-    if (savedUsername != username) {
+    if (oldUsername != username) {
         if (await isAccountExist(username)) {
             alert('Account already exist');
             return;
@@ -145,7 +146,7 @@ const saveClick = async () => {
 
     const data = await updateEmployee(name, address, phone, email, birthday);
 
-    window.location.href = 'employee-info.html?id=' + data.id;
+    //window.location.href = 'employee-info.html?id=' + data.id;
 }
 
 const isAccountExist = async (username) => {

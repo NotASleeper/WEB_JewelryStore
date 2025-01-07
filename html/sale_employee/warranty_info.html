@@ -72,8 +72,8 @@
                 <div>
                     <div class="subtitle-container">
                         <p class="subtitle">Customer</p>
-                        <div class="searchinput">
-                            <input id="searchInfo" placeholder="Search Customer Here">
+                        <div id="searchCustomer" class="searchinput">
+                            <input id="searchCustomerInfo" placeholder="Search Customer Here">
                             <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
                         </div>
                     </div>
@@ -83,13 +83,13 @@
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Name:</label>
-                                        <input type="text" value="">
+                                        <input id="customer" type="text" value="">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Address: </label>
-                                        <input type="text" value=" ">
+                                        <input id="address" type="text" value=" ">
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Phone number:</label>
-                                        <input type="text" value="">
+                                        <input id="phone" type="text" value="">
                                     </div>
                                 </div>
                             </div>
@@ -109,8 +109,8 @@
                 <div>
                     <div class="subtitle-container">
                         <p class="subtitle">Product</p>
-                        <div class="searchinput">
-                            <input id="searchInfo" placeholder="Search Product Here">
+                        <div id="searchProduct" class="searchinput">
+                            <input id="searchProductInfo" placeholder="Search Product Here">
                             <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Product:</label>
-                                        <input type="text" value="">
+                                        <input id="nameProduct" type="text" value="">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -128,7 +128,6 @@
                                         <label>Category: </label>
                                         <select id="category">
                                             <option value="" disabled selected>Select category</option>
-                                            <option value="1">Category 1</option>
                                         </select>
                                     </div>
                                 </div>
@@ -137,8 +136,13 @@
                                         <label>Activity: </label>
                                         <select id="activity">
                                             <option value="" disabled selected>Select activity</option>
-                                            <option value="1">Category 1</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Price:</label>
+                                        <input id="price" type="text" value="">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -156,7 +160,13 @@
                         <div class="right-form-container">
                             <div class="form-section">
                                 <div class="form-row">
-                                    <div class="form-group">
+                                    <div id="createdDate" class="form-group">
+                                        <label>Warranty period:</label>
+                                        <label id="date">02/09/2024</label>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div id="period" class="form-group">
                                         <label>Warranty period:</label>
                                         <label id="warranty_period">02/09/2024</label>
                                     </div>
@@ -164,16 +174,22 @@
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label>Surcharge:</label>
-                                        <label id="surcharge">Free</label>
+                                        <input id="surcharge" type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Total:</label>
+                                        <label id="total"></label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="actions">
-                    <button class="btn btn-cancel">Cancel</button>
-                    <button class="btn btn-save">Save</button>
+                <div id="actions" class="actions">
+                    <button id="cancel" class="btn btn-cancel">Cancel</button>
+                    <button id="save" class="btn btn-save">Save</button>
                 </div>
             </div>
 
@@ -196,3 +212,4 @@
     }
 </script>
 <script src="./js/logout.js"></script>
+<script src="./js/warrantyinfo.js"></script>

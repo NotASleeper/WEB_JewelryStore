@@ -62,25 +62,30 @@ const getPositionID = async () => {
     }
 }
 
-const updateEmployee = async (name, address, phone, email, birthday) => {
+const updateEmployee = async (name, address, phone, email, birthday, img) => {
     const id = getQueryParam('id');
     const id_position = await getPositionID();
-    const employee = {
-        name: name,
-        id_position: id_position,
-        address: address,
-        phone: phone,
-        email: email,
-        birthday: birthday,
-    }
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('id_position', id_position);
+    formData.append('address', address);
+    formData.append('phone', phone);
+    formData.append('email', email);
+    formData.append('birthday', birthday);
+    formData.append('img', img);
+    // const employee = {
+    //     name: name,
+    //     id_position: id_position,
+    //     address: address,
+    //     phone: phone,
+    //     email: email,
+    //     birthday: birthday,
+    // }
 
     try {
         const response = await fetch(`http://localhost:5501/api/v1/employees/${id}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(employee)
+            body: formData
         });
 
         const data = await response.json()
@@ -119,6 +124,8 @@ const saveClick = async () => {
     const birthday = document.getElementById('birthday').value;
     const username = document.getElementById('account').value;
     const position = document.getElementById('position').value;
+    const img = document.getElementById('file-input').files[0];
+
 
     if (name.trim() === '' ||
         address.trim() === '' ||
@@ -126,7 +133,8 @@ const saveClick = async () => {
         email.trim() === '' ||
         birthday.trim() === '' ||
         username.trim() === '' ||
-        position.trim() === '') {
+        position.trim() === '' ||
+        !img) {
         alert('Please fill in all required fields');
         return;
     }
@@ -144,9 +152,9 @@ const saveClick = async () => {
         await updateAccount(username);
     }
 
-    const data = await updateEmployee(name, address, phone, email, birthday);
+    const data = await updateEmployee(name, address, phone, email, birthday, img);
 
-    //window.location.href = 'employee-info.html?id=' + data.id;
+    window.location.href = 'employee-info.html?id=' + data.id;
 }
 
 const isAccountExist = async (username) => {

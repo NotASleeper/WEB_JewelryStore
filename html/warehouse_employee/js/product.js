@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     (getAllProduct = async () => {
         try {
             const urlParams = new URLSearchParams(window.location.search);

@@ -154,7 +154,7 @@ body {
     height: 10%;
 }
 
-.subtitle p{
+.subtitle p {
     font-size: 20px;
     margin-left: 10%;
     margin-top: 2%;
@@ -305,7 +305,8 @@ input[type="text"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Đảm bảo popup nằm trên các thành phần khác */
+    z-index: 1000;
+    /* Đảm bảo popup nằm trên các thành phần khác */
 }
 
 .popup-content {
@@ -333,16 +334,157 @@ input[type="text"] {
     margin: 10px;
 }
 
-.popup-content .cancel{
+.popup-content .cancel {
     background-color: #FFF9F8;
     border: 1px solid #FACDC3;
     border-radius: 5.5px;
     color: #EB2F06;
 }
 
-.popup-content .ok{
+.popup-content .ok {
     background-color: #F5FFFA;
     border: 1px solid #C5F6DC;
     border-radius: 5.5px;
     color: #20BF6B;
+}
+
+.Product {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.Product th {
+    width: 14%;
+    padding: 8px;
+    height: 65px;
+    background-color: #1279C3;
+    color: white;
+    font-weight: 500;
+}
+
+.Product #ID {
+    width: 30% !important;
+    height: 20%;
+    text-align: left;
+    padding-left: 2%;
+    border-radius: 10px 0 0 0;
+}
+
+.Product #action {
+    border-radius: 0 10px 0 0;
+}
+
+.Product tr {
+    height: 20%;
+}
+
+.Product td {
+    width: fit-content;
+    padding: 8px;
+    text-align: center;
+    height: 100px;
+    color: #7D8398;
+}
+
+.Product #name {
+    text-align: left;
+    padding-left: 2%;
+}
+
+.Product tbody #action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.Product img {
+    width: 80px;
+    height: 80px;
+    display: flex;
+}
+
+.Product .info {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.info .name {
+    font-size: large;
+    font-weight: bolder;
+}
+
+.info .price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price p {
+    color: #7D8398;
+}
+
+.info .discount {
+    margin-left: 2px;
+    background-color: #E8E8E8;
+    border-radius: 5px;
+    width: fit-content;
+    display: flex;
+}
+
+.discount p {
+    color: #EB2F06;
+    padding: 2px;
+}
+
+.discount img {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+    margin-top: 2px;
+}
+
+.info .origin-price {
+    text-decoration: line-through;
+    color: #7D8398;
+}
+
+.Product button {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    padding: 5px 20px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.Product .Delete {
+    background-color: #FFF9F8;
+    border: 1px solid#FACDC3;
+    border-radius: 5.5px;
+    color: #EB2F06;
+}
+
+.Product tbody #action img {
+    width: 30px;
+    height: 30px;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+    /* Màu nền cho dòng lẻ */
+}
+
+tr:nth-child(even) {
+    background-color: rgba(18, 121, 195, 0.1);
+    /* Màu nền cho dòng chẵn */
 }

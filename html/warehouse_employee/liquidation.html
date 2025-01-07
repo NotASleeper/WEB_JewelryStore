@@ -48,7 +48,7 @@
                 <img src="./assets/icons/cart_ic.png" alt="Cart" />
                 <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
                 <a class="user" href="profile.html">
-                    <img src="./assets/images/avt.png" alt="avatar" />
+                    <img id="avatar" src="./assets/images/avt.png" alt="avatar" />
                     Employee
                 </a>
                 <img src="./assets/icons/logout_ic.png" alt="Log out" />
@@ -56,8 +56,8 @@
         </div>
         <div class="searchbar">
             <div class="searchinput">
-                <input id="searchInfo" placeholder="Search Liquidation Here">
-                <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+                <input id="employeeName" placeholder="Search Liquidation Here">
+                <i id="search" class="fas fa-search"></i> <!-- Font Awesome Icon -->
             </div>
             <div class="filter">
                 <img src="./assets/icons/filter_ic.png" />
@@ -91,8 +91,9 @@
                 <thead class="test">
                     <tr>
                         <th id="ID_thead">ID</th>
-
+                        <th>Employee</th>
                         <th>Date<img src="./assets/icons/upanddown.png" alt="" class="loyal"></th>
+                        <th>Total <img src="./assets/icons/upanddown.png" alt="" class="loyal"></th>
                         <th id="state">State</th>
                         <th id="action">Actions</th>
                     </tr>
@@ -100,7 +101,9 @@
                 <tbody>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="loading">
                                 <img src="./assets/icons/loading_ic.png" alt="Loading" />
@@ -113,7 +116,9 @@
                     </tr>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="loading">
                                 <img src="./assets/icons/loading_ic.png" alt="Loading" />
@@ -126,7 +131,9 @@
                     </tr>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="loading">
                                 <img src="./assets/icons/loading_ic.png" alt="Loading" />
@@ -139,7 +146,9 @@
                     </tr>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="loading">
                                 <img src="./assets/icons/loading_ic.png" alt="Loading" />
@@ -152,7 +161,9 @@
                     </tr>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="accepted">
                                 <img src="./assets/icons/accepted_ic.png" alt="Loading" />
@@ -164,7 +175,9 @@
                     </tr>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="accepted">
                                 <img src="./assets/icons/accepted_ic.png" alt="Loading" />
@@ -176,7 +189,9 @@
                     </tr>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="accepted">
                                 <img src="./assets/icons/accepted_ic.png" alt="Loading" />
@@ -188,7 +203,9 @@
                     </tr>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="accepted">
                                 <img src="./assets/icons/accepted_ic.png" alt="Loading" />
@@ -200,7 +217,9 @@
                     </tr>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="accepted">
                                 <img src="./assets/icons/accepted_ic.png" alt="Loading" />
@@ -212,7 +231,9 @@
                     </tr>
                     <tr>
                         <td id="ID_tbody">WAR001</td>
+                        <td>TNHH Supplier1</td>
                         <td>02/09/2024</td>
+                        <td>100,000,000 VND</td>
                         <td id="state">
                             <div class="accepted">
                                 <img src="./assets/icons/accepted_ic.png" alt="Loading" />
@@ -226,6 +247,9 @@
             </table>
         </div>
     </div>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/liquidation.js"></script>
 </body>
 <script>
     function redirectToNewPage(newPage) {

@@ -188,21 +188,21 @@
                         <button class="btn btn-cancel">Cancel</button>
                     </div>
                 </div>
-                <div class="thumbnail-box avatar-container">
-                    <div class="avatar-preview">
-                        <label class="upload-button">
+                <div class="image-container">
+                    <div class="thumbnail-box avatar-container">
+                        <div class="avatar-preview">
                             <img class="upload-icon" src="./assets/newimg.png" alt=""
                                 style="cursor:pointer; height: 5rem; width: 5rem;">
-                            <input type="file" class="file-input" accept="image/*">
-                        </label>
-                        <img id="preview" style="display: none;">
-                        <div class="loading"></div>
+                            <img id="preview" style="display: none;">
+                            <div class="loading"></div>
+                        </div>
                     </div>
-
+                    <label class="upload-button">
+                        <img src="./assets/editimage.png" alt="">
+                        upload image
+                        <input type="file" class="file-input" accept="image/*">
+                    </label>
                     <div class="error-message"></div>
-                    <form action="" enctype="multipart/form-data">
-                        <input type="file" name="EmployeeImage" />
-                    </form>
                 </div>
             </div>
         </div>

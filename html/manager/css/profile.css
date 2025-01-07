@@ -406,6 +406,7 @@ body {
 }
 
 .popup-content button {
+    cursor: pointer;
     background-color: #4CAF50;
     position: relative;
     width: 30%;

@@ -234,7 +234,7 @@ function addPreOrder(customer) {
 
     const preOrder = {
         id_customer: customer.id,
-        id_employee: sessionStorage.getItem('idStaff'),
+        id_employee: sessionStorage.getItem('id_employee'),
         is_used_point: false,
         id_coupon: null,
         total_price: 0,

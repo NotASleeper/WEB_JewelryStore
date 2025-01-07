@@ -101,7 +101,7 @@ async function createOrder() {
     const usePoint = document.getElementById('usePoint').checked;
     const order = {
         id_customer: customerid,
-        id_employee: sessionStorage.getItem('idStaff'),
+        id_employee: sessionStorage.getItem('id_employee'),
         is_used_point: usePoint,
         id_coupon: couponid,
         total_price: 0,

@@ -1,5 +1,6 @@
 const { Op } = require("sequelize");
-const { Product, Inventory, ProductCategory, Gemstone } = require("../models");
+const { Product, Inventory, ProductCategory, Gemstone, ProductImage } = require("../models");
+const uploadCloud = require('../middlewares/upload/cloudinary');
 
 //Lấy product và số lượng
 const getProductWitDetail = async (id) => {
@@ -20,6 +21,7 @@ const getProductWitDetail = async (id) => {
 };
 
 const createProduct = async (req, res) => {
+  uploadCloud.any('img', 10)
   const {
     name,
     id_category,
@@ -56,6 +58,16 @@ const createProduct = async (req, res) => {
       status: 1,
     });
 
+    if (req.file && req.files.length > 0) {
+      const imagePromises = req.files.map(file => {
+        return ProductImage.create({
+          id_product: newProduct.id,
+          url: file.path,
+        });
+      });
+      await Promise.all(imagePromises);
+    }
+
     const productWithQuantity = await getProductWitDetail(newProduct.id);
     res.status(201).send(productWithQuantity);
   } catch (error) {
@@ -78,6 +90,9 @@ const getAllProduct = async (req, res) => {
           },
           {
             model: ProductCategory,
+          },
+          {
+            model: ProductImage,
           }
         ],
         where: {

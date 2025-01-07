@@ -220,6 +220,7 @@ const saveClick = async () => {
     const username = document.getElementById('username').value;
     const position = document.getElementById('position').value;
     const img = document.getElementById('file-input').files[0];
+    console.log(img);
 
 
     if (name.trim() === '' ||
@@ -228,8 +229,7 @@ const saveClick = async () => {
         email.trim() === '' ||
         birthday.trim() === '' ||
         username.trim() === '' ||
-        position.trim() === '' ||
-        !img) {
+        position.trim() === '') {
         alert('Please fill in all required fields');
         return;
     }

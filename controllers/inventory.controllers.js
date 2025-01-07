@@ -33,6 +33,7 @@ const getDetailInventory = async (req, res) => {
         const detailInventory = await Inventory.findOne({
             where: {
                 id: id,
+                // od: 1,
             }
         });
         res.status(200).send(detailInventory);

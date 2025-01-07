@@ -36,8 +36,8 @@ function getRefundList() {
     fetch('http://localhost:5501/api/v1/refund-forms')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             refundList = data;
+            console.log(refundList);
             displayRefundList(refundList);
         })
         .catch(error => {
@@ -52,13 +52,16 @@ function displayRefundList(refundList) {
     refundList.forEach(async refund => {
         const row = document.importNode(template, true);
         row.getElementById('ID_tbody').textContent = refund.id;
-        row.getElementById('customer').textContent = await getCustomerByID(refund.id_customer).name;
+        const customer = await getCustomerByID(refund.id_customer);
+        row.getElementById('customer').textContent = customer.name;
         row.getElementById('date').textContent = formatDate(refund.date_created);
-        row.getElementById('product').textContent = await getProductByID(refund.id_product);
+        const product = await getProductByID(refund.id_product);
+        row.getElementById('product').textContent = product.name;
         row.getElementById('bill').textContent = refund.id_order;
         row.getElementById('tr').addEventListener('click', function () {
             window.location.href = `/sale/refundinfo?mode=view&id=${refund.id}`;
         });
+        table.appendChild(row);
     });
 }
 

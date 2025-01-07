@@ -1,154 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luxora</title>
-    <link rel="stylesheet" href="./css/bill.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <div class="layout">
-      <div class="header">
-        <div class="logo">
-          <div class="logo-icon" onclick="redirectToNewPage('product.html')">
-            <img src="./assets/icons/logo.png" alt="" class="name" />
-            <p>Luxora</p>
-          </div>
-        </div>
-        <div class="container_nav">
-          <div class="nav">
-            <ul>
-              <li class="nav-item" id="nav_product">
-                <a href="product.html">
-                  <img
-                    src="./assets/icons/product.png"
-                    style="height: 16px; width: 16px"
-                    alt="dashboard"
-                  />
-                  Product
-                </a>
-              </li>
-              <li class="nav-item" id="nav_import">
-                <a href="import.html">
-                  <img
-                    src="./assets/icons/import.png"
-                    style="height: 16px; width: 16px"
-                    alt="dashboard"
-                  />
-                  Import
-                </a>
-              </li>
-              <li class="nav-selected" id="nav_export">
-                <a href="export.html">
-                  <img
-                    src="./assets/icons/export.png"
-                    style="height: 16px; width: 16px"
-                    alt="dashboard"
-                  />
-                  Export
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="right-container">
-          <img src="./assets/icons/cart_ic.png" alt="Cart" />
-          <img
-            src="./assets/icons/non_notification_ic.png"
-            alt="Notification"
-          />
-          <a class="user" href="profile.html">
-            <img src="./assets/images/avt.png" alt="avatar" />
-            Employee
-          </a>
-          <img src="./assets/icons/logout_ic.png" alt="Log out" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxora</title>
+  <link rel="stylesheet" href="./css/bill.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="layout">
+    <div class="header">
+      <div class="logo">
+        <div class="logo-icon" onclick="redirectToNewPage('product.html')">
+          <img src="./assets/icons/logo.png" alt="" class="name" />
+          <p>Luxora</p>
         </div>
       </div>
-      <div class="searchbar">
-        <div class="searchinput">
-          <input id="searchInfo" placeholder="Search Bill Here" />
-          <i id="searchic" class="fas fa-search"></i>
-          <!-- Font Awesome Icon -->
-        </div>
-        <div class="filter" id="filterBT">
-          <img src="./assets/icons/filter_ic.png" />
-        </div>
-        <div class="filterList" id="filterList" style="display: none">
-          <div class="Date">
-            <p style="color: black; font-size: 16px">From:</p>
-            <div class="date-picker">
-              <input id="from" type="date" />
-            </div>
-          </div>
-          <div class="Date">
-            <p style="color: black; font-size: 16px">To:</p>
-            <div style="margin-left: 20px" class="date-picker">
-              <input id="to" type="date" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="content">
-        <div class="left-nav">
+      <div class="container_nav">
+        <div class="nav">
           <ul>
-            <li class="selected">
-              <a href="bill.html">Order</a>
+            <li class="nav-item" id="nav_product">
+              <a href="product.html">
+                <img src="./assets/icons/product.png" style="height: 16px; width: 16px" alt="dashboard" />
+                Product
+              </a>
             </li>
-            <li>
-              <a href="liquidation.html">Liquidation</a>
+            <li class="nav-item" id="nav_import">
+              <a href="import.html">
+                <img src="./assets/icons/import.png" style="height: 16px; width: 16px" alt="dashboard" />
+                Import
+              </a>
+            </li>
+            <li class="nav-selected" id="nav_export">
+              <a href="bill.html">
+                <img src="./assets/icons/export.png" style="height: 16px; width: 16px" alt="dashboard" />
+                Export
+              </a>
             </li>
           </ul>
         </div>
-        <table class="table">
-          <thead class="test">
-            <tr>
-              <th id="ID_thead">ID</th>
-              <th>Customer</th>
-              <th>
-                Date<img
-                  id="dateArrange"
-                  src="./assets/icons/upanddown.png"
-                  alt=""
-                  class="loyal"
-                />
-              </th>
-              <th>
-                Total<img
-                  id="totalArrange"
-                  src="./assets/icons/upanddown.png"
-                  alt=""
-                  class="loyal"
-                />
-              </th>
-              <th id="action">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="billTable"></tbody>
-        </table>
+      </div>
+      <div class="right-container">
+        <img src="./assets/icons/cart_ic.png" alt="Cart" />
+        <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
+        <a class="user" href="profile.html">
+          <img src="./assets/images/avt.png" alt="avatar" />
+          Employee
+        </a>
+        <img src="./assets/icons/logout_ic.png" alt="Log out" />
       </div>
     </div>
-    <template id="billTemplate">
-      <tr id="tr">
-        <td id="ID_tbody">B300934083540</td>
-        <td id="customer">Customer1</td>
-        <td id="date">02/09/2024</td>
-        <td id="total">25,000,000 VND</td>
-        <td id="action">
-          <button class="View">View</button>
-        </td>
-      </tr>
-    </template>
-  </body>
-  <script>
-    function redirectToNewPage(newPage) {
-      window.location.href = newPage;
-    }
-  </script>
-  <script src="./js/bill.js"></script>
+    <div class="searchbar">
+      <div class="searchinput">
+        <input id="searchInfo" placeholder="Search Bill Here" />
+        <i id="searchic" class="fas fa-search"></i>
+        <!-- Font Awesome Icon -->
+      </div>
+      <div class="filter" id="filterBT">
+        <img src="./assets/icons/filter_ic.png" />
+      </div>
+      <div class="filterList" id="filterList" style="display: none">
+        <div class="Date">
+          <p style="color: black; font-size: 16px">From:</p>
+          <div class="date-picker">
+            <input id="from" type="date" />
+          </div>
+        </div>
+        <div class="Date">
+          <p style="color: black; font-size: 16px">To:</p>
+          <div style="margin-left: 20px" class="date-picker">
+            <input id="to" type="date" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="left-nav">
+        <ul>
+          <li class="selected">
+            <a href="bill.html">Order</a>
+          </li>
+          <li>
+            <a href="liquidation.html">Liquidation</a>
+          </li>
+        </ul>
+      </div>
+      <table class="table">
+        <thead class="test">
+          <tr>
+            <th id="ID_thead">ID</th>
+            <th>Customer</th>
+            <th>
+              Date<img id="dateArrange" src="./assets/icons/upanddown.png" alt="" class="loyal" />
+            </th>
+            <th>
+              Total<img id="totalArrange" src="./assets/icons/upanddown.png" alt="" class="loyal" />
+            </th>
+            <th id="action">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="billTable"></tbody>
+      </table>
+    </div>
+  </div>
+  <template id="billTemplate">
+    <tr id="tr">
+      <td id="ID_tbody">B300934083540</td>
+      <td id="customer">Customer1</td>
+      <td id="date">02/09/2024</td>
+      <td id="total">25,000,000 VND</td>
+      <td id="action">
+        <button class="View">View</button>
+      </td>
+    </tr>
+  </template>
+</body>
+<script>
+  function redirectToNewPage(newPage) {
+    window.location.href = newPage;
+  }
+</script>
+<script src="./js/bill.js"></script>
+
 </html>

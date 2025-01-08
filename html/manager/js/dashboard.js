@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Load chart
     updateChart(new Date());
+    console.log(new Date());
+
     updateLineChart(new Date());
 
     //Lấy dữ liệu title
@@ -283,6 +285,8 @@ async function updateLineChart(date) {
 
 async function getWeeklyRevenue(date) {
     const response = await fetch(`http://localhost:5501/api/v1/revenues/weekly/${date}`);
+    console.log(`http://localhost:5501/api/v1/revenues/weekly/${date}`);
+
     const data = await response.json();
     const revenue = Object.values(data)
 

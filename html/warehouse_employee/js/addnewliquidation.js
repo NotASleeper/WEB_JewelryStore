@@ -45,6 +45,11 @@ document.getElementById('saveChange').addEventListener('click', async function (
     row.setAttribute('data-product-id', document.getElementById('product').value);
     row.querySelector('#ID').textContent = document.getElementById('detailTable').children.length + 1;
     const product = await getProductByID(document.getElementById('product').value);
+    const liqQuantity = document.getElementById('quantity1').value;
+    if (product.Inventory.quantity < liqQuantity) {
+        alert("Out of stock");
+        return;
+    }
     row.querySelector('#name').innerHTML = '<b>' + product.name + '</b><br>' + product.material + ', ' + product.Gemstone.name;
     row.querySelector('#categorydetail').textContent = document.getElementById('category').options[document.getElementById('category').selectedIndex].text;
     row.querySelector('#quantity').textContent = document.getElementById('quantity1').value;

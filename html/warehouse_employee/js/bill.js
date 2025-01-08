@@ -15,14 +15,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     });
 
-    document.getElementById('dateArrange').addEventListener('click', function () {
-        sortBillsByDate();
-    });
-
-    document.getElementById('totalArrange').addEventListener('click', function () {
-        sortBillByTotal();
-    });
-
     document.getElementById('searchInfo').addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
             searchBill();
@@ -42,34 +34,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
 });
 
-function sortBillsByDate() {
-    const sortedBill = billList.sort((a,b)=>{
-        if (dateOrder !== 'desc'){
-            dateOrder = 'desc';
-            return new Date(b.date_created) - new Date(a.date_created);
-        }
-        else{
-            dateOrder = 'asc';
-            return new Date(a.date_created) - new Date(b.date_created);
-        }
-    })
-    displayBillList(sortedBill);
-}
 
-function sortBillByTotal(){
-    const sortedBill = billList.sort((a,b)=>{
-        if (totalOrder !== 'desc'){
-            totalOrder = 'desc';
-            return b.total_price - a.total_price;
-        }
-        else
-        {
-            totalOrder = 'asc';
-            return a.total_price - b.total_price
-        }
-    })
-    displayBillList(sortedBill);
-}
 
 
 function getBillList() {

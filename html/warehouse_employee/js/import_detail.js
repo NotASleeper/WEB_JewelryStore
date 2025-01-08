@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const id = getQueryParam("id");
-  document.getElementById("avatar").src = sessionStorage.getItem("url");
+  document.getElementById("avt").src = sessionStorage.getItem("url");
 
   (getDetailImport = async () => {
     try {
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("id").value = data.id;
       document.getElementById("supplier").value = data.Supplier.name;
       document.getElementById("address").value = data.Supplier.address;
-      document.getElementById("employee").value = data.Employee.name;
+      document.getElementById("employee").value = !data.accept?'':data.accept.name;
       document.getElementById("created").value = date;
       document.getElementById("accepted").value = date;
       document.getElementById("state").value = "Accepted";

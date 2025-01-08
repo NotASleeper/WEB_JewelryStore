@@ -3,16 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   (getAllCategory = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:5501/api/v1/product-categories/`,
-        {}
-      );
+      const response = await fetch(`http://localhost:5501/api/v1/product-categories/`, {});
       const data = await response.json();
 
-      data.forEach((category) => {
+      data.forEach(category => {
         const detailList = document.getElementById("categoryList");
         const option = document.createElement("option");
-        option.innerText = category.name;
+        option.value = category.name;
         detailList.appendChild(option);
       });
 

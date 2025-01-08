@@ -2,6 +2,8 @@ let profile = {};
 
 const changePasswordPopup = document.getElementById('changePassword-popup');
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('avt').src = sessionStorage.getItem('url');
+    document.getElementById('avatar').src = sessionStorage.getItem('url');
     const logoutPopup = document.getElementById('logout_popup');
     const cancelButton = document.getElementById('cancelButton');
     const confirmButton = document.getElementById('confirmButton');

@@ -38,22 +38,25 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('total').innerText = parseFloat(thisWeek).toLocaleString() + "VND";
         document.getElementById('billAmmount').innerText = parseInt(thisWeekBill).toLocaleString();
         console.log(thisWeekBill);
+        console.log(thisWeek, lastWeek);
 
 
-        if (thisWeek > lastWeek) {
-            const percent = ((thisWeek / lastWeek) - 1) * 100;
-            document.getElementById('arrow').className = "fa-solid fa-arrow-up";
-            document.getElementById('arrow').style = "color: #149D52";
-            document.getElementById('percent').innerText = percent.toFixed(2) + "%";
-            document.getElementById('percent').style = "color: #149D52";
-        } else if (thisWeek < lastWeek) {
-            const percent = ((lastWeek / thisWeek) - 1) * 100;
-            document.getElementById('arrow').className = "fa-solid fa-arrow-down";
-            document.getElementById('arrow').style = "color: #EB2F06";
-            document.getElementById('percent').innerText = percent.toFixed(2) + "%";
-            document.getElementById('percent').style = "color: #EB2F06";
-        } else {
-            document.getElementById('titelText').innerText = "";
+        if (lastWeek != 0) {
+            if (thisWeek > lastWeek) {
+                const percent = ((thisWeek - lastWeek) / Math.abs(lastWeek)) * 100;
+                document.getElementById('arrow').className = "fa-solid fa-arrow-up";
+                document.getElementById('arrow').style = "color: #149D52";
+                document.getElementById('percent').innerText = percent.toFixed(2) + "%";
+                document.getElementById('percent').style = "color: #149D52";
+            } else if (thisWeek < lastWeek) {
+                const percent = ((thisWeek - lastWeek) / Math.abs(lastWeek)) * 100;
+                document.getElementById('arrow').className = "fa-solid fa-arrow-down";
+                document.getElementById('arrow').style = "color: #EB2F06";
+                document.getElementById('percent').innerText = percent.toFixed(2) + "%";
+                document.getElementById('percent').style = "color: #EB2F06";
+            } else {
+                document.getElementById('titelText').innerText = "";
+            }
         }
 
         if (thisWeekBill > lastWeekBill) {

@@ -44,10 +44,10 @@
       </div>
       <div class="right-container">
         <a class="user" href="profile.html">
-          <img id="avatar" src="./assets/images/avt.png" alt="avatar" />
-          Employee
+          <img id="avt" src="./assets/images/avt.png" alt="avt" />
+          <p id="user" style="color: white;"></p>
         </a>
-        <img src="./assets/icons/logout_ic.png" alt="Log out" />
+        <img id="logout-ic" src="./assets/icons/logout_ic.png" alt="Log out" />
       </div>
     </div>
     <div class="searchbar">
@@ -215,7 +215,30 @@
       </table>
     </div>
   </div>
-  <script src="./js/import.js"></script>
+  <div id="delete_popup" class="popup-overlay" style="display: none">
+    <div class="popup-content">
+      <h3 style="color: #1279c3; font-size: larger; margin-bottom: 20px">
+        Delete customer
+      </h3>
+      <p>Do you really want to delete this customer?</p>
+      <div style="display: flex; justify-content: space-around">
+        <button id="cancelDeleteButton" class="cancel">Cancel</button>
+        <button id="confirmDeleteButton" class="ok">Ok</button>
+      </div>
+    </div>
+  </div>
+  <div id="logout_popup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+        <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Log out</h3>
+        <p>Do you really want to log out?</p>
+        <div style="display: flex; justify-content: space-around;">
+            <button id="cancelButton" class="cancel">Cancel</button>
+            <button id="confirmButton" class="ok">Ok</button>
+        </div>
+    </div>
+</div>
+    <script src="./js/logout.js"></script>
+    <script src="./js/import.js"></script>
 </body>
 <script>
   function redirectToNewPage(newPage) {

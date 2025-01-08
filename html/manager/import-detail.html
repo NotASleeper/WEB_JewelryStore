@@ -96,8 +96,14 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Employee:</label>
-                            <input id="employee" type="text" value="Employee1">
+                            <label>Creator:</label>
+                            <input id="creator" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Inspector:</label>
+                            <input id="inspector" type="text" value="">
                         </div>
                     </div>
                 </div>
@@ -108,21 +114,21 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Date Created:</label>
-                            <input id="created" type="text" value="02/09/2024">
+                            <input id="date-created" type="text" value="02/09/2024">
                         </div>
                     </div>
 
-                    <!-- <div class="form-row">
+                    <div class="form-row">
                         <div class="form-group">
                             <label>Date Accepted </label>
-                            <input id="accepted" type="text" value=" ">
+                            <input id="date-accepted" type="text" value=" ">
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>State:</label>
-                            <input id="state" type="text" value="Accepted">
+                            <input id="state" type="text" value="Waiting">
                         </div>
                     </div>
                 </div>
@@ -162,8 +168,8 @@
             </table>
         </div>
         <div class="actions">
-            <button onclick="history.back()" class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
-            <!-- <button class="btn btn-save " style="font-weight: 600;">Accept</button> -->
+            <button id="cancel" onclick="cancelClick()" class="btn btn-cancel" style="font-weight: 600;">Cancel</button>
+            <button id="accept" onclick="acceptClick()" class="btn btn-save " style="font-weight: 600;">Accept</button>
         </div>
     </div>
     </div>

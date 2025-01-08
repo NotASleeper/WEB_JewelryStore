@@ -2,262 +2,290 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxora</title>
-    <link rel="stylesheet" href="./css/liquidation.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxora</title>
+  <link rel="stylesheet" href="./css/liquidation.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
 <body>
-    <div class="layout">
-        <div class="header">
-            <div class="logo">
-                <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')">
-                    <img src="./assets/icons/logo.png" alt="" class="name">
-                    <p>Luxora</p>
-                </div>
-
-            </div>
-            <div class="container_nav">
-                <div class="nav">
-                    <ul>
-                        <li class="nav-item" id="nav_product">
-                            <a href="product.html">
-                                <img src="./assets/icons/product.png" style="height: 16px; width: 16px;"
-                                    alt="dashboard">
-                                Product
-                            </a>
-                        </li>
-                        <li class="nav-item" id="nav_import">
-                            <a href="import.html">
-                                <img src="./assets/icons/import.png" style="height: 16px; width: 16px;" alt="dashboard">
-                                Import
-                            </a>
-                        </li>
-                        <li class="nav-selected" id="nav_export">
-                            <a href="bill.html">
-                                <img src="./assets/icons/export.png" style="height: 16px; width: 16px;" alt="dashboard">
-                                Export
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="right-container">
-                <img src="./assets/icons/cart_ic.png" alt="Cart" />
-                <a class="user" href="profile.html">
-                    <img id="avatar" src="./assets/images/avt.png" alt="avatar" />
-                    Employee
-                </a>
-                <img src="./assets/icons/logout_ic.png" alt="Log out" />
-            </div>
+  <div class="layout">
+    <div class="header">
+      <div class="logo">
+        <div class="logo-icon" onclick="redirectToNewPage('dashboard.html')">
+          <img src="./assets/icons/logo.png" alt="" class="name" />
+          <p>Luxora</p>
         </div>
-        <div class="searchbar">
-            <div class="searchinput">
-                <input id="employeeName" placeholder="Search Liquidation Here">
-                <i id="search" class="fas fa-search"></i> <!-- Font Awesome Icon -->
-            </div>
-            <div id="filterBT" class="filter">
-                <img src="./assets/icons/filter_ic.png" />
-            </div>
-            <div class="filterList" id="filterList" style="display: none">
-                <div class="Date">
-                    <p style="color: black; font-size: 16px">From:</p>
-                    <div class="date-picker">
-                        <input id="from" type="date" />
-                    </div>
-                </div>
-                <div class="Date">
-                    <p style="color: black; font-size: 16px">To:</p>
-                    <div style="margin-left: 20px" class="date-picker">
-                        <input id="to" type="date" />
-                    </div>
-                </div>
-            </div>
-            <button class="button-add" onclick="redirectToNewPage('liquidation-detail.html')">
-                <img src="./assets/icons/add_ic.png" alt="Add" />
-                <p>Add New Liquidation Form</p>
-            </button>
+      </div>
+      <div class="container_nav">
+        <div class="nav">
+          <ul>
+            <li class="nav-item" id="nav_product">
+              <a href="product.html">
+                <img src="./assets/icons/product.png" style="height: 16px; width: 16px" alt="dashboard" />
+                Product
+              </a>
+            </li>
+            <li class="nav-item" id="nav_import">
+              <a href="import.html">
+                <img src="./assets/icons/import.png" style="height: 16px; width: 16px" alt="dashboard" />
+                Import
+              </a>
+            </li>
+            <li class="nav-selected" id="nav_export">
+              <a href="bill.html">
+                <img src="./assets/icons/export.png" style="height: 16px; width: 16px" alt="dashboard" />
+                Export
+              </a>
+            </li>
+          </ul>
         </div>
-
-        <div class="content">
-            <div class="left-nav">
-                <ul>
-                    <li>
-                        <a href="bill.html">Order</a>
-                    </li>
-                    <li class="selected">
-                        <a href="liquidation.html">Liquidation</a>
-                    </li>
-                </ul>
-            </div>
-            <table class="table">
-                <thead class="test">
-                    <tr>
-                        <th id="ID_thead">ID</th>
-                        <th>Employee</th>
-                        <th>Date<img src="./assets/icons/upanddown.png" alt="" class="loyal"></th>
-                        <th>Total <img src="./assets/icons/upanddown.png" alt="" class="loyal"></th>
-                        <th id="state">State</th>
-                        <th id="action">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="loading">
-                                <img src="./assets/icons/loading_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="Edit">Edit</button>
-                            <button class="Delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="ID_tbody">WAR001</td>
-                        <td>TNHH Supplier1</td>
-                        <td>02/09/2024</td>
-                        <td>100,000,000 VND</td>
-                        <td id="state">
-                            <div class="accepted">
-                                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
-                            </div>
-                        </td>
-                        <td id="action">
-                            <button class="View">View</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+      </div>
+      <div class="right-container">
+        <img src="./assets/icons/non_notification_ic.png" alt="Notification" />
+        <a class="user" href="profile.html">
+          <img id="avt" src="./assets/images/avt.png" alt="avt" />
+          <p id="user" style="color: white;"></p>
+        </a>
+        <img id="logout-ic" src="./assets/icons/logout_ic.png" alt="Log out" />
+      </div>
+    </div>
+    <div class="searchbar">
+      <div class="searchinput">
+        <input id="employeeName" placeholder="Search Liquidation Here" />
+        <i id="search" class="fas fa-search"></i>
+        <!-- Font Awesome Icon -->
+      </div>
+      <div id="filterBT" class="filter">
+        <img src="./assets/icons/filter_ic.png" />
+      </div>
+      <div class="filterList" id="filterList" style="display: none">
+        <div class="Date">
+          <p style="color: black; font-size: 16px">From:</p>
+          <div class="date-picker">
+            <input id="from" type="date" />
+          </div>
         </div>
+        <div class="Date">
+          <p style="color: black; font-size: 16px">To:</p>
+          <div style="margin-left: 20px" class="date-picker">
+            <input id="to" type="date" />
+          </div>
+        </div>
+      </div>
+      <button class="button-add" onclick="redirectToNewPage('add-new-liquidation.html')">
+        <img src="./assets/icons/add_ic.png" alt="Add" />
+        <p>Add New Liquidation Form</p>
+      </button>
     </div>
 
-    <script src="./js/utils.js"></script>
-    <script src="./js/liquidation.js"></script>
+    <div class="content">
+      <div class="left-nav">
+        <ul>
+          <li>
+            <a href="bill.html">Order</a>
+          </li>
+          <li class="selected">
+            <a href="liquidation.html">Liquidation</a>
+          </li>
+        </ul>
+      </div>
+      <table class="table">
+        <thead class="test">
+          <tr>
+            <th id="ID_thead">ID</th>
+            <th>Employee</th>
+            <th>
+              Date<img src="./assets/icons/upanddown.png" alt="" class="loyal" />
+            </th>
+            <th>
+              Total
+              <img src="./assets/icons/upanddown.png" alt="" class="loyal" />
+            </th>
+            <th id="state">State</th>
+            <th id="action">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="loading">
+                <img src="./assets/icons/loading_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="Edit">Edit</button>
+              <button class="Delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="loading">
+                <img src="./assets/icons/loading_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="Edit">Edit</button>
+              <button class="Delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="loading">
+                <img src="./assets/icons/loading_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="Edit">Edit</button>
+              <button class="Delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="loading">
+                <img src="./assets/icons/loading_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="Edit">Edit</button>
+              <button class="Delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="accepted">
+                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="View">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="accepted">
+                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="View">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="accepted">
+                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="View">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="accepted">
+                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="View">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="accepted">
+                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="View">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td id="ID_tbody">WAR001</td>
+            <td>TNHH Supplier1</td>
+            <td>02/09/2024</td>
+            <td>100,000,000 VND</td>
+            <td id="state">
+              <div class="accepted">
+                <img src="./assets/icons/accepted_ic.png" alt="Loading" />
+              </div>
+            </td>
+            <td id="action">
+              <button class="View">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="delete_popup" class="popup-overlay" style="display: none">
+    <div class="popup-content">
+      <h3 style="color: #1279c3; font-size: larger; margin-bottom: 20px">
+        Delete customer
+      </h3>
+      <p>Do you really want to delete this customer?</p>
+      <div style="display: flex; justify-content: space-around">
+        <button id="cancelDeleteButton" class="cancel">Cancel</button>
+        <button id="confirmDeleteButton" class="ok">Ok</button>
+      </div>
+    </div>
+  </div>
+  <div id="logout_popup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <h3 style="color: #1279C3; font-size: larger; margin-bottom: 20px; ">Log out</h3>
+      <p>Do you really want to log out?</p>
+      <div style="display: flex; justify-content: space-around;">
+        <button id="cancelButton" class="cancel">Cancel</button>
+        <button id="confirmButton" class="ok">Ok</button>
+      </div>
+    </div>
+  </div>
+  <script src="./js/utils.js"></script>
+  <script src="./js/logout.js"></script>
+  <script src="./js/liquidation.js"></script>
 </body>
 <script>
-    function redirectToNewPage(newPage) {
-        window.location.href = newPage;
-    }
+  function redirectToNewPage(newPage) {
+    window.location.href = newPage;
+  }
 </script>
+
+</html>

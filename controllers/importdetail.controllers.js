@@ -1,4 +1,4 @@
-const { ImportDetail, Product, ProductCategory } = require('../models');
+const { ImportDetail, Product, ProductCategory, Inventory } = require('../models');
 
 const createImportDetail = async (req, res) => {
     const {
@@ -124,6 +124,8 @@ const getAllImportDetailByImport = async (req, res) => {
                 model: Product,
                 include: [{
                     model: ProductCategory,
+                }, {
+                    model: Inventory,
                 }],
             }]
         });

@@ -26,17 +26,17 @@ const getDailyRevenue = async (req, res) => {
     const { date } = req.params;
     try {
         const orderForm = await OrderForm.findAll({
-            where: { date_created: date, status: 1 },
+            where: { date_payment: date, status: 1 },
             attributes: ['total_price']
         });
 
         const importForm = await ImportForm.findAll({
-            where: { date_created: date, status: 1 },
+            where: { date_accepted: date, status: 1 },
             attributes: ['total_price']
         });
 
         const liquidationForm = await LiquidationForm.findAll({
-            where: { date_created: date, status: 1 },
+            where: { date_accepted: date, status: 1 },
             attributes: ['total_price']
         });
 
@@ -63,7 +63,7 @@ const getWeeklyRevenue = async (req, res) => {
 
             const orderForms = await OrderForm.findAll({
                 where: {
-                    date_created: {
+                    date_payment: {
                         [Op.between]: [new Date(`${day}T00:00:00.000Z`), new Date(`${day}T23:59:59.999Z`)]
                     },
                     status: 1
@@ -73,7 +73,7 @@ const getWeeklyRevenue = async (req, res) => {
 
             const importForms = await ImportForm.findAll({
                 where: {
-                    date_created: {
+                    date_accepted: {
                         [Op.between]: [new Date(`${day}T00:00:00.000Z`), new Date(`${day}T23:59:59.999Z`)]
                     },
                     status: 1
@@ -83,7 +83,7 @@ const getWeeklyRevenue = async (req, res) => {
 
             const liquidationForms = await LiquidationForm.findAll({
                 where: {
-                    date_created: {
+                    date_accepted: {
                         [Op.between]: [new Date(`${day}T00:00:00.000Z`), new Date(`${day}T23:59:59.999Z`)]
                     },
                     status: 1

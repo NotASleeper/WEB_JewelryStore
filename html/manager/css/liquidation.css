@@ -365,6 +365,7 @@ body {
     padding: 15px;
     text-align: left;
     font-weight: 500;
+    text-align: center;
 }
 
 .table th:first-child {
@@ -379,6 +380,12 @@ body {
     padding: 15px;
     color: #666;
     background-color: white;
+    text-align: center;
+}
+
+.table #ID,
+.table #ID-content {
+    text-align: left !important;
 }
 
 .table tr:nth-child(even) td {

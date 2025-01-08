@@ -332,7 +332,7 @@ body {
     background-color: #1279C3;
     color: white;
     padding: 15px;
-    text-align: left;
+    text-align: center;
     font-weight: 500;
 }
 
@@ -348,7 +348,15 @@ body {
     padding: 15px;
     color: #666;
     background-color: white;
+    text-align: center;
 }
+
+.table #ID,
+.table #ID1,
+.table #name {
+    text-align: left !important;
+}
+
 
 .table tr:nth-child(even) td {
     background-color: #f8f9fa;

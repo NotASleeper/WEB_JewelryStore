@@ -1,151 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luxora</title>
-    <link rel="stylesheet" href="./css/import_detail.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <div class="layout">
-      <div class="header">
-        <div class="logo">
-          <div class="logo-icon" onclick="redirectToNewPage('product.html')">
-            <img src="./assets/icons/logo.png" alt="" class="name" />
-            <p>Luxora</p>
-          </div>
-        </div>
-        <div class="container_nav">
-          <div class="nav">
-            <ul>
-              <li class="nav-item" id="nav_dashboard">
-                <a href="product.html">
-                  <img src="./assets/icons/product.png" alt="dashboard" />
-                  Product
-                </a>
-              </li>
-              <li class="nav-selected" id="nav_service">
-                <a href="import.html">
-                  <img src="./assets/icons/import.png" alt="service" />
-                  Import
-                </a>
-              </li>
-              <li class="nav-item" id="nav_customer">
-                <a href="bill.html">
-                  <img src="./assets/icons/export.png" alt="customer" />
-                  Export
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="right-container">
-          <img
-            src="./assets/icons/non_notification_ic.png"
-            alt="Notification"
-          />
-          <a class="user" href="profile.html">
-            <img id="avatar" src="./assets/images/avt.png" alt="avatar" />
-            Employee
-          </a>
-          <img src="./assets/icons/logout_ic.png" alt="Log out" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxora</title>
+  <link rel="stylesheet" href="./css/import_detail.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="layout">
+    <div class="header">
+      <div class="logo">
+        <div class="logo-icon" onclick="redirectToNewPage('product.html')">
+          <img src="./assets/icons/logo.png" alt="" class="name" />
+          <p>Luxora</p>
         </div>
       </div>
-      <div class="content">
-        <div class="main-content">
-          <p>Import Detail</p>
+      <div class="container_nav">
+        <div class="nav">
+          <ul>
+            <li class="nav-item" id="nav_dashboard">
+              <a href="product.html">
+                <img src="./assets/icons/product.png" alt="dashboard" />
+                Product
+              </a>
+            </li>
+            <li class="nav-selected" id="nav_service">
+              <a href="import.html">
+                <img src="./assets/icons/import.png" alt="service" />
+                Import
+              </a>
+            </li>
+            <li class="nav-item" id="nav_customer">
+              <a href="bill.html">
+                <img src="./assets/icons/export.png" alt="customer" />
+                Export
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="product-container">
-          <div class="form-container">
-            <div class="form-section">
-              <div class="form-row">
-                <div class="form-group">
-                  <label>LOT:</label>
-                  <input id="id" type="text" value="LOT001" />
-                </div>
+      </div>
+      <div class="right-container">
+        <a class="user" href="profile.html">
+          <img id="avatar" src="./assets/images/avt.png" alt="avatar" />
+          Employee
+        </a>
+        <img src="./assets/icons/logout_ic.png" alt="Log out" />
+      </div>
+    </div>
+    <div class="content">
+      <div class="main-content">
+        <p>Import Detail</p>
+      </div>
+      <div class="product-container">
+        <div class="form-container">
+          <div class="form-section">
+            <div class="form-row">
+              <div class="form-group">
+                <label>LOT:</label>
+                <input id="id" type="text" value="LOT001" />
               </div>
+            </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Supplier:</label>
-                  <input id="supplier" type="text" value="Supplier1" />
-                </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Supplier:</label>
+                <input id="supplier" type="text" value="Supplier1" />
               </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Address:</label>
-                  <input
-                    id="address"
-                    type="text"
-                    value="1 Nguyen Hue, District 1, HCMC"
-                  />
-                </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Address:</label>
+                <input id="address" type="text" value="1 Nguyen Hue, District 1, HCMC" />
               </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Inspector:</label>
-                  <input id="employee" type="text" />
-                </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Inspector:</label>
+                <input id="employee" type="text" />
               </div>
             </div>
           </div>
-          <div class="form-container" style="float: right; margin-left: 100px">
-            <div class="form-section">
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Date Created:</label>
-                  <input id="created" type="text" value="02/09/2024" />
-                </div>
+        </div>
+        <div class="form-container" style="float: right; margin-left: 100px">
+          <div class="form-section">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Date Created:</label>
+                <input id="created" type="text" value="02/09/2024" />
               </div>
+            </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Date Accepted </label>
-                  <input id="accepted" type="text" value=" " />
-                </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Date Accepted </label>
+                <input id="accepted" type="text" value=" " />
               </div>
+            </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label>State:</label>
-                  <input id="state" type="text" value="Accepted" />
-                </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>State:</label>
+                <input id="state" type="text" value="Accepted" />
               </div>
             </div>
           </div>
         </div>
-        <div class="table-info" style="display: flex; gap: 65%">
-          <p
-            style="
+      </div>
+      <div class="table-info" style="display: flex; gap: 65%">
+        <p style="
               font-size: 20px;
               margin-left: 5%;
               margin-bottom: 1%;
               color: #1279c3;
-            "
-          >
-            Purchase history
-          </p>
-          <p id="total" style="color: #7d8398; margin-bottom: 0">Total: 0VND</p>
-        </div>
-        <table class="Product">
-          <thead class="test">
-            <tr>
-              <th id="ID">NO.</th>
-              <th>Product</th>
-              <th>Image</th>
-              <th>Category</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th id="action">Total price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr>
+            ">
+          Purchase history
+        </p>
+        <p id="total" style="color: #7d8398; margin-bottom: 0">Total: 0VND</p>
+      </div>
+      <table class="Product">
+        <thead class="test">
+          <tr>
+            <th id="ID">NO.</th>
+            <th>Product</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th id="action">Total price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
                         <td id="ID">4</td>
                         <td id="name">Product 1 <br> Gold, Amethyst</td>
                         <td><img src="./assets/images/product1_1.png" alt="Product image"></td>
@@ -154,17 +142,18 @@
                         <td>2</td>
                         <td>20,000,000 VND</td>
                     </tr> -->
-          </tbody>
-        </table>
-      </div>
+        </tbody>
+      </table>
     </div>
+  </div>
 
-    <script src="./js/utils.js"></script>
-    <script src="./js/import_detail.js"></script>
-  </body>
-  <script>
-    function redirectToNewPage(newPage) {
-      window.location.href = newPage;
-    }
-  </script>
+  <script src="./js/utils.js"></script>
+  <script src="./js/import_detail.js"></script>
+</body>
+<script>
+  function redirectToNewPage(newPage) {
+    window.location.href = newPage;
+  }
+</script>
+
 </html>

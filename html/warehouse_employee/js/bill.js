@@ -43,25 +43,32 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function sortBillsByDate() {
-    if (dateOrder !== 'desc') {
-        billList.sort((a, b) => new Date(b.date_created) - new Date(a.date_created));
-        dateOrder = 'desc';
-    } else {
-        billList.sort((a, b) => new Date(a.date_created) - new Date(b.date_created));
-        dateOrder = 'asc';
-    }
-    displayBillList(billList);
+    const sortedBill = billList.sort((a,b)=>{
+        if (dateOrder !== 'desc'){
+            dateOrder = 'desc';
+            return new Date(b.date_created) - new Date(a.date_created);
+        }
+        else{
+            dateOrder = 'asc';
+            return new Date(a.date_created) - new Date(b.date_created);
+        }
+    })
+    displayBillList(sortedBill);
 }
 
 function sortBillByTotal(){
-    if (totalOrder !== 'desc') {
-        billList.sort((a, b) => b.total_price - a.total_price);
-        totalOrder = 'desc';
-    } else {
-        billList.sort((a, b) => a.total_price - b.total_price);
-        totalOrder = 'asc';
-    }
-    displayBillList(billList);
+    const sortedBill = billList.sort((a,b)=>{
+        if (totalOrder !== 'desc'){
+            totalOrder = 'desc';
+            return b.total_price - a.total_price;
+        }
+        else
+        {
+            totalOrder = 'asc';
+            return a.total_price - b.total_price
+        }
+    })
+    displayBillList(sortedBill);
 }
 
 

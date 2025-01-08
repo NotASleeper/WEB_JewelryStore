@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('arrange').addEventListener('click', function () {
         if (sortOrder !== 'asc') { sortOrder = 'asc'; }
         else { sortOrder = 'desc'; }
+        console.log(sortOrder);
         sortCustomersByLoyalty();
     });
 });
@@ -94,7 +95,6 @@ function displayCustomers(customers) {
     customerList.innerHTML = ''; // Clear existing rows
 
     customers.forEach(customer => {
-        console.log(customer);
         const clone = document.importNode(template, true);
         clone.getElementById('name').textContent = customer.name;
         clone.getElementById('address').textContent = customer.address;
@@ -127,11 +127,11 @@ function formatDate(dateString) {
 }
 
 function sortCustomersByLoyalty() {
-    const sortedCustomers = [...customers].sort((a, b) => {
+    const sortedCustomers = customers.sort((a, b) => {
         if (sortOrder === 'asc') {
-            return a.loyalty - b.loyalty;
+            return a.loyalty_point - b.loyalty_point;
         } else {
-            return b.loyalty - a.loyalty;
+            return b.loyalty_point - a.loyalty_point;
         }
     });
     displayCustomers(sortedCustomers);

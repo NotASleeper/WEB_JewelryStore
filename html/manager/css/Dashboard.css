@@ -380,13 +380,13 @@ body {
         grid-column: span 2;
     }
 
-    .right-Container {
+    /* .right-Container {
         margin-left: 220px;
     }
 
     .left-Container {
         width: 220px;
-    }
+    } */
 }
 
 /* */

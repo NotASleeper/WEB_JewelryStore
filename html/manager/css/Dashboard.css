@@ -12,11 +12,12 @@
 body {
     position: relative;
     display: flex;
+    flex-direction: row;
     min-height: 100vh;
     background-color: #f5f5f5;
 }
 
-/* Menu Toggle Button */
+/* Menu Toggle Button - Hidden by default, shown on mobile */
 .menu-toggle {
     position: fixed;
     top: 1.25rem;
@@ -115,6 +116,7 @@ body {
     text-decoration: none;
     font-size: 0.95rem;
 }
+
 
 .nav-options li:hover,
 .nav-options .option1 {
@@ -380,13 +382,13 @@ body {
         grid-column: span 2;
     }
 
-    .right-Container {
+    /* .right-Container {
         margin-left: 220px;
     }
 
     .left-Container {
         width: 220px;
-    }
+    } */
 }
 
 /* */

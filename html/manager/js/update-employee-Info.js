@@ -133,8 +133,7 @@ const saveClick = async () => {
         email.trim() === '' ||
         birthday.trim() === '' ||
         username.trim() === '' ||
-        position.trim() === '' ||
-        !img) {
+        position.trim() === '') {
         alert('Please fill in all required fields');
         return;
     }
@@ -153,8 +152,9 @@ const saveClick = async () => {
     }
 
     const data = await updateEmployee(name, address, phone, email, birthday, img);
+    console.log(data.detailEmployee.id);
 
-    window.location.href = 'employee-info.html?id=' + data.id;
+    window.location.href = 'employee-info.html?id=' + data.detailEmployee.id;
 }
 
 const isAccountExist = async (username) => {

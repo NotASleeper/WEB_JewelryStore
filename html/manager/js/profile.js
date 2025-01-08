@@ -234,7 +234,7 @@ const saveClick = async () => {
         return;
     }
 
-    const userConfirmed = confirm('Are you sure you want to update this employee?');
+    const userConfirmed = confirm('Are you sure you want to update your information?');
     if (!userConfirmed) {
         return;
     }

@@ -1,4 +1,4 @@
-# 💎 Backend Quản Lý Cửa Hàng Trang Sức
+# 💎 Luxora - Website Quản Lý Cửa Hàng Trang Sức
 
 Đây là dự án **Xây dựng hệ thống quản lý cửa hàng trang sức**, hỗ trợ quản lý các hoạt động bán hàng, tồn kho, sản phẩm và nhân sự. Dự án được xây dựng với **Node.js**, **Express**, **MySQL**, sử dụng **HTML/CSS/JavaScript** cho phần giao diện, nhằm phục vụ hoạt động quản lý hiệu quả tại cửa hàng trang sức.
 

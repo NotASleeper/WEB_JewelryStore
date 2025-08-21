@@ -29,6 +29,11 @@ Hệ thống phân quyền rõ ràng cho **3 loại người dùng**: Quản lý
 
 ---
 
+## 📹 Demo Video
+[Link to Demo Video](https://drive.google.com/file/d/1v-dMNOlgZPEqVxkK7S97gu2BMGQWTjpf/view)
+
+---
+
 ## 🚀 Ngôn ngữ, công nghệ sử dụng
 
 ### Front-end
